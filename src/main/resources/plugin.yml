@@ -1,0 +1,6 @@
+name: TreeIsland
+version: @version@
+main: com.donghun.treeisland.Treeisland
+prefix: TreeIsland
+description: Minecraft TreeIsland Server Intergration Plugin
+website: github.com/You-Kkomi
