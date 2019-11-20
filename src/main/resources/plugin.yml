@@ -4,3 +4,7 @@ main: com.kkomi.treeisland.Treeisland
 prefix: TreeIsland
 description: Minecraft TreeIsland Server Intergration Plugin
 website: github.com/You-Kkomi
+
+commands:
+  money:
+  moneya:
