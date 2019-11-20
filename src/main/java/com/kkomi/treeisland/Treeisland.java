@@ -1,4 +1,4 @@
-package com.donghun.treeisland;
+package com.kkomi.treeisland;
 
 import org.bukkit.plugin.java.JavaPlugin;
 
