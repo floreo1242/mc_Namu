@@ -17,8 +17,6 @@ class MoneyPlugin(dataFolder: File, plugin: JavaPlugin) : SubMainManager(dataFol
     }
 
     override fun setupCommands() {
-        println(plugin)
-
         CommandManager(false).apply {
             addComponent("view", CommandViewMoney("", "본인의 돈을 확인합니다..", 0))
         }.register(plugin.getCommand("money"))
