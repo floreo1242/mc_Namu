@@ -44,6 +44,12 @@ abstract class ObjectManager<T>(
         return this.objectByName[key]
     }
 
+    fun clear() {
+        keys = null
+        objectList = null
+        objects = null
+    }
+
     protected var keys: Set<String>? = null
         get() {
             val temp = field
