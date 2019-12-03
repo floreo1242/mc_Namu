@@ -17,7 +17,7 @@ data class PlayerQuest(
         val inProgressQuestList: MutableMap<String, Int>
 ) {
 
-    val questCompleteCheckMessageList: MutableList<String> = mutableListOf()
+    private val questCompleteCheckMessageList: MutableList<String> = mutableListOf()
 
     constructor(manager: PlayerQuestManager, config: YamlConfiguration) : this(
             manager,
@@ -30,7 +30,6 @@ data class PlayerQuest(
             questAction: QuestAction,
             countingCondition: (quest: Quest) -> Boolean
     ) {
-        println(questCompleteCheckMessageList)
 
         val player = Bukkit.getPlayer(UUID.fromString(uuid))
         val inventoryMap = player.inventory.storageContents.toList().toMap()
