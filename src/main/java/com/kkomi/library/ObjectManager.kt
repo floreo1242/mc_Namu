@@ -45,6 +45,7 @@ abstract class ObjectManager<T>(
     }
 
     fun clear() {
+        objectByName.clear()
         keys = null
         objectList = null
         objects = null

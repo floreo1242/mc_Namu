@@ -36,7 +36,7 @@ class QuestManager(folder: File, logger: Logger) : ObjectManager<Quest>(folder, 
 
     fun getQuest(QuestName: String): Quest? = objectByName[QuestName]
 
-    fun getQuestToTitle(questTitle : String) : Quest? = questList.find { it.title == questTitle }
+    fun getQuestToTitle(questTitle: String): Quest? = questList.find { it.title == questTitle }
 
     val questNames: Set<String> = keys!!
 

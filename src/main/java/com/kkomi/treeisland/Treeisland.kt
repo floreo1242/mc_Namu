@@ -10,9 +10,11 @@ import java.io.File
 
 class Treeisland : JavaPlugin() {
 
-    private lateinit var moneyPlugin: MoneyPlugin
-    private lateinit var shopPlugin: ShopPlugin
-    private lateinit var questPlugin: QuestPlugin
+    companion object {
+        lateinit var moneyPlugin: MoneyPlugin
+        lateinit var shopPlugin: ShopPlugin
+        lateinit var questPlugin: QuestPlugin
+    }
 
     override fun onEnable() {
         moneyPlugin = MoneyPlugin(File(dataFolder.path + "/money"), this)

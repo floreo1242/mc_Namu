@@ -33,8 +33,9 @@ class ShopPlugin(dataFolder: File, plugin: JavaPlugin) : SubMainManager(dataFold
             addComponent("open", CommandOpenShop("[shopName]", "상점을 열어봅니다.", 1))
             addComponent("list", CommandShopList("", "상점 목록을 확인합니다.", 0))
             addComponent("item", CommandShopItem("[shopName] [add/remove]", "상점에 아이템을 관리합니다.", 0))
-            addComponent("keyword", CommandShopKeywordItem("[add/remove]","키워드 아이템을 관리합니다",0))
+            addComponent("keyword", CommandShopKeywordItem("[add/remove]", "키워드 아이템을 관리합니다", 0))
             addComponent("npc", CommandSetShopNpc("[shopName] [npcName]", "상점 NPC를 설정합니다,.", 2))
+            addComponent("reload", CommandShopReload("", "정보를 리로드 합니다.", 0))
         }.register(plugin.getCommand("shopa"))
     }
 

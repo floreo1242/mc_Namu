@@ -22,7 +22,7 @@ abstract class SubMainManager(
 
     protected abstract fun setupListeners()
 
-    protected abstract fun setupManagers()
+    abstract fun setupManagers()
 
     protected abstract fun setupSchedulers()
 

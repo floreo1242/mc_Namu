@@ -19,6 +19,7 @@ class QuestListInventory(
 
     override fun setBasicFrame() {
         val playerQuest = player.getPlayerInfo().questInfo
+        println(QuestPlugin.questManager.questList)
         QuestPlugin.questManager.questList
                 .filter { it.startNpc == npcName }
                 .map { it.toItemStackWithPlayerQuest(playerQuest) }
