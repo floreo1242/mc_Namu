@@ -1,22 +1,34 @@
-package com.kkomi.treeisland.plugin.shop.eneity
+package com.kkomi.treeisland.plugin.shop.model.entity
 
-import com.kkomi.treeisland.plugin.shop.ShopManager
-import org.bukkit.configuration.file.YamlConfiguration
+import org.bukkit.configuration.serialization.ConfigurationSerializable
+import org.bukkit.configuration.serialization.SerializableAs
 import org.bukkit.inventory.ItemStack
-import java.io.File
 
+@SerializableAs("Shop")
 data class Shop(
-        val manager: ShopManager,
         val name: String,
         val stuffList: MutableList<Stuff>,
         var npcName: String
-) {
-    constructor(manager: ShopManager, config: YamlConfiguration) : this(
-            manager,
-            config.getString("name"),
-            config.getList("stuffList", mutableListOf<Stuff>()) as MutableList<Stuff>,
-            config.getString("npcName")
-    )
+) : ConfigurationSerializable {
+
+    companion object {
+        @JvmStatic
+        fun deserialize(data: Map<String, Any>): Shop {
+            return Shop(
+                    data["name"] as String,
+                    data["stuffList"] as MutableList<Stuff>,
+                    data["npcName"] as String
+            )
+        }
+    }
+
+    override fun serialize(): Map<String, Any> {
+        return mapOf(
+                "name" to name,
+                "stuffList" to stuffList,
+                "npcName" to npcName
+        )
+    }
 
     fun getLastPageNum(): Int {
         if (stuffList.isEmpty()) return 1
@@ -45,24 +57,5 @@ data class Shop(
 
     fun removeStuff(index: Int) {
         stuffList.removeAt(index)
-    }
-
-    private val file: File
-        get() {
-            manager.folder.mkdir()
-            return File(manager.folder, "$name${manager.EXT}")
-        }
-
-    fun save() {
-        val config = YamlConfiguration.loadConfiguration(file)
-        config.set("name", name)
-        config.set("stuffList", stuffList)
-        config.set("npcName", npcName)
-        config.save(file)
-    }
-
-    fun remove() {
-        manager.justRemove(name)
-        file.delete()
     }
 }

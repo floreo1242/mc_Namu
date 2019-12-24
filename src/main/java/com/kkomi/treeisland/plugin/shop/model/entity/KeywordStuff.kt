@@ -1,4 +1,4 @@
-package com.kkomi.treeisland.plugin.shop.eneity
+package com.kkomi.treeisland.plugin.shop.model.entity
 
 import org.bukkit.configuration.serialization.ConfigurationSerializable
 import org.bukkit.configuration.serialization.SerializableAs

@@ -3,7 +3,10 @@ package com.kkomi.treeisland.plugin.shop.command
 import com.kkomi.treeisland.library.command.ArgumentList
 import com.kkomi.treeisland.library.extension.sendErrorMessage
 import com.kkomi.treeisland.library.extension.sendInfoMessage
-import com.kkomi.treeisland.plugin.shop.eneity.Shop
+import com.kkomi.treeisland.library.message.InventoryMessage
+import com.kkomi.treeisland.plugin.shop.model.ShopMessage
+import com.kkomi.treeisland.plugin.shop.model.ShopRepository
+import com.kkomi.treeisland.plugin.shop.model.entity.Shop
 import com.kkomi.treeisland.plugin.shop.util.ShopCommandComponent
 import org.bukkit.Material
 import org.bukkit.command.Command
@@ -14,13 +17,14 @@ class CommandAddStuff(usage: String, description: String, argumentsLength: Int) 
         val itemInMainHand = player.inventory.itemInMainHand
 
         if (itemInMainHand.type == Material.AIR) {
-            player.sendErrorMessage("아이템을 손에 들고 명령어를 입력해주세요!")
+            player.sendErrorMessage(InventoryMessage.NOT_FOUND_ITEM_IN_HAND)
             return true
         }
 
+
         shop.addStuff(itemInMainHand, args.nextInt(0))
-        shop.save()
-        player.sendInfoMessage("상점에 아이템을 추가하였습니다.")
+        ShopRepository.editShop(shop)
+        player.sendInfoMessage(ShopMessage.ADD_SHOP_STUFF)
         return true
     }
 }

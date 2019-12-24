@@ -1,4 +1,4 @@
-package com.kkomi.treeisland.plugin.shop.eneity
+package com.kkomi.treeisland.plugin.shop.model.entity
 
 import com.kkomi.treeisland.library.extension.replaceChatColorCode
 import com.kkomi.treeisland.library.extension.toMoneyFormat

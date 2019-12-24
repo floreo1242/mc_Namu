@@ -1,7 +1,7 @@
 package com.kkomi.treeisland.plugin.shop.command
 
 import com.kkomi.treeisland.library.command.ArgumentList
-import com.kkomi.treeisland.plugin.shop.eneity.Shop
+import com.kkomi.treeisland.plugin.shop.model.entity.Shop
 import com.kkomi.treeisland.plugin.shop.util.ShopCommandComponent
 import org.bukkit.command.Command
 import org.bukkit.entity.Player

@@ -7,7 +7,6 @@ abstract class InventoryManager(
         val player: Player
 ) {
 
-    abstract val title: String
     abstract val inventory: Inventory
 
     open fun open() {

@@ -4,7 +4,7 @@ import com.kkomi.treeisland.library.command.ArgumentList
 import com.kkomi.treeisland.library.command.CommandComponent
 import com.kkomi.treeisland.library.extension.sendErrorMessage
 import com.kkomi.treeisland.plugin.shop.ShopPlugin
-import com.kkomi.treeisland.plugin.shop.eneity.Shop
+import com.kkomi.treeisland.plugin.shop.model.entity.Shop
 import org.bukkit.command.Command
 import org.bukkit.command.CommandSender
 import org.bukkit.entity.Player

@@ -1,38 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6b63e662-6f4b-48c8-9c06-cbdf5adddda2" name="Default Changelist" comment="Refactoring Rename Package">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/library/FileDataSource.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/library/extension/CommandSenderExtension.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/library/extension/MapExtension.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/talkscript/TalkScriptPlugin.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/talkscript/commands/TalkScriptAddDialogCommand.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/talkscript/commands/TalkScriptCommandComponent.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/talkscript/commands/TalkScriptCreateCommand.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/talkscript/commands/TalkScriptDeleteCommand.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/talkscript/commands/TalkScriptOpenCommand.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/talkscript/commands/TalkScriptRemoveDialogCommand.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/talkscript/commands/TalkScriptSetRunCommandCommand.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/talkscript/inventory/TalkScriptInventory.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/talkscript/listener/TalkScriptListener.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/talkscript/model/TalkScriptDataSource.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/talkscript/model/TalkScriptFileDataSource.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/talkscript/model/TalkScriptMessage.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/talkscript/model/TalkScriptRepository.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/talkscript/model/entity/Dialog.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/talkscript/model/entity/TalkScript.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.6.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.1/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.6.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.1/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.6.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.1/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.6.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/Minecraft_TreeIsland.main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/Minecraft_TreeIsland.main.iml" afterDir="false" />
+    <list default="true" id="6b63e662-6f4b-48c8-9c06-cbdf5adddda2" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/library/message/InventoryMessage.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/shop/model/KeywordShopDataSource.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/shop/model/KeywordShopFileDataSource.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/shop/model/KeywordShopRepository.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/shop/model/ShopDataSource.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/shop/model/ShopFileDataSource.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/shop/model/ShopMessage.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/shop/model/ShopRepository.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/Treeisland.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/Treeisland.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/library/extension/InventoryExtension.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/library/extension/InventoryExtension.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/library/extension/ListExtension.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/library/extension/ListExtension.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/plugin.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/library/extension/ItemStackExtension.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/library/extension/ItemStackExtension.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/library/inventory/InventoryManager.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/library/inventory/InventoryManager.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/shop/ShopManager.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/shop/ShopManager.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/shop/ShopPlugin.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/shop/ShopPlugin.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/shop/command/CommandAddKeywordStuff.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/shop/command/CommandAddKeywordStuff.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/shop/command/CommandAddStuff.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/shop/command/CommandAddStuff.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/shop/command/CommandCreateShop.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/shop/command/CommandCreateShop.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/shop/command/CommandOpenShop.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/shop/command/CommandOpenShop.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/shop/command/CommandRemoveKeywordStuff.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/shop/command/CommandRemoveKeywordStuff.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/shop/command/CommandRemoveShop.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/shop/command/CommandRemoveShop.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/shop/command/CommandRemoveStuff.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/shop/command/CommandRemoveStuff.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/shop/command/CommandSetShopNpc.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/shop/command/CommandSetShopNpc.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/shop/command/CommandShopItem.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/shop/command/CommandShopItem.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/shop/command/CommandShopList.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/shop/command/CommandShopList.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/shop/command/CommandShopReload.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/shop/command/CommandShopReload.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/shop/eneity/KeywordShop.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/shop/model/entity/KeywordShop.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/shop/eneity/KeywordStuff.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/shop/model/entity/KeywordStuff.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/shop/eneity/Shop.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/shop/model/entity/Shop.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/shop/eneity/Stuff.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/shop/model/entity/Stuff.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/shop/inventory/ShopInventory.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/shop/inventory/ShopInventory.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/shop/listener/ShopInventoryListener.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/shop/listener/ShopInventoryListener.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/shop/util/ShopCommandComponent.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/shop/util/ShopCommandComponent.kt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -68,10 +69,10 @@
       <list>
         <option value="Kotlin Enum" />
         <option value="Class" />
-        <option value="Kotlin Object" />
+        <option value="Kotlin File" />
         <option value="Kotlin Interface" />
         <option value="Kotlin Class" />
-        <option value="Kotlin File" />
+        <option value="Kotlin Object" />
       </list>
     </option>
   </component>
@@ -97,13 +98,14 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyKotlinDeclarationDialog.RECENTS_KEY">
+      <recent name="com.kkomi.treeisland.plugin.shop.model" />
       <recent name="com.kkomi.treeisland.plugin.talkscript.commands" />
       <recent name="com.kkomi.treeisland.quest.command" />
       <recent name="com.kkomi.treeisland.quest.listener" />
       <recent name="com.kkomi.treeisland.quest" />
-      <recent name="com.kkomi.treeisland.shop.command" />
     </key>
     <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
+      <recent name="com.kkomi.treeisland.plugin.shop.model.entity" />
       <recent name="com.kkomi.treeisland.library" />
       <recent name="com.kkomi.treeisland.plugin.talkscript.model" />
       <recent name="com.kkomi.treeisland.plugin.talkscript.entity" />
@@ -232,7 +234,21 @@
       <option name="project" value="LOCAL" />
       <updated>1575778266263</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Add Library Functions&#10;&#10;- FileDataSource 이전 ObjectManger의 문제점인 의존성 문제를 해결한 매니저&#10;-">
+      <created>1577213318137</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1577213318137</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Create TalkScript Plugin">
+      <created>1577213328155</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1577213328155</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <option name="searchClosedTasks" value="true" />
     <servers />
   </component>
@@ -260,6 +276,8 @@
     <MESSAGE value="Fix Remove QuestCompleteCheckMessageList Log" />
     <MESSAGE value="Add PluginData Reload System" />
     <MESSAGE value="Refactoring Rename Package" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactoring Rename Package" />
+    <MESSAGE value="Add Library Functions&#10;&#10;- FileDataSource 이전 ObjectManger의 문제점인 의존성 문제를 해결한 매니저&#10;-" />
+    <MESSAGE value="Create TalkScript Plugin" />
+    <option name="LAST_COMMIT_MESSAGE" value="Create TalkScript Plugin" />
   </component>
 </project>

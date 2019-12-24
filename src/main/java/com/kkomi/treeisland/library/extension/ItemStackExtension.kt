@@ -51,3 +51,7 @@ fun ItemStack.addLore(lore: String): ItemStack {
 fun ItemStack.getLore(): List<String>? {
     return itemMeta.lore
 }
+
+fun ItemStack.isAir() : Boolean {
+    return type == Material.AIR
+}

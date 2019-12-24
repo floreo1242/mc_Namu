@@ -9,7 +9,8 @@ fun Inventory.setItem(row: Int, col: Int, itemStack: ItemStack) {
 }
 
 private val serverInventoryPrefixList = listOf(
-        "스크립트 대화"
+        "스크립트 대화",
+        "상점"
 )
 
 fun Inventory.getServerTitleInfo(): Pair<String, String>? {
