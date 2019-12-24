@@ -17,7 +17,7 @@ abstract class FileDataSource<T : ConfigurationSerializable>(
         loadFiles()
     }
 
-    fun loadFiles() {
+    protected fun loadFiles() {
         println("loadFiles")
         objectByName.clear()
         val valueByKey = TreeMap<String, T>(String.CASE_INSENSITIVE_ORDER)
@@ -35,34 +35,34 @@ abstract class FileDataSource<T : ConfigurationSerializable>(
         this.objectByName = valueByKey
     }
 
-    fun getValue(key: String): T? {
+    protected fun getValue(key: String): T? {
         return objectByName[key]
     }
 
-    fun getValueList(): List<T> {
+    protected fun getValueList(): List<T> {
         return objectByName.values.toList()
     }
 
-    fun getKeys(): Set<String> {
+    protected fun getKeys(): Set<String> {
         return objectByName.keys.toSet()
     }
 
-    fun setValue(key: String, value: T) {
+    protected fun setValue(key: String, value: T) {
         objectByName[key] = value
     }
 
-    fun removeValue(key: String) {
+    protected fun removeValue(key: String) {
         objectByName.remove(key)
     }
 
-    fun saveFile(key: String, value: T) {
+    protected fun saveFile(key: String, value: T) {
         val file = File(dataFolder, "${key}.yml")
         val configuration = YamlConfiguration.loadConfiguration(file)
         configuration.set("data", value)
         configuration.save(file)
     }
 
-    fun deleteFile(key: String) {
+    protected fun deleteFile(key: String) {
         File(dataFolder, "$key.yml").delete()
     }
 

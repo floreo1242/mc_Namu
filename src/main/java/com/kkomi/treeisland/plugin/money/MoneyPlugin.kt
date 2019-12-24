@@ -4,14 +4,13 @@ import com.kkomi.treeisland.library.SubMainManager
 import com.kkomi.treeisland.library.command.CommandManager
 import com.kkomi.treeisland.plugin.money.command.*
 import com.kkomi.treeisland.plugin.money.listener.PlayerMoneyListener
+import com.kkomi.treeisland.plugin.money.model.entity.PlayerMoney
 import org.bukkit.Bukkit
+import org.bukkit.configuration.serialization.ConfigurationSerialization
 import org.bukkit.plugin.java.JavaPlugin
 import java.io.File
 
 class MoneyPlugin(dataFolder: File, plugin: JavaPlugin) : SubMainManager(dataFolder, plugin) {
-    companion object {
-        lateinit var moneyManager: MoneyManager
-    }
 
     override fun onDisable() {
     }
@@ -36,7 +35,7 @@ class MoneyPlugin(dataFolder: File, plugin: JavaPlugin) : SubMainManager(dataFol
     }
 
     override fun setupManagers() {
-        moneyManager = MoneyManager(dataFolder, plugin.logger)
+        ConfigurationSerialization.registerClass(PlayerMoney::class.java, "PlayerMoney")
     }
 
     override fun setupSchedulers() {

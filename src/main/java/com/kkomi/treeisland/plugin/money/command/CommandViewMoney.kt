@@ -4,12 +4,13 @@ import com.kkomi.treeisland.library.command.ArgumentList
 import com.kkomi.treeisland.library.extension.sendInfoMessage
 import com.kkomi.treeisland.plugin.integration.PlayerInfo
 import com.kkomi.treeisland.plugin.integration.command.PlayerInfoCommandComponent
+import com.kkomi.treeisland.plugin.money.model.MoneyMessage
 import org.bukkit.command.Command
 import java.text.DecimalFormat
 
 class CommandViewMoney(usage: String, description: String, argumentsLength: Int) : PlayerInfoCommandComponent(usage, description, argumentsLength) {
     override fun onCommand(playerInfo: PlayerInfo, label: String, command: Command, componentLabel: String, args: ArgumentList): Boolean {
-        playerInfo.player.sendInfoMessage("보유금액 : ${DecimalFormat("#,##0").format(playerInfo.moneyInfo.money)}")
+        playerInfo.player.sendInfoMessage(MoneyMessage.VIEW_MONEY.format(DecimalFormat("#,##0").format(playerInfo.moneyInfo.money)))
         return true
     }
 }
