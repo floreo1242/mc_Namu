@@ -2,7 +2,7 @@ package com.kkomi.treeisland.plugin.quest.schduler
 
 import com.kkomi.treeisland.library.schedular.TimerManager
 import com.kkomi.treeisland.plugin.integration.getPlayerInfo
-import com.kkomi.treeisland.plugin.quest.model.QuestAction
+import com.kkomi.treeisland.plugin.quest.model.entity.QuestAction
 import org.bukkit.Bukkit
 
 class QuestLocationScheduler : TimerManager() {

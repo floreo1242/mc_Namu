@@ -4,17 +4,15 @@ import com.kkomi.treeisland.library.SubMainManager
 import com.kkomi.treeisland.library.command.CommandManager
 import com.kkomi.treeisland.plugin.quest.command.*
 import com.kkomi.treeisland.plugin.quest.listener.*
+import com.kkomi.treeisland.plugin.quest.model.entity.PlayerQuest
+import com.kkomi.treeisland.plugin.quest.model.entity.Quest
 import com.kkomi.treeisland.plugin.quest.schduler.QuestLocationScheduler
 import org.bukkit.Bukkit
+import org.bukkit.configuration.serialization.ConfigurationSerialization
 import org.bukkit.plugin.java.JavaPlugin
 import java.io.File
 
 class QuestPlugin(dataFolder: File, plugin: JavaPlugin) : SubMainManager(dataFolder, plugin) {
-
-    companion object {
-        lateinit var questManager: QuestManager
-        lateinit var playerQuestManager: PlayerQuestManager
-    }
 
     override fun onDisable() {
     }
@@ -55,8 +53,8 @@ class QuestPlugin(dataFolder: File, plugin: JavaPlugin) : SubMainManager(dataFol
     }
 
     override fun setupManagers() {
-        questManager = QuestManager(File("${dataFolder.path}/quests"), plugin.logger)
-        playerQuestManager = PlayerQuestManager(File("${dataFolder.path}/players"), plugin.logger)
+        ConfigurationSerialization.registerClass(Quest::class.java, "Quest")
+        ConfigurationSerialization.registerClass(PlayerQuest::class.java, "PlayerQuest")
     }
 
     override fun setupSchedulers() {

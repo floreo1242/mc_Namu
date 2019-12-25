@@ -1,5 +1,8 @@
 package com.kkomi.treeisland.library.extension
 
+import com.kkomi.treeisland.plugin.quest.inventory.*
+import com.kkomi.treeisland.plugin.shop.inventory.ShopInventory
+import com.kkomi.treeisland.plugin.talkscript.inventory.TalkScriptInventory
 import org.bukkit.event.inventory.InventoryType
 import org.bukkit.inventory.Inventory
 import org.bukkit.inventory.ItemStack
@@ -9,8 +12,13 @@ fun Inventory.setItem(row: Int, col: Int, itemStack: ItemStack) {
 }
 
 private val serverInventoryPrefixList = listOf(
-        "스크립트 대화",
-        "상점"
+        TalkScriptInventory.TITLE,
+        ShopInventory.TITLE,
+        QuestAcceptInventory.TITLE,
+        QuestCancelInventory.TITLE,
+        QuestListInventory.TITLE,
+        QuestRewardInventory.TITLE,
+        QuestStatusInventory.TITLE
 )
 
 fun Inventory.getServerTitleInfo(): Pair<String, String>? {

@@ -5,24 +5,26 @@ import com.kkomi.treeisland.library.extension.setLore
 import com.kkomi.treeisland.library.inventory.InventoryManager
 import com.kkomi.treeisland.plugin.integration.getPlayerInfo
 import com.kkomi.treeisland.plugin.quest.QuestPlugin
-import com.kkomi.treeisland.plugin.quest.model.Quest
-import com.kkomi.treeisland.plugin.quest.model.QuestAction
+import com.kkomi.treeisland.plugin.quest.model.QuestRepository
+import com.kkomi.treeisland.plugin.quest.model.entity.Quest
+import com.kkomi.treeisland.plugin.quest.model.entity.QuestAction
 import org.bukkit.Bukkit
 import org.bukkit.entity.Player
 import org.bukkit.inventory.Inventory
 
 class QuestStatusInventory(player: Player) : InventoryManager(player) {
 
-    override val title: String
-        get() = "퀘스트 상태"
+    companion object {
+        const val TITLE = "퀘스트 상태"
+    }
 
-    override val inventory: Inventory = Bukkit.createInventory(null, 9, title)
+    override val inventory: Inventory = Bukkit.createInventory(null, 9, "$TITLE")
 
     override fun setBasicFrame() {
         val playerQuest = player.getPlayerInfo().questInfo
         playerQuest.checkQuestAmount(QuestAction.FARMING_ITEM) { true }
         playerQuest.inProgressQuestList
-                .map { QuestPlugin.questManager.getQuest(it.key) }
+                .map { QuestRepository.getQuest(it.key) }
                 .map {
                     it!!.toItemStackWithPlayerQuest(playerQuest)
                             .setLore(listOf(

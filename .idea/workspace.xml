@@ -2,24 +2,71 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6b63e662-6f4b-48c8-9c06-cbdf5adddda2" name="Default Changelist" comment="Refactoring MoneyPlugin&#10;&#10;MoneyManager -&gt; MoneyRepository">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/money/model/MoneyDataSource.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/money/model/MoneyFileDataSource.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/money/model/MoneyMessage.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/money/model/MoneyRepository.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/money/model/entity/PlayerMoney.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/model/PlayerQuestDataSource.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/model/PlayerQuestFileDataSource.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/model/PlayerQuestRepository.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/model/QuestDataSource.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/model/QuestFileDataSource.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/model/QuestMessage.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/model/QuestRepository.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.6.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.6.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.6.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.6.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/library/FileDataSource.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/library/FileDataSource.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/integration/OfflinePlayerInfo.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/integration/OfflinePlayerInfo.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/library/extension/IntExtension.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/library/extension/IntExtension.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/library/extension/InventoryExtension.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/library/extension/InventoryExtension.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/integration/PlayerInfo.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/integration/PlayerInfo.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/money/MoneyManager.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/money/MoneyPlugin.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/money/MoneyPlugin.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/money/command/CommandGiveMoney.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/money/command/CommandGiveMoney.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/money/command/CommandSetMoney.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/money/command/CommandSetMoney.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/money/command/CommandTakeMoney.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/money/command/CommandTakeMoney.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/money/command/CommandViewMoney.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/money/command/CommandViewMoney.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/money/command/CommandViewTargetMoney.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/money/command/CommandViewTargetMoney.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/money/entity/PlayerMoney.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/money/listener/PlayerMoneyListener.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/money/listener/PlayerMoneyListener.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/PlayerQuestManager.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/QuestManager.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/QuestPlugin.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/QuestPlugin.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/command/CommandQuestCreate.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/command/CommandQuestCreate.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/command/CommandQuestReload.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/command/CommandQuestReload.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/command/CommandSetQuestAcceptMessage.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/command/CommandSetQuestAcceptMessage.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/command/CommandSetQuestAction.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/command/CommandSetQuestAction.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/command/CommandSetQuestBeforeQuest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/command/CommandSetQuestBeforeQuest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/command/CommandSetQuestCompleteMessage.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/command/CommandSetQuestCompleteMessage.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/command/CommandSetQuestCount.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/command/CommandSetQuestCount.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/command/CommandSetQuestDisposeMessage.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/command/CommandSetQuestDisposeMessage.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/command/CommandSetQuestEndNpc.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/command/CommandSetQuestEndNpc.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/command/CommandSetQuestLimitLv.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/command/CommandSetQuestLimitLv.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/command/CommandSetQuestMessage.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/command/CommandSetQuestMessage.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/command/CommandSetQuestObject.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/command/CommandSetQuestObject.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/command/CommandSetQuestObjectItemStack.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/command/CommandSetQuestObjectItemStack.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/command/CommandSetQuestObjectLocation.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/command/CommandSetQuestObjectLocation.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/command/CommandSetQuestObjectString.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/command/CommandSetQuestObjectString.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/command/CommandSetQuestPurposeMessage.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/command/CommandSetQuestPurposeMessage.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/command/CommandSetQuestRemove.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/command/CommandSetQuestRemove.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/command/CommandSetQuestRewardCommand.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/command/CommandSetQuestRewardCommand.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/command/CommandSetQuestRewardItems.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/command/CommandSetQuestRewardItems.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/command/CommandSetQuestStartNpc.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/command/CommandSetQuestStartNpc.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/command/CommandSetQuestTalks.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/command/CommandSetQuestTalks.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/command/CommandSetQuestTitle.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/command/CommandSetQuestTitle.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/command/CommandSetQuestType.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/command/CommandSetQuestType.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/command/QuestCommandComponent.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/command/QuestCommandComponent.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/inventory/QuestAcceptInventory.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/inventory/QuestAcceptInventory.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/inventory/QuestCancelInventory.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/inventory/QuestCancelInventory.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/inventory/QuestListInventory.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/inventory/QuestListInventory.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/inventory/QuestRewardInventory.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/inventory/QuestRewardInventory.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/inventory/QuestStatusInventory.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/inventory/QuestStatusInventory.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/listener/QuestAcceptInventoryListener.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/listener/QuestAcceptInventoryListener.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/listener/QuestActionListener.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/listener/QuestActionListener.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/listener/QuestCancelInventoryListener.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/listener/QuestCancelInventoryListener.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/listener/QuestDataListener.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/listener/QuestDataListener.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/listener/QuestListInventoryListener.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/listener/QuestListInventoryListener.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/listener/QuestRewardInventoryListener.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/listener/QuestRewardInventoryListener.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/listener/QuestStatusInventoryListener.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/listener/QuestStatusInventoryListener.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/model/PlayerQuest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/model/entity/PlayerQuest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/model/Quest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/model/entity/Quest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/model/QuestAction.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/model/entity/QuestAction.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/model/QuestType.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/model/entity/QuestType.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/schduler/QuestLocationScheduler.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/schduler/QuestLocationScheduler.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/shop/inventory/ShopInventory.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/shop/inventory/ShopInventory.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/shop/listener/ShopInventoryListener.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/shop/listener/ShopInventoryListener.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/shop/util/ShopCommandComponent.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/shop/util/ShopCommandComponent.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/talkscript/inventory/TalkScriptInventory.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/talkscript/inventory/TalkScriptInventory.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/talkscript/listener/TalkScriptListener.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/talkscript/listener/TalkScriptListener.kt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -76,7 +123,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/model" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -84,20 +131,21 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyKotlinDeclarationDialog.RECENTS_KEY">
+      <recent name="com.kkomi.treeisland.plugin.quest.model" />
       <recent name="com.kkomi.treeisland.plugin.shop.model" />
       <recent name="com.kkomi.treeisland.plugin.talkscript.commands" />
       <recent name="com.kkomi.treeisland.quest.command" />
       <recent name="com.kkomi.treeisland.quest.listener" />
-      <recent name="com.kkomi.treeisland.quest" />
     </key>
     <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
+      <recent name="com.kkomi.treeisland.plugin.quest.model.entity" />
       <recent name="com.kkomi.treeisland.plugin.shop.model.entity" />
       <recent name="com.kkomi.treeisland.library" />
       <recent name="com.kkomi.treeisland.plugin.talkscript.model" />
       <recent name="com.kkomi.treeisland.plugin.talkscript.entity" />
-      <recent name="com.kkomi.treeisland.quest.inventory" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/model" />
       <recent name="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland" />
     </key>
   </component>
@@ -241,7 +289,14 @@
       <option name="project" value="LOCAL" />
       <updated>1577219142565</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Refactoring MoneyPlugin&#10;&#10;MoneyManager -&gt; MoneyRepository">
+      <created>1577220392314</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1577220392314</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <option name="searchClosedTasks" value="true" />
     <servers />
   </component>
@@ -272,6 +327,7 @@
     <MESSAGE value="Add Library Functions&#10;&#10;- FileDataSource 이전 ObjectManger의 문제점인 의존성 문제를 해결한 매니저&#10;-" />
     <MESSAGE value="Create TalkScript Plugin" />
     <MESSAGE value="Refactoring ShopPlugin&#10;&#10;ShopManager -&gt; ShopRepository" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactoring ShopPlugin&#10;&#10;ShopManager -&gt; ShopRepository" />
+    <MESSAGE value="Refactoring MoneyPlugin&#10;&#10;MoneyManager -&gt; MoneyRepository" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactoring MoneyPlugin&#10;&#10;MoneyManager -&gt; MoneyRepository" />
   </component>
 </project>

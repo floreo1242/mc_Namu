@@ -19,7 +19,7 @@ class ShopInventory(player: Player, private val shop: Shop) : InventoryManager(p
         val paneItemStack: ItemStack = createItemStack(Material.STAINED_GLASS_PANE, " ")
         val nextPageItemStack: ItemStack = createItemStack(Material.SIGN, "&6Next Page")
         val previousPageItemStack: ItemStack = createItemStack(Material.SIGN, "&6Previous Page")
-        fun hasMoneyItemStack(money: Int): ItemStack = createItemStack(Material.GOLD_INGOT, "&6보유금액", listOf("&f${money.toMoneyFormat()}"))
+        fun hasMoneyItemStack(money: Long): ItemStack = createItemStack(Material.GOLD_INGOT, "&6보유금액", listOf("&f${money.toMoneyFormat()}"))
     }
 
     override val inventory: Inventory = Bukkit.createInventory(null, 54, "$TITLE - ${shop.name}")

@@ -1,7 +1,7 @@
 package com.kkomi.treeisland.plugin.quest.listener
 
 import com.kkomi.treeisland.plugin.integration.getPlayerInfo
-import com.kkomi.treeisland.plugin.quest.model.QuestAction
+import com.kkomi.treeisland.plugin.quest.model.entity.QuestAction
 import org.bukkit.entity.Player
 import org.bukkit.event.EventHandler
 import org.bukkit.event.Listener

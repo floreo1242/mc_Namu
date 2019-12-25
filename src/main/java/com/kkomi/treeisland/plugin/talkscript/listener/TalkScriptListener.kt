@@ -22,8 +22,6 @@ class TalkScriptListener : Listener {
 
     @EventHandler
     fun onInventoryOpenEvent(event: InventoryOpenEvent) {
-        println(event.inventory.getServerTitleInfo())
-
         val inventory = event.inventory
         val data = inventory.getServerTitleInfo() ?: return
 

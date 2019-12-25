@@ -16,8 +16,6 @@ class TalkScriptInventory(
         const val TITLE = "스크립트 대화"
     }
 
-    override val title: String
-        get() = ""
     override val inventory: Inventory = Bukkit.createInventory(null, 27,  "$TITLE - ${talkScript.name}")
 
     override fun setBasicFrame() {

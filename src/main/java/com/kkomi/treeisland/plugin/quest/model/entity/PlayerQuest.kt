@@ -1,30 +1,42 @@
-package com.kkomi.treeisland.plugin.quest.model
+package com.kkomi.treeisland.plugin.quest.model.entity
 
 import com.kkomi.treeisland.library.extension.getSingle
 import com.kkomi.treeisland.library.extension.sendInfoMessage
 import com.kkomi.treeisland.library.extension.toMap
-import com.kkomi.treeisland.plugin.quest.PlayerQuestManager
 import com.kkomi.treeisland.plugin.quest.QuestPlugin
+import com.kkomi.treeisland.plugin.quest.model.QuestRepository
 import org.bukkit.Bukkit
-import org.bukkit.configuration.file.YamlConfiguration
-import java.io.File
+import org.bukkit.configuration.serialization.ConfigurationSerializable
+import org.bukkit.configuration.serialization.SerializableAs
 import java.util.*
 
+@SerializableAs("PlayerQuest")
 data class PlayerQuest(
-        val manager: PlayerQuestManager,
         val uuid: String,
         val completeQuestList: MutableList<String>,
         val inProgressQuestList: MutableMap<String, Int>
-) {
+) : ConfigurationSerializable {
 
     private val questCompleteCheckMessageList: MutableList<String> = mutableListOf()
 
-    constructor(manager: PlayerQuestManager, config: YamlConfiguration) : this(
-            manager,
-            config.getString("uuid"),
-            config.getStringList("completeQuestList"),
-            config.getStringList("inProgressQuestList").toMap(",")
-    )
+    companion object {
+        @JvmStatic
+        fun deserialize(data: Map<String, Any>): PlayerQuest {
+            return PlayerQuest(
+                    data["uuid"] as String,
+                    data["completeQuestList"] as MutableList<String>,
+                    data["inProgressQuestList"] as MutableMap<String, Int>
+            )
+        }
+    }
+
+    override fun serialize(): MutableMap<String, Any> {
+        return mutableMapOf(
+                "uuid" to uuid,
+                "completeQuestList" to completeQuestList,
+                "inProgressQuestList" to inProgressQuestList
+        )
+    }
 
     fun checkQuestAmount(
             questAction: QuestAction,
@@ -35,7 +47,7 @@ data class PlayerQuest(
         val inventoryMap = player.inventory.storageContents.toList().toMap()
 
         inProgressQuestList.keys
-                .map { QuestPlugin.questManager.getQuest(it)!! }
+                .map { QuestRepository.getQuest(it)!! }
                 // Current Quest Action Filter
                 .filter { it.action == questAction }
                 // Check Satisfy Quest Count
@@ -76,25 +88,6 @@ data class PlayerQuest(
         if (quest.type == QuestType.NORMAL) {
             completeQuestList.add(quest.name)
         }
-    }
-
-    val file: File
-        get() {
-            manager.folder.mkdir()
-            return File(manager.folder, "$uuid${manager.EXT}")
-        }
-
-    fun save() {
-        val config = YamlConfiguration.loadConfiguration(file)
-        config.set("uuid", uuid)
-        config.set("completeQuestList", completeQuestList)
-        config.set("inProgressQuestList", inProgressQuestList.map { "${it.key},${it.value}" }.toList())
-        config.save(file)
-    }
-
-    fun remove() {
-        manager.justRemove(uuid)
-        file.delete()
     }
 
 }

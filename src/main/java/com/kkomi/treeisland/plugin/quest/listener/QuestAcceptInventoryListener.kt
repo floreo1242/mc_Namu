@@ -1,8 +1,11 @@
 package com.kkomi.treeisland.plugin.quest.listener
 
+import com.kkomi.treeisland.library.extension.getServerTitleInfo
 import com.kkomi.treeisland.plugin.integration.getPlayerInfo
 import com.kkomi.treeisland.plugin.quest.QuestPlugin
 import com.kkomi.treeisland.plugin.quest.inventory.QuestAcceptInventory
+import com.kkomi.treeisland.plugin.quest.model.PlayerQuestRepository
+import com.kkomi.treeisland.plugin.quest.model.QuestRepository
 import org.bukkit.entity.Player
 import org.bukkit.event.EventHandler
 import org.bukkit.event.Listener
@@ -14,15 +17,16 @@ class QuestAcceptInventoryListener : Listener {
     fun onInventoryClickEvent(event: InventoryClickEvent) {
         val playerInfo = (event.whoClicked as Player).getPlayerInfo()
         val inventory = event.inventory
+        val data = inventory.getServerTitleInfo() ?: return
 
-        if (!inventory.title.contains("퀘스트 수락")) {
+        if (data.first != QuestAcceptInventory.TITLE) {
             return
         }
 
         event.isCancelled = true
 
-        val questName = inventory.title.split(" - ")[1]
-        val quest = QuestPlugin.questManager.getQuestToTitle(questName)!!
+        val questName = data.second
+        val quest = QuestRepository.getQuestToTitle(questName)!!
 
         with(playerInfo) {
             event.currentItem?.let {
@@ -30,7 +34,7 @@ class QuestAcceptInventoryListener : Listener {
                     QuestAcceptInventory.acceptItemStack -> {
                         questInfo.acceptQuest(quest)
                         quest.sendAcceptMessage(player)
-                        questInfo.save()
+                        PlayerQuestRepository.editPlayerQuest(questInfo)
                         player.closeInventory()
                     }
                     QuestAcceptInventory.disposeItemStack -> {

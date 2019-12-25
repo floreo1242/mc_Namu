@@ -1,22 +1,29 @@
 package com.kkomi.treeisland.plugin.quest.listener
 
 import com.kkomi.treeisland.library.extension.getDisplay
+import com.kkomi.treeisland.library.extension.getServerTitleInfo
 import com.kkomi.treeisland.library.extension.removeChatColorCode
 import com.kkomi.treeisland.plugin.quest.QuestPlugin
 import com.kkomi.treeisland.plugin.quest.inventory.QuestCancelInventory
+import com.kkomi.treeisland.plugin.quest.inventory.QuestRewardInventory
+import com.kkomi.treeisland.plugin.quest.inventory.QuestStatusInventory
+import com.kkomi.treeisland.plugin.quest.model.QuestRepository
 import org.bukkit.Material
 import org.bukkit.entity.Player
 import org.bukkit.event.EventHandler
 import org.bukkit.event.Listener
 import org.bukkit.event.inventory.InventoryClickEvent
+import org.bukkit.event.inventory.InventoryCloseEvent
 
 class QuestStatusInventoryListener : Listener {
 
     @EventHandler
     fun onInventoryClickEvent(event: InventoryClickEvent) {
-        val inventory = event.inventory
 
-        if (!inventory.title.contains("퀘스트 상태")) {
+        val inventory = event.inventory
+        val data = inventory.getServerTitleInfo() ?: return
+
+        if (data.first != QuestStatusInventory.TITLE) {
             return
         }
 
@@ -28,7 +35,7 @@ class QuestStatusInventoryListener : Listener {
 
         QuestCancelInventory(
                 event.whoClicked as Player,
-                QuestPlugin.questManager.getQuestToTitle(event.currentItem.getDisplay()!!.removeChatColorCode())!!
+                QuestRepository.getQuestToTitle(event.currentItem.getDisplay()!!.removeChatColorCode())!!
         ).open()
     }
 

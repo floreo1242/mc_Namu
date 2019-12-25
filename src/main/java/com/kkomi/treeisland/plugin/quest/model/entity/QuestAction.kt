@@ -1,4 +1,4 @@
-package com.kkomi.treeisland.plugin.quest.model
+package com.kkomi.treeisland.plugin.quest.model.entity
 
 enum class QuestAction(
         val description: String

@@ -2,8 +2,12 @@ package com.kkomi.treeisland.plugin.quest.command
 
 import com.kkomi.treeisland.library.command.ArgumentList
 import com.kkomi.treeisland.library.command.CommandComponent
+import com.kkomi.treeisland.library.extension.sendErrorMessage
 import com.kkomi.treeisland.library.extension.sendInfoMessage
 import com.kkomi.treeisland.plugin.quest.QuestPlugin
+import com.kkomi.treeisland.plugin.quest.model.QuestMessage
+import com.kkomi.treeisland.plugin.quest.model.QuestRepository
+import com.kkomi.treeisland.plugin.quest.model.entity.Quest
 import org.bukkit.command.Command
 import org.bukkit.command.CommandSender
 import org.bukkit.entity.Player
@@ -12,8 +16,15 @@ class CommandQuestCreate(usage: String, description: String, argumentsLength: In
 
     override fun onCommand(sender: CommandSender, label: String, command: Command, componentLabel: String, args: ArgumentList): Boolean {
         val questName = args.next()
-        QuestPlugin.questManager.createQuest(questName)
-        (sender as Player).sendInfoMessage("퀘스트를 생성하였습니다.")
+        val quest = QuestRepository.getQuest(questName)
+
+        if (quest == null) {
+            sender.sendErrorMessage(QuestMessage.QUEST_ALREADY_NAME)
+            return true
+        }
+
+        QuestRepository.addQuest(Quest(questName))
+        sender.sendInfoMessage(QuestMessage.QUEST_CREATE)
         return true
     }
 

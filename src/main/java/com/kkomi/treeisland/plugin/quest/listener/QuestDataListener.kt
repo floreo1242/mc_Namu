@@ -3,7 +3,10 @@ package com.kkomi.treeisland.plugin.quest.listener
 import com.kkomi.treeisland.plugin.integration.getPlayerInfo
 import com.kkomi.treeisland.plugin.quest.QuestPlugin
 import com.kkomi.treeisland.plugin.quest.inventory.QuestListInventory
-import com.kkomi.treeisland.plugin.quest.model.QuestAction
+import com.kkomi.treeisland.plugin.quest.model.PlayerQuestRepository
+import com.kkomi.treeisland.plugin.quest.model.QuestRepository
+import com.kkomi.treeisland.plugin.quest.model.entity.PlayerQuest
+import com.kkomi.treeisland.plugin.quest.model.entity.QuestAction
 import org.bukkit.event.EventHandler
 import org.bukkit.event.Listener
 import org.bukkit.event.player.PlayerInteractEntityEvent
@@ -25,13 +28,13 @@ class QuestDataListener : Listener {
             questInfo.checkQuestAmount(QuestAction.FARMING_ITEM) { true }
 
             questInfo.inProgressQuestList.keys
-                    .map { questName -> QuestPlugin.questManager.getQuest(questName)!! }
+                    .map { questName -> QuestRepository.getQuest(questName)!! }
                     .find { it.endNpc == rightClickedEntityName }
                     ?.let {
                         if (questInfo.inProgressQuestList[it.name]!! >= it.count) {
                             questInfo.completeQuest(it)
                             it.sendCompleteMessage(player)
-                            questInfo.save()
+                            PlayerQuestRepository.editPlayerQuest(questInfo)
                             player.inventory.addItem(*it.rewardItems.toTypedArray())
                             if (it.rewardCommand != "") player.performCommand(it.rewardCommand)
                             return
@@ -42,15 +45,15 @@ class QuestDataListener : Listener {
                     }
         }
 
-        QuestPlugin.questManager.questList.find { rightClickedEntityName == it.startNpc } ?: return
+        QuestRepository.getQuestList().find { rightClickedEntityName == it.startNpc } ?: return
         QuestListInventory(event.player, rightClickedEntityName).open()
     }
 
     @EventHandler
     fun onPlayerJoinEvent(event: PlayerJoinEvent) {
         val player = event.player
-        if (!QuestPlugin.playerQuestManager.playerQuestUUIDs.contains(player.uniqueId.toString())) {
-            QuestPlugin.playerQuestManager.createQuestPlayer(player.uniqueId.toString())
+        if (PlayerQuestRepository.getPlayerQuest(player.uniqueId.toString()) == null) {
+            PlayerQuestRepository.addPlayerQuest(PlayerQuest(player.uniqueId.toString(), mutableListOf(), mutableMapOf()))
         }
     }
 

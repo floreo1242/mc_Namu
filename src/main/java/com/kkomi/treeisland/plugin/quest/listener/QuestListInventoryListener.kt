@@ -1,8 +1,12 @@
 package com.kkomi.treeisland.plugin.quest.listener
 
 import com.kkomi.treeisland.library.extension.*
+import com.kkomi.treeisland.plugin.integration.getPlayerInfo
 import com.kkomi.treeisland.plugin.quest.QuestPlugin
 import com.kkomi.treeisland.plugin.quest.inventory.QuestAcceptInventory
+import com.kkomi.treeisland.plugin.quest.inventory.QuestCancelInventory
+import com.kkomi.treeisland.plugin.quest.inventory.QuestListInventory
+import com.kkomi.treeisland.plugin.quest.model.QuestRepository
 import org.bukkit.Material
 import org.bukkit.entity.Player
 import org.bukkit.event.EventHandler
@@ -13,25 +17,11 @@ import org.bukkit.event.inventory.InventoryOpenEvent
 class QuestListInventoryListener : Listener {
 
     @EventHandler
-    fun onInventoryOpenEvent(event: InventoryOpenEvent) {
-        val inventoryTitleInfo = event.inventory.title.split(" - ")
-        val inventoryType = inventoryTitleInfo[0]
-
-        if (inventoryType != "퀘스트 목록") {
-            return
-        }
-
-        val npcName = inventoryTitleInfo[1]
-
-
-    }
-
-    @EventHandler
     fun onInventoryClickEvent(event: InventoryClickEvent) {
-        val inventoryTitleInfo = event.inventory.title.split(" - ")
-        val inventoryType = inventoryTitleInfo[0]
+        val inventory = event.inventory
+        val data = inventory.getServerTitleInfo() ?: return
 
-        if (inventoryType != "퀘스트 목록") {
+        if (data.first != QuestListInventory.TITLE) {
             return
         }
 
@@ -44,7 +34,7 @@ class QuestListInventoryListener : Listener {
             return
         }
 
-        val quest = QuestPlugin.questManager.getQuestToTitle(currentItem.getDisplay()!!.removeChatColorCode()) ?: return
+        val quest = QuestRepository.getQuestToTitle(currentItem.getDisplay()!!.removeChatColorCode()) ?: return
 
         when (currentItem.type) {
             Material.BOOK_AND_QUILL -> {
@@ -57,7 +47,7 @@ class QuestListInventoryListener : Listener {
             }
             Material.ENCHANTED_BOOK -> {
                 player.closeInventory()
-                player.sendErrorMessage("이미 완료한 퀘스트입니다.")
+                player.sendErrorMessage("이미 완료한 퀘스트입니다.") // TODO Message
             }
             else -> return
         }
