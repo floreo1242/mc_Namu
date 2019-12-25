@@ -18,7 +18,7 @@ class CommandQuestCreate(usage: String, description: String, argumentsLength: In
         val questName = args.next()
         val quest = QuestRepository.getQuest(questName)
 
-        if (quest == null) {
+        if (quest != null) {
             sender.sendErrorMessage(QuestMessage.QUEST_ALREADY_NAME)
             return true
         }

@@ -24,8 +24,7 @@ class QuestPlugin(dataFolder: File, plugin: JavaPlugin) : SubMainManager(dataFol
 
         CommandManager(true).apply {
             addComponent("create", CommandQuestCreate("[questName]", "퀘스트를 생성합니다.", 1))
-            addComponent("remove", CommandSetQuestTitle("[questName]", "퀘스트를 삭제합니다.", 1))
-            addComponent("title", CommandSetQuestTitle("[questName] [title]", "퀘스트의 타이틀을 설정합니다.", 1))
+             addComponent("title", CommandSetQuestTitle("[questName] [title]", "퀘스트의 타이틀을 설정합니다.", 1))
             addComponent("type", CommandSetQuestType("[questName] [type]", "퀘스트의 타입을 설정합니다.", 1))
             addComponent("limitLv", CommandSetQuestLimitLv("[questName] [level]", "퀘스트의 제한레벨을 설정합니다.", 1))
             addComponent("beforeQuest", CommandSetQuestBeforeQuest("[questName] [questName]", "퀘스트의 필요퀘스트를 설정합니다..", 1))
