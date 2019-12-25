@@ -4,6 +4,7 @@ import com.kkomi.treeisland.library.command.ArgumentList
 import com.kkomi.treeisland.library.command.CommandComponent
 import com.kkomi.treeisland.library.extension.sendErrorMessage
 import com.kkomi.treeisland.plugin.shop.ShopPlugin
+import com.kkomi.treeisland.plugin.shop.model.ShopMessage
 import com.kkomi.treeisland.plugin.shop.model.ShopRepository
 import com.kkomi.treeisland.plugin.shop.model.entity.Shop
 import org.bukkit.command.Command
@@ -15,8 +16,8 @@ abstract class ShopCommandComponent(usage: String, description: String, argument
         sender as Player
         val shop = ShopRepository.getShop(args.next())
         if (shop == null) {
-            sender.sendErrorMessage("상점을 찾을 수 없습니다.")
-            return false
+            sender.sendErrorMessage(ShopMessage.UNKNOWN_NAME)
+            return true
         }
         return onCommand(sender, label, command, componentLabel, args, shop)
     }

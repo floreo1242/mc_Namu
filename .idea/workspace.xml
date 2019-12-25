@@ -8,7 +8,8 @@
       <change beforePath="$PROJECT_DIR$/.gradle/5.6.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.1/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/shop/command/CommandCreateShop.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/shop/command/CommandCreateShop.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/shop/command/CommandRemoveShop.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/shop/command/CommandRemoveShop.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/shop/util/ShopCommandComponent.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/shop/util/ShopCommandComponent.kt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -273,7 +274,14 @@
       <option name="project" value="LOCAL" />
       <updated>1577276862188</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="이미 존재하는 상점이 중복 생성되던 버그 수정">
+      <created>1577276982308</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1577276982308</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <option name="searchClosedTasks" value="true" />
     <servers />
   </component>
@@ -310,6 +318,7 @@
     <MESSAGE value="플레이어 돈이 정상적으로 저장되지 않던 버그 수정" />
     <MESSAGE value="Quest Serialize Enum Class 가 정상적으로 되지 않던 점 수정" />
     <MESSAGE value="String -&gt; Long 파싱 오류 수정" />
-    <option name="LAST_COMMIT_MESSAGE" value="String -&gt; Long 파싱 오류 수정" />
+    <MESSAGE value="이미 존재하는 상점이 중복 생성되던 버그 수정" />
+    <option name="LAST_COMMIT_MESSAGE" value="이미 존재하는 상점이 중복 생성되던 버그 수정" />
   </component>
 </project>

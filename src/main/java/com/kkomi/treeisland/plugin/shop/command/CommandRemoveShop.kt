@@ -11,7 +11,7 @@ import org.bukkit.entity.Player
 
 class CommandRemoveShop(usage: String, description: String, argumentsLength: Int) : ShopCommandComponent(usage, description, argumentsLength) {
     override fun onCommand(player: Player, label: String, command: Command, componentLabel: String, args: ArgumentList, shop: Shop): Boolean {
-        ShopRepository.removeShop(args.next())
+        ShopRepository.removeShop(shop.name)
         player.sendInfoMessage(ShopMessage.DELETE_SHOP)
         return true
     }
