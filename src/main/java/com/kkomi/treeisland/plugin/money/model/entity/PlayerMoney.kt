@@ -14,7 +14,7 @@ data class PlayerMoney(
         fun deserialize(data: Map<String, Any>): PlayerMoney {
             return PlayerMoney(
                     data["uuid"] as String,
-                    (data["money"] as String).toLong()
+                    data["money"].toString().toLong()
             )
         }
     }
