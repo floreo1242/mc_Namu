@@ -9,8 +9,6 @@
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/library/extension/InventoryExtension.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/library/extension/InventoryExtension.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/listener/QuestActionListener.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/listener/QuestActionListener.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/listener/QuestDataListener.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/listener/QuestDataListener.kt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -289,7 +287,14 @@
       <option name="project" value="LOCAL" />
       <updated>1577277105060</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="퀘스트 완료시 아이템 수거해가는 기능 추가">
+      <created>1577279665399</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1577279665399</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <option name="searchClosedTasks" value="true" />
     <servers />
   </component>
@@ -328,6 +333,7 @@
     <MESSAGE value="String -&gt; Long 파싱 오류 수정" />
     <MESSAGE value="이미 존재하는 상점이 중복 생성되던 버그 수정" />
     <MESSAGE value="상점 삭제가 되지 않던 버그 수정 ( + 메시지 )" />
-    <option name="LAST_COMMIT_MESSAGE" value="상점 삭제가 되지 않던 버그 수정 ( + 메시지 )" />
+    <MESSAGE value="퀘스트 완료시 아이템 수거해가는 기능 추가" />
+    <option name="LAST_COMMIT_MESSAGE" value="퀘스트 완료시 아이템 수거해가는 기능 추가" />
   </component>
 </project>

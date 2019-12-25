@@ -42,6 +42,7 @@ fun Inventory.takeItem(itemStack: ItemStack, amount: Int) {
     storageContents.filter { it != null && it.type != Material.AIR }.forEach {
         if (it.isSimilar(itemStack)) {
             val itemCount = it.amount
+            println("%d %d".format(it.amount, leftAmount))
             if (it.amount >= leftAmount) {
                 it.amount -= leftAmount
             } else {
@@ -49,6 +50,10 @@ fun Inventory.takeItem(itemStack: ItemStack, amount: Int) {
             }
 
             leftAmount -= itemCount
+
+            if (leftAmount < 0) {
+                leftAmount = 0
+            }
 
             if (leftAmount == 0) {
                 return
