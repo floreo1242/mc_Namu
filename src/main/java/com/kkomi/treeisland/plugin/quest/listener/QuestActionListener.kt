@@ -27,6 +27,12 @@ class QuestActionListener : Listener {
     }
 
     @EventHandler
+    fun onInventoryOpenEvent(event: InventoryOpenEvent) {
+        (event.player as Player).updateInventory()
+        (event.player as Player).getPlayerInfo().questInfo.checkQuestAmount(QuestAction.FARMING_ITEM) { true }
+    }
+
+    @EventHandler
     fun onInventoryClickEvent(event: InventoryClickEvent) {
         (event.whoClicked as Player).getPlayerInfo().questInfo.checkQuestAmount(QuestAction.FARMING_ITEM) { true }
     }

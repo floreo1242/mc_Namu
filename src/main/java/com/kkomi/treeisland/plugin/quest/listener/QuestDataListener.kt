@@ -1,5 +1,6 @@
 package com.kkomi.treeisland.plugin.quest.listener
 
+import com.kkomi.treeisland.library.extension.takeItem
 import com.kkomi.treeisland.plugin.integration.getPlayerInfo
 import com.kkomi.treeisland.plugin.quest.QuestPlugin
 import com.kkomi.treeisland.plugin.quest.inventory.QuestListInventory
@@ -32,11 +33,19 @@ class QuestDataListener : Listener {
                     .find { it.endNpc == rightClickedEntityName }
                     ?.let {
                         if (questInfo.inProgressQuestList[it.name]!! >= it.count) {
+
+                            // TakeItem
+                            player.inventory.takeItem(it.itemStackObject, it.count)
+
+                            // PlayerQuest
                             questInfo.completeQuest(it)
                             it.sendCompleteMessage(player)
                             PlayerQuestRepository.editPlayerQuest(questInfo)
+
+                            // Reward
                             player.inventory.addItem(*it.rewardItems.toTypedArray())
                             if (it.rewardCommand != "") player.performCommand(it.rewardCommand)
+
                             return
                         } else {
                             it.sendPurposeMessage(player)
@@ -45,6 +54,7 @@ class QuestDataListener : Listener {
                     }
         }
 
+        // Open Quest Check
         QuestRepository.getQuestList().find { rightClickedEntityName == it.startNpc } ?: return
         QuestListInventory(event.player, rightClickedEntityName).open()
     }
