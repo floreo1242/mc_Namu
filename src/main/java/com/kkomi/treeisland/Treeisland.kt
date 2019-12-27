@@ -4,13 +4,14 @@ import com.kkomi.treeisland.plugin.money.MoneyPlugin
 import com.kkomi.treeisland.plugin.quest.QuestPlugin
 import com.kkomi.treeisland.plugin.shop.ShopPlugin
 import com.kkomi.treeisland.plugin.talkscript.TalkScriptPlugin
+import org.bukkit.event.Listener
 import org.bukkit.plugin.java.JavaPlugin
 import java.io.File
 
-class Treeisland : JavaPlugin() {
+class Treeisland : JavaPlugin(), Listener {
 
     companion object {
-        lateinit var instance : Treeisland
+        lateinit var instance: Treeisland
 
         lateinit var moneyPlugin: MoneyPlugin
         lateinit var shopPlugin: ShopPlugin

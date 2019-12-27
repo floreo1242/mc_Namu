@@ -7,7 +7,7 @@ import java.io.File
 
 object PlayerQuestRepository {
 
-    private val playerQuestDataSource = PlayerQuestFileDataSource(File("${Treeisland.questPlugin.dataFolder}/player"), PlayerQuest::class.java)
+    private val playerQuestDataSource = PlayerQuestFileDataSource(File("${Treeisland.questPlugin.dataFolder}/players"), PlayerQuest::class.java)
 
     fun getPlayerQuest(uuid: String): PlayerQuest? {
         return playerQuestDataSource.getPlayerQuest(uuid)
