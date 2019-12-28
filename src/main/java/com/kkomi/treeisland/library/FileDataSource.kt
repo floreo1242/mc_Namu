@@ -27,6 +27,7 @@ abstract class FileDataSource<T : ConfigurationSerializable>(
                 val config = YamlConfiguration.loadConfiguration(file)
                 val value = config.getSerializable("data", classType)
                 valueByKey[key] = value
+                println(value)
             } catch (exception: Exception) {
                 println("Failed to load from $key cause : ")
                 exception.printStackTrace()
