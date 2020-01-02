@@ -3,6 +3,7 @@ package com.kkomi.treeisland
 import com.kkomi.treeisland.plugin.itemdb.ItemDBPlugin
 import com.kkomi.treeisland.plugin.money.MoneyPlugin
 import com.kkomi.treeisland.plugin.quest.QuestPlugin
+import com.kkomi.treeisland.plugin.stat.StatPlugin
 import com.kkomi.treeisland.plugin.shop.ShopPlugin
 import com.kkomi.treeisland.plugin.talkscript.TalkScriptPlugin
 import org.bukkit.event.Listener
@@ -18,7 +19,8 @@ class Treeisland : JavaPlugin(), Listener {
         lateinit var shopPlugin: ShopPlugin
         lateinit var questPlugin: QuestPlugin
         lateinit var talkScriptPlugin: TalkScriptPlugin
-        lateinit var itemDbPlugin : ItemDBPlugin
+        lateinit var itemDbPlugin: ItemDBPlugin
+        lateinit var statPlugin: StatPlugin
     }
 
     override fun onEnable() {
@@ -29,6 +31,7 @@ class Treeisland : JavaPlugin(), Listener {
         questPlugin = QuestPlugin(File(dataFolder.path + "/quest"), this)
         talkScriptPlugin = TalkScriptPlugin(File(dataFolder.path + "/talkscript"), this)
         itemDbPlugin = ItemDBPlugin(File(dataFolder.path + "/itemdb"), this)
+        statPlugin = StatPlugin(File(dataFolder.path + "/stat"), this)
     }
 
     override fun onDisable() {
@@ -37,6 +40,7 @@ class Treeisland : JavaPlugin(), Listener {
         questPlugin.onDisable()
         talkScriptPlugin.onDisable()
         itemDbPlugin.onDisable()
+        statPlugin.onDisable()
     }
 
 }

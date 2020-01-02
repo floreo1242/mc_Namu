@@ -31,7 +31,7 @@ fun ItemStack.setDisplay(display: String): ItemStack {
 }
 
 fun ItemStack.getDisplay(): String? {
-    return itemMeta.displayName
+    return itemMeta?.displayName
 }
 
 fun ItemStack.setLore(lore: List<String>): ItemStack {
