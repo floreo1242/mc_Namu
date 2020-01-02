@@ -2,31 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6b63e662-6f4b-48c8-9c06-cbdf5adddda2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/itemdb/ItemDBPlugin.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/itemdb/command/CommandConsumptionItemCreate.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/itemdb/command/CommandConsumptionItemGet.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/itemdb/command/CommandEquipmentItemCreate.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/itemdb/command/CommandEquipmentItemDebug.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/itemdb/command/CommandEquipmentItemGet.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/itemdb/command/CommandOtherItemCreate.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/itemdb/command/CommandOtherItemGet.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/itemdb/listener/ConsumptionItemListener.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/itemdb/model/ConsumptionItemFileDataSource.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/itemdb/model/ConsumptionItemRepository.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/itemdb/model/EquipmentItemFileDataSource.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/itemdb/model/EquipmentItemRepository.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/itemdb/model/ItemDataSource.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/itemdb/model/ItemRepository.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/itemdb/model/OtherItemFileDataSource.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/itemdb/model/OtherItemRepository.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/itemdb/model/entity/ConsumptionItem.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/itemdb/model/entity/ConsumptionItemType.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/itemdb/model/entity/EquipmentItem.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/itemdb/model/entity/EquipmentItemOption.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/itemdb/model/entity/EquipmentType.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/itemdb/model/entity/OtherItem.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/itemdb/model/entity/StatOption.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/itemdb/model/entity/dummy/EquipmentDataDummy.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/rpg/RpgPlugin.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/rpg/command/CommandOpenEquipItem.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/rpg/command/CommandOpenPlayerStat.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/rpg/inventory/EquipItemInventory.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/rpg/inventory/PlayerStatInventory.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/rpg/listener/EquipItemInventoryListener.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/rpg/listener/PlayerStatInventoryListener.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/rpg/listener/PlayerStatListener.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/rpg/model/PlayerStatDataSource.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/rpg/model/PlayerStatFileDataSource.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/rpg/model/PlayerStatRepository.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/rpg/model/entity/EquipItem.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/rpg/model/entity/PlayerStat.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.6.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.6.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.6.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.1/fileHashes/fileHashes.bin" afterDir="false" />
@@ -34,7 +22,14 @@
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/Treeisland.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/Treeisland.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/library/FileDataSource.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/library/FileDataSource.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/library/extension/InventoryExtension.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/library/extension/InventoryExtension.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/integration/OfflinePlayerInfo.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/integration/OfflinePlayerInfo.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/integration/PlayerInfo.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/integration/PlayerInfo.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/itemdb/model/EquipmentItemRepository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/itemdb/model/EquipmentItemRepository.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/itemdb/model/entity/EquipmentItem.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/itemdb/model/entity/EquipmentItem.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/itemdb/model/entity/EquipmentItemOption.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/itemdb/model/entity/EquipmentItemOption.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/itemdb/model/entity/StatOption.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/itemdb/model/entity/StatOption.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/itemdb/model/entity/dummy/EquipmentDataDummy.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/itemdb/model/entity/dummy/EquipmentDataDummy.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/plugin.yml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -70,11 +65,11 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
-        <option value="Kotlin File" />
-        <option value="Kotlin Object" />
-        <option value="Kotlin Interface" />
         <option value="Enum" />
         <option value="Kotlin Enum" />
+        <option value="Kotlin Interface" />
+        <option value="Kotlin Object" />
+        <option value="Kotlin File" />
         <option value="Kotlin Class" />
       </list>
     </option>
@@ -100,19 +95,22 @@
     <property name="settings.editor.selected.configurable" value="editor.preferences.import" />
   </component>
   <component name="RecentsManager">
+    <key name="CreateKotlinClassDialog.RecentsKey">
+      <recent name="com.kkomi.treeisland.plugin.rpg.model.entity" />
+    </key>
     <key name="CopyKotlinDeclarationDialog.RECENTS_KEY">
+      <recent name="com.kkomi.treeisland.plugin.rpg.command" />
+      <recent name="com.kkomi.treeisland.plugin.rpg.listener" />
+      <recent name="com.kkomi.treeisland.plugin.rpg.inventory" />
       <recent name="com.kkomi.treeisland.plugin.itemdb.command" />
       <recent name="com.kkomi.treeisland.plugin.itemdb.model.entity" />
-      <recent name="com.kkomi.treeisland.plugin.itemdb.model" />
-      <recent name="com.kkomi.treeisland.plugin.quest.model" />
-      <recent name="com.kkomi.treeisland.plugin.shop.model" />
     </key>
     <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
+      <recent name="com.kkomi.treeisland.plugin.rpg" />
       <recent name="com.kkomi.treeisland.plugin.itemdb.model.entity" />
       <recent name="com.kkomi.treeisland.plugin.quest.model.entity" />
       <recent name="com.kkomi.treeisland.plugin.shop.model.entity" />
       <recent name="com.kkomi.treeisland.library" />
-      <recent name="com.kkomi.treeisland.plugin.talkscript.model" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/library" />
@@ -337,7 +335,14 @@
       <option name="project" value="LOCAL" />
       <updated>1577463261055</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="ItemDB 플러그인 제작">
+      <created>1577536382442</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1577536382442</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <option name="searchClosedTasks" value="true" />
     <servers />
   </component>
@@ -379,6 +384,7 @@
     <MESSAGE value="퀘스트 완료시 아이템 수거해가는 기능 추가" />
     <MESSAGE value="퀘스트 완료시 계산이 마이너스가 되어 아이템이 역으로 지급되던 버그 수정" />
     <MESSAGE value="하위폴더가 정해져 있지 않거나 네이밍이 이상한 부분 수정" />
-    <option name="LAST_COMMIT_MESSAGE" value="하위폴더가 정해져 있지 않거나 네이밍이 이상한 부분 수정" />
+    <MESSAGE value="ItemDB 플러그인 제작" />
+    <option name="LAST_COMMIT_MESSAGE" value="ItemDB 플러그인 제작" />
   </component>
 </project>

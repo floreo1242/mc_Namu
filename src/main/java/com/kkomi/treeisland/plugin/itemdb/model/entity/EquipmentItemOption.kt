@@ -6,8 +6,7 @@ import org.bukkit.configuration.serialization.SerializableAs
 @SerializableAs("EquipmentItemOption")
 data class EquipmentItemOption(
         private val statOption: StatOption,
-        private val value: Int,
-        private val isPer: Boolean = false
+        private val value: Int
 ) : ConfigurationSerializable {
 
     companion object {
@@ -15,8 +14,7 @@ data class EquipmentItemOption(
         fun deserialize(data: Map<String, Any>): EquipmentItemOption {
             return EquipmentItemOption(
                     StatOption.valueOf(data["statOption"] as String),
-                    data["value"] as Int,
-                    data["isPer"] as Boolean
+                    data["value"] as Int
             )
         }
     }
@@ -24,13 +22,12 @@ data class EquipmentItemOption(
     override fun serialize(): MutableMap<String, Any> {
         return mutableMapOf(
                 "statOption" to statOption.toString(),
-                "isPer" to isPer,
                 "value" to value
         )
     }
 
     fun toLoreStr(): String {
-        return "${statOption.strName} +$value${if (isPer) "%" else ""}"
+        return "${statOption.strName} +$value${if (statOption.isPer) "%" else ""}"
     }
 
 }
