@@ -38,9 +38,9 @@ class Treeisland : JavaPlugin(), Listener {
         talkScriptPlugin = TalkScriptPlugin(File(dataFolder.path + "/talkscript"), this)
         itemDbPlugin = ItemDBPlugin(File(dataFolder.path + "/itemdb"), this)
         statPlugin = StatPlugin(File(dataFolder.path + "/stat"), this)
-        levelPlugin = LevelPlugin(File(dataFolder.parent + "/level"), this)
-        monsterPlugin = MonsterPlugin(File(dataFolder.parent + "/monster"), this)
-        guildPlugin = GuildPlugin(File(dataFolder.parent + "/guild"), this)
+        levelPlugin = LevelPlugin(File(dataFolder.path + "/level"), this)
+        monsterPlugin = MonsterPlugin(File(dataFolder.path + "/monster"), this)
+        guildPlugin = GuildPlugin(File(dataFolder.path + "/guild"), this)
     }
 
     override fun onDisable() {
