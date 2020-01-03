@@ -1,5 +1,7 @@
 package com.kkomi.treeisland.plugin.integration
 
+import com.kkomi.treeisland.plugin.level.model.PlayerLevelRepository
+import com.kkomi.treeisland.plugin.level.model.entity.PlayerLevel
 import com.kkomi.treeisland.plugin.money.model.MoneyRepository
 import com.kkomi.treeisland.plugin.money.model.entity.PlayerMoney
 import com.kkomi.treeisland.plugin.quest.model.PlayerQuestRepository
@@ -15,4 +17,5 @@ class OfflinePlayerInfo(
     val moneyInfo: PlayerMoney = MoneyRepository.getPlayerMoney(uuid)!!
     val statInfo: PlayerStat = PlayerStatRepository.getPlayerStat(uuid)!!
     val questInfo: PlayerQuest = PlayerQuestRepository.getPlayerQuest(uuid)!!
+    val levelInfo: PlayerLevel = PlayerLevelRepository.getPlayerLevel(uuid)!!
 }
