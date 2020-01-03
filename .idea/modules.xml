@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Minecraft_TreeIsland.iml" filepath="$PROJECT_DIR$/Minecraft_TreeIsland.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Minecraft_TreeIsland.main.iml" filepath="$PROJECT_DIR$/.idea/modules/Minecraft_TreeIsland.main.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Minecraft_TreeIsland.test.iml" filepath="$PROJECT_DIR$/.idea/modules/Minecraft_TreeIsland.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Minecraft-TreeIsland.iml" filepath="$PROJECT_DIR$/.idea/modules/Minecraft-TreeIsland.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Minecraft-TreeIsland.main.iml" filepath="$PROJECT_DIR$/.idea/modules/Minecraft-TreeIsland.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Minecraft-TreeIsland.test.iml" filepath="$PROJECT_DIR$/.idea/modules/Minecraft-TreeIsland.test.iml" />
     </modules>
   </component>
 </project>
