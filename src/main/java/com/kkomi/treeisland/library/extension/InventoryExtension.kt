@@ -1,5 +1,6 @@
 package com.kkomi.treeisland.library.extension
 
+import com.kkomi.treeisland.plugin.guild.inventory.GuildInfoInventory
 import com.kkomi.treeisland.plugin.quest.inventory.*
 import com.kkomi.treeisland.plugin.stat.inventory.EquipItemInventory
 import com.kkomi.treeisland.plugin.stat.inventory.PlayerStatInventory
@@ -22,7 +23,8 @@ private val serverInventoryPrefixList = listOf(
         QuestRewardInventory.TITLE,
         QuestStatusInventory.TITLE,
         EquipItemInventory.TITLE,
-        PlayerStatInventory.TITLE
+        PlayerStatInventory.TITLE,
+        GuildInfoInventory.TITLE
 )
 
 fun Inventory.getServerTitleInfo(): Pair<String, String>? {

@@ -2,13 +2,36 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6b63e662-6f4b-48c8-9c06-cbdf5adddda2" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/guild/command/CommandGuildGrade.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/guild/command/CommandGuildKick.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/guild/inventory/GuildInfoInventory.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/guild/listener/GuildInventoryListener.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/guild/listener/PlayerGuildListener.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/guild/model/PlayerGuildDataSource.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/guild/model/PlayerGuildFileDataSource.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/guild/model/PlayerGuildRepository.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/guild/model/entity/GuildMemberState.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/guild/model/entity/PlayerGuild.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.6.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.6.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.6.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.1/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.6.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.1/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/stat/listener/EquipItemInventoryListener.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/stat/listener/EquipItemInventoryListener.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/library/command/TargetCommandComponent.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/library/command/TargetCommandComponent.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/library/extension/InventoryExtension.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/library/extension/InventoryExtension.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/guild/GuildPlugin.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/guild/GuildPlugin.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/guild/command/CommandGuildCreate.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/guild/command/CommandGuildCreate.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/guild/command/CommandGuildInfo.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/guild/command/CommandGuildInfo.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/guild/command/CommandGuildInvite.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/guild/command/CommandGuildInvite.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/guild/command/CommandGuildInviteAccept.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/guild/command/CommandGuildInviteAccept.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/guild/command/GuildCommandComponent.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/guild/command/GuildCommandComponent.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/guild/model/entity/Guild.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/guild/model/entity/Guild.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/guild/model/entity/GuildGrade.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/guild/model/entity/GuildGrade.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/guild/model/entity/GuildMember.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/integration/OfflinePlayerInfo.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/integration/OfflinePlayerInfo.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/integration/PlayerExtension.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/integration/PlayerExtension.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/integration/PlayerInfo.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/integration/PlayerInfo.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,11 +100,11 @@
       <recent name="com.kkomi.treeisland.plugin.rpg.model.entity" />
     </key>
     <key name="CopyKotlinDeclarationDialog.RECENTS_KEY">
+      <recent name="com.kkomi.treeisland.plugin.guild.model" />
       <recent name="com.kkomi.treeisland.plugin.guild.command" />
       <recent name="com.kkomi.treeisland.plugin.level.command" />
       <recent name="com.kkomi.treeisland.plugin.level.model" />
       <recent name="com.kkomi.treeisland.plugin.rpg.command" />
-      <recent name="com.kkomi.treeisland.plugin.rpg.listener" />
     </key>
     <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
       <recent name="com.kkomi.treeisland.plugin.rpg" />
@@ -362,7 +385,14 @@
       <option name="project" value="LOCAL" />
       <updated>1578046674693</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="Creative 모드에서 인벤토리 클릭시 clickedInventory 가 null 로 뜨던 버그 수정">
+      <created>1578052162170</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1578052162170</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <option name="searchClosedTasks" value="true" />
     <servers />
   </component>
@@ -380,7 +410,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Add Quest Plugin" />
     <MESSAGE value="Fix Remove QuestCompleteCheckMessageList Log" />
     <MESSAGE value="Add PluginData Reload System" />
     <MESSAGE value="Refactoring Rename Package" />
@@ -405,7 +434,8 @@
     <MESSAGE value="LevelTable 초기값 셋팅" />
     <MESSAGE value="@JvmStatic 누락이 되어 로드가 안되던 오류 수정" />
     <MESSAGE value="DataFolder 가 parent 로 되어 있어 올바르지 않은 경로에 폴더가 생성되던 버그 수정" />
-    <option name="LAST_COMMIT_MESSAGE" value="DataFolder 가 parent 로 되어 있어 올바르지 않은 경로에 폴더가 생성되던 버그 수정" />
+    <MESSAGE value="Creative 모드에서 인벤토리 클릭시 clickedInventory 가 null 로 뜨던 버그 수정" />
+    <option name="LAST_COMMIT_MESSAGE" value="Creative 모드에서 인벤토리 클릭시 clickedInventory 가 null 로 뜨던 버그 수정" />
   </component>
   <component name="WindowStateProjectService">
     <state x="708" y="163" key="#com.intellij.ide.util.MemberChooser" timestamp="1578036036871">

@@ -7,15 +7,28 @@ import org.bukkit.configuration.serialization.SerializableAs
 data class Guild(
         val name: String,
         val level: Int,
-        val members: MutableList<GuildMember>
+        val members: MutableMap<String, GuildMemberState>
 ) : ConfigurationSerializable {
+
+    fun getTotalContribution(): Int {
+        return members.values.map { it.contribution }.sum()
+    }
+
+    fun kickPlayer(uuid: String) {
+        members.remove(uuid)
+    }
+
+    fun changeGrade(uuid: String, grade: GuildGrade) {
+        members[uuid]!!.grade = grade
+    }
+
     companion object {
         @JvmStatic
         fun deserialize(data: Map<String, Any>): Guild {
             return Guild(
                     data["name"] as String,
                     data["level"] as Int,
-                    data["members"] as MutableList<GuildMember>
+                    data["members"] as MutableMap<String, GuildMemberState>
             )
         }
     }

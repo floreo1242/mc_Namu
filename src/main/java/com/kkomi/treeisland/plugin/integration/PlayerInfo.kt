@@ -3,6 +3,8 @@ package com.kkomi.treeisland.plugin.integration
 import com.kkomi.treeisland.library.extension.sendDebugMessage
 import com.kkomi.treeisland.library.extension.sendErrorMessage
 import com.kkomi.treeisland.library.extension.sendInfoMessage
+import com.kkomi.treeisland.plugin.guild.model.PlayerGuildRepository
+import com.kkomi.treeisland.plugin.guild.model.entity.PlayerGuild
 import com.kkomi.treeisland.plugin.level.model.PlayerLevelRepository
 import com.kkomi.treeisland.plugin.level.model.entity.PlayerLevel
 import com.kkomi.treeisland.plugin.money.model.MoneyRepository
@@ -21,6 +23,7 @@ class PlayerInfo(
     val questInfo: PlayerQuest = PlayerQuestRepository.getPlayerQuest(uuid)!!
     val statInfo: PlayerStat = PlayerStatRepository.getPlayerStat(uuid)!!
     val levelInfo: PlayerLevel = PlayerLevelRepository.getPlayerLevel(uuid)!!
+    val guildInfo: PlayerGuild = PlayerGuildRepository.getPlayerGuild(uuid)!!
 
     fun editPlayerInfo() {
         MoneyRepository.editPlayerMoney(moneyInfo)

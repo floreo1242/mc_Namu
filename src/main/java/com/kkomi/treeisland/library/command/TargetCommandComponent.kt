@@ -27,7 +27,7 @@ open class TargetCommandComponent(usage: String, description: String, argumentsL
 
     override fun onTabComplete(sender: CommandSender, command: Command, label: String, componentLabel: String, args: ArgumentList): Iterable<String> {
         return if (args.getCursor() == 1) {
-            Bukkit.getOfflinePlayers().map { it.name }
+            Bukkit.getOfflinePlayers().filter { it.name.startsWith(args.peek()) }.map { it.name }
         } else {
             onTabComplete(label, args)
         }

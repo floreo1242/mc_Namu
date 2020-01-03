@@ -5,8 +5,11 @@ import com.kkomi.treeisland.library.command.CommandComponent
 import com.kkomi.treeisland.library.extension.sendErrorMessage
 import com.kkomi.treeisland.library.extension.sendInfoMessage
 import com.kkomi.treeisland.plugin.guild.model.GuildInviteRequestRepository
+import com.kkomi.treeisland.plugin.guild.model.GuildRepository
+import com.kkomi.treeisland.plugin.guild.model.PlayerGuildRepository
 import com.kkomi.treeisland.plugin.guild.model.entity.GuildGrade
-import com.kkomi.treeisland.plugin.guild.model.entity.GuildMember
+import com.kkomi.treeisland.plugin.guild.model.entity.GuildMemberState
+import com.kkomi.treeisland.plugin.integration.getPlayerInfo
 import org.bukkit.Bukkit
 import org.bukkit.command.Command
 import org.bukkit.command.CommandSender
@@ -24,12 +27,22 @@ class CommandGuildInviteAccept(usage: String, description: String, argumentsLeng
         }
 
         val guild = request.guild
-        player.sendInfoMessage("길드 초대를 수락하셨습니다.")
-        guild.members.add(GuildMember(request.to.uniqueId.toString(), GuildGrade.MEMBER))
+
+        // Add member in guild
+        guild.members[request.to.uniqueId.toString()] = GuildMemberState(GuildGrade.MEMBER, 0)
         guild.members
-                .map { Bukkit.getOfflinePlayer(UUID.fromString(it.uuid)) }
+                .map { Bukkit.getOfflinePlayer(UUID.fromString(it.key)) }
                 .filter { it.isOnline }
-                .forEach { it.player.sendInfoMessage("${request.to.name}님이 새로 길드에 초대되었습니다.") }
+                .forEach { it.player.sendInfoMessage("${request.to.name}님이 길드에 초대되었습니다.") }
+        GuildRepository.editGuild(guild)
+
+        // Remove invite request from to
+        GuildInviteRequestRepository.removeTo(player)
+
+        // Edit player current guild name
+        PlayerGuildRepository.editPlayerGuild(player.getPlayerInfo().guildInfo.apply { guildName = guild.name })
+
+        player.sendInfoMessage("길드 초대를 수락하셨습니다.")
         return true
     }
 }
