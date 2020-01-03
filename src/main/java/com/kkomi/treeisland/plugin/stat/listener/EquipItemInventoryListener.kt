@@ -67,7 +67,7 @@ class EquipItemInventoryListener : Listener {
 
     @EventHandler
     fun onPlayerInventoryClickEvent(event: InventoryClickEvent) {
-        if (event.clickedInventory.type == InventoryType.PLAYER && event.slot == 0) {
+        if (event.clickedInventory != null && event.clickedInventory.type == InventoryType.PLAYER && event.slot == 0) {
             event.isCancelled = true
         }
     }
