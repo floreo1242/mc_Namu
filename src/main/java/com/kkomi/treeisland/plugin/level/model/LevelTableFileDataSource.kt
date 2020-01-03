@@ -7,10 +7,18 @@ class LevelTableFileDataSource(
         val dataFolder: File
 ) : LevelTableDataSource {
 
-    val configuration: YamlConfiguration = YamlConfiguration.loadConfiguration(File(dataFolder, "LevelTable.yml"))
+    val file = File(dataFolder, "LevelTable.yml")
+    val configuration: YamlConfiguration = YamlConfiguration.loadConfiguration(file)
     private val levelTable: MutableMap<Int, Int> = mutableMapOf()
 
     init {
+        if (!configuration.contains("1")) {
+            configuration.addDefault("1", 100)
+            configuration.addDefault("2", 200)
+            configuration.addDefault("3", 300)
+            configuration.save(file)
+        }
+
         configuration.getKeys(false).forEach { levelTable[it.toInt()] = configuration.getInt(it) }
     }
 
