@@ -48,7 +48,7 @@ jar {
 }
 
 copyJar {
-    into 'C:/Users/rrad3/Desktop/lib'
+    into '/Users/yudonghun/Desktop/Minecraft Server Files/TreeIslandDevServer/plugins'
 }
 
 import org.apache.tools.ant.filters.ReplaceTokens

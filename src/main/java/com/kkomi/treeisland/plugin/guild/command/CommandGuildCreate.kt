@@ -27,7 +27,7 @@ class CommandGuildCreate(usage: String, description: String, argumentsLength: In
             return true
         }
 
-        GuildRepository.addGuild(Guild(guildName, 1, listOf(GuildMember(player.uniqueId.toString(), GuildGrade.MANAGER))))
+        GuildRepository.addGuild(Guild(guildName, 1, mutableListOf(GuildMember(player.uniqueId.toString(), GuildGrade.MANAGER))))
         return true
     }
 }

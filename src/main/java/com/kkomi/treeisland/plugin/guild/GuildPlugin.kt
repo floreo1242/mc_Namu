@@ -2,10 +2,7 @@ package com.kkomi.treeisland.plugin.guild
 
 import com.kkomi.treeisland.library.SubMainManager
 import com.kkomi.treeisland.library.command.CommandManager
-import com.kkomi.treeisland.plugin.guild.command.CommandGuildCreate
-import com.kkomi.treeisland.plugin.guild.command.CommandGuildInvite
-import com.kkomi.treeisland.plugin.guild.command.CommandGuildInviteAccept
-import com.kkomi.treeisland.plugin.guild.command.CommandGuildInviteDispose
+import com.kkomi.treeisland.plugin.guild.command.*
 import org.bukkit.plugin.java.JavaPlugin
 import java.io.File
 
@@ -16,7 +13,7 @@ class GuildPlugin(dataFolder: File, plugin: JavaPlugin) : SubMainManager(dataFol
     override fun setupCommands() {
         CommandManager(false).apply {
             addComponent("create", CommandGuildCreate("[guildName]", "Create guild", 1))
-            addComponent("info", null)
+            addComponent("info", CommandGuildInfo("", "", 0))
             addComponent("invite", CommandGuildInvite("[playerName]", "", 1))
             addComponent("accept", CommandGuildInviteAccept("", "", 0))
             addComponent("dispose", CommandGuildInviteDispose("", "", 0))
