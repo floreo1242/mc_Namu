@@ -1,10 +1,13 @@
 package com.kkomi.treeisland
 
+import com.kkomi.treeisland.plugin.guild.GuildPlugin
 import com.kkomi.treeisland.plugin.itemdb.ItemDBPlugin
+import com.kkomi.treeisland.plugin.level.LevelPlugin
 import com.kkomi.treeisland.plugin.money.MoneyPlugin
+import com.kkomi.treeisland.plugin.monster.MonsterPlugin
 import com.kkomi.treeisland.plugin.quest.QuestPlugin
-import com.kkomi.treeisland.plugin.stat.StatPlugin
 import com.kkomi.treeisland.plugin.shop.ShopPlugin
+import com.kkomi.treeisland.plugin.stat.StatPlugin
 import com.kkomi.treeisland.plugin.talkscript.TalkScriptPlugin
 import org.bukkit.event.Listener
 import org.bukkit.plugin.java.JavaPlugin
@@ -21,6 +24,9 @@ class Treeisland : JavaPlugin(), Listener {
         lateinit var talkScriptPlugin: TalkScriptPlugin
         lateinit var itemDbPlugin: ItemDBPlugin
         lateinit var statPlugin: StatPlugin
+        lateinit var levelPlugin: LevelPlugin
+        lateinit var monsterPlugin: MonsterPlugin
+        lateinit var guildPlugin: GuildPlugin
     }
 
     override fun onEnable() {
@@ -32,6 +38,9 @@ class Treeisland : JavaPlugin(), Listener {
         talkScriptPlugin = TalkScriptPlugin(File(dataFolder.path + "/talkscript"), this)
         itemDbPlugin = ItemDBPlugin(File(dataFolder.path + "/itemdb"), this)
         statPlugin = StatPlugin(File(dataFolder.path + "/stat"), this)
+        levelPlugin = LevelPlugin(File(dataFolder.parent + "/level"), this)
+        monsterPlugin = MonsterPlugin(File(dataFolder.parent + "/monster"), this)
+        guildPlugin = GuildPlugin(File(dataFolder.parent + "/guild"), this)
     }
 
     override fun onDisable() {
@@ -41,6 +50,9 @@ class Treeisland : JavaPlugin(), Listener {
         talkScriptPlugin.onDisable()
         itemDbPlugin.onDisable()
         statPlugin.onDisable()
+        levelPlugin.onDisable()
+        monsterPlugin.onDisable()
+        guildPlugin.onDisable()
     }
 
 }
