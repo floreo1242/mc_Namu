@@ -4,7 +4,9 @@ import com.kkomi.treeisland.library.SubMainManager
 import com.kkomi.treeisland.library.command.CommandManager
 import com.kkomi.treeisland.plugin.level.command.CommandLevelOtherView
 import com.kkomi.treeisland.plugin.level.command.CommandLevelView
+import com.kkomi.treeisland.plugin.level.listener.PlayerLevelListener
 import com.kkomi.treeisland.plugin.level.model.entity.PlayerLevel
+import org.bukkit.Bukkit
 import org.bukkit.configuration.serialization.ConfigurationSerialization
 import org.bukkit.plugin.java.JavaPlugin
 import java.io.File
@@ -24,6 +26,9 @@ class LevelPlugin(dataFolder: File, plugin: JavaPlugin) : SubMainManager(dataFol
     }
 
     override fun setupListeners() {
+        Bukkit.getPluginManager().apply {
+            registerEvents(PlayerLevelListener(), plugin)
+        }
     }
 
     override fun setupManagers() {
