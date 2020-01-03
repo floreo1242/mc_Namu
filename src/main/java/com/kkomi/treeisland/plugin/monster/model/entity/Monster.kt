@@ -10,6 +10,7 @@ data class Monster(
         val dropMoney: Int
 ) : ConfigurationSerializable {
     companion object {
+        @JvmStatic
         fun deserialize(data: Map<String, Any>): Monster {
             return Monster(
                     data["name"] as String,

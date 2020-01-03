@@ -11,6 +11,7 @@ data class PlayerLevel(
 ) : ConfigurationSerializable {
 
     companion object {
+        @JvmStatic
         fun deserialize(data: Map<String, Any>): PlayerLevel {
             return PlayerLevel(
                     data["uuid"] as String,

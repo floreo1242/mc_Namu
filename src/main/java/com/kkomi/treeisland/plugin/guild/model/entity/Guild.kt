@@ -10,6 +10,7 @@ data class Guild(
         val members: MutableList<GuildMember>
 ) : ConfigurationSerializable {
     companion object {
+        @JvmStatic
         fun deserialize(data: Map<String, Any>): Guild {
             return Guild(
                     data["name"] as String,
