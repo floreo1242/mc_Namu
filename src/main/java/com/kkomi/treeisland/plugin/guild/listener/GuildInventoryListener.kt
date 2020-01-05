@@ -21,5 +21,4 @@ class GuildInventoryListener : Listener {
         val guild = GuildRepository.getGuild(data.second)!!
         event.isCancelled = true
     }
-
-}
+ }
