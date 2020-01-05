@@ -1,4 +1,4 @@
-package com.kkomi.treeisland.plugin.stat.model.entity
+package com.kkomi.treeisland.plugin.equipitem.model.entity
 
 import org.bukkit.Material
 import org.bukkit.configuration.serialization.ConfigurationSerializable
@@ -6,7 +6,8 @@ import org.bukkit.configuration.serialization.SerializableAs
 import org.bukkit.inventory.ItemStack
 
 @SerializableAs("EquipItemList")
-data class EquipItem(
+data class PlayerEquipItem(
+        var uuid: String,
         var helmet: ItemStack = ItemStack(Material.AIR),
         var plate: ItemStack = ItemStack(Material.AIR),
         var legging: ItemStack = ItemStack(Material.AIR),
@@ -26,8 +27,9 @@ data class EquipItem(
 
     companion object {
         @JvmStatic
-        fun deserialize(data: Map<String, Any>): EquipItem {
-            return EquipItem(
+        fun deserialize(data: Map<String, Any>): PlayerEquipItem {
+            return PlayerEquipItem(
+                    data["uuid"] as String,
                     data["helmet"] as ItemStack,
                     data["plate"] as ItemStack,
                     data["legging"] as ItemStack,
@@ -43,6 +45,7 @@ data class EquipItem(
 
     override fun serialize(): MutableMap<String, Any> {
         return mutableMapOf(
+                "uuid" to uuid,
                 "helmet" to helmet,
                 "plate" to plate,
                 "legging" to legging,

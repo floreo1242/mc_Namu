@@ -1,11 +1,11 @@
-package com.kkomi.treeisland.plugin.stat.listener
+package com.kkomi.treeisland.plugin.equipitem.listener
 
 import com.kkomi.treeisland.library.extension.getDisplay
 import com.kkomi.treeisland.library.extension.getServerTitleInfo
 import com.kkomi.treeisland.plugin.integration.getPlayerInfo
 import com.kkomi.treeisland.plugin.itemdb.model.EquipmentItemRepository
 import com.kkomi.treeisland.plugin.itemdb.model.entity.EquipmentType
-import com.kkomi.treeisland.plugin.stat.inventory.EquipItemInventory
+import com.kkomi.treeisland.plugin.equipitem.inventory.EquipItemInventory
 import com.kkomi.treeisland.plugin.stat.model.PlayerStatRepository
 import org.bukkit.Material
 import org.bukkit.entity.Player
@@ -74,7 +74,7 @@ class EquipItemInventoryListener : Listener {
 
     @EventHandler
     fun onPlayerDropItemEvent(event: PlayerDropItemEvent) {
-        val playerWeapon = event.player.getPlayerInfo().statInfo.equipItem.weapon
+        val playerWeapon = event.player.getPlayerInfo().equipmentInfo.weapon
         if (playerWeapon.type != Material.AIR && event.player.inventory.heldItemSlot == 0) {
             event.isCancelled = true
         }
@@ -90,7 +90,7 @@ class EquipItemInventoryListener : Listener {
             return
         }
 
-        playerInfo.statInfo.equipItem.apply {
+        playerInfo.equipmentInfo.apply {
             weapon = inventory.getItem(EquipItemInventory.WEAPON) ?: ItemStack(Material.AIR)
             helmet = inventory.getItem(EquipItemInventory.HELMET) ?: ItemStack(Material.AIR)
             plate = inventory.getItem(EquipItemInventory.PLATE) ?: ItemStack(Material.AIR)
@@ -102,11 +102,11 @@ class EquipItemInventoryListener : Listener {
             ring = inventory.getItem(EquipItemInventory.RING) ?: ItemStack(Material.AIR)
         }
 
-        playerInfo.statInfo.updateFinalStat()
+        playerInfo.statInfo.updateFinalStat(playerInfo.equipmentInfo)
         playerInfo.statInfo.applyFinalStat(playerInfo.player)
         PlayerStatRepository.editPlayerStat(playerInfo.statInfo)
 
-        playerInfo.player.inventory.setItem(0, playerInfo.statInfo.equipItem.weapon)
+        playerInfo.player.inventory.setItem(0, playerInfo.equipmentInfo.weapon)
     }
 
     private fun getSlotFromEquipmentType(equipmentType: EquipmentType): Int {

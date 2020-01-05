@@ -1,4 +1,4 @@
-package com.kkomi.treeisland.plugin.stat.inventory
+package com.kkomi.treeisland.plugin.equipitem.inventory
 
 import com.kkomi.treeisland.library.extension.createItemStack
 import com.kkomi.treeisland.library.inventory.InventoryManager
@@ -35,6 +35,7 @@ class EquipItemInventory(player: Player) : InventoryManager(player) {
         }
 
         val statInfo = player.getPlayerInfo().statInfo
+        val equipItemInfo = player.getPlayerInfo().equipmentInfo
 
         inventory.setItem(HEAD, createItemStack(
                 Material.SKULL_ITEM,
@@ -44,15 +45,15 @@ class EquipItemInventory(player: Player) : InventoryManager(player) {
                 },
                 durability = 3))
 
-        inventory.setItem(WEAPON, statInfo.equipItem.weapon)
-        inventory.setItem(RING, statInfo.equipItem.ring)
-        inventory.setItem(EARRING, statInfo.equipItem.earring)
-        inventory.setItem(GLASSES, statInfo.equipItem.glasses)
-        inventory.setItem(HELMET, statInfo.equipItem.helmet)
-        inventory.setItem(PLATE, statInfo.equipItem.plate)
-        inventory.setItem(LEGGINGS, statInfo.equipItem.legging)
-        inventory.setItem(BOOTS, statInfo.equipItem.boots)
-        inventory.setItem(GLOVE, statInfo.equipItem.glove)
+        inventory.setItem(WEAPON, equipItemInfo.weapon)
+        inventory.setItem(RING, equipItemInfo.ring)
+        inventory.setItem(EARRING, equipItemInfo.earring)
+        inventory.setItem(GLASSES, equipItemInfo.glasses)
+        inventory.setItem(HELMET, equipItemInfo.helmet)
+        inventory.setItem(PLATE, equipItemInfo.plate)
+        inventory.setItem(LEGGINGS, equipItemInfo.legging)
+        inventory.setItem(BOOTS, equipItemInfo.boots)
+        inventory.setItem(GLOVE, equipItemInfo.glove)
 
     }
 

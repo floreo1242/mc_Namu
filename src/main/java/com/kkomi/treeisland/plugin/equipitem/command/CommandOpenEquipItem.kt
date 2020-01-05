@@ -1,8 +1,8 @@
-package com.kkomi.treeisland.plugin.stat.command
+package com.kkomi.treeisland.plugin.equipitem.command
 
 import com.kkomi.treeisland.library.command.ArgumentList
 import com.kkomi.treeisland.library.command.CommandComponent
-import com.kkomi.treeisland.plugin.stat.inventory.EquipItemInventory
+import com.kkomi.treeisland.plugin.equipitem.inventory.EquipItemInventory
 import org.bukkit.command.Command
 import org.bukkit.command.CommandSender
 import org.bukkit.entity.Player
