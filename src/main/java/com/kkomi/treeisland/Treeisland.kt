@@ -1,5 +1,6 @@
 package com.kkomi.treeisland
 
+import com.kkomi.treeisland.plugin.equipitem.EquipItemPlugin
 import com.kkomi.treeisland.plugin.guild.GuildPlugin
 import com.kkomi.treeisland.plugin.itemdb.ItemDBPlugin
 import com.kkomi.treeisland.plugin.level.LevelPlugin
@@ -27,6 +28,7 @@ class Treeisland : JavaPlugin(), Listener {
         lateinit var levelPlugin: LevelPlugin
         lateinit var monsterPlugin: MonsterPlugin
         lateinit var guildPlugin: GuildPlugin
+        lateinit var equipItemPlugin: EquipItemPlugin
     }
 
     override fun onEnable() {
@@ -41,6 +43,7 @@ class Treeisland : JavaPlugin(), Listener {
         levelPlugin = LevelPlugin(File(dataFolder.path + "/level"), this)
         monsterPlugin = MonsterPlugin(File(dataFolder.path + "/monster"), this)
         guildPlugin = GuildPlugin(File(dataFolder.path + "/guild"), this)
+        equipItemPlugin = EquipItemPlugin(File(dataFolder.path + "/equipitem"), this)
     }
 
     override fun onDisable() {
@@ -53,6 +56,7 @@ class Treeisland : JavaPlugin(), Listener {
         levelPlugin.onDisable()
         monsterPlugin.onDisable()
         guildPlugin.onDisable()
+        equipItemPlugin.onDisable()
     }
 
 }
