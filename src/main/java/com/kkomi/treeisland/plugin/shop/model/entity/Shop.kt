@@ -30,27 +30,6 @@ data class Shop(
         )
     }
 
-    fun getLastPageNum(): Int {
-        if (stuffList.isEmpty()) return 1
-        var page = stuffList.size / 36
-        if (stuffList.size % 36 > 0) {
-            page += 1
-        }
-        return page
-    }
-
-    fun getStuffList(page: Int): List<Stuff> {
-        return if (stuffList.isEmpty()) {
-            listOf()
-        } else {
-            if (page == getLastPageNum()) {
-                stuffList.toTypedArray().copyOfRange((page - 1) * 36, stuffList.size).toList()
-            } else {
-                stuffList.toTypedArray().copyOfRange((page - 1) * 36, page * 36 - 1).toList()
-            }
-        }
-    }
-
     fun addStuff(itemStack: ItemStack, price: Int) {
         stuffList.add(Stuff(itemStack, price))
     }

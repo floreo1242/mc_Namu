@@ -1,10 +1,10 @@
 package com.kkomi.treeisland.plugin.shop.listener
 
+import com.kkomi.treeisland.library.PageList
 import com.kkomi.treeisland.library.extension.*
 import com.kkomi.treeisland.library.message.InventoryMessage
 import com.kkomi.treeisland.plugin.integration.PlayerInfo
 import com.kkomi.treeisland.plugin.money.model.MoneyRepository
-import com.kkomi.treeisland.plugin.shop.ShopPlugin
 import com.kkomi.treeisland.plugin.shop.model.entity.Shop
 import com.kkomi.treeisland.plugin.shop.inventory.ShopInventory
 import com.kkomi.treeisland.plugin.shop.model.KeywordShopRepository
@@ -21,6 +21,7 @@ import org.bukkit.event.player.PlayerInteractEntityEvent
 import org.bukkit.inventory.Inventory
 
 class ShopInventoryListener : Listener {
+
     private val shopPageHash: MutableMap<String, Int> = mutableMapOf()
 
     @EventHandler
@@ -34,8 +35,8 @@ class ShopInventoryListener : Listener {
         }
 
         val shop = ShopRepository.getShop(data.second)!!
-        shopPageHash[(event.player as Player).uniqueId.toString()] = 1
-        loadStuff(inventory, shop, 1)
+        shopPageHash[(event.player as Player).uniqueId.toString()] = 0
+        loadStuff(inventory, shop, 0)
 
     }
 
@@ -53,11 +54,12 @@ class ShopInventoryListener : Listener {
 
         event.isCancelled = true
 
+        val uuid = playerInfo.player.uniqueId.toString()
         val playerMoney = playerInfo.moneyInfo
         val shop = ShopRepository.getShop(data.second)!!
         val currentItem = if (event.currentItem == null || event.currentItem.isAir()) return else event.currentItem
-        val uuid = playerInfo.player.uniqueId.toString()
         val page = shopPageHash[uuid]!!
+        val pageList = PageList(36, shop.stuffList.toList())
 
         when {
             slot == 48 -> {
@@ -65,20 +67,20 @@ class ShopInventoryListener : Listener {
                     playerInfo.sendErrorMessage(InventoryMessage.PAGE_FIRST)
                     return
                 }
-                shopPageHash.count(uuid)
+                shopPageHash.count(uuid, -1)
                 loadStuff(inventory, shop, page)
             }
             slot == 50 -> {
-                if (page == shop.getLastPageNum()) {
+                if (page == pageList.lastPageIndex) {
                     playerInfo.sendErrorMessage(InventoryMessage.PAGE_LAST)
                     return
                 }
-                shopPageHash.count(uuid, -1)
+                shopPageHash.count(uuid, 1)
                 loadStuff(inventory, shop, page)
             }
             // Shop Area
             (0..35).contains(slot) -> {
-                val stuff = shop.getStuffList(page)[slot]
+                val stuff = pageList.getPage(page)[slot]
                 if (playerMoney.money < stuff.price) {
                     playerInfo.sendErrorMessage("소지금이 부족합니다.")
                     return
@@ -87,8 +89,7 @@ class ShopInventoryListener : Listener {
                     playerInfo.sendErrorMessage(InventoryMessage.INSUFFICIENCY_SPACE)
                     return
                 }
-                playerMoney.takeMoney(stuff.price.toLong())
-                MoneyRepository.editPlayerMoney(playerMoney)
+                MoneyRepository.editPlayerMoney(playerMoney.apply { takeMoney(stuff.price.toLong()) })
                 playerInfo.player.inventory.addItem(stuff.itemStack)
                 playerInfo.sendInfoMessage(ShopMessage.BUY_ITEM)
             }
@@ -105,8 +106,7 @@ class ShopInventoryListener : Listener {
                     ClickType.SHIFT_LEFT -> currentItem.amount
                     else -> return
                 }
-                playerMoney.giveMoney(stuff.price * amount.toLong())
-                MoneyRepository.editPlayerMoney(playerMoney)
+                MoneyRepository.editPlayerMoney(playerMoney.apply { giveMoney(stuff.price * amount.toLong()) })
                 currentItem.amount -= amount
                 playerInfo.sendInfoMessage(ShopMessage.SELL_ITEM)
             }
@@ -117,10 +117,8 @@ class ShopInventoryListener : Listener {
     }
 
     private fun loadStuff(inventory: Inventory, shop: Shop, page: Int) {
-        val stuffList = shop.getStuffList(page)
-        (0..35).forEach {
-            inventory.setItem(it, null)
-        }
+        val stuffList = PageList(36, shop.stuffList.toList()).getPage(page)
+        (0..35).forEach { inventory.setItem(it, null) }
         stuffList.forEachIndexed { index, stuff -> inventory.setItem(index, stuff.toItemStack()) }
     }
 
