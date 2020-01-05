@@ -40,7 +40,7 @@ class PlayerStatListener : Listener {
             return
         }
 
-        val itemDisplay = playerInfo.statInfo.equipItem.weapon.getDisplay() ?: return
+        val itemDisplay = playerInfo.equipmentInfo.weapon.getDisplay() ?: return
         val equipmentItem = EquipmentItemRepository.getItemFromItemDisplay(itemDisplay) ?: return
 
         event.damage = playerInfo.statInfo.getDamage()

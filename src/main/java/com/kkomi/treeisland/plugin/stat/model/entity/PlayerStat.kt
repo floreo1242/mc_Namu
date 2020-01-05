@@ -2,6 +2,7 @@ package com.kkomi.treeisland.plugin.stat.model.entity
 
 import com.kkomi.treeisland.library.extension.getLore
 import com.kkomi.treeisland.library.extension.removeChatColorCode
+import com.kkomi.treeisland.plugin.equipitem.model.entity.PlayerEquipItem
 import com.kkomi.treeisland.plugin.itemdb.model.entity.StatOption
 import com.nisovin.magicspells.MagicSpells
 import org.bukkit.attribute.Attribute
@@ -16,8 +17,7 @@ data class PlayerStat(
         val uuid: String,
         val pickingStat: MutableMap<StatOption, Int>,
         val leftPoint: Int,
-        var finalStat: MutableMap<StatOption, Int>,
-        val equipItem: EquipItem
+        var finalStat: MutableMap<StatOption, Int>
 ) : ConfigurationSerializable {
 
     var minDamage = 0
@@ -26,11 +26,11 @@ data class PlayerStat(
     var criticalChange = 0
     var defense = 0
 
-    fun updateFinalStat() {
+    fun updateFinalStat(playerEquipItem: PlayerEquipItem) {
         val equipmentStat = mutableMapOf<StatOption, Int>()
         StatOption.values().forEach { equipmentStat[it] = 0 }
 
-        equipItem.toItemStackList().forEach { item ->
+        playerEquipItem.toItemStackList().forEach { item ->
             val lore = item.getLore()!!
             for (i in 6..lore.size - 3) {
                 val str = lore[i].removeChatColorCode()
@@ -55,8 +55,10 @@ data class PlayerStat(
         val nature = finalStat[StatOption.NATURE] ?: 0
         val mind = finalStat[StatOption.MIND] ?: 0
 
-        player.getAttribute(Attribute.GENERIC_MOVEMENT_SPEED).baseValue = (player.walkSpeed * (1 + (finalStat[StatOption.WALK_SPEED] ?: 0) / 100)).toDouble()
-        player.getAttribute(Attribute.GENERIC_MAX_HEALTH).baseValue = 20 + (finalStat[StatOption.MAX_HP] ?: 1) + (stamina * 1).toDouble()
+        player.getAttribute(Attribute.GENERIC_MOVEMENT_SPEED).baseValue = (player.walkSpeed * (1 + (finalStat[StatOption.WALK_SPEED]
+                ?: 0) / 100)).toDouble()
+        player.getAttribute(Attribute.GENERIC_MAX_HEALTH).baseValue = 20 + (finalStat[StatOption.MAX_HP]
+                ?: 1) + (stamina * 1).toDouble()
         MagicSpells.getManaHandler().setMaxMana(player, (finalStat[StatOption.MAX_MP] ?: 0) + (mind * 1))
 
         this.minDamage = (finalStat[StatOption.MIN_DAMAGE] ?: 0) + (finalStat[StatOption.STATIC_DAMAGE]
@@ -74,7 +76,7 @@ data class PlayerStat(
         val isCritical = criticalChange <= Random.nextInt() * 100
         return try {
             Random.nextInt(minDamage, maxDamage) * (if (isCritical) 1 + criticalDamage / 100.0 else 1.0)
-        }catch (exception : IllegalArgumentException){
+        } catch (exception: IllegalArgumentException) {
             maxDamage * (if (isCritical) 1 + criticalDamage / 100.0 else 1.0)
         }
     }
@@ -86,8 +88,7 @@ data class PlayerStat(
                     data["uuid"] as String,
                     (data["pickingStat"] as Map<String, Int>).mapKeys { StatOption.valueOf(it.key) } as MutableMap<StatOption, Int>,
                     data["leftPoint"] as Int,
-                    (data["equipmentStat"] as Map<String, Int>).mapKeys { StatOption.valueOf(it.key) } as MutableMap<StatOption, Int>,
-                    data["equipItem"] as EquipItem
+                    (data["finalStat"] as Map<String, Int>).mapKeys { StatOption.valueOf(it.key) } as MutableMap<StatOption, Int>
             )
         }
     }
@@ -97,8 +98,7 @@ data class PlayerStat(
                 "uuid" to uuid,
                 "pickingStat" to pickingStat.mapKeys { it.key.toString() },
                 "leftPoint" to leftPoint,
-                "equipmentStat" to finalStat.mapKeys { it.key.toString() },
-                "equipItem" to equipItem
+                "finalStat" to finalStat.mapKeys { it.key.toString() }
         )
     }
 

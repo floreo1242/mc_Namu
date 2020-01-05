@@ -26,7 +26,7 @@ class PlayerStatInventoryListener : Listener {
             return
         }
 
-        playerInfo.statInfo.updateFinalStat()
+        playerInfo.statInfo.updateFinalStat(playerInfo.equipmentInfo)
         playerInfo.statInfo.applyFinalStat(playerInfo.player)
     }
 

@@ -2,7 +2,6 @@ package com.kkomi.treeisland.plugin.stat.model
 
 import com.kkomi.treeisland.Treeisland
 import com.kkomi.treeisland.plugin.itemdb.model.entity.StatOption
-import com.kkomi.treeisland.plugin.stat.model.entity.EquipItem
 import com.kkomi.treeisland.plugin.stat.model.entity.PlayerStat
 import java.io.File
 
@@ -29,8 +28,7 @@ object PlayerStatRepository {
                                 StatOption.STAMINA to 0
                         ),
                         0,
-                        statOptionToMap(),
-                        EquipItem()
+                        statOptionToMap()
                 )
         )
     }
