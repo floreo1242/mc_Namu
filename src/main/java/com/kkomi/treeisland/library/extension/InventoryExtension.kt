@@ -2,7 +2,7 @@ package com.kkomi.treeisland.library.extension
 
 import com.kkomi.treeisland.plugin.guild.inventory.GuildInfoInventory
 import com.kkomi.treeisland.plugin.quest.inventory.*
-import com.kkomi.treeisland.plugin.stat.inventory.EquipItemInventory
+import com.kkomi.treeisland.plugin.equipitem.inventory.EquipItemInventory
 import com.kkomi.treeisland.plugin.stat.inventory.PlayerStatInventory
 import com.kkomi.treeisland.plugin.shop.inventory.ShopInventory
 import com.kkomi.treeisland.plugin.talkscript.inventory.TalkScriptInventory
