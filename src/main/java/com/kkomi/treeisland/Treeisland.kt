@@ -8,6 +8,7 @@ import com.kkomi.treeisland.plugin.money.MoneyPlugin
 import com.kkomi.treeisland.plugin.monster.MonsterPlugin
 import com.kkomi.treeisland.plugin.quest.QuestPlugin
 import com.kkomi.treeisland.plugin.shop.ShopPlugin
+import com.kkomi.treeisland.plugin.craft.CraftPlugin
 import com.kkomi.treeisland.plugin.skill.SkillPlugin
 import com.kkomi.treeisland.plugin.stat.StatPlugin
 import com.kkomi.treeisland.plugin.talkscript.TalkScriptPlugin
@@ -31,6 +32,7 @@ class Treeisland : JavaPlugin(), Listener {
         lateinit var guildPlugin: GuildPlugin
         lateinit var equipItemPlugin: EquipItemPlugin
         lateinit var skillPlugin: SkillPlugin
+        lateinit var craftPlugin: CraftPlugin
     }
 
     override fun onEnable() {
@@ -46,7 +48,7 @@ class Treeisland : JavaPlugin(), Listener {
         monsterPlugin = MonsterPlugin(File(dataFolder.path + "/monster"), this)
         guildPlugin = GuildPlugin(File(dataFolder.path + "/guild"), this)
         equipItemPlugin = EquipItemPlugin(File(dataFolder.path + "/equipitem"), this)
-        skillPlugin = SkillPlugin(File(dataFolder.path + "/skill"), this)
+        skillPlugin = CraftPlugin(File(dataFolder.path + "/skill"), this)
     }
 
     override fun onDisable() {
