@@ -25,9 +25,8 @@ data class Quest(
         var action: QuestAction = QuestAction.BLOCK_BREAK,
         var stringObject: String = "",
         var locationObject: Location = emptyLocation(),
-        var itemStackObject: ItemStack = ItemStack(Material.STONE),
         var count: Int = 1,
-        var rewardItems: List<ItemStack> = listOf(),
+        var rewardItems: List<String> = listOf(),
         var rewardCommand: String = ""
 ) : ConfigurationSerializable {
 
@@ -50,9 +49,8 @@ data class Quest(
                     QuestAction.valueOf(data["action"] as String),
                     data["stringObject"] as String,
                     data["locationObject"] as Location,
-                    data["itemStackObject"] as ItemStack,
                     data["count"] as Int,
-                    data["rewardItems"] as List<ItemStack>,
+                    data["rewardItems"] as List<String>,
                     data["rewardCommand"] as String
             )
         }
@@ -75,7 +73,6 @@ data class Quest(
                 "action" to action.name,
                 "stringObject" to stringObject,
                 "locationObject" to locationObject,
-                "itemStackObject" to itemStackObject,
                 "count" to count,
                 "rewardItems" to rewardItems,
                 "rewardCommand" to rewardCommand

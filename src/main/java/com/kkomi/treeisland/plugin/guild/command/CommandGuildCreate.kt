@@ -30,7 +30,7 @@ class CommandGuildCreate(usage: String, description: String, argumentsLength: In
             return true
         }
 
-        val createdGuild = Guild(guildName, 1, mutableMapOf(player.uniqueId.toString() to GuildMemberState(GuildGrade.MANAGER, 0)))
+        val createdGuild = Guild(guildName, 1, 0, mutableMapOf(player.uniqueId.toString() to GuildMemberState(GuildGrade.MANAGER, 0)))
         GuildRepository.addGuild(createdGuild)
         val playerGuild = player.getPlayerInfo().guildInfo
         playerGuild.guildName = guildName

@@ -3,9 +3,7 @@ package com.kkomi.treeisland.plugin.quest.listener
 import com.kkomi.treeisland.library.extension.getDisplay
 import com.kkomi.treeisland.library.extension.getServerTitleInfo
 import com.kkomi.treeisland.library.extension.removeChatColorCode
-import com.kkomi.treeisland.plugin.quest.QuestPlugin
 import com.kkomi.treeisland.plugin.quest.inventory.QuestCancelInventory
-import com.kkomi.treeisland.plugin.quest.inventory.QuestRewardInventory
 import com.kkomi.treeisland.plugin.quest.inventory.QuestStatusInventory
 import com.kkomi.treeisland.plugin.quest.model.QuestRepository
 import org.bukkit.Material
@@ -13,7 +11,6 @@ import org.bukkit.entity.Player
 import org.bukkit.event.EventHandler
 import org.bukkit.event.Listener
 import org.bukkit.event.inventory.InventoryClickEvent
-import org.bukkit.event.inventory.InventoryCloseEvent
 
 class QuestStatusInventoryListener : Listener {
 

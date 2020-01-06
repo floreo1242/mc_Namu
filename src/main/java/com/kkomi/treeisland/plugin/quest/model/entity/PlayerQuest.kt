@@ -54,8 +54,12 @@ data class PlayerQuest(
                 .filter(countingCondition)
                 .forEach {
 
-                    inProgressQuestList[it.name] = if (questAction == QuestAction.FARMING_ITEM) {
-                        (inventoryMap[it.itemStackObject.getSingle()] ?: 0)
+                    inProgressQuestList[it.name] = if (it.action == QuestAction.FARMING_ITEM) {
+                        inventoryMap
+                                .filter { item -> item.key.hasItemMeta() }
+                                .filter { item -> item.key.itemMeta.hasDisplayName() }
+                                .filter { item -> item.key.itemMeta.displayName == it.stringObject }
+                                .count()
                     } else {
                         (inProgressQuestList[it.name] ?: 0) + 1
                     }

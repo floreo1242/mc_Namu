@@ -4,6 +4,7 @@ import com.kkomi.treeisland.library.extension.getDisplay
 import com.kkomi.treeisland.library.extension.setLore
 import com.kkomi.treeisland.library.inventory.InventoryManager
 import com.kkomi.treeisland.plugin.integration.getPlayerInfo
+import com.kkomi.treeisland.plugin.itemdb.model.OtherItemRepository
 import com.kkomi.treeisland.plugin.quest.QuestPlugin
 import com.kkomi.treeisland.plugin.quest.model.QuestRepository
 import com.kkomi.treeisland.plugin.quest.model.entity.Quest
@@ -18,7 +19,7 @@ class QuestStatusInventory(player: Player) : InventoryManager(player) {
         const val TITLE = "퀘스트 상태"
     }
 
-    override val inventory: Inventory = Bukkit.createInventory(null, 9, "$TITLE")
+    override val inventory: Inventory = Bukkit.createInventory(null, 9, TITLE)
 
     override fun setBasicFrame() {
         val playerQuest = player.getPlayerInfo().questInfo
@@ -37,7 +38,7 @@ class QuestStatusInventory(player: Player) : InventoryManager(player) {
 
     private fun getQuestObject(quest: Quest): String {
         return when (quest.action) {
-            QuestAction.FARMING_ITEM -> quest.itemStackObject.getDisplay() ?: quest.itemStackObject.type.toString()
+            QuestAction.FARMING_ITEM -> OtherItemRepository.getItem(quest.stringObject)!!.toItemStack().getDisplay()!!
             QuestAction.MOVE_LOCATION -> ""
             else -> quest.stringObject
         }

@@ -20,7 +20,6 @@ private val serverInventoryPrefixList = listOf(
         QuestAcceptInventory.TITLE,
         QuestCancelInventory.TITLE,
         QuestListInventory.TITLE,
-        QuestRewardInventory.TITLE,
         QuestStatusInventory.TITLE,
         EquipItemInventory.TITLE,
         PlayerStatInventory.TITLE,
