@@ -2,6 +2,7 @@ package com.kkomi.treeisland.plugin.guild.inventory
 
 import com.kkomi.treeisland.library.extension.createItemStack
 import com.kkomi.treeisland.library.inventory.InventoryManager
+import com.kkomi.treeisland.plugin.guild.model.GuildOptionRepository
 import com.kkomi.treeisland.plugin.guild.model.entity.Guild
 import com.kkomi.treeisland.plugin.guild.model.entity.GuildMemberState
 import com.kkomi.treeisland.plugin.integration.OfflinePlayerInfo
@@ -26,6 +27,7 @@ class GuildInfoInventory(
     override val inventory: Inventory = Bukkit.createInventory(null, 54, "$TITLE - ${guild.name}")
 
     override fun setBasicFrame() {
+        val maxMember: Int = GuildOptionRepository.let { it.getDefaultMaxMember() + it.getUpgradeMemberCount() * guild.level }
         val guildInfo = createItemStack(
                 Material.SIGN,
                 "&f길드 정보",
@@ -33,8 +35,8 @@ class GuildInfoInventory(
                         "",
                         "&f길드 이름 : ${guild.name}",
                         "&f길드 레벨 : ${guild.level}",
-                        "&f길드 기여 : ${guild.getTotalContribution()}",
-                        "&f길드 인원 : ${guild.members.size}"
+                        "&f길드 기여 : ${guild.guildPoint}",
+                        "&f길드 인원 : ${guild.members.size} / $maxMember}"
                 )
         )
 

@@ -1,31 +1,23 @@
 package com.kkomi.treeisland.plugin.guild.model
 
 import com.kkomi.treeisland.Treeisland
-import com.kkomi.treeisland.plugin.guild.model.entity.GuildOption
+import com.kkomi.treeisland.plugin.guild.model.entity.GuildUpgradeValue
 import java.io.File
 
-object GuildOptionOptionRepository {
+object GuildOptionRepository {
 
-    private val guildOptionDataSource = GuildOptionFileDataSource(File(Treeisland.guildPlugin.dataFolder.path + "/guild"), GuildOption::class.java)
+    private val guildOptionDataSource = GuildOptionFileDataSource(File(Treeisland.guildPlugin.dataFolder.path + "/guild"))
 
-    fun getGuildOption(name: String): GuildOption? {
-        return guildOptionDataSource.get
+    fun getUpgradeValue(level: Int): GuildUpgradeValue {
+        return guildOptionDataSource.getGuildOption().upgradeValue[level - 1]
     }
 
-    fun getGuildOptionList(): List<GuildOption> {
-        return guildOptionDataSource.getGuildOptionList()
+    fun getDefaultMaxMember(): Int {
+        return guildOptionDataSource.getGuildOption().defaultMaxMember
     }
 
-    fun addGuildOption(GuildOption: GuildOption) {
-        guildOptionDataSource.addGuildOption(GuildOption)
-    }
-
-    fun editGuildOption(GuildOption: GuildOption) {
-        guildOptionDataSource.editGuildOption(GuildOption)
-    }
-
-    fun removeGuildOption(name: String) {
-        guildOptionDataSource.removeGuildOption(name)
+    fun getUpgradeMemberCount(): Int {
+        return guildOptionDataSource.getGuildOption().upgradeMemberCount
     }
 
     fun reloadGuildOptions() {
