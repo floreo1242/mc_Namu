@@ -3,9 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="6b63e662-6f4b-48c8-9c06-cbdf5adddda2" name="Default Changelist" comment="">
       <change afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/skill/SkillPlugin.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/skill/listener/SkillListener.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/skill/model/SkillInfoDataSource.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/skill/model/SkillInfoFileDataSource.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/skill/model/SkillInfoRepository.kt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/skill/model/entity/PlayerSkill.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/skill/model/entity/SkillInfo.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/guild/GuildPlugin.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/guild/GuildPlugin.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/Treeisland.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/Treeisland.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,6 +48,7 @@
         <option value="Kotlin Enum" />
         <option value="Kotlin File" />
         <option value="Kotlin Interface" />
+        <option value="Interface" />
         <option value="Kotlin Object" />
         <option value="Kotlin Class" />
       </list>
@@ -74,11 +80,11 @@
       <recent name="com.kkomi.treeisland.plugin.rpg.model.entity" />
     </key>
     <key name="CopyKotlinDeclarationDialog.RECENTS_KEY">
+      <recent name="com.kkomi.treeisland.plugin.skill.model.entity" />
       <recent name="com.kkomi.treeisland.plugin.guild.command" />
       <recent name="com.kkomi.treeisland.plugin.guild.model.entity" />
       <recent name="com.kkomi.treeisland.plugin.guild.model" />
       <recent name="com.kkomi.treeisland.plugin.level.command" />
-      <recent name="com.kkomi.treeisland.plugin.level.model" />
     </key>
     <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
       <recent name="com.kkomi.treeisland.plugin.equip.command" />
@@ -463,7 +469,14 @@
       <option name="project" value="LOCAL" />
       <updated>1578283853633</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="길드 플러그인 Entity Class Config Serialize 추가">
+      <created>1578289300489</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1578289300489</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <option name="searchClosedTasks" value="true" />
     <servers />
   </component>
@@ -481,7 +494,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="퀘스트 생성시 올바르지 않게 메시지가 출력되던 버그 수정" />
     <MESSAGE value="플레이어 돈이 정상적으로 저장되지 않던 버그 수정" />
     <MESSAGE value="Quest Serialize Enum Class 가 정상적으로 되지 않던 점 수정" />
     <MESSAGE value="String -&gt; Long 파싱 오류 수정" />
@@ -506,21 +518,22 @@
     <MESSAGE value="EquipItem PlayerInfo와 연결" />
     <MESSAGE value="기존 List 에서 PageList 로 변경" />
     <MESSAGE value="길드 강화 기능 추가" />
-    <option name="LAST_COMMIT_MESSAGE" value="길드 강화 기능 추가" />
+    <MESSAGE value="길드 플러그인 Entity Class Config Serialize 추가" />
+    <option name="LAST_COMMIT_MESSAGE" value="길드 플러그인 Entity Class Config Serialize 추가" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="708" y="163" key="#com.intellij.ide.util.MemberChooser" timestamp="1578289191366">
+    <state x="708" y="163" key="#com.intellij.ide.util.MemberChooser" timestamp="1578299465047">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="708" y="163" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1578289191366" />
+    <state x="708" y="163" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1578299465047" />
     <state x="627" y="203" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1578022933861">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="627" y="203" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1578022933861" />
-    <state x="444" y="42" key="CommitChangelistDialog2" timestamp="1578283852743">
+    <state x="444" y="42" key="CommitChangelistDialog2" timestamp="1578289299379">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="444" y="42" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1578283852743" />
+    <state x="444" y="42" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1578289299379" />
     <state x="184" y="79" key="DiffContextDialog" timestamp="1578042057954">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
