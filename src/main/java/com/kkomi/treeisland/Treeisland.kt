@@ -48,7 +48,7 @@ class Treeisland : JavaPlugin(), Listener {
         monsterPlugin = MonsterPlugin(File(dataFolder.path + "/monster"), this)
         guildPlugin = GuildPlugin(File(dataFolder.path + "/guild"), this)
         equipItemPlugin = EquipItemPlugin(File(dataFolder.path + "/equipitem"), this)
-        skillPlugin = CraftPlugin(File(dataFolder.path + "/skill"), this)
+        skillPlugin = SkillPlugin(File(dataFolder.path + "/skill"), this)
     }
 
     override fun onDisable() {

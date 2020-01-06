@@ -2,24 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6b63e662-6f4b-48c8-9c06-cbdf5adddda2" name="Default Changelist" comment="스킬 플러그인 기본 베이스 제작">
-      <change beforePath="$PROJECT_DIR$/.gradle/5.6.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.1/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.6.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.1/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.6.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.1/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.6.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/Minecraft_TreeIsland.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/Minecraft_TreeIsland.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/Minecraft_TreeIsland.main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/Minecraft_TreeIsland.main.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/Minecraft_TreeIsland.test.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/Minecraft_TreeIsland.test.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/Treeisland.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/Treeisland.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/library/extension/InventoryExtension.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/library/extension/InventoryExtension.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/craft/CraftPlugin.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/craft/CraftPlugin.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/craft/listener/SkillListener.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/craft/listener/CraftInventoryListener.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/craft/model/SkillInfoDataSource.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/craft/model/CraftRecipeDataSource.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/craft/model/SkillInfoFileDataSource.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/craft/model/CraftRecipeFileDataSource.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/craft/model/SkillInfoRepository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/craft/model/CraftRecipeRepository.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/craft/model/entity/CraftRecipe.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/craft/model/entity/CraftRecipe.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/guild/command/CommandGuildCreate.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/guild/command/CommandGuildCreate.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/QuestPlugin.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/QuestPlugin.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/command/CommandSetQuestAcceptMessage.kt" beforeDir="false" />
@@ -49,7 +34,6 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/listener/QuestStatusInventoryListener.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/listener/QuestStatusInventoryListener.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/model/entity/PlayerQuest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/model/entity/PlayerQuest.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/model/entity/Quest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/model/entity/Quest.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/skill/SkillPlugin.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/skill/SkillPlugin.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -476,7 +460,14 @@
       <option name="project" value="LOCAL" />
       <updated>1578301046877</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="제작 플러그인 파일명 수정">
+      <created>1578310779706</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1578310779706</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <option name="searchClosedTasks" value="true" />
     <servers />
   </component>
@@ -494,7 +485,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Quest Serialize Enum Class 가 정상적으로 되지 않던 점 수정" />
     <MESSAGE value="String -&gt; Long 파싱 오류 수정" />
     <MESSAGE value="이미 존재하는 상점이 중복 생성되던 버그 수정" />
     <MESSAGE value="상점 삭제가 되지 않던 버그 수정 ( + 메시지 )" />
@@ -519,7 +509,8 @@
     <MESSAGE value="길드 강화 기능 추가" />
     <MESSAGE value="길드 플러그인 Entity Class Config Serialize 추가" />
     <MESSAGE value="스킬 플러그인 기본 베이스 제작" />
-    <option name="LAST_COMMIT_MESSAGE" value="스킬 플러그인 기본 베이스 제작" />
+    <MESSAGE value="제작 플러그인 파일명 수정" />
+    <option name="LAST_COMMIT_MESSAGE" value="제작 플러그인 파일명 수정" />
   </component>
   <component name="WindowStateProjectService">
     <state x="708" y="163" key="#com.intellij.ide.util.MemberChooser" timestamp="1578299465047">
