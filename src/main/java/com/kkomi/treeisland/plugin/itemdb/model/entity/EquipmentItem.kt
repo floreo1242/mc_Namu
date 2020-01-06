@@ -57,7 +57,7 @@ data class EquipmentItem(
                         "",
                         *options.map { "&f${it.toLoreStr()}" }.toTypedArray(),
                         "",
-                        *description.split("\\n").toTypedArray()
+                        *description.split("|").toTypedArray()
                 ),
                 durability = durability.toShort()
         )

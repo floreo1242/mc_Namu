@@ -17,7 +17,7 @@ data class Quest(
         var beforeQuest: String = "",
         var startNpc: String = "",
         var endNpc: String = "",
-        var talks: List<String> = listOf(),
+        var talks: String = "",
         var acceptMessage: String = "",
         var disposeMessage: String = "",
         var purposeMessage: String = "",
@@ -41,7 +41,7 @@ data class Quest(
                     data["beforeQuest"] as String,
                     data["startNpc"] as String,
                     data["endNpc"] as String,
-                    data["talks"] as List<String>,
+                    data["talks"] as String,
                     data["acceptMessage"] as String,
                     data["disposeMessage"] as String,
                     data["purposeMessage"] as String,
@@ -96,7 +96,7 @@ data class Quest(
     }
 
     fun toItemStack(): ItemStack {
-        return createItemStack(Material.BOOK_AND_QUILL, "&f$title", talks, 1, 0)
+        return createItemStack(Material.BOOK_AND_QUILL, "&f$title", talks.split("|"), 1, 0)
     }
 
     fun toItemStackWithPlayerQuest(playerQuest: PlayerQuest): ItemStack {

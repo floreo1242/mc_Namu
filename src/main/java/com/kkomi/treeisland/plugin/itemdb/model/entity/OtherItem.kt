@@ -36,7 +36,7 @@ data class OtherItem(
                         "",
                         "&f[ 기타아이템 ]",
                         "",
-                        *description.split("\\n").toTypedArray()
+                        *description.split("|").toTypedArray()
                 ),
                 durability = durability.toShort()
         )

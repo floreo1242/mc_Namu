@@ -48,7 +48,7 @@ data class ConsumptionItem(
                         "",
                         "&9레벨 : $levelLimit",
                         "",
-                        *description.split("\\n").toTypedArray()
+                        *description.split("|").toTypedArray()
                 ),
                 durability = durability.toShort()
         )
