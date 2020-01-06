@@ -38,6 +38,9 @@ class GuildPlugin(dataFolder: File, plugin: JavaPlugin) : SubMainManager(dataFol
     override fun setupManagers() {
         ConfigurationSerialization.registerClass(Guild::class.java, "Guild")
         ConfigurationSerialization.registerClass(GuildMemberState::class.java, "GuildMemberState")
+        ConfigurationSerialization.registerClass(GuildMemberState::class.java, "GuildOption")
+        ConfigurationSerialization.registerClass(GuildMemberState::class.java, "PlayerGuild")
+        ConfigurationSerialization.registerClass(GuildMemberState::class.java, "GuildUpgradeValue")
     }
 
     override fun setupSchedulers() {

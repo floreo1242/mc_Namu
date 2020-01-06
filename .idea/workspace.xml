@@ -2,14 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6b63e662-6f4b-48c8-9c06-cbdf5adddda2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/guild/command/CommandGuildUpgrade.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/guild/model/entity/GuildUpgradeValue.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/skill/SkillPlugin.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/skill/model/entity/PlayerSkill.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/guild/inventory/GuildInfoInventory.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/guild/inventory/GuildInfoInventory.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/guild/model/GuildOptionFileDataSource.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/guild/model/GuildOptionFileDataSource.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/guild/model/GuildOptionRepository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/guild/model/GuildOptionRepository.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/guild/model/entity/Guild.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/guild/model/entity/Guild.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/guild/model/entity/GuildOption.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/guild/model/entity/GuildOption.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/guild/GuildPlugin.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/guild/GuildPlugin.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -460,7 +456,14 @@
       <option name="project" value="LOCAL" />
       <updated>1578238133905</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="길드 강화 기능 추가">
+      <created>1578283853633</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1578283853633</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <option name="searchClosedTasks" value="true" />
     <servers />
   </component>
@@ -478,7 +481,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Refactoring QuestPlugin and Bug fix&#10;&#10;QuestManager -&gt; QuestRepository&#10;PlayerQuestManager -&gt; PlayerQuestRepository" />
     <MESSAGE value="퀘스트 생성시 올바르지 않게 메시지가 출력되던 버그 수정" />
     <MESSAGE value="플레이어 돈이 정상적으로 저장되지 않던 버그 수정" />
     <MESSAGE value="Quest Serialize Enum Class 가 정상적으로 되지 않던 점 수정" />
@@ -503,21 +505,22 @@
     <MESSAGE value="EquipItemPlugin 등록" />
     <MESSAGE value="EquipItem PlayerInfo와 연결" />
     <MESSAGE value="기존 List 에서 PageList 로 변경" />
-    <option name="LAST_COMMIT_MESSAGE" value="기존 List 에서 PageList 로 변경" />
+    <MESSAGE value="길드 강화 기능 추가" />
+    <option name="LAST_COMMIT_MESSAGE" value="길드 강화 기능 추가" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="708" y="163" key="#com.intellij.ide.util.MemberChooser" timestamp="1578036036871">
+    <state x="708" y="163" key="#com.intellij.ide.util.MemberChooser" timestamp="1578289191366">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="708" y="163" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1578036036871" />
+    <state x="708" y="163" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1578289191366" />
     <state x="627" y="203" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1578022933861">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="627" y="203" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1578022933861" />
-    <state x="444" y="42" key="CommitChangelistDialog2" timestamp="1578042130742">
+    <state x="444" y="42" key="CommitChangelistDialog2" timestamp="1578283852743">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="444" y="42" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1578042130742" />
+    <state x="444" y="42" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1578283852743" />
     <state x="184" y="79" key="DiffContextDialog" timestamp="1578042057954">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -526,6 +529,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="589" y="189" width="898" height="754" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1578281978506" />
+    <state x="208" y="38" key="new project wizard" timestamp="1578286263221">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="208" y="38" key="new project wizard/0.0.1920.1040@0.0.1920.1040" timestamp="1578286263221" />
     <state x="642" y="90" key="refactoring.ChangeSignatureDialog" timestamp="1578277233756">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
