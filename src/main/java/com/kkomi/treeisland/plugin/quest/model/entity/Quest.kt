@@ -1,7 +1,6 @@
 package com.kkomi.treeisland.plugin.quest.model.entity
 
 import com.kkomi.treeisland.library.extension.*
-import org.bukkit.Location
 import org.bukkit.Material
 import org.bukkit.configuration.serialization.ConfigurationSerializable
 import org.bukkit.configuration.serialization.SerializableAs
@@ -11,23 +10,20 @@ import org.bukkit.inventory.ItemStack
 @SerializableAs("Quest")
 data class Quest(
         val name: String,
-        var title: String = "",
-        var limitLv: Int = 0,
-        var type: QuestType = QuestType.NORMAL,
-        var beforeQuest: String = "",
-        var startNpc: String = "",
-        var endNpc: String = "",
-        var talks: String = "",
-        var acceptMessage: String = "",
-        var disposeMessage: String = "",
-        var purposeMessage: String = "",
-        var completeMessage: String = "",
-        var action: QuestAction = QuestAction.BLOCK_BREAK,
-        var stringObject: String = "",
-        var locationObject: Location = emptyLocation(),
-        var count: Int = 1,
-        var rewardItems: List<String> = listOf(),
-        var rewardCommand: String = ""
+        var title: String,
+        var limitLv: Int,
+        var type: QuestType,
+        var beforeQuest: String,
+        var startNpc: String,
+        var endNpc: String,
+        var description : String,
+        var talkScriptList: List<TalkScript>,
+        var acceptMessage: String,
+        var disposeMessage: String,
+        var purposeMessage: String,
+        var completeMessage: String,
+        var questObjectiveList : List<QuestObjective>,
+        var reward : QuestReward
 ) : ConfigurationSerializable {
 
     companion object {
@@ -41,17 +37,14 @@ data class Quest(
                     data["beforeQuest"] as String,
                     data["startNpc"] as String,
                     data["endNpc"] as String,
-                    data["talks"] as String,
+                    data["description"] as String,
+                    data["talkScriptList"] as List<TalkScript>,
                     data["acceptMessage"] as String,
                     data["disposeMessage"] as String,
                     data["purposeMessage"] as String,
                     data["completeMessage"] as String,
-                    QuestAction.valueOf(data["action"] as String),
-                    data["stringObject"] as String,
-                    data["locationObject"] as Location,
-                    data["count"] as Int,
-                    data["rewardItems"] as List<String>,
-                    data["rewardCommand"] as String
+                    data["questObjectiveList"] as List<QuestObjective>,
+                    data["reward"] as QuestReward
             )
         }
     }
@@ -65,17 +58,14 @@ data class Quest(
                 "beforeQuest" to beforeQuest,
                 "startNpc" to startNpc,
                 "endNpc" to endNpc,
-                "talks" to talks,
+                "description" to description,
+                "talkScriptList" to talkScriptList,
                 "acceptMessage" to acceptMessage,
                 "disposeMessage" to disposeMessage,
                 "purposeMessage" to purposeMessage,
                 "completeMessage" to completeMessage,
-                "action" to action.name,
-                "stringObject" to stringObject,
-                "locationObject" to locationObject,
-                "count" to count,
-                "rewardItems" to rewardItems,
-                "rewardCommand" to rewardCommand
+                "questObjectiveList" to questObjectiveList,
+                "reward" to reward
         )
     }
 
@@ -95,8 +85,12 @@ data class Quest(
         player.sendInfoMessage("$endNpc : $completeMessage")
     }
 
-    fun toItemStack(): ItemStack {
-        return createItemStack(Material.BOOK_AND_QUILL, "&f$title", talks.split("|"), 1, 0)
+    fun toItemStack() : ItemStack {
+        return createItemStack(
+                Material.PAPER,
+                "&f퀘스트 설명",
+                description.split("|").map { "&f$it" }
+        )
     }
 
     fun toItemStackWithPlayerQuest(playerQuest: PlayerQuest): ItemStack {

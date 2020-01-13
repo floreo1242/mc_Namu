@@ -1,10 +1,9 @@
 package com.kkomi.treeisland.plugin.quest.model.entity
 
-import com.kkomi.treeisland.library.extension.getSingle
+import com.kkomi.treeisland.library.extension.getDisplay
 import com.kkomi.treeisland.library.extension.sendInfoMessage
 import com.kkomi.treeisland.library.extension.toMap
-import com.kkomi.treeisland.plugin.quest.QuestPlugin
-import com.kkomi.treeisland.plugin.quest.model.QuestRepository
+import com.kkomi.treeisland.plugin.itemdb.model.OtherItemRepository
 import org.bukkit.Bukkit
 import org.bukkit.configuration.serialization.ConfigurationSerializable
 import org.bukkit.configuration.serialization.SerializableAs
@@ -14,7 +13,7 @@ import java.util.*
 data class PlayerQuest(
         val uuid: String,
         val completeQuestList: MutableList<String>,
-        val inProgressQuestList: MutableMap<String, Int>
+        val inProgressQuestList: MutableMap<String, List<PlayerQuestObjective>>
 ) : ConfigurationSerializable {
 
     private val questCompleteCheckMessageList: MutableList<String> = mutableListOf()
@@ -25,7 +24,7 @@ data class PlayerQuest(
             return PlayerQuest(
                     data["uuid"] as String,
                     data["completeQuestList"] as MutableList<String>,
-                    data["inProgressQuestList"] as MutableMap<String, Int>
+                    data["inProgressQuestList"] as MutableMap<String, List<PlayerQuestObjective>>
             )
         }
     }
@@ -40,40 +39,54 @@ data class PlayerQuest(
 
     fun checkQuestAmount(
             questAction: QuestAction,
-            countingCondition: (quest: Quest) -> Boolean
+            condition: (questObjective: PlayerQuestObjective) -> Boolean
     ) {
-
         val player = Bukkit.getPlayer(UUID.fromString(uuid))
         val inventoryMap = player.inventory.storageContents.toList().toMap()
 
-        inProgressQuestList.keys
-                .map { QuestRepository.getQuest(it)!! }
-                // Current Quest Action Filter
-                .filter { it.action == questAction }
-                // Check Satisfy Quest Count
-                .filter(countingCondition)
-                .forEach {
+        inProgressQuestList
+                .forEach { (questName, questObjectiveList) ->
 
-                    inProgressQuestList[it.name] = if (it.action == QuestAction.FARMING_ITEM) {
-                        inventoryMap
-                                .filter { item -> item.key.hasItemMeta() }
-                                .filter { item -> item.key.itemMeta.hasDisplayName() }
-                                .filter { item -> item.key.itemMeta.displayName == it.stringObject }
-                                .count()
-                    } else {
-                        (inProgressQuestList[it.name] ?: 0) + 1
-                    }
+                    questObjectiveList
+                            .forEachIndexed { index, playerQO ->
 
-                    if (inProgressQuestList[it.name] == it.count) {
-                        // If Not Already Print Quest Success Message
-                        if (!questCompleteCheckMessageList.contains(it.name)) {
-                            player.sendInfoMessage("[ ${it.title} ] 퀘스트 완료!")
-                            questCompleteCheckMessageList.add(it.name)
-                        }
-                    } else {
-                        if (questCompleteCheckMessageList.contains(it.name)) {
-                            questCompleteCheckMessageList.remove(it.name)
-                        }
+                                if (playerQO.action != questAction) {
+                                    return@forEachIndexed
+                                }
+
+                                if (!condition.invoke(playerQO)) {
+                                    return@forEachIndexed
+                                }
+
+                                if (playerQO.isComplete()) {
+                                    return@forEachIndexed
+                                }
+
+
+                                val playerQuestObjectiveList = inProgressQuestList[questName]!!.toMutableList()
+                                val playerQuestObjective = playerQuestObjectiveList[index]
+
+                                playerQuestObjective.amount += if (playerQuestObjective.action == QuestAction.FARMING_ITEM) {
+                                    inventoryMap
+                                            .filter { item -> item.key.hasItemMeta() }
+                                            .filter { item -> item.key.itemMeta.hasDisplayName() }
+                                            .filter { item -> item.key.itemMeta.displayName == OtherItemRepository.getItem(playerQuestObjective.target)?.toItemStack()?.getDisplay() ?: "" }
+                                            .count()
+                                } else {
+                                    1
+                                }
+
+                                if (playerQuestObjective.amount >= playerQuestObjective.targetAmount) {
+                                    playerQuestObjective.amount = playerQuestObjective.targetAmount
+                                }
+
+                                playerQuestObjectiveList[index] = playerQuestObjective
+                                inProgressQuestList[questName] = playerQuestObjectiveList
+                            }
+
+                    if (!questCompleteCheckMessageList.contains(questName) && questObjectiveList.map { it.isComplete() }.find { !it } != false) {
+                        player.sendInfoMessage("$questName 퀘스트를 완료하였습니다!")
+                        questCompleteCheckMessageList.add(questName)
                     }
                 }
     }
@@ -83,7 +96,14 @@ data class PlayerQuest(
     }
 
     fun acceptQuest(quest: Quest) {
-        inProgressQuestList[quest.name] = 0
+        inProgressQuestList[quest.name] = quest.questObjectiveList.map { questObjective ->
+            PlayerQuestObjective(
+                    questObjective.action,
+                    0,
+                    questObjective.amount,
+                    questObjective.target
+            )
+        }
     }
 
     fun completeQuest(quest: Quest) {

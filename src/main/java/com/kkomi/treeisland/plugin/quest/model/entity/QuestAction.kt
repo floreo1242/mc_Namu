@@ -7,5 +7,6 @@ enum class QuestAction(
     BLOCK_PLACE("%s 블럭을 %d 만큼 설치하세요."),
     KILL_ENTITY("%s 을(를) %d 만큼 사냥하세요."),
     FARMING_ITEM("%s 을(를) %d 만큼 구하세요."),
-    MOVE_LOCATION("퀘스트 설명의 좌표로 이동하세요")
+    MOVE_LOCATION("퀘스트 설명의 좌표로 이동하세요."),
+    NPC_TALK("%s를 만나 대화하세요.")
 }

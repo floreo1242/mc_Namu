@@ -1,5 +1,6 @@
 package com.kkomi.treeisland.plugin.quest.schduler
 
+import com.kkomi.treeisland.library.extension.parseLocation
 import com.kkomi.treeisland.library.schedular.TimerManager
 import com.kkomi.treeisland.plugin.integration.getPlayerInfo
 import com.kkomi.treeisland.plugin.quest.model.entity.QuestAction
@@ -15,10 +16,11 @@ class QuestLocationScheduler : TimerManager() {
         Bukkit.getOnlinePlayers()
                 .map { it.getPlayerInfo() }
                 .map { it.player to it.questInfo }
-                .forEach {
-                    it.second.checkQuestAmount(QuestAction.MOVE_LOCATION) { quest ->
-                        it.first.location.distance(quest.locationObject) <= 1
+                .forEach {(player, playerQuestInfo) ->
+                    playerQuestInfo.checkQuestAmount(QuestAction.MOVE_LOCATION) { questObjective ->
+                        player.location.distance(questObjective.target.parseLocation()) <= 1
                     }
+
                 }
     }
 

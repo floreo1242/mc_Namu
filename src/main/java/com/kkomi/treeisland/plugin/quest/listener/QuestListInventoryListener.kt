@@ -6,6 +6,7 @@ import com.kkomi.treeisland.plugin.quest.QuestPlugin
 import com.kkomi.treeisland.plugin.quest.inventory.QuestAcceptInventory
 import com.kkomi.treeisland.plugin.quest.inventory.QuestCancelInventory
 import com.kkomi.treeisland.plugin.quest.inventory.QuestListInventory
+import com.kkomi.treeisland.plugin.quest.inventory.QuestTalkInventory
 import com.kkomi.treeisland.plugin.quest.model.QuestRepository
 import org.bukkit.Material
 import org.bukkit.entity.Player
@@ -39,7 +40,7 @@ class QuestListInventoryListener : Listener {
         when (currentItem.type) {
             Material.BOOK_AND_QUILL -> {
                 player.closeInventory()
-                QuestAcceptInventory(player, quest).open()
+                QuestTalkInventory(player, quest).open()
             }
             Material.BOOK -> {
                 player.closeInventory()

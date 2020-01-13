@@ -7,7 +7,7 @@ import com.kkomi.treeisland.library.extension.sendInfoMessage
 import com.kkomi.treeisland.plugin.quest.QuestPlugin
 import com.kkomi.treeisland.plugin.quest.model.QuestMessage
 import com.kkomi.treeisland.plugin.quest.model.QuestRepository
-import com.kkomi.treeisland.plugin.quest.model.entity.Quest
+import com.kkomi.treeisland.plugin.quest.model.entity.*
 import org.bukkit.command.Command
 import org.bukkit.command.CommandSender
 import org.bukkit.entity.Player
@@ -23,7 +23,41 @@ class CommandQuestCreate(usage: String, description: String, argumentsLength: In
             return true
         }
 
-        QuestRepository.addQuest(Quest(questName))
+        QuestRepository.addQuest(
+                Quest(
+                        questName,
+                        questName,
+                        0,
+                        QuestType.NORMAL,
+                        "",
+                        "",
+                        "",
+                        "",
+                        listOf(
+                                TalkScript(
+                                        "talker",
+                                        "message"
+                                )
+                        ),
+                        "",
+                        "",
+                        "",
+                        "",
+                        listOf(
+                                QuestObjective(
+                                        QuestAction.FARMING_ITEM,
+                                        4,
+                                        "Apple"
+                                )
+                        ),
+                        QuestReward(
+                                listOf(
+                                        "a"
+                                ),
+                                ""
+                        )
+                )
+        )
         sender.sendInfoMessage(QuestMessage.QUEST_CREATE)
         return true
     }

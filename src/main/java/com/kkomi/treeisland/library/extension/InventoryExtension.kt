@@ -5,7 +5,7 @@ import com.kkomi.treeisland.plugin.quest.inventory.*
 import com.kkomi.treeisland.plugin.equipitem.inventory.EquipItemInventory
 import com.kkomi.treeisland.plugin.stat.inventory.PlayerStatInventory
 import com.kkomi.treeisland.plugin.shop.inventory.ShopInventory
-import com.kkomi.treeisland.plugin.talkscript.inventory.TalkScriptInventory
+import com.kkomi.treeisland.plugin.quest.inventory.QuestTalkInventory
 import org.bukkit.Material
 import org.bukkit.inventory.Inventory
 import org.bukkit.inventory.ItemStack
@@ -15,7 +15,7 @@ fun Inventory.setItem(row: Int, col: Int, itemStack: ItemStack) {
 }
 
 private val serverInventoryPrefixList = listOf(
-        TalkScriptInventory.TITLE,
+        QuestTalkInventory.TITLE,
         ShopInventory.TITLE,
         QuestAcceptInventory.TITLE,
         QuestCancelInventory.TITLE,

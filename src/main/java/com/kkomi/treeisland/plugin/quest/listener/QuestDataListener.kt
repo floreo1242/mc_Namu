@@ -36,33 +36,41 @@ class QuestDataListener : Listener {
             questInfo.inProgressQuestList.keys
                     .map { questName -> QuestRepository.getQuest(questName)!! }
                     .find { it.endNpc == rightClickedEntityName }
-                    ?.let {
-                        if (questInfo.inProgressQuestList[it.name]!! >= it.count) {
+                    ?.let { quest ->
+
+                        val playerQuestObjectiveList = questInfo.inProgressQuestList[quest.name]!!
+
+                        val isSuccessQuest = (playerQuestObjectiveList.map { playerQuestObjective -> playerQuestObjective.isComplete() }.find { !it }
+                                ?: false).not()
+
+                        if (isSuccessQuest) {
 
                             // TakeItem
                             try {
-                                player.inventory.takeItem(OtherItemRepository.getItem(it.stringObject)!!.toItemStack(), it.count)
+                                playerQuestObjectiveList
+                                        .filter { it.action == QuestAction.FARMING_ITEM }
+                                        .forEach { questObjective ->
+                                            player.inventory.takeItem(OtherItemRepository.getItem(questObjective.target)!!.toItemStack(), questObjective.amount)
+                                        }
                             } catch (exception: Exception) {
                                 player.sendErrorMessage("에러가 발생하였습니다. 관리자에게 문의주세요. ErrorCode : Not Found Other Item")
                             }
 
                             // PlayerQuest
-                            questInfo.completeQuest(it)
-                            it.sendCompleteMessage(player)
+                            questInfo.completeQuest(quest)
+                            quest.sendCompleteMessage(player)
                             PlayerQuestRepository.editPlayerQuest(questInfo)
 
                             // Reward
                             player.inventory.addItem(
-                                    *it.rewardItems.map { code ->
+                                    *quest.reward.items.map { code ->
                                         OtherItemRepository.getItem(code)?.toItemStack() ?: ItemStack(Material.AIR)
                                     }.toTypedArray()
                             )
-                            if (it.rewardCommand != "") player.performCommand(it.rewardCommand)
+                            if (quest.reward.command != "") player.performCommand(quest.reward.command)
 
-                            return
                         } else {
-                            it.sendPurposeMessage(player)
-                            return
+                            quest.sendPurposeMessage(player)
                         }
                     }
         }
