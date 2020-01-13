@@ -1,14 +1,14 @@
 package com.kkomi.treeisland.plugin.monster.model
 
-import com.kkomi.treeisland.plugin.monster.model.entity.Monster
+import com.kkomi.treeisland.plugin.monster.model.entity.MonsterDrop
 
 interface MonsterDataSource {
 
-    fun getMonster(name: String): Monster?
+    fun getMonster(name: String): MonsterDrop?
 
-    fun createMonster(monster: Monster)
+    fun createMonster(monster: MonsterDrop)
 
-    fun editMonster(monster: Monster)
+    fun editMonster(monster: MonsterDrop)
 
     fun removeMonster(name: String)
 

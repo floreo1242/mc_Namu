@@ -3,16 +3,16 @@ package com.kkomi.treeisland.plugin.monster.model.entity
 import org.bukkit.configuration.serialization.ConfigurationSerializable
 import org.bukkit.configuration.serialization.SerializableAs
 
-@SerializableAs("Monster")
-data class Monster(
+@SerializableAs("MonsterDrop")
+data class MonsterDrop(
         val name: String,
         val dropExp: Int,
         val dropMoney: Int
 ) : ConfigurationSerializable {
     companion object {
         @JvmStatic
-        fun deserialize(data: Map<String, Any>): Monster {
-            return Monster(
+        fun deserialize(data: Map<String, Any>): MonsterDrop {
+            return MonsterDrop(
                     data["name"] as String,
                     data["dropExp"] as Int,
                     data["dropMoney"] as Int

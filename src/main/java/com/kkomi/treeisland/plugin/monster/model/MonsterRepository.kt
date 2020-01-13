@@ -1,21 +1,21 @@
 package com.kkomi.treeisland.plugin.monster.model
 
 import com.kkomi.treeisland.Treeisland
-import com.kkomi.treeisland.plugin.monster.model.entity.Monster
+import com.kkomi.treeisland.plugin.monster.model.entity.MonsterDrop
 
 object MonsterRepository {
 
-    private val monsterDataSource = MonsterFileDataSource(Treeisland.monsterPlugin.dataFolder, Monster::class.java)
+    private val monsterDataSource = MonsterFileDataSource(Treeisland.monsterPlugin.dataFolder, MonsterDrop::class.java)
 
-    fun getMonster(name: String): Monster? {
+    fun getMonster(name: String): MonsterDrop? {
         return monsterDataSource.getMonster(name)
     }
 
-    fun createMonster(monster: Monster) {
+    fun createMonster(monster: MonsterDrop) {
         monsterDataSource.createMonster(monster)
     }
 
-    fun editMonster(monster: Monster) {
+    fun editMonster(monster: MonsterDrop) {
         monsterDataSource.editMonster(monster)
     }
 

@@ -11,16 +11,20 @@ class MonsterListener : Listener {
 
     @EventHandler
     fun onEntityDeathEvent(event: EntityDeathEvent) {
+
+        println("%s killed by %s".format(event.entity.name, event.entity.killer.name))
+
         val killer = event.entity.killer ?: return
         val monster = MonsterRepository.getMonster(event.entity.name) ?: return
 
         killer.getPlayerInfo().apply {
             levelInfo.exp += monster.dropExp
             moneyInfo.money += monster.dropMoney
-            PlayerLevelRepository.checkLevelUp(levelInfo) {
-                sendInfoMessage("EXP + %d".format(monster.dropExp))
-                sendInfoMessage("GOLD + %d".format(monster.dropMoney))
-            }
+
+            sendInfoMessage("EXP + %d".format(monster.dropExp))
+            sendInfoMessage("GOLD + %d".format(monster.dropMoney))
+
+            PlayerLevelRepository.checkLevelUp(this)
         }.editPlayerInfo()
     }
 
