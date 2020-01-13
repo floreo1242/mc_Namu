@@ -18,4 +18,9 @@ class PlayerLevelListener : Listener {
         }
     }
 
+    @EventHandler
+    fun onPlayerLevelUpEvent(event: PlayerLevelUpEvent) {
+        event.playerInfo.sendInfoMessage("[ LEVEL UP ] %d -> %d [ LEVEL UP ]".format(event.playerInfo.levelInfo.level - 1, event.playerInfo.levelInfo.level))
+    }
+
 }

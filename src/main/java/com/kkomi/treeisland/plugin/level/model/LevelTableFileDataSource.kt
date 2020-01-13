@@ -13,9 +13,9 @@ class LevelTableFileDataSource(
 
     init {
         if (!configuration.contains("1")) {
-            configuration.addDefault("1", 100)
-            configuration.addDefault("2", 200)
-            configuration.addDefault("3", 300)
+            configuration.set("1", 100)
+            configuration.set("2", 200)
+            configuration.set("3", 300)
             configuration.save(file)
         }
 
