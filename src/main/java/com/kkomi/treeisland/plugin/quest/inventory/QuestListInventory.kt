@@ -23,6 +23,7 @@ class QuestListInventory(
         val playerQuest = player.getPlayerInfo().questInfo
         QuestRepository.getQuestList()
                 .filter { it.startNpc == npcName }
+                .filter { playerQuest.isAvailableQuest(it, player.getPlayerInfo().levelInfo) }
                 .map { it.toItemStackWithPlayerQuest(playerQuest) }
                 .forEach { inventory.addItem(it) }
     }

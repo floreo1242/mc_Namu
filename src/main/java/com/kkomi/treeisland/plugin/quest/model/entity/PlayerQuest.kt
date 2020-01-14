@@ -5,6 +5,7 @@ import com.kkomi.treeisland.library.extension.sendInfoMessage
 import com.kkomi.treeisland.library.extension.takeItem
 import com.kkomi.treeisland.library.extension.toMap
 import com.kkomi.treeisland.plugin.itemdb.model.OtherItemRepository
+import com.kkomi.treeisland.plugin.level.model.entity.PlayerLevel
 import com.kkomi.treeisland.plugin.quest.model.PlayerQuestRepository
 import org.bukkit.Bukkit
 import org.bukkit.configuration.serialization.ConfigurationSerializable
@@ -105,6 +106,18 @@ data class PlayerQuest(
         } else {
             1
         }
+    }
+
+    fun isAvailableQuest(quest: Quest, playerLevel: PlayerLevel): Boolean {
+        if(playerLevel.level < quest.limitLv){
+            return false
+        }
+
+        if (!completeQuestList.contains(quest.beforeQuest)) {
+            return false
+        }
+
+        return true
     }
 
     fun throwUpQuest(quest: Quest) {
