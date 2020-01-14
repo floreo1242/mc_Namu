@@ -5,6 +5,7 @@ import com.kkomi.treeisland.library.extension.removeChatColorCode
 import com.kkomi.treeisland.plugin.equipitem.model.entity.PlayerEquipItem
 import com.kkomi.treeisland.plugin.itemdb.model.entity.StatOption
 import com.nisovin.magicspells.MagicSpells
+import org.bukkit.Bukkit
 import org.bukkit.attribute.Attribute
 import org.bukkit.configuration.serialization.ConfigurationSerializable
 import org.bukkit.configuration.serialization.SerializableAs
@@ -59,7 +60,10 @@ data class PlayerStat(
                 ?: 0) / 100)).toDouble()
         player.getAttribute(Attribute.GENERIC_MAX_HEALTH).baseValue = 20 + (finalStat[StatOption.MAX_HP]
                 ?: 1) + (stamina * 1).toDouble()
-        MagicSpells.getManaHandler().setMaxMana(player, (finalStat[StatOption.MAX_MP] ?: 0) + (mind * 1))
+
+        if (Bukkit.getPluginManager().isPluginEnabled(MagicSpells.plugin)) {
+            MagicSpells.getManaHandler().setMaxMana(player, (finalStat[StatOption.MAX_MP] ?: 0) + (mind * 1))
+        }
 
         this.minDamage = (finalStat[StatOption.MIN_DAMAGE] ?: 0) + (finalStat[StatOption.STATIC_DAMAGE]
                 ?: 0) + (strength * 1)
