@@ -40,14 +40,15 @@ class QuestDataListener : Listener {
                     .find { it.endNpc == rightClickedEntityName }
                     ?.let { quest ->
 
-                        if (questInfo.isCompletedQuest(quest)) {
+                        if (!questInfo.isCompletedQuest(quest)) {
                             quest.sendPurposeMessage(player)
-                            return@let
+                            event.isCancelled = true
+                            return
                         }
 
                         if (player.inventory.count { it == null || it.type == Material.AIR } < quest.reward.items.size) {
                             player.sendErrorMessage("인벤토리 공간이 부족합니다!")
-                            return@let
+                            return//
                         }
 
                         questInfo.completeQuest(quest)

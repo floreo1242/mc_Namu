@@ -77,17 +77,22 @@ data class PlayerQuest(
                                 // 적용
                                 questObjectiveList[index] = playerQuestObjective
                                 inProgressQuestList[questName] = questObjectiveList
+                                PlayerQuestRepository.editPlayerQuest(this)
                             }
 
-                    if (!questCompleteCheckMessageList.contains(questName) && questObjectiveList.map { it.isComplete() }.find { false } != false) {
-                        player.sendInfoMessage("$questName 퀘스트를 완료하였습니다!")
-                        questCompleteCheckMessageList.add(questName)
+
+
+                    if (questObjectiveList.map { it.isComplete() }.contains(false).not()) {
+                        if (!questCompleteCheckMessageList.contains(questName)) {
+                            player.sendInfoMessage("$questName 퀘스트를 완료하였습니다!")
+                            questCompleteCheckMessageList.add(questName)
+                        }
                     } else {
                         questCompleteCheckMessageList.remove(questName)
                     }
-                }
 
-        PlayerQuestRepository.editPlayerQuest(this)
+
+                }
     }
 
     private fun getIncrementCount(playerQuestObjective: PlayerQuestObjective, inventoryMap: Map<ItemStack, Int>): Int {
@@ -109,11 +114,12 @@ data class PlayerQuest(
     }
 
     fun isAvailableQuest(quest: Quest, playerLevel: PlayerLevel): Boolean {
-        if(playerLevel.level < quest.limitLv){
+
+        if (playerLevel.level < quest.limitLv) {
             return false
         }
 
-        if (!completeQuestList.contains(quest.beforeQuest)) {
+        if (quest.beforeQuest != "" && !completeQuestList.contains(quest.beforeQuest)) {
             return false
         }
 
