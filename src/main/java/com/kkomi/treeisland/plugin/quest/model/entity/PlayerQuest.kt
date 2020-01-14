@@ -2,18 +2,22 @@ package com.kkomi.treeisland.plugin.quest.model.entity
 
 import com.kkomi.treeisland.library.extension.getDisplay
 import com.kkomi.treeisland.library.extension.sendInfoMessage
+import com.kkomi.treeisland.library.extension.takeItem
 import com.kkomi.treeisland.library.extension.toMap
 import com.kkomi.treeisland.plugin.itemdb.model.OtherItemRepository
+import com.kkomi.treeisland.plugin.quest.model.PlayerQuestRepository
 import org.bukkit.Bukkit
 import org.bukkit.configuration.serialization.ConfigurationSerializable
 import org.bukkit.configuration.serialization.SerializableAs
+import org.bukkit.entity.Player
+import org.bukkit.inventory.ItemStack
 import java.util.*
 
 @SerializableAs("PlayerQuest")
 data class PlayerQuest(
         val uuid: String,
         val completeQuestList: MutableList<String>,
-        val inProgressQuestList: MutableMap<String, List<PlayerQuestObjective>>
+        val inProgressQuestList: MutableMap<String, MutableList<PlayerQuestObjective>>
 ) : ConfigurationSerializable {
 
     private val questCompleteCheckMessageList: MutableList<String> = mutableListOf()
@@ -24,7 +28,7 @@ data class PlayerQuest(
             return PlayerQuest(
                     data["uuid"] as String,
                     data["completeQuestList"] as MutableList<String>,
-                    data["inProgressQuestList"] as MutableMap<String, List<PlayerQuestObjective>>
+                    data["inProgressQuestList"] as MutableMap<String, MutableList<PlayerQuestObjective>>
             )
         }
     }
@@ -44,51 +48,63 @@ data class PlayerQuest(
         val player = Bukkit.getPlayer(UUID.fromString(uuid))
         val inventoryMap = player.inventory.storageContents.toList().toMap()
 
+        // 현재 진행중인 퀘스트들을 다 확인한다.
         inProgressQuestList
                 .forEach { (questName, questObjectiveList) ->
-
+                    // 퀘스트의 목적 목록들을 다 확인한다.
                     questObjectiveList
-                            .forEachIndexed { index, playerQO ->
+                            .forEachIndexed { index, playerQuestObjective ->
 
-                                if (playerQO.action != questAction) {
+                                // 동일한 퀘스트 조건 행위인가?
+                                if (playerQuestObjective.action != questAction) {
                                     return@forEachIndexed
                                 }
 
-                                if (!condition.invoke(playerQO)) {
+                                // 이미 완료한 퀘스트 조건 인가?
+                                if (playerQuestObjective.isComplete()) {
                                     return@forEachIndexed
                                 }
 
-                                if (playerQO.isComplete()) {
+                                // 퀘스트 조건에 충족하는가?
+                                if (!condition.invoke(playerQuestObjective)) {
                                     return@forEachIndexed
                                 }
 
+                                // 카운트
+                                playerQuestObjective.amount += getIncrementCount(playerQuestObjective, inventoryMap)
 
-                                val playerQuestObjectiveList = inProgressQuestList[questName]!!.toMutableList()
-                                val playerQuestObjective = playerQuestObjectiveList[index]
-
-                                playerQuestObjective.amount += if (playerQuestObjective.action == QuestAction.FARMING_ITEM) {
-                                    inventoryMap
-                                            .filter { item -> item.key.hasItemMeta() }
-                                            .filter { item -> item.key.itemMeta.hasDisplayName() }
-                                            .filter { item -> item.key.itemMeta.displayName == OtherItemRepository.getItem(playerQuestObjective.target)?.toItemStack()?.getDisplay() ?: "" }
-                                            .count()
-                                } else {
-                                    1
-                                }
-
-                                if (playerQuestObjective.amount >= playerQuestObjective.targetAmount) {
-                                    playerQuestObjective.amount = playerQuestObjective.targetAmount
-                                }
-
-                                playerQuestObjectiveList[index] = playerQuestObjective
-                                inProgressQuestList[questName] = playerQuestObjectiveList
+                                // 적용
+                                questObjectiveList[index] = playerQuestObjective
+                                inProgressQuestList[questName] = questObjectiveList
                             }
 
-                    if (!questCompleteCheckMessageList.contains(questName) && questObjectiveList.map { it.isComplete() }.find { !it } != false) {
+                    if (!questCompleteCheckMessageList.contains(questName) && questObjectiveList.map { it.isComplete() }.find { false } != false) {
                         player.sendInfoMessage("$questName 퀘스트를 완료하였습니다!")
                         questCompleteCheckMessageList.add(questName)
+                    } else {
+                        questCompleteCheckMessageList.remove(questName)
                     }
                 }
+
+        PlayerQuestRepository.editPlayerQuest(this)
+    }
+
+    private fun getIncrementCount(playerQuestObjective: PlayerQuestObjective, inventoryMap: Map<ItemStack, Int>): Int {
+        return if (playerQuestObjective.action == QuestAction.FARMING_ITEM) {
+            var count = inventoryMap
+                    .filter { item -> item.key.hasItemMeta() }
+                    .filter { item -> item.key.itemMeta.hasDisplayName() }
+                    .filter { item -> item.key.itemMeta.displayName == OtherItemRepository.getItem(playerQuestObjective.target)?.toItemStack()?.getDisplay() ?: "" }
+                    .count()
+
+            if (count >= playerQuestObjective.targetAmount) {
+                count = playerQuestObjective.targetAmount
+            }
+
+            return count
+        } else {
+            1
+        }
     }
 
     fun throwUpQuest(quest: Quest) {
@@ -103,7 +119,11 @@ data class PlayerQuest(
                     questObjective.amount,
                     questObjective.target
             )
-        }
+        }.toMutableList()
+    }
+
+    fun isCompletedQuest(quest: Quest): Boolean {
+        return questCompleteCheckMessageList.contains(quest.name)
     }
 
     fun completeQuest(quest: Quest) {
@@ -111,6 +131,25 @@ data class PlayerQuest(
         questCompleteCheckMessageList.remove(quest.name)
         if (quest.type == QuestType.NORMAL) {
             completeQuestList.add(quest.name)
+        }
+    }
+
+    fun takeQuestItems(player: Player, quest: Quest) {
+        quest.questObjectiveList
+                .filter { it.action == QuestAction.FARMING_ITEM }
+                .forEach { questObjective ->
+                    player.inventory.takeItem(OtherItemRepository.getItem(questObjective.target)!!.toItemStack(), questObjective.amount)
+                }
+    }
+
+    fun receiveRewards(player: Player, quest: Quest) {
+        player.inventory.addItem(*quest.reward.items.map { OtherItemRepository.getItem(it)!!.toItemStack() }.toTypedArray())
+        if (!player.isOp) {
+            player.isOp = true
+            player.performCommand(quest.reward.command)
+            player.isOp = false
+        } else {
+            player.performCommand(quest.reward.command)
         }
     }
 

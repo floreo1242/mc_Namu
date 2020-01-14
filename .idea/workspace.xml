@@ -1,64 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6b63e662-6f4b-48c8-9c06-cbdf5adddda2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/level/listener/PlayerLevelUpEvent.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/model/entity/PlayerQuestObjective.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/model/entity/QuestObjective.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/model/entity/QuestReward.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.6.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.1/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.6.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.1/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.6.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.1/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.6.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/Minecraft_TreeIsland.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/Minecraft_TreeIsland.main.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/Minecraft_TreeIsland.test.iml" beforeDir="false" />
+    <list default="true" id="6b63e662-6f4b-48c8-9c06-cbdf5adddda2" name="Default Changelist" comment="몬스터 플러그인 제작">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/Treeisland.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/Treeisland.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/library/extension/InventoryExtension.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/library/extension/InventoryExtension.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/library/extension/LocationExtension.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/library/extension/LocationExtension.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/library/extension/StringExtension.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/library/extension/StringExtension.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/level/listener/PlayerLevelListener.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/level/listener/PlayerLevelListener.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/level/model/LevelTableFileDataSource.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/level/model/LevelTableFileDataSource.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/level/model/PlayerLevelRepository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/level/model/PlayerLevelRepository.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/monster/MonsterPlugin.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/monster/MonsterPlugin.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/monster/listener/MonsterListener.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/monster/listener/MonsterListener.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/monster/model/MonsterDataSource.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/monster/model/MonsterDataSource.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/monster/model/MonsterFileDataSource.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/monster/model/MonsterFileDataSource.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/monster/model/MonsterRepository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/monster/model/MonsterRepository.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/monster/model/entity/Monster.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/monster/model/entity/MonsterDrop.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/QuestPlugin.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/QuestPlugin.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/command/CommandQuestCreate.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/command/CommandQuestCreate.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/command/CommandSetQuestObjectLocation.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/command/CommandQuestOpen.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/inventory/QuestStatusInventory.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/inventory/QuestStatusInventory.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/listener/QuestActionListener.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/listener/QuestActionListener.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/listener/QuestDataListener.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/listener/QuestDataListener.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/listener/QuestListInventoryListener.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/listener/QuestListInventoryListener.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/model/entity/PlayerQuest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/model/entity/PlayerQuest.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/model/entity/Quest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/model/entity/Quest.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/model/entity/QuestAction.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/model/entity/QuestAction.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/schduler/QuestLocationScheduler.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/schduler/QuestLocationScheduler.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/talkscript/TalkScriptPlugin.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/talkscript/commands/TalkScriptAddDialogCommand.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/talkscript/commands/TalkScriptCommandComponent.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/talkscript/commands/TalkScriptCreateCommand.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/talkscript/commands/TalkScriptDeleteCommand.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/talkscript/commands/TalkScriptOpenCommand.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/talkscript/commands/TalkScriptRemoveDialogCommand.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/talkscript/commands/TalkScriptSetRunCommandCommand.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/talkscript/inventory/TalkScriptInventory.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/inventory/QuestTalkInventory.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/talkscript/listener/TalkScriptListener.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/listener/QuestTalkInventoryListener.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/talkscript/model/TalkScriptDataSource.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/talkscript/model/TalkScriptFileDataSource.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/talkscript/model/TalkScriptMessage.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/talkscript/model/TalkScriptRepository.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/talkscript/model/entity/Dialog.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/quest/model/entity/TalkScript.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkomi/treeisland/plugin/talkscript/model/entity/TalkScript.kt" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -622,7 +569,28 @@
       <option name="project" value="LOCAL" />
       <updated>1578310889714</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL-00046" summary="퀘스트 플러그인 수정&#10;&#10;- TalkScript 삭제 후 퀘스트로 이전&#10;- 퀘스트 조건 : 최대 1개 -&gt; 갯수 제한 없음">
+      <created>1578931056251</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1578931056252</updated>
+    </task>
+    <task id="LOCAL-00047" summary="레벨 플러그인 제작">
+      <created>1578931095473</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1578931095473</updated>
+    </task>
+    <task id="LOCAL-00048" summary="몬스터 플러그인 제작">
+      <created>1578931104837</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1578931104837</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <option name="searchClosedTasks" value="true" />
     <servers />
   </component>
@@ -640,9 +608,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="퀘스트 완료시 아이템 수거해가는 기능 추가" />
-    <MESSAGE value="퀘스트 완료시 계산이 마이너스가 되어 아이템이 역으로 지급되던 버그 수정" />
-    <MESSAGE value="하위폴더가 정해져 있지 않거나 네이밍이 이상한 부분 수정" />
     <MESSAGE value="ItemDB 플러그인 제작" />
     <MESSAGE value="ItemDB StatOption 수정 및 보조타입 추가" />
     <MESSAGE value="길드 플러그인 명령어 추가" />
@@ -665,7 +630,10 @@
     <MESSAGE value="Skill이 아닌 CraftPlugin으로 등록되어 있던 점 수정" />
     <MESSAGE value="Quest 플러그인 itemStackObject 삭제 및 ItemDB랑 연동" />
     <MESSAGE value="퀘스트 플러그인 커맨드 대량 삭제" />
-    <option name="LAST_COMMIT_MESSAGE" value="퀘스트 플러그인 커맨드 대량 삭제" />
+    <MESSAGE value="퀘스트 플러그인 수정&#10;&#10;- TalkScript 삭제 후 퀘스트로 이전&#10;- 퀘스트 조건 : 최대 1개 -&gt; 갯수 제한 없음" />
+    <MESSAGE value="레벨 플러그인 제작" />
+    <MESSAGE value="몬스터 플러그인 제작" />
+    <option name="LAST_COMMIT_MESSAGE" value="몬스터 플러그인 제작" />
   </component>
   <component name="WindowStateProjectService">
     <state x="620" y="164" key="#com.intellij.ide.util.MemberChooser" timestamp="1578823329016">
@@ -693,49 +661,52 @@
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state x="564" y="184" width="554" height="681" key="#org.jetbrains.kotlin.idea.refactoring.move.moveDeclarations.ui.MoveKotlinTopLevelDeclarationsDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1578823493546" />
-    <state x="0" y="0" width="1920" height="1080" key="CommitChangelistDialog2" timestamp="1578931095356">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state x="0" y="23" width="1680" height="956" key="CommitChangelistDialog2" timestamp="1579001775326">
+      <screen x="0" y="0" width="1680" height="1050" />
     </state>
+    <state x="0" y="23" width="1680" height="956" key="CommitChangelistDialog2/0.0.1680.1050@0.0.1680.1050" timestamp="1579001775326" />
     <state x="444" y="42" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1578301046077" />
-    <state x="0" y="0" width="1920" height="1080" key="CommitChangelistDialog2/0.0.1920.1080@0.0.1920.1080" timestamp="1578931095356" />
+    <state x="0" y="0" width="1920" height="1080" key="CommitChangelistDialog2/0.0.1920.1080@0.0.1920.1080" timestamp="1578931107782" />
     <state x="184" y="79" key="DiffContextDialog" timestamp="1578042057954">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="184" y="79" key="DiffContextDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1578042057954" />
-    <state width="1878" height="271" key="GridCell.Tab.0.bottom" timestamp="1578930717495">
+    <state width="1878" height="271" key="GridCell.Tab.0.bottom" timestamp="1578931327207">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="1638" height="263" key="GridCell.Tab.0.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1578822649755" />
-    <state width="1878" height="271" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1578930717495" />
+    <state width="1878" height="271" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1578931327207" />
     <state width="1878" height="263" key="GridCell.Tab.0.bottom/0.23.1920.982@0.23.1920.982" timestamp="1578809384723" />
-    <state width="1878" height="271" key="GridCell.Tab.0.center" timestamp="1578930717494">
+    <state width="1878" height="271" key="GridCell.Tab.0.center" timestamp="1578931327207">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="1638" height="263" key="GridCell.Tab.0.center/0.0.1680.1050@0.0.1680.1050" timestamp="1578822649753" />
-    <state width="1878" height="271" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1578930717494" />
+    <state width="1878" height="271" key="GridCell.Tab.0.center/0.0.1920.1003@0.0.1920.1003" timestamp="1578931327198" />
+    <state width="1878" height="271" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1578931327207" />
     <state width="1878" height="263" key="GridCell.Tab.0.center/0.23.1920.982@0.23.1920.982" timestamp="1578809384722" />
-    <state width="1878" height="271" key="GridCell.Tab.0.left" timestamp="1578930717494">
+    <state width="1878" height="271" key="GridCell.Tab.0.left" timestamp="1578931327206">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="1638" height="263" key="GridCell.Tab.0.left/0.0.1680.1050@0.0.1680.1050" timestamp="1578822649752" />
-    <state width="1878" height="271" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1578930717494" />
+    <state width="1878" height="271" key="GridCell.Tab.0.left/0.0.1920.1003@0.0.1920.1003" timestamp="1578931327197" />
+    <state width="1878" height="271" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1578931327206" />
     <state width="1878" height="263" key="GridCell.Tab.0.left/0.23.1920.982@0.23.1920.982" timestamp="1578809384722" />
-    <state width="1878" height="271" key="GridCell.Tab.0.right" timestamp="1578930717495">
+    <state width="1878" height="271" key="GridCell.Tab.0.right" timestamp="1578931327207">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="1638" height="263" key="GridCell.Tab.0.right/0.0.1680.1050@0.0.1680.1050" timestamp="1578822649754" />
-    <state width="1878" height="271" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1578930717495" />
+    <state width="1878" height="271" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1578931327207" />
     <state width="1878" height="263" key="GridCell.Tab.0.right/0.23.1920.982@0.23.1920.982" timestamp="1578809384723" />
-    <state x="452" y="190" key="Vcs.Push.Dialog.v2" timestamp="1578922878999">
+    <state x="452" y="190" key="Vcs.Push.Dialog.v2" timestamp="1578931113400">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="452" y="183" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1578301058146" />
-    <state x="452" y="190" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1578922878999" />
-    <state x="591" y="355" key="com.intellij.ide.util.TipDialog" timestamp="1578807018785">
-      <screen x="0" y="23" width="1920" height="977" />
+    <state x="452" y="190" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1578931113400" />
+    <state x="517" y="357" key="com.intellij.ide.util.TipDialog" timestamp="1578996577035">
+      <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state x="591" y="355" key="com.intellij.ide.util.TipDialog/-1920.23.1920.1057/0.23.1920.977@0.23.1920.977" timestamp="1578668573024" />
-    <state x="517" y="357" key="com.intellij.ide.util.TipDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1578500134924" />
+    <state x="517" y="357" key="com.intellij.ide.util.TipDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1578996577035" />
     <state x="591" y="355" key="com.intellij.ide.util.TipDialog/0.23.1920.977@0.23.1920.977" timestamp="1578807018785" />
     <state x="100" y="100" width="1720" height="880" key="dock-window-1" timestamp="1578918674033">
       <screen x="0" y="0" width="1920" height="1080" />
@@ -758,10 +729,10 @@
     </state>
     <state x="532" y="237" width="840" height="1034" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1578304259036" />
     <state x="466" y="239" width="735" height="942" key="run.anything.popup/0.23.1680.947@0.23.1680.947" timestamp="1578525061384" />
-    <state x="466" y="-5" width="735" height="1043" key="search.everywhere.popup" timestamp="1578823082585">
+    <state x="466" y="-5" width="735" height="1043" key="search.everywhere.popup" timestamp="1579000425538">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state x="466" y="-5" width="735" height="1043" key="search.everywhere.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1578823082585" />
+    <state x="466" y="-5" width="735" height="1043" key="search.everywhere.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1579000425538" />
     <state x="532" y="-5" width="840" height="1032" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1578031430451" />
     <state x="532" y="-5" width="840" height="1072" key="search.everywhere.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1578818800802" />
   </component>

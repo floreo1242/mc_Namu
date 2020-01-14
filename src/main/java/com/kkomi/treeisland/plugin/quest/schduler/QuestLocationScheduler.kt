@@ -20,7 +20,6 @@ class QuestLocationScheduler : TimerManager() {
                     playerQuestInfo.checkQuestAmount(QuestAction.MOVE_LOCATION) { questObjective ->
                         player.location.distance(questObjective.target.parseLocation()) <= 1
                     }
-
                 }
     }
 

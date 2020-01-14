@@ -11,6 +11,7 @@ import com.kkomi.treeisland.plugin.quest.model.PlayerQuestRepository
 import com.kkomi.treeisland.plugin.quest.model.QuestRepository
 import com.kkomi.treeisland.plugin.quest.model.entity.PlayerQuest
 import com.kkomi.treeisland.plugin.quest.model.entity.QuestAction
+import com.nisovin.magicspells.util.InventoryUtil
 import org.bukkit.Material
 import org.bukkit.event.EventHandler
 import org.bukkit.event.Listener
@@ -31,6 +32,7 @@ class QuestDataListener : Listener {
         val rightClickedEntityName = event.rightClicked.name ?: return
 
         with(event.player.getPlayerInfo()) {
+
             questInfo.checkQuestAmount(QuestAction.FARMING_ITEM) { true }
 
             questInfo.inProgressQuestList.keys
@@ -38,46 +40,28 @@ class QuestDataListener : Listener {
                     .find { it.endNpc == rightClickedEntityName }
                     ?.let { quest ->
 
-                        val playerQuestObjectiveList = questInfo.inProgressQuestList[quest.name]!!
-
-                        val isSuccessQuest = (playerQuestObjectiveList.map { playerQuestObjective -> playerQuestObjective.isComplete() }.find { !it }
-                                ?: false).not()
-
-                        if (isSuccessQuest) {
-
-                            // TakeItem
-                            try {
-                                playerQuestObjectiveList
-                                        .filter { it.action == QuestAction.FARMING_ITEM }
-                                        .forEach { questObjective ->
-                                            player.inventory.takeItem(OtherItemRepository.getItem(questObjective.target)!!.toItemStack(), questObjective.amount)
-                                        }
-                            } catch (exception: Exception) {
-                                player.sendErrorMessage("에러가 발생하였습니다. 관리자에게 문의주세요. ErrorCode : Not Found Other Item")
-                            }
-
-                            // PlayerQuest
-                            questInfo.completeQuest(quest)
-                            quest.sendCompleteMessage(player)
-                            PlayerQuestRepository.editPlayerQuest(questInfo)
-
-                            // Reward
-                            player.inventory.addItem(
-                                    *quest.reward.items.map { code ->
-                                        OtherItemRepository.getItem(code)?.toItemStack() ?: ItemStack(Material.AIR)
-                                    }.toTypedArray()
-                            )
-                            if (quest.reward.command != "") player.performCommand(quest.reward.command)
-
-                        } else {
+                        if (questInfo.isCompletedQuest(quest)) {
                             quest.sendPurposeMessage(player)
+                            return@let
                         }
-                    }
-        }
 
-        // Open Quest Check
-        QuestRepository.getQuestList().find { rightClickedEntityName == it.startNpc } ?: return
-        QuestListInventory(event.player, rightClickedEntityName).open()
+                        if (player.inventory.count { it == null || it.type == Material.AIR } < quest.reward.items.size) {
+                            player.sendErrorMessage("인벤토리 공간이 부족합니다!")
+                            return@let
+                        }
+
+                        questInfo.completeQuest(quest)
+                        questInfo.takeQuestItems(player, quest)
+                        questInfo.receiveRewards(player, quest)
+                        quest.sendCompleteMessage(player)
+                        PlayerQuestRepository.editPlayerQuest(questInfo)
+
+                    }
+
+            // Open Quest Check
+            QuestRepository.getQuestList().find { rightClickedEntityName == it.startNpc } ?: return
+            QuestListInventory(event.player, rightClickedEntityName).open()
+        }
     }
 
     @EventHandler
