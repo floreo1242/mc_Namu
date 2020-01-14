@@ -6,6 +6,7 @@ import com.kkomi.treeisland.plugin.integration.getPlayerInfo
 import com.kkomi.treeisland.plugin.itemdb.model.EquipmentItemRepository
 import com.kkomi.treeisland.plugin.itemdb.model.entity.EquipmentType
 import com.kkomi.treeisland.plugin.equipitem.inventory.EquipItemInventory
+import com.kkomi.treeisland.plugin.equipitem.model.PlayerEquipItemRepository
 import com.kkomi.treeisland.plugin.stat.model.PlayerStatRepository
 import org.bukkit.Material
 import org.bukkit.entity.Player
@@ -67,9 +68,26 @@ class EquipItemInventoryListener : Listener {
 
     @EventHandler
     fun onPlayerInventoryClickEvent(event: InventoryClickEvent) {
-        if (event.clickedInventory != null && event.clickedInventory.type == InventoryType.PLAYER && event.slot == 0) {
-            event.isCancelled = true
+        // is slot 0?
+        if (event.slot != 0) {
+            return
         }
+
+        // is Creative Inventory?
+        if (event.clickedInventory == null) {
+            return
+        }
+        // Clicked Inventory Type is Player?
+        if ( event.clickedInventory.type != InventoryType.PLAYER) {
+            return
+        }
+
+        // is Equip Weapon?
+        if ( PlayerEquipItemRepository.getPlayerEquipItem(event.whoClicked.uniqueId.toString())!!.weapon.type == Material.AIR) {
+            return
+        }
+
+        event.isCancelled = true
     }
 
     @EventHandler
