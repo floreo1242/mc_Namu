@@ -33,7 +33,7 @@ data class TalkScript(
         return createItemStack(
                 Material.BOOK_AND_QUILL,
                 "&f$talker",
-                message.split("\\n").map { "&f$it" }
+                message.split("|").map { "&f$it" }
         )
     }
 }
