@@ -56,8 +56,9 @@ data class PlayerStat(
         val nature = finalStat[StatOption.NATURE] ?: 0
         val mind = finalStat[StatOption.MIND] ?: 0
 
-        player.getAttribute(Attribute.GENERIC_MOVEMENT_SPEED).baseValue = (player.walkSpeed * (1 + (finalStat[StatOption.WALK_SPEED]
-                ?: 0) / 100)).toDouble()
+        player.getAttribute(Attribute.GENERIC_MOVEMENT_SPEED).baseValue = player.getAttribute(Attribute.GENERIC_MOVEMENT_SPEED).defaultValue * (1 + (finalStat[StatOption.WALK_SPEED]
+                ?: 0) / 100)
+
         player.getAttribute(Attribute.GENERIC_MAX_HEALTH).baseValue = 20 + (finalStat[StatOption.MAX_HP]
                 ?: 1) + (stamina * 1).toDouble()
 
