@@ -4,6 +4,7 @@ import com.kkomi.treeisland.library.extension.createItemStack
 import org.bukkit.Material
 import org.bukkit.configuration.serialization.ConfigurationSerializable
 import org.bukkit.configuration.serialization.SerializableAs
+import org.bukkit.inventory.ItemFlag
 import org.bukkit.inventory.ItemStack
 import org.bukkit.potion.PotionType
 
@@ -39,7 +40,7 @@ data class ConsumptionItem(
     }
 
     fun toItemStack(): ItemStack {
-        return createItemStack(
+        val itemStack = createItemStack(
                 material,
                 name,
                 listOf(
@@ -52,6 +53,13 @@ data class ConsumptionItem(
                 ),
                 durability = durability.toShort()
         )
+        val itemMeta = itemStack.itemMeta
+        itemMeta.isUnbreakable = true
+        itemMeta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES, ItemFlag.HIDE_UNBREAKABLE, ItemFlag.HIDE_DESTROYS, ItemFlag.HIDE_PLACED_ON)
+
+        itemStack.itemMeta = itemMeta
+
+        return itemStack
     }
 
     override fun serialize(): Map<String, Any> {
