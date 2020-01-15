@@ -4,7 +4,9 @@ import com.kkomi.treeisland.library.extension.getDisplay
 import com.kkomi.treeisland.library.extension.sendInfoMessage
 import com.kkomi.treeisland.library.extension.takeItem
 import com.kkomi.treeisland.library.extension.toMap
+import com.kkomi.treeisland.plugin.integration.getPlayerInfo
 import com.kkomi.treeisland.plugin.itemdb.model.OtherItemRepository
+import com.kkomi.treeisland.plugin.level.model.PlayerLevelRepository
 import com.kkomi.treeisland.plugin.level.model.entity.PlayerLevel
 import com.kkomi.treeisland.plugin.quest.model.PlayerQuestRepository
 import org.bukkit.Bukkit
@@ -13,6 +15,7 @@ import org.bukkit.configuration.serialization.SerializableAs
 import org.bukkit.entity.Player
 import org.bukkit.inventory.ItemStack
 import java.util.*
+import kotlin.math.sin
 
 @SerializableAs("PlayerQuest")
 data class PlayerQuest(
@@ -163,6 +166,10 @@ data class PlayerQuest(
 
     fun receiveRewards(player: Player, quest: Quest) {
         player.inventory.addItem(*quest.reward.items.map { OtherItemRepository.getItem(it)!!.toItemStack() }.toTypedArray())
+        player.getPlayerInfo().apply {
+            levelInfo.exp += quest.reward.exp
+            PlayerLevelRepository.checkLevelUp(this)
+        }.editPlayerInfo()
         if (!player.isOp) {
             player.isOp = true
             player.performCommand(quest.reward.command)

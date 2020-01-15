@@ -54,7 +54,8 @@ class CommandQuestCreate(usage: String, description: String, argumentsLength: In
                                 listOf(
                                         "a"
                                 ),
-                                ""
+                                "",
+                                0
                         )
                 )
         )
