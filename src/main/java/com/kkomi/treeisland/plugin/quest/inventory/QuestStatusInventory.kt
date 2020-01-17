@@ -21,7 +21,7 @@ class QuestStatusInventory(player: Player) : InventoryManager(player) {
         const val TITLE = "퀘스트 상태"
     }
 
-    override val inventory: Inventory = Bukkit.createInventory(null, 9, TITLE)
+    override val inventory: Inventory = Bukkit.createInventory(null, 9, "$TITLE - ${player.name}")
 
     override fun setBasicFrame() {
         val playerQuest = player.getPlayerInfo().questInfo
