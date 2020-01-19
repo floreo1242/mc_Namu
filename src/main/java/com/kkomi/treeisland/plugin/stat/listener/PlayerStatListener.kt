@@ -14,8 +14,6 @@ import java.util.*
 
 class PlayerStatListener : Listener {
 
-    private val attackSpeedMap = mutableMapOf<String, Long>()
-
     @EventHandler
     fun onPlayerJoinEvent(event: PlayerJoinEvent) {
         val uuid = event.player.uniqueId.toString()
@@ -32,21 +30,7 @@ class PlayerStatListener : Listener {
             return
         }
 
-        val playerInfo = (event.damager as Player).getPlayerInfo()
-        val longTime = Calendar.getInstance().timeInMillis
-
-        if (longTime < attackSpeedMap[playerInfo.player.uniqueId.toString()] ?: 0) {
-            event.isCancelled = true
-            return
-        }
-
-        val itemDisplay = playerInfo.equipmentInfo.weapon.getDisplay() ?: return
-        val equipmentItem = EquipmentItemRepository.getItemFromItemDisplay(itemDisplay) ?: return
-
-        event.damage = playerInfo.statInfo.getDamage()
-        attackSpeedMap[playerInfo.player.uniqueId.toString()] = Calendar.getInstance().timeInMillis + (AttackSpeedRepository.getAttackSpeed(equipmentItem.equipmentSubType) * 1000).toLong()
-
-        playerInfo.sendInfoMessage("${event.entity}님에게 총 ${event.damage.toInt()}만큼의 피해를 주었습니다.")
+        event.isCancelled = true
     }
 
 }
