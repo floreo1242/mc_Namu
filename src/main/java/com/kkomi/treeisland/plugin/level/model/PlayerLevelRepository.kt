@@ -2,7 +2,7 @@ package com.kkomi.treeisland.plugin.level.model
 
 import com.kkomi.treeisland.Treeisland
 import com.kkomi.treeisland.plugin.integration.PlayerInfo
-import com.kkomi.treeisland.plugin.level.listener.PlayerLevelUpEvent
+import com.kkomi.treeisland.plugin.level.api.PlayerLevelUpEvent
 import com.kkomi.treeisland.plugin.level.model.entity.PlayerLevel
 import org.bukkit.Bukkit
 import java.io.File
@@ -28,16 +28,17 @@ object PlayerLevelRepository {
     }
 
     fun checkLevelUp(playerInfo : PlayerInfo) {
+        val levelConfig = LevelConfigRepository.getLevelConfig()
         val playerLevel: PlayerLevel = playerInfo.levelInfo
-        if (playerLevel.level == LevelTableRepository.getMaxLevel()) {
+        if (playerLevel.level == levelConfig.getMaxLevel()) {
             return
         }
 
-        while (playerLevel.exp >= LevelTableRepository.getLevelExp(playerLevel.level)) {
-            playerLevel.exp -= LevelTableRepository.getLevelExp(playerLevel.level)
+        while (playerLevel.exp >= levelConfig.getExpByLevel(playerLevel.level)) {
+            playerLevel.exp -= levelConfig.getExpByLevel(playerLevel.level)
             playerLevel.level++
 
-            if (playerLevel.level == LevelTableRepository.getMaxLevel()) {
+            if (playerLevel.level == levelConfig.getMaxLevel()) {
                 playerLevel.exp = 0
 
             }

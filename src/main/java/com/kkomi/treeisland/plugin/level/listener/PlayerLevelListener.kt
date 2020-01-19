@@ -1,8 +1,8 @@
 package com.kkomi.treeisland.plugin.level.listener
 
+import com.kkomi.treeisland.plugin.level.api.PlayerLevelUpEvent
 import com.kkomi.treeisland.plugin.level.model.PlayerLevelRepository
 import com.kkomi.treeisland.plugin.level.model.entity.PlayerLevel
-import com.kkomi.treeisland.plugin.stat.model.PlayerStatRepository
 import org.bukkit.event.EventHandler
 import org.bukkit.event.Listener
 import org.bukkit.event.player.PlayerJoinEvent
