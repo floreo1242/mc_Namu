@@ -27,7 +27,7 @@ data class EquipmentItemOption(
     }
 
     fun toLoreStr(): String {
-        return "${statOption.strName} +$value${if (statOption.isPer) "%" else ""}"
+        return "+$value${if (statOption.isPer) "%" else ""} ${statOption.strName}"
     }
 
 }

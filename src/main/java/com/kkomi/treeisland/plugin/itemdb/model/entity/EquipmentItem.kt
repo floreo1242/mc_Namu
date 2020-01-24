@@ -13,7 +13,6 @@ data class EquipmentItem(
         val name: String,
         val description: String,
         var equipmentType: EquipmentType,
-        var equipmentSubType: String,
         val material: Material,
         val durability: Int,
         val levelLimit: Int,
@@ -29,7 +28,6 @@ data class EquipmentItem(
                     data["name"] as String,
                     data["description"] as String,
                     EquipmentType.valueOf(data["equipmentType"] as String),
-                    data["equipmentSubType"] as String,
                     Material.valueOf(data["material"] as String),
                     data["durability"] as Int,
                     data["levelLimit"] as Int,
@@ -45,16 +43,16 @@ data class EquipmentItem(
                 name,
                 listOf(
                         "",
-                        "&f[ 장비아이템 - ${equipmentType.strName}${
-                        if (equipmentSubType.isEmpty()) {
-                            ""
-                        } else {
-                            " - $equipmentSubType"
-                        }
-                        } ]",
-                        "",
-                        "&c직업 : $job",
-                        "&9레벨 : $levelLimit",
+//                        "&f[ 장비아이템 - ${equipmentType.strName}${
+//                        if (equipmentSubType.isEmpty()) {
+//                            ""
+//                        } else {
+//                            " - $equipmentSubType"
+//                        }
+//                        } ]",
+//                        "",
+                        "&f착용직업 : $job",
+                        "&f레벨제한 : $levelLimit",
                         "",
                         *options.map { "&f${it.toLoreStr()}" }.toTypedArray(),
                         "",
@@ -80,7 +78,6 @@ data class EquipmentItem(
                 "name" to name,
                 "description" to description,
                 "equipmentType" to equipmentType.toString(),
-                "equipmentSubType" to equipmentSubType,
                 "material" to material.toString(),
                 "durability" to durability,
                 "levelLimit" to levelLimit,

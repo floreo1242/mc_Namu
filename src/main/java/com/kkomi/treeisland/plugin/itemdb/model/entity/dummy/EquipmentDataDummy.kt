@@ -12,35 +12,75 @@ object EquipmentDataDummy {
 
     fun get(player: Player) {
         val test_sword = EquipmentItem(
-                "dark_moon_two_hand_sword",
-                "&e다크문 양손검",
-                "&f위그드라실의 힘이 담겨있다.",
+                "test_weapon",
+                "&eTEST WEAPON",
+                "&fThis is test weapon",
                 EquipmentType.WEAPON,
-                "양손검",
                 Material.WOOD_SWORD,
                 0,
                 200,
-                "전사",
-                StatOption.values().map { EquipmentItemOption(it, 30) }
+                "Warrior",
+                StatOption.values().map { EquipmentItemOption(it, 10) }
         )
 
-        val test_knife = EquipmentItem(
-                "dark_moon_two_hand_knife",
-                "&e다크문 단도",
-                "&f위그드라실의 힘이 담겨있다.",
-                EquipmentType.WEAPON,
-                "단도",
-                Material.WOOD_SWORD,
+        val test_helmet = EquipmentItem(
+                "test_helmet",
+                "&eTEST HELMET",
+                "&fThis is test helmet",
+                EquipmentType.HELMET,
+                Material.LEATHER_HELMET,
                 0,
                 200,
-                "도적",
-                StatOption.values().map { EquipmentItemOption(it, 100) }
+                "Warrior",
+                StatOption.values().map { EquipmentItemOption(it, 10) }
+        )
+
+        val test_chest_plate = EquipmentItem(
+                "test_chest_plate",
+                "&eTEST CHEST_PLATE",
+                "&fThis is test chest plate",
+                EquipmentType.PLATE,
+                Material.LEATHER_CHESTPLATE,
+                0,
+                200,
+                "Warrior",
+                StatOption.values().map { EquipmentItemOption(it, 10) }
+        )
+
+        val test_leggings = EquipmentItem(
+                "test_leggings",
+                "&eTEST LEGGINGS",
+                "&fThis is test leggings",
+                EquipmentType.LEGGINGS,
+                Material.LEATHER_LEGGINGS,
+                0,
+                200,
+                "Warrior",
+                StatOption.values().map { EquipmentItemOption(it, 10) }
+        )
+
+        val test_boots = EquipmentItem(
+                "test_boots",
+                "&eTEST BOOTS",
+                "&fThis is test boots",
+                EquipmentType.BOOTS,
+                Material.LEATHER_BOOTS,
+                0,
+                200,
+                "Warrior",
+                StatOption.values().map { EquipmentItemOption(it, 10) }
         )
 
         EquipmentItemRepository.createItem(test_sword)
-        EquipmentItemRepository.createItem(test_knife)
+        EquipmentItemRepository.createItem(test_helmet)
+        EquipmentItemRepository.createItem(test_chest_plate)
+        EquipmentItemRepository.createItem(test_leggings)
+        EquipmentItemRepository.createItem(test_boots)
         player.inventory.addItem(test_sword.toItemStack())
-        player.inventory.addItem(test_knife.toItemStack())
+        player.inventory.addItem(test_helmet.toItemStack())
+        player.inventory.addItem(test_chest_plate.toItemStack())
+        player.inventory.addItem(test_leggings.toItemStack())
+        player.inventory.addItem(test_boots.toItemStack())
     }
 
 }

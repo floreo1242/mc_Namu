@@ -33,7 +33,6 @@ object EquipmentItemRepository : ItemRepository<EquipmentItem> {
                         "Equipment Item Name",
                         "Equipment Item Description",
                         EquipmentType.WEAPON,
-                        "한손검",
                         Material.WOOD_SWORD,
                         0,
                         0,
