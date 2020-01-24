@@ -3,12 +3,14 @@ package com.kkomi.treeisland.plugin.equipitem.listener
 import com.kkomi.treeisland.library.extension.emptyCount
 import com.kkomi.treeisland.library.extension.getDisplay
 import com.kkomi.treeisland.library.extension.getServerTitleInfo
+import com.kkomi.treeisland.plugin.equipitem.api.PlayerWearEquipmentItemEvent
 import com.kkomi.treeisland.plugin.integration.getPlayerInfo
 import com.kkomi.treeisland.plugin.itemdb.model.EquipmentItemRepository
 import com.kkomi.treeisland.plugin.itemdb.model.entity.EquipmentType
 import com.kkomi.treeisland.plugin.equipitem.inventory.EquipItemInventory
 import com.kkomi.treeisland.plugin.equipitem.model.PlayerEquipItemRepository
 import com.kkomi.treeisland.plugin.stat.model.PlayerStatRepository
+import org.bukkit.Bukkit
 import org.bukkit.Material
 import org.bukkit.entity.Player
 import org.bukkit.event.EventHandler
@@ -17,6 +19,7 @@ import org.bukkit.event.inventory.InventoryClickEvent
 import org.bukkit.event.inventory.InventoryCloseEvent
 import org.bukkit.event.inventory.InventoryType
 import org.bukkit.event.player.PlayerDropItemEvent
+import org.bukkit.inventory.Inventory
 import org.bukkit.inventory.ItemStack
 
 class EquipItemInventoryListener : Listener {
@@ -62,15 +65,16 @@ class EquipItemInventoryListener : Listener {
             }
             InventoryArea.BOTTOM -> {
                 val item = inventory.getItem(equipmentSlot)
-
                 if (item == null || item.type == Material.AIR || item.type == Material.IRON_BARDING) {
                     inventory.setItem(equipmentSlot, currentItem)
                     currentItem.amount = 0
                 } else {
                     playerInfo.sendErrorMessage("장착중인 아이템을 제거 후 착용해주세요!")
                 }
+
             }
         }
+        applyEquipmentItemToPlayer(playerInfo.player, inventory)
     }
 
     @EventHandler
@@ -107,7 +111,6 @@ class EquipItemInventoryListener : Listener {
 
     @EventHandler
     fun onInventoryCloseEvent(event: InventoryCloseEvent) {
-        val playerInfo = (event.player as Player).getPlayerInfo()
         val inventory = event.inventory
         val data = inventory.getServerTitleInfo() ?: return
 
@@ -115,21 +118,17 @@ class EquipItemInventoryListener : Listener {
             return
         }
 
-        PlayerEquipItemRepository.editPlayerEquipItem(
-                playerInfo.equipmentInfo.apply {
-                    weapon = inventory.getItem(EquipItemInventory.WEAPON) ?: ItemStack(Material.IRON_BARDING)
-                    helmet = inventory.getItem(EquipItemInventory.HELMET) ?: ItemStack(Material.AIR)
-                    plate = inventory.getItem(EquipItemInventory.PLATE) ?: ItemStack(Material.AIR)
-                    legging = inventory.getItem(EquipItemInventory.LEGGINGS) ?: ItemStack(Material.AIR)
-                    boots = inventory.getItem(EquipItemInventory.BOOTS) ?: ItemStack(Material.AIR)
-                }
-        )
+        applyEquipmentItemToPlayer(event.player as Player, inventory)
+        Bukkit.getPluginManager().callEvent(PlayerWearEquipmentItemEvent(false, event.player as Player))
+    }
 
-        playerInfo.statInfo.updateFinalStat(playerInfo.equipmentInfo)
-        playerInfo.statInfo.calculateStatOption(playerInfo.player)
-        PlayerStatRepository.editPlayerStat(playerInfo.statInfo)
-
-        applyWeaponInPlayerInventory(playerInfo.player)
+    @EventHandler
+    fun onPlayerWearEquipmentItemEvent(event: PlayerWearEquipmentItemEvent) {
+        event.player.getPlayerInfo().run {
+            statInfo.updateFinalStat(equipmentInfo)
+            statInfo.calculateStatOption(player)
+            PlayerStatRepository.editPlayerStat(statInfo)
+        }
     }
 
     private fun getSlotFromEquipmentType(equipmentType: EquipmentType): Int {
@@ -142,9 +141,21 @@ class EquipItemInventoryListener : Listener {
         }
     }
 
-    private fun applyWeaponInPlayerInventory(player: Player) {
-        val playerInfo = player.getPlayerInfo()
-        player.inventory.setItem(0, playerInfo.equipmentInfo.weapon)
+    private fun applyEquipmentItemToPlayer(player: Player, inventory: Inventory) {
+        PlayerEquipItemRepository.editPlayerEquipItem(
+                player.getPlayerInfo().equipmentInfo.apply {
+                    weapon = inventory.getItem(EquipItemInventory.WEAPON) ?: ItemStack(Material.IRON_BARDING)
+                    helmet = inventory.getItem(EquipItemInventory.HELMET) ?: ItemStack(Material.AIR)
+                    plate = inventory.getItem(EquipItemInventory.PLATE) ?: ItemStack(Material.AIR)
+                    legging = inventory.getItem(EquipItemInventory.LEGGINGS) ?: ItemStack(Material.AIR)
+                    boots = inventory.getItem(EquipItemInventory.BOOTS) ?: ItemStack(Material.AIR)
+                }
+        )
+        player.getPlayerInfo().equipmentInfo.run {
+            PlayerEquipItemRepository.editPlayerEquipItem(this)
+            player.inventory.setItem(0, weapon)
+        }
+        Bukkit.getPluginManager().callEvent(PlayerWearEquipmentItemEvent(false, player))
     }
 
     private fun isClickArea(inventorySize: Int, rowId: Int): InventoryArea {

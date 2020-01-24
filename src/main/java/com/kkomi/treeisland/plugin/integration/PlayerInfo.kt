@@ -36,6 +36,8 @@ class PlayerInfo(
         PlayerQuestRepository.editPlayerQuest(questInfo)
         PlayerStatRepository.editPlayerStat(statInfo)
         PlayerLevelRepository.editPlayerLevel(levelInfo)
+        PlayerEquipItemRepository.editPlayerEquipItem(equipmentInfo)
+        PlayerRoleRepository.editPlayerRole(roleInfo)
     }
 
     fun sendErrorMessage(message: Any) {
