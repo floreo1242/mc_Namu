@@ -18,7 +18,6 @@ abstract class FileDataSource<T : ConfigurationSerializable>(
     }
 
     protected fun loadFiles() {
-        println("loadFiles")
         objectByName.clear()
         val valueByKey = TreeMap<String, T>(String.CASE_INSENSITIVE_ORDER)
         dataFolder.getYmlFileList().forEach { file ->
@@ -27,7 +26,6 @@ abstract class FileDataSource<T : ConfigurationSerializable>(
                 val config = YamlConfiguration.loadConfiguration(file)
                 val value = config.getSerializable("data", classType)
                 valueByKey[key] = value
-                println(value)
             } catch (exception: Exception) {
                 println("Failed to load from $key cause : ")
                 exception.printStackTrace()
