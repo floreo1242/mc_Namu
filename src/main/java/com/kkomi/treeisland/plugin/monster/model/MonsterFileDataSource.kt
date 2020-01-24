@@ -13,7 +13,6 @@ class MonsterFileDataSource(
         if (getValueList().isEmpty()) {
             createMonster(MonsterDrop("ZOMBIE", 10, 10))
         }
-
     }
 
     override fun getMonster(name: String): MonsterDrop? {

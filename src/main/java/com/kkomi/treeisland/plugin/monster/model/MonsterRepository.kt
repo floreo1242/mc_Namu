@@ -23,7 +23,7 @@ object MonsterRepository {
         monsterDataSource.removeMonster(name)
     }
 
-    fun reloadMonsters() {
+    fun reloadMonster() {
         monsterDataSource.reloadMonsters()
     }
 }

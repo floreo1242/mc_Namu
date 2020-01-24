@@ -1,9 +1,11 @@
 package com.kkomi.treeisland.plugin.monster.listener
 
 import com.kkomi.treeisland.plugin.integration.getPlayerInfo
+import com.kkomi.treeisland.plugin.level.api.PlayerExpGetEvent
 import com.kkomi.treeisland.plugin.level.model.PlayerLevelRepository
 import com.kkomi.treeisland.plugin.monster.model.MonsterRepository
 import com.kkomi.treeisland.plugin.skill.api.EntityDeathBySpellCasterEvent
+import org.bukkit.Bukkit
 import org.bukkit.event.EventHandler
 import org.bukkit.event.Listener
 import org.bukkit.event.entity.EntityDeathEvent
@@ -22,6 +24,7 @@ class MonsterListener : Listener {
             sendInfoMessage("EXP + %d".format(monster.dropExp))
             sendInfoMessage("GOLD + %d".format(monster.dropMoney))
 
+            Bukkit.getPluginManager().callEvent(PlayerExpGetEvent(false, this))
             PlayerLevelRepository.checkLevelUp(this)
         }.editPlayerInfo()
     }
