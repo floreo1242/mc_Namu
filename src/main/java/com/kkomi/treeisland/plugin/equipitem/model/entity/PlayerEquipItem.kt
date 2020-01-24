@@ -1,9 +1,12 @@
 package com.kkomi.treeisland.plugin.equipitem.model.entity
 
+import com.kkomi.treeisland.library.extension.*
+import com.kkomi.treeisland.plugin.itemdb.model.entity.StatOption
 import org.bukkit.Material
 import org.bukkit.configuration.serialization.ConfigurationSerializable
 import org.bukkit.configuration.serialization.SerializableAs
 import org.bukkit.inventory.ItemStack
+import java.util.regex.Pattern
 
 @SerializableAs("EquipItemList")
 data class PlayerEquipItem(
@@ -12,17 +15,31 @@ data class PlayerEquipItem(
         var plate: ItemStack = ItemStack(Material.AIR),
         var legging: ItemStack = ItemStack(Material.AIR),
         var boots: ItemStack = ItemStack(Material.AIR),
-        var glove: ItemStack = ItemStack(Material.AIR),
-        var weapon: ItemStack = ItemStack(Material.AIR),
-        var ring: ItemStack = ItemStack(Material.AIR),
-        var glasses: ItemStack = ItemStack(Material.AIR),
-        var earring: ItemStack = ItemStack(Material.AIR)
+        var weapon: ItemStack = ItemStack(Material.AIR)
 ) : ConfigurationSerializable {
 
     fun toItemStackList(): List<ItemStack> {
         return listOfNotNull(
-                helmet, plate, legging, boots, glove, weapon, ring, glasses, earring
+                helmet, plate, legging, boots, weapon
         ).filter { it.type != Material.AIR }
+    }
+
+    fun getEquipmentItemStat(): Map<StatOption, Int> {
+        val equipmentStat = mutableMapOf<StatOption, Int>()
+        toItemStackList()
+                .flatMap {
+                    it.getLore() ?: listOf()
+                }
+                .filter {
+                    it.startsWith("§f+") || it.startsWith("§f-")
+                }
+                .forEach { data ->
+                    val temp = data.removeChatColorCode().split(" ")
+                    val optionValue = temp[0].run { substring(1 until if (endsWith("%")) length - 1 else length) }.toInt()
+                    val optionName = StatOption.values().find { it.strName == temp.join(1, temp.size - 1) }!!
+                    equipmentStat[optionName] = (equipmentStat[optionName] ?: 0) + optionValue
+                }
+        return equipmentStat
     }
 
     companion object {
@@ -34,11 +51,7 @@ data class PlayerEquipItem(
                     data["plate"] as ItemStack,
                     data["legging"] as ItemStack,
                     data["boots"] as ItemStack,
-                    data["glove"] as ItemStack,
-                    data["weapon"] as ItemStack,
-                    data["ring"] as ItemStack,
-                    data["glasses"] as ItemStack,
-                    data["earring"] as ItemStack
+                    data["weapon"] as ItemStack
             )
         }
     }
@@ -50,11 +63,7 @@ data class PlayerEquipItem(
                 "plate" to plate,
                 "legging" to legging,
                 "boots" to boots,
-                "glove" to glove,
-                "weapon" to weapon,
-                "ring" to ring,
-                "glasses" to glasses,
-                "earring" to earring
+                "weapon" to weapon
         )
     }
 }

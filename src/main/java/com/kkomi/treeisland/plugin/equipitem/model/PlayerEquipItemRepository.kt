@@ -28,7 +28,7 @@ object PlayerEquipItemRepository {
         playerEquipItemFileDataSource.removePlayerEquipItem(uuid)
     }
 
-    fun reloadPlayerEquipItems() {
+    fun reloadPlayerEquipItem() {
         playerEquipItemFileDataSource.reloadPlayerEquipItems()
     }
 

@@ -1,5 +1,6 @@
 package com.kkomi.treeisland.plugin.equipitem.listener
 
+import com.kkomi.treeisland.library.extension.emptyCount
 import com.kkomi.treeisland.library.extension.getDisplay
 import com.kkomi.treeisland.library.extension.getServerTitleInfo
 import com.kkomi.treeisland.plugin.integration.getPlayerInfo
@@ -44,19 +45,25 @@ class EquipItemInventoryListener : Listener {
 
         when (isClickArea(event.inventory.size, slot)) {
             InventoryArea.TOP -> {
-
+                // 아이템 장착 슬롯인가?
                 if (!EquipItemInventory.equipItemSlotList.contains(slot)) {
                     return
                 }
 
-                val item = inventory.getItem(slot)
-                playerInfo.player.inventory.addItem(item)
-                item.amount = 0
+                // 잔여 슬롯이 있는가?
+                if (inventory.storageContents.emptyCount() == 0) {
+                    return
+                }
+
+                val equipmentInventoryItem = inventory.getItem(slot)
+                inventory.setItem(slot, ItemStack(Material.IRON_BARDING))
+                playerInfo.player.inventory.addItem(equipmentInventoryItem)
+                equipmentInventoryItem.amount = 0
             }
             InventoryArea.BOTTOM -> {
                 val item = inventory.getItem(equipmentSlot)
 
-                if (item == null || item.type == Material.AIR) {
+                if (item == null || item.type == Material.AIR || item.type == Material.IRON_BARDING) {
                     inventory.setItem(equipmentSlot, currentItem)
                     currentItem.amount = 0
                 } else {
@@ -78,12 +85,12 @@ class EquipItemInventoryListener : Listener {
             return
         }
         // Clicked Inventory Type is Player?
-        if ( event.clickedInventory.type != InventoryType.PLAYER) {
+        if (event.clickedInventory.type != InventoryType.PLAYER) {
             return
         }
 
         // is Equip Weapon?
-        if ( PlayerEquipItemRepository.getPlayerEquipItem(event.whoClicked.uniqueId.toString())!!.weapon.type == Material.AIR) {
+        if (PlayerEquipItemRepository.getPlayerEquipItem(event.whoClicked.uniqueId.toString())!!.weapon.type == Material.AIR) {
             return
         }
 
@@ -108,23 +115,21 @@ class EquipItemInventoryListener : Listener {
             return
         }
 
-        playerInfo.equipmentInfo.apply {
-            weapon = inventory.getItem(EquipItemInventory.WEAPON) ?: ItemStack(Material.AIR)
-            helmet = inventory.getItem(EquipItemInventory.HELMET) ?: ItemStack(Material.AIR)
-            plate = inventory.getItem(EquipItemInventory.PLATE) ?: ItemStack(Material.AIR)
-            legging = inventory.getItem(EquipItemInventory.LEGGINGS) ?: ItemStack(Material.AIR)
-            boots = inventory.getItem(EquipItemInventory.BOOTS) ?: ItemStack(Material.AIR)
-            glove = inventory.getItem(EquipItemInventory.GLOVE) ?: ItemStack(Material.AIR)
-            earring = inventory.getItem(EquipItemInventory.EARRING) ?: ItemStack(Material.AIR)
-            glasses = inventory.getItem(EquipItemInventory.GLASSES) ?: ItemStack(Material.AIR)
-            ring = inventory.getItem(EquipItemInventory.RING) ?: ItemStack(Material.AIR)
-        }
+        PlayerEquipItemRepository.editPlayerEquipItem(
+                playerInfo.equipmentInfo.apply {
+                    weapon = inventory.getItem(EquipItemInventory.WEAPON) ?: ItemStack(Material.IRON_BARDING)
+                    helmet = inventory.getItem(EquipItemInventory.HELMET) ?: ItemStack(Material.AIR)
+                    plate = inventory.getItem(EquipItemInventory.PLATE) ?: ItemStack(Material.AIR)
+                    legging = inventory.getItem(EquipItemInventory.LEGGINGS) ?: ItemStack(Material.AIR)
+                    boots = inventory.getItem(EquipItemInventory.BOOTS) ?: ItemStack(Material.AIR)
+                }
+        )
 
         playerInfo.statInfo.updateFinalStat(playerInfo.equipmentInfo)
-        playerInfo.statInfo.applyFinalStat(playerInfo.player)
+        playerInfo.statInfo.calculateStatOption(playerInfo.player)
         PlayerStatRepository.editPlayerStat(playerInfo.statInfo)
 
-        playerInfo.player.inventory.setItem(0, playerInfo.equipmentInfo.weapon)
+        applyWeaponInPlayerInventory(playerInfo.player)
     }
 
     private fun getSlotFromEquipmentType(equipmentType: EquipmentType): Int {
@@ -134,11 +139,12 @@ class EquipItemInventoryListener : Listener {
             EquipmentType.PLATE -> EquipItemInventory.PLATE
             EquipmentType.LEGGINGS -> EquipItemInventory.LEGGINGS
             EquipmentType.BOOTS -> EquipItemInventory.BOOTS
-            EquipmentType.GLOVE -> EquipItemInventory.GLOVE
-            EquipmentType.EARRING -> EquipItemInventory.EARRING
-            EquipmentType.GLASSES -> EquipItemInventory.GLASSES
-            EquipmentType.RING -> EquipItemInventory.RING
         }
+    }
+
+    private fun applyWeaponInPlayerInventory(player: Player) {
+        val playerInfo = player.getPlayerInfo()
+        player.inventory.setItem(0, playerInfo.equipmentInfo.weapon)
     }
 
     private fun isClickArea(inventorySize: Int, rowId: Int): InventoryArea {
