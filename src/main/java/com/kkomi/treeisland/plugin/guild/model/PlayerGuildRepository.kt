@@ -28,7 +28,7 @@ object PlayerGuildRepository {
         PlayerGuildDataSource.removePlayerGuild(uuid)
     }
 
-    fun reloadPlayerGuilds() {
+    fun reloadPlayerGuild() {
         PlayerGuildDataSource.reloadPlayerGuilds()
     }
 

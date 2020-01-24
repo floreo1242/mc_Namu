@@ -29,7 +29,7 @@ object GuildRepository {
         guildDataSource.removeGuild(name)
     }
 
-    fun reloadGuilds() {
+    fun reloadGuild() {
         guildDataSource.reloadGuilds()
     }
 
