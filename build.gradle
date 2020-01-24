@@ -19,6 +19,10 @@ repositories {
         url = 'https://papermc.io/repo/repository/maven-public/'
     }
     maven {
+        name = 'hub-spigotmc'
+        url = 'https://hub.spigotmc.org/nexus/content/repositories/snapshots/'
+    }
+    maven {
         name = 'sonatype'
         url = 'https://oss.sonatype.org/content/groups/public/'
     }
