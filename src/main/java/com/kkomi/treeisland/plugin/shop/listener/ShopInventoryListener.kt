@@ -4,7 +4,7 @@ import com.kkomi.treeisland.library.PageList
 import com.kkomi.treeisland.library.extension.*
 import com.kkomi.treeisland.library.message.InventoryMessage
 import com.kkomi.treeisland.plugin.integration.PlayerInfo
-import com.kkomi.treeisland.plugin.money.model.MoneyRepository
+import com.kkomi.treeisland.plugin.money.model.PlayerMoneyRepository
 import com.kkomi.treeisland.plugin.shop.model.entity.Shop
 import com.kkomi.treeisland.plugin.shop.inventory.ShopInventory
 import com.kkomi.treeisland.plugin.shop.model.KeywordShopRepository
@@ -89,7 +89,7 @@ class ShopInventoryListener : Listener {
                     playerInfo.sendErrorMessage(InventoryMessage.INSUFFICIENCY_SPACE)
                     return
                 }
-                MoneyRepository.editPlayerMoney(playerMoney.apply { takeMoney(stuff.price.toLong()) })
+                PlayerMoneyRepository.editPlayerMoney(playerMoney.apply { takeMoney(stuff.price.toLong()) })
                 playerInfo.player.inventory.addItem(stuff.itemStack)
                 playerInfo.sendInfoMessage(ShopMessage.BUY_ITEM)
             }
@@ -106,7 +106,7 @@ class ShopInventoryListener : Listener {
                     ClickType.SHIFT_LEFT -> currentItem.amount
                     else -> return
                 }
-                MoneyRepository.editPlayerMoney(playerMoney.apply { giveMoney(stuff.price * amount.toLong()) })
+                PlayerMoneyRepository.editPlayerMoney(playerMoney.apply { giveMoney(stuff.price * amount.toLong()) })
                 currentItem.amount -= amount
                 playerInfo.sendInfoMessage(ShopMessage.SELL_ITEM)
             }

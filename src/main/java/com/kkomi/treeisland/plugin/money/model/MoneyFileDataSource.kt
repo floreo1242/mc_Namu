@@ -32,4 +32,8 @@ class MoneyFileDataSource(
         deleteFile(uuid)
     }
 
+    override fun reloadPlayerMoney() {
+        loadFiles()
+    }
+
 }

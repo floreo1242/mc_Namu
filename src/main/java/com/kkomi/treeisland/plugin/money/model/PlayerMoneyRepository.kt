@@ -3,7 +3,7 @@ package com.kkomi.treeisland.plugin.money.model
 import com.kkomi.treeisland.Treeisland
 import com.kkomi.treeisland.plugin.money.model.entity.PlayerMoney
 
-object MoneyRepository {
+object PlayerMoneyRepository {
 
     private val playerMoneyDataSource = MoneyFileDataSource(Treeisland.moneyPlugin.dataFolder, PlayerMoney::class.java)
 
@@ -25,6 +25,10 @@ object MoneyRepository {
 
     fun removePlayerMoney(uuid: String) {
         playerMoneyDataSource.removePlayerMoney(uuid)
+    }
+
+    fun reloadPlayerMoney() {
+        playerMoneyDataSource.reloadPlayerMoney()
     }
 
 }
