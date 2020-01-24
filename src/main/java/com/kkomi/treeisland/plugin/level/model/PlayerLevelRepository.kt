@@ -30,6 +30,7 @@ object PlayerLevelRepository {
     fun checkLevelUp(playerInfo : PlayerInfo) {
         val levelConfig = LevelConfigRepository.getLevelConfig()
         val playerLevel: PlayerLevel = playerInfo.levelInfo
+
         if (playerLevel.level == levelConfig.getMaxLevel()) {
             return
         }
@@ -38,10 +39,10 @@ object PlayerLevelRepository {
             playerLevel.exp -= levelConfig.getExpByLevel(playerLevel.level)
             playerLevel.level++
 
-            if (playerLevel.level == levelConfig.getMaxLevel()) {
+            if (playerLevel.level >= levelConfig.getMaxLevel()) {
                 playerLevel.exp = 0
-
             }
+
             Bukkit.getServer().pluginManager.callEvent(PlayerLevelUpEvent(false, playerInfo))
         }
 

@@ -6,7 +6,7 @@ import java.io.File
 
 object LevelConfigRepository {
 
-    private val levelConfigDataSource = LevelConfigFileDataSource(File(Treeisland.skillPlugin.dataFolder.path))
+    private val levelConfigDataSource = LevelConfigFileDataSource(Treeisland.levelPlugin.dataFolder)
 
     fun getLevelConfig(): LevelConfig {
         return levelConfigDataSource.getLevelConfig()

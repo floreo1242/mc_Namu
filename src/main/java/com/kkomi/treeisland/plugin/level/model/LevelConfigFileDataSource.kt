@@ -9,21 +9,25 @@ class LevelConfigFileDataSource(
         dataFolder: File
 ) : LevelConfigDataSource {
 
-    private var config : LevelConfig? = null
-    private val configFile = File(dataFolder,"config.yml")
+    private var config: LevelConfig? = null
+    private val configFile = File(dataFolder, "config.yml")
     private val configuration = YamlConfiguration.loadConfiguration(configFile)
-    
+
     override fun getLevelConfig(): LevelConfig {
-        if(config == null) reloadLevelConfig()
+        if (config == null) reloadLevelConfig()
         return config!!
     }
 
-    override fun editLevelConfig(levelConfig : LevelConfig) {
-        configuration.set("config",config)
+    override fun editLevelConfig(levelConfig: LevelConfig) {
+        configuration.set("config", config)
         configuration.save(configFile)
     }
 
     override fun reloadLevelConfig() {
+        if (!configuration.getKeys(false).contains("config")) {
+            configuration.set("config", LevelConfig(listOf(100, 100, 100)))
+            configuration.save(configFile)
+        }
         config = configuration.get("config") as LevelConfig
     }
 

@@ -6,12 +6,13 @@ import org.bukkit.configuration.serialization.SerializableAs
 
 @SerializableAs("LevelConfig")
 data class LevelConfig(
-        var levelExpTable: Map<Int, Int>
+        var levelExpTable: List<Int>
 ) : ConfigurationSerializable {
     companion object {
+        @JvmStatic
         fun deserialize(data: Map<String, Any>): LevelConfig {
             return LevelConfig(
-                    data["levelExpTable"] as Map<Int, Int>
+                    data["levelExpTable"] as List<Int>
             )
         }
     }
@@ -23,10 +24,10 @@ data class LevelConfig(
     }
 
     fun getMaxLevel(): Int {
-        return levelExpTable.keys.max() ?: 0
+        return levelExpTable.size
     }
 
     fun getExpByLevel(level: Int): Int {
-        return levelExpTable[level] ?: 0
+        return levelExpTable[level-1]
     }
 }
