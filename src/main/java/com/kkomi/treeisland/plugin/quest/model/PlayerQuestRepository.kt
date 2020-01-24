@@ -29,4 +29,8 @@ object PlayerQuestRepository {
         playerQuestDataSource.removePlayerQuest(name)
     }
 
+    fun reloadPlayerQuest() {
+        playerQuestDataSource.reloadPlayerQuest()
+    }
+
 }

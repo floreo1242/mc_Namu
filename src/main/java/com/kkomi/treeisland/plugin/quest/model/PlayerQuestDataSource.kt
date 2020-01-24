@@ -14,4 +14,6 @@ interface PlayerQuestDataSource {
 
     fun removePlayerQuest(uuid: String)
 
+    fun reloadPlayerQuest()
+
 }

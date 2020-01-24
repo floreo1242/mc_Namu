@@ -15,7 +15,7 @@ class CommandQuestReload(usage: String, description: String, argumentsLength: In
 
     override fun onCommand(sender: CommandSender, label: String, command: Command, componentLabel: String, args: ArgumentList): Boolean {
         QuestRepository.reloadQuest()
-        sender.sendDebugMessage(QuestMessage.QUEST_RELOAD)
+        sender.sendDebugMessage("데이터롤 리로드 하였습니다.")
         return true
     }
 

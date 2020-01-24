@@ -32,4 +32,8 @@ class PlayerQuestFileDataSource(
         deleteFile(uuid)
     }
 
+    override fun reloadPlayerQuest() {
+        loadFiles()
+    }
+
 }
