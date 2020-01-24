@@ -1,5 +1,6 @@
 package com.kkomi.treeisland.plugin.skill.listener
 
+import com.kkomi.treeisland.library.extension.sendInfoMessage
 import com.kkomi.treeisland.plugin.integration.getPlayerInfo
 import com.kkomi.treeisland.plugin.skill.api.EntityDeathBySpellCasterEvent
 import com.kkomi.treeisland.plugin.skill.api.SpellApplyDamagePlayerByEntityEvent
@@ -15,7 +16,9 @@ class SkillListener : Listener {
 
     @EventHandler
     fun onSpellApplyDamagePlayerByEntityEvent(event: SpellApplyDamagePlayerByEntityEvent) {
-        val damage = event.percent * event.caster.getPlayerInfo().statInfo.getDamage()
+        val damage = event.percent * event.caster.getPlayerInfo().statInfo.getTotalDamage()
+        println("${event.percent} / ${event.caster.getPlayerInfo().statInfo.getTotalDamage()}")
+        event.caster.sendInfoMessage("${event.entity.name}에게 ${damage}만큼의 피해를 주었습니다.")
         event.entity.damage(damage)
 
         if (event.entity.isDead) {

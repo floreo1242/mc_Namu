@@ -13,6 +13,7 @@ data class SkillInfo(
         val magicSpellName: String
 ) : ConfigurationSerializable {
     companion object {
+        @JvmStatic
         fun deserialize(data: Map<String, Any>): SkillInfo {
             return SkillInfo(
                     data["name"] as String,
