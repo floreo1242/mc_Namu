@@ -6,6 +6,7 @@ import com.kkomi.treeisland.plugin.stat.command.CommandOpenPlayerStat
 import com.kkomi.treeisland.plugin.stat.listener.PlayerStatInventoryListener
 import com.kkomi.treeisland.plugin.stat.listener.PlayerStatListener
 import com.kkomi.treeisland.plugin.stat.model.entity.PlayerStat
+import com.kkomi.treeisland.plugin.stat.model.entity.StatConfig
 import org.bukkit.Bukkit
 import org.bukkit.configuration.serialization.ConfigurationSerialization
 import org.bukkit.plugin.java.JavaPlugin
@@ -31,6 +32,7 @@ class StatPlugin(dataFolder: File, plugin: JavaPlugin) : SubMainManager(dataFold
 
     override fun setupManagers() {
         ConfigurationSerialization.registerClass(PlayerStat::class.java,"PlayerStat")
+        ConfigurationSerialization.registerClass(StatConfig::class.java,"StatConfig")
     }
 
     override fun setupSchedulers() {

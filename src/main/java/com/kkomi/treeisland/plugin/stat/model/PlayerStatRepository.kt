@@ -23,9 +23,10 @@ object PlayerStatRepository {
                         uuid,
                         mutableMapOf(
                                 StatOption.STRENGTH to 0,
-                                StatOption.MIND to 0,
-                                StatOption.NATURE to 0,
-                                StatOption.STAMINA to 0
+                                StatOption.INTELLIGENCE to 0,
+                                StatOption.DEXTERITY to 0,
+                                StatOption.DEFENSE to 0,
+                                StatOption.AGILITY to 0
                         ),
                         0,
                         statOptionToMap()
@@ -41,7 +42,7 @@ object PlayerStatRepository {
         playerStatFileDataSource.removePlayerStat(uuid)
     }
 
-    fun reloadPlayerStats() {
+    fun reloadPlayerStat() {
         playerStatFileDataSource.reloadPlayerStats()
     }
 
