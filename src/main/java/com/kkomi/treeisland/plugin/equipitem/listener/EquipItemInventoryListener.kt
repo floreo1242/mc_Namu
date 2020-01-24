@@ -46,6 +46,16 @@ class EquipItemInventoryListener : Listener {
         val equipmentSlot = getSlotFromEquipmentType(equipmentItem.equipmentType)
         val slot = event.rawSlot
 
+        if (equipmentItem.job != "공용" || equipmentItem.job != playerInfo.roleInfo.role.name) {
+            playerInfo.sendErrorMessage("해당 직업은 착용할 수 없습니다.")
+            return
+        }
+
+        if (equipmentItem.levelLimit != playerInfo.levelInfo.level) {
+            playerInfo.sendErrorMessage("착용하기 위한 레벨이 부족합니다.")
+            return
+        }
+
         when (isClickArea(event.inventory.size, slot)) {
             InventoryArea.TOP -> {
                 // 아이템 장착 슬롯인가?
@@ -71,7 +81,6 @@ class EquipItemInventoryListener : Listener {
                 } else {
                     playerInfo.sendErrorMessage("장착중인 아이템을 제거 후 착용해주세요!")
                 }
-
             }
         }
         applyEquipmentItemToPlayer(playerInfo.player, inventory)
