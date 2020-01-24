@@ -13,6 +13,8 @@ import com.kkomi.treeisland.plugin.money.model.PlayerMoneyRepository
 import com.kkomi.treeisland.plugin.money.model.entity.PlayerMoney
 import com.kkomi.treeisland.plugin.quest.model.PlayerQuestRepository
 import com.kkomi.treeisland.plugin.quest.model.entity.PlayerQuest
+import com.kkomi.treeisland.plugin.role.model.PlayerRoleRepository
+import com.kkomi.treeisland.plugin.role.model.entity.PlayerRole
 import com.kkomi.treeisland.plugin.stat.model.PlayerStatRepository
 import com.kkomi.treeisland.plugin.stat.model.entity.PlayerStat
 import org.bukkit.entity.Player
@@ -27,6 +29,7 @@ class PlayerInfo(
     val levelInfo: PlayerLevel = PlayerLevelRepository.getPlayerLevel(uuid)!!
     val guildInfo: PlayerGuild = PlayerGuildRepository.getPlayerGuild(uuid)!!
     val equipmentInfo : PlayerEquipItem = PlayerEquipItemRepository.getPlayerEquipItem(uuid)!!
+    val roleInfo : PlayerRole = PlayerRoleRepository.getPlayerRole(uuid)!!
 
     fun editPlayerInfo() {
         PlayerMoneyRepository.editPlayerMoney(moneyInfo)

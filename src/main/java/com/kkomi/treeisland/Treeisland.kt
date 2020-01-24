@@ -19,6 +19,9 @@ import com.kkomi.treeisland.plugin.monster.model.MonsterRepository
 import com.kkomi.treeisland.plugin.quest.QuestPlugin
 import com.kkomi.treeisland.plugin.quest.model.PlayerQuestRepository
 import com.kkomi.treeisland.plugin.quest.model.QuestRepository
+import com.kkomi.treeisland.plugin.role.RolePlugin
+import com.kkomi.treeisland.plugin.role.model.PlayerRoleRepository
+import com.kkomi.treeisland.plugin.role.model.RoleRepository
 import com.kkomi.treeisland.plugin.shop.ShopPlugin
 import com.kkomi.treeisland.plugin.shop.model.ShopRepository
 import com.kkomi.treeisland.plugin.skill.SkillPlugin
@@ -46,6 +49,7 @@ class Treeisland : JavaPlugin(), Listener {
         lateinit var guildPlugin: GuildPlugin
         lateinit var equipItemPlugin: EquipItemPlugin
         lateinit var skillPlugin: SkillPlugin
+        lateinit var rolePlugin : RolePlugin
     }
 
     override fun onEnable() {
@@ -98,6 +102,11 @@ class Treeisland : JavaPlugin(), Listener {
         SkillInfoRepository.reloadSkillInfo()
         logger.info("Load complete skill plugin...!")
 
+        rolePlugin = RolePlugin(File(dataFolder.path + "/role"), this)
+        RoleRepository.reloadRole()
+        PlayerRoleRepository.reloadPlayerRole()
+        logger.info("Load complete role plugin...!")
+
     }
 
     override fun onDisable() {
@@ -111,6 +120,7 @@ class Treeisland : JavaPlugin(), Listener {
         guildPlugin.onDisable()
         equipItemPlugin.onDisable()
         skillPlugin.onDisable()
+        rolePlugin.onDisable()
     }
 
 }
