@@ -7,7 +7,7 @@ import org.bukkit.configuration.serialization.SerializableAs
 @SerializableAs("PlayerSkillInfo")
 data class PlayerSkillInfo(
         val uuid: String,
-        val isSmartSlot: Boolean,
+        var isSmartSlot: Boolean,
         val learnSkills: MutableList<String>
 ) : ConfigurationSerializable {
     companion object {

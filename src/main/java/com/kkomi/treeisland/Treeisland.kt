@@ -5,6 +5,7 @@ import com.kkomi.treeisland.plugin.equipitem.model.PlayerEquipItemRepository
 import com.kkomi.treeisland.plugin.guild.GuildPlugin
 import com.kkomi.treeisland.plugin.guild.model.GuildRepository
 import com.kkomi.treeisland.plugin.guild.model.PlayerGuildRepository
+import com.kkomi.treeisland.plugin.integration.getPlayerInfo
 import com.kkomi.treeisland.plugin.itemdb.ItemDBPlugin
 import com.kkomi.treeisland.plugin.itemdb.model.ConsumptionItemRepository
 import com.kkomi.treeisland.plugin.itemdb.model.EquipmentItemRepository
@@ -30,6 +31,7 @@ import com.kkomi.treeisland.plugin.skill.model.SkillInfoRepository
 import com.kkomi.treeisland.plugin.stat.StatPlugin
 import com.kkomi.treeisland.plugin.stat.model.PlayerStatRepository
 import com.kkomi.treeisland.plugin.stat.model.StatConfigRepository
+import org.bukkit.Bukkit
 import org.bukkit.event.Listener
 import org.bukkit.plugin.java.JavaPlugin
 import java.io.File
@@ -107,6 +109,10 @@ class Treeisland : JavaPlugin(), Listener {
         PlayerRoleRepository.reloadPlayerRole()
         logger.info("Load complete role plugin...!")
 
+        Bukkit.getOnlinePlayers()
+                .forEach {
+                    it.getPlayerInfo().statInfo.calculateStatOption(it)
+                }
     }
 
     override fun onDisable() {

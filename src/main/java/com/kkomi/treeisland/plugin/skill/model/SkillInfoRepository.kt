@@ -1,6 +1,7 @@
 package com.kkomi.treeisland.plugin.skill.model
 
 import com.kkomi.treeisland.Treeisland
+import com.kkomi.treeisland.library.extension.replaceChatColorCode
 import com.kkomi.treeisland.plugin.skill.model.entity.SkillInfo
 import java.io.File
 
@@ -10,6 +11,13 @@ object SkillInfoRepository {
 
     fun getSkillInfo(name: String): SkillInfo? {
         return skillInfoDataSource.getSkillInfo(name)
+    }
+
+    fun getSkillInfoByDisplay(display: String): SkillInfo? {
+        return getSkillInfoList()
+                .find {
+                    it.displayName.replaceChatColorCode() == display.replaceChatColorCode()
+                }
     }
 
     fun getSkillInfoList(): List<SkillInfo> {

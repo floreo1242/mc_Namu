@@ -6,6 +6,8 @@ import com.kkomi.treeisland.plugin.equipitem.inventory.EquipItemInventory
 import com.kkomi.treeisland.plugin.stat.inventory.PlayerStatInventory
 import com.kkomi.treeisland.plugin.shop.inventory.ShopInventory
 import com.kkomi.treeisland.plugin.quest.inventory.QuestTalkInventory
+import com.kkomi.treeisland.plugin.skill.inventory.LearnSkillListInventory
+import com.kkomi.treeisland.plugin.skill.inventory.SkillOptionInventory
 import org.bukkit.Material
 import org.bukkit.inventory.Inventory
 import org.bukkit.inventory.ItemStack
@@ -23,7 +25,9 @@ private val serverInventoryPrefixList = listOf(
         QuestStatusInventory.TITLE,
         EquipItemInventory.TITLE,
         PlayerStatInventory.TITLE,
-        GuildInfoInventory.TITLE
+        GuildInfoInventory.TITLE,
+        LearnSkillListInventory.TITLE,
+        SkillOptionInventory.TITLE
 )
 
 fun Inventory.getServerTitleInfo(): Pair<String, String>? {
