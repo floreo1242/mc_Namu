@@ -6,6 +6,7 @@ import org.bukkit.configuration.serialization.SerializableAs
 @SerializableAs("MonsterDrop")
 data class MonsterDrop(
         val name: String,
+        val dropItem : List<DropItem>,
         val dropExp: Int,
         val dropMoney: Int
 ) : ConfigurationSerializable {
@@ -14,6 +15,7 @@ data class MonsterDrop(
         fun deserialize(data: Map<String, Any>): MonsterDrop {
             return MonsterDrop(
                     data["name"] as String,
+                    data["dropItems"] as List<DropItem>,
                     data["dropExp"] as Int,
                     data["dropMoney"] as Int
             )
@@ -23,6 +25,7 @@ data class MonsterDrop(
     override fun serialize(): Map<String, Any> {
         return mapOf(
                 "name" to name,
+                "dropItems" to dropItem,
                 "dropExp" to dropExp,
                 "dropMoney" to dropMoney
         )

@@ -1,5 +1,6 @@
 package com.kkomi.treeisland.plugin.monster.listener
 
+import com.kkomi.treeisland.library.extension.replaceChatColorCode
 import com.kkomi.treeisland.plugin.integration.getPlayerInfo
 import com.kkomi.treeisland.plugin.level.api.PlayerExpGetEvent
 import com.kkomi.treeisland.plugin.level.model.PlayerLevelRepository
@@ -9,6 +10,8 @@ import org.bukkit.Bukkit
 import org.bukkit.event.EventHandler
 import org.bukkit.event.Listener
 import org.bukkit.event.entity.EntityDeathEvent
+import kotlin.random.Random
+import kotlin.random.nextInt
 
 class MonsterListener : Listener {
 
@@ -21,12 +24,17 @@ class MonsterListener : Listener {
             levelInfo.exp += monster.dropExp
             moneyInfo.money += monster.dropMoney
 
-            sendInfoMessage("EXP + %d".format(monster.dropExp))
-            sendInfoMessage("GOLD + %d".format(monster.dropMoney))
-
             Bukkit.getPluginManager().callEvent(PlayerExpGetEvent(false, this))
             PlayerLevelRepository.checkLevelUp(this)
         }.editPlayerInfo()
+
+        monster.dropItem
+                .filter {
+                    it.chance < Random.nextInt(1..100)
+                }
+                .forEach {
+                    killer.world.dropItem(killer.location, it.toItemStack())
+                }
     }
 
 }

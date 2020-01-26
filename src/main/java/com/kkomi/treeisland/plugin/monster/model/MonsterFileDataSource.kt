@@ -11,7 +11,7 @@ class MonsterFileDataSource(
 
     init {
         if (getValueList().isEmpty()) {
-            createMonster(MonsterDrop("ZOMBIE", 10, 10))
+            createMonster(MonsterDrop("ZOMBIE",listOf() ,10, 10))
         }
     }
 
