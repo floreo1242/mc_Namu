@@ -45,7 +45,7 @@ data class ConsumptionItem(
                 name,
                 listOf(
                         "",
-                        "&9레벨제한 : $levelLimit",
+                        "레벨제한 : $levelLimit",
                         "",
                         *description.split("|").toTypedArray()
                 ),
