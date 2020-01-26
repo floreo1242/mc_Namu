@@ -15,10 +15,10 @@ data class PlayerEquipItem(
         var plate: ItemStack = ItemStack(Material.AIR),
         var legging: ItemStack = ItemStack(Material.AIR),
         var boots: ItemStack = ItemStack(Material.AIR),
-        var weapon: ItemStack = ItemStack(Material.AIR)
+        var weapon: ItemStack = ItemStack(Material.IRON_BARDING)
 ) : ConfigurationSerializable {
 
-    fun toItemStackList(): List<ItemStack> {
+    private fun toItemStackList(): List<ItemStack> {
         return listOfNotNull(
                 helmet, plate, legging, boots, weapon
         ).filter { it.type != Material.AIR }
