@@ -6,7 +6,9 @@ import com.kkomi.treeisland.plugin.integration.getPlayerInfo
 import com.kkomi.treeisland.plugin.itemdb.model.entity.StatOption
 import com.kkomi.treeisland.plugin.stat.inventory.PlayerStatInventory
 import com.kkomi.treeisland.plugin.stat.model.PlayerStatRepository
+import com.kkomi.treeisland.plugin.stat.model.StatConfigRepository
 import com.kkomi.treeisland.plugin.stat.model.entity.PlayerStat
+import com.kkomi.treeisland.plugin.stat.model.entity.StatConfig
 import org.bukkit.Material
 import org.bukkit.entity.Player
 import org.bukkit.event.EventHandler
@@ -79,6 +81,7 @@ class PlayerStatInventoryListener : Listener {
             return null
         }
         playerStat.investmentStat[statOption] = (playerStat.investmentStat[statOption] ?: 0) + 1
+        playerStat.leftPoint -= 1
         PlayerStatRepository.editPlayerStat(playerStat)
         return Unit
     }
