@@ -16,8 +16,8 @@ data class QuestReward(
         @JvmStatic
         fun deserialize(data: Map<String, Any>): QuestReward {
             return QuestReward(
-                    data["items"] as List<QuestRewardItem>,
-                    data["command"] as String,
+                    (data["items"] ?: listOf<QuestRewardItem>()) as List<QuestRewardItem>,
+                    (data["command"] ?: "") as String,
                     (data["exp"] ?: 0) as Int,
                     (data["money"] ?: 0) as Int
             )
