@@ -5,17 +5,20 @@ import com.kkomi.treeisland.library.extension.sendInfoMessage
 import com.kkomi.treeisland.library.extension.takeItem
 import com.kkomi.treeisland.library.extension.toMap
 import com.kkomi.treeisland.plugin.integration.getPlayerInfo
+import com.kkomi.treeisland.plugin.itemdb.model.EquipmentItemRepository
 import com.kkomi.treeisland.plugin.itemdb.model.OtherItemRepository
 import com.kkomi.treeisland.plugin.level.model.PlayerLevelRepository
 import com.kkomi.treeisland.plugin.level.model.entity.PlayerLevel
+import com.kkomi.treeisland.plugin.monster.model.entity.DropItemType
 import com.kkomi.treeisland.plugin.quest.model.PlayerQuestRepository
+import com.kkomi.treeisland.plugin.skill.model.SkillInfoRepository
 import org.bukkit.Bukkit
+import org.bukkit.Material
 import org.bukkit.configuration.serialization.ConfigurationSerializable
 import org.bukkit.configuration.serialization.SerializableAs
 import org.bukkit.entity.Player
 import org.bukkit.inventory.ItemStack
 import java.util.*
-import kotlin.math.sin
 
 @SerializableAs("PlayerQuest")
 data class PlayerQuest(
@@ -75,7 +78,11 @@ data class PlayerQuest(
                                 }
 
                                 // 카운트
-                                playerQuestObjective.amount += getIncrementCount(playerQuestObjective, inventoryMap)
+                                if (playerQuestObjective.action == QuestAction.FARMING_ITEM) {
+                                    playerQuestObjective.amount = getIncrementCount(playerQuestObjective, inventoryMap)
+                                } else {
+                                    playerQuestObjective.amount += getIncrementCount(playerQuestObjective, inventoryMap)
+                                }
 
                                 // 적용
                                 questObjectiveList[index] = playerQuestObjective
@@ -84,10 +91,8 @@ data class PlayerQuest(
                             }
 
 
-
                     if (questObjectiveList.map { it.isComplete() }.contains(false).not()) {
                         if (!questCompleteCheckMessageList.contains(questName)) {
-                            player.sendInfoMessage("$questName 퀘스트를 완료하였습니다!")
                             questCompleteCheckMessageList.add(questName)
                         }
                     } else {
@@ -104,7 +109,8 @@ data class PlayerQuest(
                     .filter { item -> item.key.hasItemMeta() }
                     .filter { item -> item.key.itemMeta.hasDisplayName() }
                     .filter { item -> item.key.itemMeta.displayName == OtherItemRepository.getItem(playerQuestObjective.target)?.toItemStack()?.getDisplay() ?: "" }
-                    .count()
+                    .map { it.value }
+                    .sum()
 
             if (count >= playerQuestObjective.targetAmount) {
                 count = playerQuestObjective.targetAmount
@@ -165,7 +171,19 @@ data class PlayerQuest(
     }
 
     fun receiveRewards(player: Player, quest: Quest) {
-        player.inventory.addItem(*quest.reward.items.map { OtherItemRepository.getItem(it)!!.toItemStack() }.toTypedArray())
+        player.inventory.addItem(*quest.reward.items
+                .map {
+                    when (it.type) {
+                        QuestRewardItemType.EQUIPMENT_ITEM -> EquipmentItemRepository.getItem(it.code)?.toItemStack()
+                                ?: ItemStack(Material.AIR)
+                        QuestRewardItemType.OTHER_ITEM -> OtherItemRepository.getItem(it.code)?.toItemStack()
+                                ?: ItemStack(Material.AIR)
+                        QuestRewardItemType.CONSUMPTION_ITEM -> OtherItemRepository.getItem(it.code)?.toItemStack()
+                                ?: ItemStack(Material.AIR)
+                        QuestRewardItemType.SKILL_BOOK -> SkillInfoRepository.getSkillInfo(it.code)?.toItemStack(true)
+                                ?: ItemStack(Material.AIR)
+                    }
+                }.toTypedArray())
         player.getPlayerInfo().apply {
             levelInfo.exp += quest.reward.exp
             PlayerLevelRepository.checkLevelUp(this)

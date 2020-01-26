@@ -4,13 +4,13 @@ import com.kkomi.treeisland.library.command.ArgumentList
 import com.kkomi.treeisland.library.command.CommandComponent
 import com.kkomi.treeisland.library.extension.sendErrorMessage
 import com.kkomi.treeisland.library.extension.sendInfoMessage
-import com.kkomi.treeisland.plugin.quest.QuestPlugin
+import com.kkomi.treeisland.plugin.monster.model.entity.DropItem
+import com.kkomi.treeisland.plugin.monster.model.entity.DropItemType
 import com.kkomi.treeisland.plugin.quest.model.QuestMessage
 import com.kkomi.treeisland.plugin.quest.model.QuestRepository
 import com.kkomi.treeisland.plugin.quest.model.entity.*
 import org.bukkit.command.Command
 import org.bukkit.command.CommandSender
-import org.bukkit.entity.Player
 
 class CommandQuestCreate(usage: String, description: String, argumentsLength: Int) : CommandComponent(usage, description, argumentsLength) {
 
@@ -52,9 +52,14 @@ class CommandQuestCreate(usage: String, description: String, argumentsLength: In
                         ),
                         QuestReward(
                                 listOf(
-                                        "a"
+                                        QuestRewardItem(
+                                                QuestRewardItemType.CONSUMPTION_ITEM,
+                                                "",
+                                                1
+                                        )
                                 ),
                                 "",
+                                0,
                                 0
                         )
                 )

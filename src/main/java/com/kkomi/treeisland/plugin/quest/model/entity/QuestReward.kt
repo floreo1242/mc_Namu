@@ -1,22 +1,25 @@
 package com.kkomi.treeisland.plugin.quest.model.entity
 
+import com.kkomi.treeisland.plugin.monster.model.entity.DropItem
 import org.bukkit.configuration.serialization.ConfigurationSerializable
 import org.bukkit.configuration.serialization.SerializableAs
 
 @SerializableAs("QuestReward")
 data class QuestReward(
-        val items : List<String>,
-        val command : String,
-        val exp : Int
+        val items: List<QuestRewardItem>,
+        val command: String,
+        val exp: Int,
+        val money: Int
 ) : ConfigurationSerializable {
 
     companion object {
         @JvmStatic
-        fun deserialize(data : Map<String,Any>): QuestReward {
+        fun deserialize(data: Map<String, Any>): QuestReward {
             return QuestReward(
-                    data["items"] as List<String>,
+                    data["items"] as List<QuestRewardItem>,
                     data["command"] as String,
-                    (data["exp"] ?: 0) as Int
+                    (data["exp"] ?: 0) as Int,
+                    (data["money"] ?: 0) as Int
             )
         }
     }
@@ -25,7 +28,8 @@ data class QuestReward(
         return mapOf(
                 "items" to items,
                 "command" to command,
-                "exp" to exp
+                "exp" to exp,
+                "money" to money
         )
     }
 

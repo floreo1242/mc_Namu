@@ -2,8 +2,8 @@ package com.kkomi.treeisland.plugin.quest
 
 import com.kkomi.treeisland.library.SubMainManager
 import com.kkomi.treeisland.library.command.CommandManager
+import com.kkomi.treeisland.plugin.monster.model.entity.DropItem
 import com.kkomi.treeisland.plugin.quest.command.*
-import com.kkomi.treeisland.plugin.quest.inventory.QuestTalkInventory
 import com.kkomi.treeisland.plugin.quest.listener.*
 import com.kkomi.treeisland.plugin.quest.model.entity.*
 import com.kkomi.treeisland.plugin.quest.schduler.QuestLocationScheduler
@@ -46,6 +46,7 @@ class QuestPlugin(dataFolder: File, plugin: JavaPlugin) : SubMainManager(dataFol
         ConfigurationSerialization.registerClass(Quest::class.java, "Quest")
         ConfigurationSerialization.registerClass(QuestObjective::class.java,"QuestObjective")
         ConfigurationSerialization.registerClass(QuestReward::class.java,"QuestReward")
+        ConfigurationSerialization.registerClass(QuestRewardItem::class.java,"QuestRewardItem")
         ConfigurationSerialization.registerClass(TalkScript::class.java,"TalkScript")
         ConfigurationSerialization.registerClass(PlayerQuest::class.java, "PlayerQuest")
         ConfigurationSerialization.registerClass(PlayerQuestObjective::class.java, "PlayerQuestObjective")

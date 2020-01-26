@@ -2,6 +2,7 @@ package com.kkomi.treeisland.plugin.quest.listener
 
 import com.kkomi.treeisland.plugin.integration.getPlayerInfo
 import com.kkomi.treeisland.plugin.quest.model.entity.QuestAction
+import com.kkomi.treeisland.plugin.skill.api.EntityDeathBySpellCasterEvent
 import org.bukkit.entity.Player
 import org.bukkit.event.EventHandler
 import org.bukkit.event.EventPriority
@@ -56,11 +57,8 @@ class QuestActionListener : Listener {
     }
 
     @EventHandler(priority = EventPriority.HIGH)
-    fun onEntityDeathEvent(event: EntityDeathEvent) {
-        if (event.entity.killer == null) {
-            return
-        }
-        event.entity.killer.getPlayerInfo().questInfo.checkQuestAmount(QuestAction.KILL_ENTITY) { questObjective -> event.entity.name.toUpperCase() == questObjective.target.toUpperCase() }
+    fun onEntityDeathEvent(event: EntityDeathBySpellCasterEvent) {
+        event.caster.getPlayerInfo().questInfo.checkQuestAmount(QuestAction.KILL_ENTITY) { questObjective -> event.entity.name.toUpperCase() == questObjective.target.toUpperCase() }
     }
 
 }

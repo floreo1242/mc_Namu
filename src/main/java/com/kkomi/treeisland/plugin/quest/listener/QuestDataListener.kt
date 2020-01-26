@@ -57,6 +57,13 @@ class QuestDataListener : Listener {
                         quest.sendCompleteMessage(player)
                         PlayerQuestRepository.editPlayerQuest(questInfo)
 
+                        player.sendTitle(
+                                "[ 퀘스트 완료 ]",
+                                quest.name,
+                                10,
+                                30,
+                                10
+                        )
                     }
 
             // Open Quest Check
