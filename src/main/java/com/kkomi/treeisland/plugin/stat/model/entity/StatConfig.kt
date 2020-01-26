@@ -7,13 +7,17 @@ import org.bukkit.configuration.serialization.SerializableAs
 @SerializableAs("StatConfig")
 data class StatConfig(
         var levelUpStat: Int,
-        val statLimit: Int
+        val statLimit: Int,
+        val dexPointByValue: Double,
+        val agiPointByValue: Double
 ) : ConfigurationSerializable {
     companion object {
         fun deserialize(data: Map<String, Any>): StatConfig {
             return StatConfig(
                     data["levelUpStat"] as Int,
-                    data["statLimit"] as Int
+                    data["statLimit"] as Int,
+                    data["dexPointByValue"] as Double,
+                    data["agiPointByValue"] as Double
             )
         }
     }
@@ -21,7 +25,9 @@ data class StatConfig(
     override fun serialize(): Map<String, Any> {
         return mapOf(
                 "levelUpStat" to levelUpStat,
-                "statLimit" to statLimit
+                "statLimit" to statLimit,
+                "dexPointByValue" to dexPointByValue,
+                "agiPointByValue" to agiPointByValue
         )
     }
 }

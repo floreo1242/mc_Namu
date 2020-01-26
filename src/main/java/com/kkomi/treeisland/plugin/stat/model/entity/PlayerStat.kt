@@ -2,6 +2,7 @@ package com.kkomi.treeisland.plugin.stat.model.entity
 
 import com.kkomi.treeisland.plugin.equipitem.model.entity.PlayerEquipItem
 import com.kkomi.treeisland.plugin.itemdb.model.entity.StatOption
+import com.kkomi.treeisland.plugin.stat.model.StatConfigRepository
 import com.nisovin.magicspells.MagicSpells
 import org.bukkit.Bukkit
 import org.bukkit.attribute.Attribute
@@ -22,7 +23,6 @@ data class PlayerStat(
     private var minDamage = 0
     private var maxDamage = 0
     private var criticalChange = 0
-    private var defense = 0
 
     fun updateFinalStat(playerEquipItem: PlayerEquipItem) {
         clearFinalStat()
@@ -54,8 +54,7 @@ data class PlayerStat(
         // Damage Calc
         this.minDamage = (finalStat[StatOption.MIN_DAMAGE] ?: 0)
         this.maxDamage = (finalStat[StatOption.MAX_DAMAGE] ?: 0)
-        this.criticalChange = ((finalStat[StatOption.DEXTERITY] ?: 0) * 0.5).toInt()
-        this.defense = ((finalStat[StatOption.DEFENSE] ?: 0) * 0.5).toInt()
+        this.criticalChange = ((finalStat[StatOption.DEXTERITY] ?: 0) * StatConfigRepository.getStatConfig().dexPointByValue).toInt()
     }
 
     private fun clearFinalStat() {
@@ -64,10 +63,15 @@ data class PlayerStat(
 
     fun getTotalDamage(): Double {
         val isCritical = criticalChange <= Random.nextInt() * 100
-        return try {
-            (Random.nextInt(minDamage, maxDamage) * (if (isCritical) 1 else 2)).toDouble()
+        val defaultDamage = try {
+            Random.nextInt(minDamage, maxDamage)
         } catch (e: Exception) {
-            (maxDamage * (if (isCritical) 1 else 2)).toDouble()
+            maxDamage
+        }
+        return if (isCritical) {
+            (defaultDamage * 2).toDouble()
+        } else {
+            (defaultDamage * 1) + (finalStat[StatOption.STRENGTH] ?: 0).toDouble()
         }
     }
 

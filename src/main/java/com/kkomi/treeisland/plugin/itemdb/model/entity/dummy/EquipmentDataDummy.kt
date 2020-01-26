@@ -18,7 +18,7 @@ object EquipmentDataDummy {
                 EquipmentType.WEAPON,
                 Material.WOOD_SWORD,
                 0,
-                200,
+                0,
                 "Warrior",
                 StatOption.values().map { EquipmentItemOption(it, 10) }
         )
@@ -30,7 +30,7 @@ object EquipmentDataDummy {
                 EquipmentType.HELMET,
                 Material.LEATHER_HELMET,
                 0,
-                200,
+                0,
                 "Warrior",
                 StatOption.values().map { EquipmentItemOption(it, 10) }
         )
@@ -42,7 +42,7 @@ object EquipmentDataDummy {
                 EquipmentType.PLATE,
                 Material.LEATHER_CHESTPLATE,
                 0,
-                200,
+                0,
                 "Warrior",
                 StatOption.values().map { EquipmentItemOption(it, 10) }
         )
@@ -54,7 +54,7 @@ object EquipmentDataDummy {
                 EquipmentType.LEGGINGS,
                 Material.LEATHER_LEGGINGS,
                 0,
-                200,
+                0,
                 "Warrior",
                 StatOption.values().map { EquipmentItemOption(it, 10) }
         )
@@ -66,7 +66,7 @@ object EquipmentDataDummy {
                 EquipmentType.BOOTS,
                 Material.LEATHER_BOOTS,
                 0,
-                200,
+                0,
                 "Warrior",
                 StatOption.values().map { EquipmentItemOption(it, 10) }
         )

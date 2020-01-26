@@ -2,6 +2,7 @@ package com.kkomi.treeisland.plugin.monster.listener
 
 import com.kkomi.treeisland.library.extension.replaceChatColorCode
 import com.kkomi.treeisland.plugin.integration.getPlayerInfo
+import com.kkomi.treeisland.plugin.itemdb.model.entity.StatOption
 import com.kkomi.treeisland.plugin.level.api.PlayerExpGetEvent
 import com.kkomi.treeisland.plugin.level.model.PlayerLevelRepository
 import com.kkomi.treeisland.plugin.monster.model.MonsterRepository
@@ -21,8 +22,10 @@ class MonsterListener : Listener {
         val monster = MonsterRepository.getMonster(event.entity.name) ?: return
 
         killer.getPlayerInfo().apply {
-            levelInfo.exp += monster.dropExp
-            moneyInfo.money += monster.dropMoney
+            levelInfo.exp += monster.dropExp * (1 + (killer.getPlayerInfo().statInfo.finalStat[StatOption.BONUS_XP]
+                    ?: 0))
+            moneyInfo.money += monster.dropMoney * (1 + (killer.getPlayerInfo().statInfo.finalStat[StatOption.BONUS_GOLD]
+                    ?: 0))
 
             Bukkit.getPluginManager().callEvent(PlayerExpGetEvent(false, this))
             PlayerLevelRepository.checkLevelUp(this)
