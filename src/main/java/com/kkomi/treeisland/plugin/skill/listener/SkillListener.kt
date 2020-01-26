@@ -17,8 +17,6 @@ class SkillListener : Listener {
     @EventHandler
     fun onSpellApplyDamagePlayerByEntityEvent(event: SpellApplyDamagePlayerByEntityEvent) {
         val damage = event.percent * event.caster.getPlayerInfo().statInfo.getTotalDamage()
-        println("${event.percent} / ${event.caster.getPlayerInfo().statInfo.getTotalDamage()}")
-        event.caster.sendInfoMessage("${event.entity.name}에게 ${damage}만큼의 피해를 주었습니다.")
         event.entity.damage(damage)
 
         if (event.entity.isDead) {
