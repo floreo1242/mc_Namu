@@ -1,5 +1,6 @@
 package com.kkomi.treeisland.plugin.monster.model.entity
 
+import com.kkomi.treeisland.plugin.itemdb.model.ConsumptionItemRepository
 import com.kkomi.treeisland.plugin.itemdb.model.EquipmentItemRepository
 import com.kkomi.treeisland.plugin.itemdb.model.OtherItemRepository
 import com.kkomi.treeisland.plugin.skill.model.SkillInfoRepository
@@ -38,15 +39,18 @@ data class DropItem(
     }
 
     fun toItemStack() : ItemStack {
+        val a = amount
         return when (type) {
             DropItemType.EQUIPMENT_ITEM -> EquipmentItemRepository.getItem(code)?.toItemStack()
                     ?: ItemStack(Material.AIR)
             DropItemType.OTHER_ITEM -> OtherItemRepository.getItem(code)?.toItemStack()
                     ?: ItemStack(Material.AIR)
-            DropItemType.CONSUMPTION_ITEM -> OtherItemRepository.getItem(code)?.toItemStack()
+            DropItemType.CONSUMPTION_ITEM -> ConsumptionItemRepository.getItem(code)?.toItemStack()
                     ?: ItemStack(Material.AIR)
             DropItemType.SKILL_BOOK -> SkillInfoRepository.getSkillInfo(code)?.toItemStack(true)
                     ?: ItemStack(Material.AIR)
+        }.apply {
+            amount = a
         }
     }
 
