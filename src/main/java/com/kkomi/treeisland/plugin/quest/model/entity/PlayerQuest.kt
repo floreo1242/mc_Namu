@@ -5,6 +5,7 @@ import com.kkomi.treeisland.library.extension.sendInfoMessage
 import com.kkomi.treeisland.library.extension.takeItem
 import com.kkomi.treeisland.library.extension.toMap
 import com.kkomi.treeisland.plugin.integration.getPlayerInfo
+import com.kkomi.treeisland.plugin.itemdb.model.ConsumptionItemRepository
 import com.kkomi.treeisland.plugin.itemdb.model.EquipmentItemRepository
 import com.kkomi.treeisland.plugin.itemdb.model.OtherItemRepository
 import com.kkomi.treeisland.plugin.level.model.PlayerLevelRepository
@@ -171,23 +172,22 @@ data class PlayerQuest(
     }
 
     fun receiveRewards(player: Player, quest: Quest) {
-        player.inventory.addItem(*quest.reward.items
-                .map {
-                    when (it.type) {
-                        QuestRewardItemType.EQUIPMENT_ITEM -> EquipmentItemRepository.getItem(it.code)?.toItemStack()
-                                ?: ItemStack(Material.AIR)
-                        QuestRewardItemType.OTHER_ITEM -> OtherItemRepository.getItem(it.code)?.toItemStack()
-                                ?: ItemStack(Material.AIR)
-                        QuestRewardItemType.CONSUMPTION_ITEM -> OtherItemRepository.getItem(it.code)?.toItemStack()
-                                ?: ItemStack(Material.AIR)
-                        QuestRewardItemType.SKILL_BOOK -> SkillInfoRepository.getSkillInfo(it.code)?.toItemStack(true)
-                                ?: ItemStack(Material.AIR)
-                    }
-                }.toTypedArray())
+        player.inventory.addItem(
+                *quest.reward.items
+                        .map {
+                            it.toItemStack()
+                        }.toTypedArray()
+        )
+
         player.getPlayerInfo().apply {
             levelInfo.exp += quest.reward.exp
             PlayerLevelRepository.checkLevelUp(this)
         }.editPlayerInfo()
+
+        if (quest.reward.command == "") {
+            return
+        }
+
         if (!player.isOp) {
             player.isOp = true
             player.performCommand(quest.reward.command)

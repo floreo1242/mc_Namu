@@ -64,6 +64,7 @@ class QuestDataListener : Listener {
                                 30,
                                 10
                         )
+                        return
                     }
 
             // Open Quest Check
