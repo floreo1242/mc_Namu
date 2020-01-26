@@ -27,8 +27,8 @@ class MonsterListener : Listener {
             moneyInfo.money += monster.dropMoney * (1 + (killer.getPlayerInfo().statInfo.finalStat[StatOption.BONUS_GOLD]
                     ?: 0))
 
-            Bukkit.getPluginManager().callEvent(PlayerExpGetEvent(false, this))
             PlayerLevelRepository.checkLevelUp(this)
+            Bukkit.getPluginManager().callEvent(PlayerExpGetEvent(false, this))
         }.editPlayerInfo()
 
         monster.dropItem
