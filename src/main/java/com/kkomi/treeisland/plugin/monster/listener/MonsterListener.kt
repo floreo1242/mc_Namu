@@ -22,10 +22,10 @@ class MonsterListener : Listener {
         val monster = MonsterRepository.getMonster(event.entity.name) ?: return
 
         killer.getPlayerInfo().apply {
-            levelInfo.exp += monster.dropExp * (1 + (killer.getPlayerInfo().statInfo.finalStat[StatOption.BONUS_XP]
-                    ?: 0))
-            moneyInfo.money += monster.dropMoney * (1 + (killer.getPlayerInfo().statInfo.finalStat[StatOption.BONUS_GOLD]
-                    ?: 0))
+            levelInfo.exp += monster.dropExp * (1 + ((killer.getPlayerInfo().statInfo.finalStat[StatOption.BONUS_XP]
+                    ?: 0) / 100))
+            moneyInfo.money += monster.dropMoney * (1 + ((killer.getPlayerInfo().statInfo.finalStat[StatOption.BONUS_GOLD]
+                    ?: 0) / 100))
 
             PlayerLevelRepository.checkLevelUp(this)
             Bukkit.getPluginManager().callEvent(PlayerExpGetEvent(false, this))
