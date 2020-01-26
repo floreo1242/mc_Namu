@@ -45,6 +45,7 @@ data class PlayerStat(
         // Increment Health
         player.getAttribute(Attribute.GENERIC_MAX_HEALTH).baseValue = (20 + (finalStat[StatOption.HEALTH]
                 ?: 0)).toDouble()
+        player.isHealthScaled = false
 
         // Increment Mana
         if (Bukkit.getPluginManager().isPluginEnabled(MagicSpells.plugin)) {

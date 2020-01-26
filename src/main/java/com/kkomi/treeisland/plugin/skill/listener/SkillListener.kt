@@ -6,6 +6,7 @@ import com.kkomi.treeisland.plugin.skill.api.EntityDeathBySpellCasterEvent
 import com.kkomi.treeisland.plugin.skill.api.SpellApplyDamagePlayerByEntityEvent
 import com.kkomi.treeisland.plugin.stat.model.StatConfigRepository
 import com.nisovin.magicspells.events.MagicSpellsEntityDamageByEntityEvent
+import com.nisovin.magicspells.events.SpellApplyDamageEvent
 import org.bukkit.Bukkit
 import org.bukkit.entity.LivingEntity
 import org.bukkit.entity.Player
@@ -26,7 +27,7 @@ class SkillListener : Listener {
             val stat = player.getPlayerInfo().statInfo
 
             if (((stat.finalStat[StatOption.AGILITY]
-                            ?: 0) * StatConfigRepository.getStatConfig().agiPointByValue) <= Random.nextInt(1..100)) {
+                            ?: 0) * StatConfigRepository.getStatConfig().agiPointByValue) > Random.nextInt(1..100)) {
                 return
             } else {
                 damage -= stat.finalStat[StatOption.DEFENSE] ?: 0
@@ -47,6 +48,18 @@ class SkillListener : Listener {
                         false,
                         event.damager as? Player ?: return,
                         event.entity as? LivingEntity ?: return,
+                        event.damage
+                )
+        )
+    }
+
+    @EventHandler
+    fun onSpellApplyDamageEvent(event: SpellApplyDamageEvent) {
+        Bukkit.getPluginManager().callEvent(
+                SpellApplyDamagePlayerByEntityEvent(
+                        false,
+                        event.caster,
+                        event.target,
                         event.damage
                 )
         )
