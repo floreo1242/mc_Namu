@@ -80,6 +80,11 @@ class PlayerStatInventoryListener : Listener {
         if (playerStat.leftPoint == 0) {
             return null
         }
+
+        if (playerStat.investmentStat[statOption] == StatConfigRepository.getStatConfig().statLimit) {
+            return null
+        }
+
         playerStat.investmentStat[statOption] = (playerStat.investmentStat[statOption] ?: 0) + 1
         playerStat.leftPoint -= 1
         PlayerStatRepository.editPlayerStat(playerStat)
