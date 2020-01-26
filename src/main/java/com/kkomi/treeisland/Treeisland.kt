@@ -111,6 +111,7 @@ class Treeisland : JavaPlugin(), Listener {
 
         Bukkit.getOnlinePlayers()
                 .forEach {
+                    it.getPlayerInfo().statInfo.updateFinalStat(it.getPlayerInfo().equipmentInfo)
                     it.getPlayerInfo().statInfo.calculateStatOption(it)
                 }
     }
