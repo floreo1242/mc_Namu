@@ -35,7 +35,7 @@ class PlayerSkillInfoListener : Listener {
 
         val player = event.player
         val playerSkillInfo = player.getPlayerInfo().skillInfo
-        val itemStack = event.player.inventory.itemInMainHand
+        val itemStack = event.player.inventory.itemInMainHand ?: return
 
         if ((itemStack.getDisplay() ?: "").contains("스킬북")) {
             val skillInfo = itemStack.getDisplay()?.let { SkillInfoRepository.getSkillInfoByDisplay(it.replace(" 스킬북", "")) }
@@ -82,7 +82,7 @@ class PlayerSkillInfoListener : Listener {
             return
         }
 
-        val itemStack = event.player.inventory.getItem(event.newSlot)
+        val itemStack = event.player.inventory.getItem(event.newSlot) ?: return
         val skillInfo = itemStack.getDisplay()?.let { SkillInfoRepository.getSkillInfoByDisplay(it) } ?: return
 
         if (!playerSkillInfo.learnSkills.contains(skillInfo.name)) {
