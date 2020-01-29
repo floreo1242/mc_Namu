@@ -4,6 +4,7 @@ import com.kkomi.treeisland.library.SubMainManager
 import com.kkomi.treeisland.library.command.CommandManager
 import com.kkomi.treeisland.plugin.role.command.CommandPlayerRoleReload
 import com.kkomi.treeisland.plugin.role.command.CommandRoleReload
+import com.kkomi.treeisland.plugin.role.command.CommandSetRole
 import com.kkomi.treeisland.plugin.role.listener.PlayerRoleListener
 import com.kkomi.treeisland.plugin.role.listener.RoleListener
 import com.kkomi.treeisland.plugin.role.model.entity.PlayerRole
@@ -20,6 +21,7 @@ class RolePlugin(dataFolder: File, plugin: JavaPlugin) : SubMainManager(dataFold
 
     override fun setupCommands() {
         CommandManager(true).apply {
+            addComponent("setRole", CommandSetRole("[PlayerName] [RoleName]", "", 2))
             addComponent("reloadrole", CommandRoleReload("", "", 0))
             addComponent("reloadplayerrole", CommandPlayerRoleReload("", "", 0))
         }.register(plugin.getCommand("rolea"))
