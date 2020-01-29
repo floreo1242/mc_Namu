@@ -37,8 +37,6 @@ data class PlayerStat(
 
     fun calculateStatOption(player: Player) {
 
-        player.isHealthScaled = false
-
         // Walk Speed
         player.getAttribute(Attribute.GENERIC_MOVEMENT_SPEED).baseValue =
                 player.getAttribute(Attribute.GENERIC_MOVEMENT_SPEED).defaultValue * (1 + (finalStat[StatOption.WALK_SPEED]
