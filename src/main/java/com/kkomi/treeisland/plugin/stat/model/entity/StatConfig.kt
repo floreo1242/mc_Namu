@@ -8,7 +8,10 @@ import org.bukkit.configuration.serialization.SerializableAs
 data class StatConfig(
         var levelUpStat: Int,
         val statLimit: Int,
+        val strPointByValue: Double,
         val dexPointByValue: Double,
+        val vitPointByValue: Double,
+        val intPointByValue: Double,
         val agiPointByValue: Double
 ) : ConfigurationSerializable {
     companion object {
@@ -16,7 +19,10 @@ data class StatConfig(
             return StatConfig(
                     data["levelUpStat"] as Int,
                     data["statLimit"] as Int,
+                    data["strPointByValue"] as Double,
                     data["dexPointByValue"] as Double,
+                    data["vitPointByValue"] as Double,
+                    data["intPointByValue"] as Double,
                     data["agiPointByValue"] as Double
             )
         }
@@ -26,7 +32,10 @@ data class StatConfig(
         return mapOf(
                 "levelUpStat" to levelUpStat,
                 "statLimit" to statLimit,
+                "strPointByValue" to dexPointByValue,
                 "dexPointByValue" to dexPointByValue,
+                "vitPointByValue" to dexPointByValue,
+                "intPointByValue" to dexPointByValue,
                 "agiPointByValue" to agiPointByValue
         )
     }

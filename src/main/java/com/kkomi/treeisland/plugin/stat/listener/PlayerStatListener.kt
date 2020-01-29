@@ -41,15 +41,13 @@ class PlayerStatListener : Listener {
             val player = event.entity as Player
             val stat = player.getPlayerInfo().statInfo
 
-                if (((stat.finalStat[StatOption.AGILITY]
-                                ?: 0) * StatConfigRepository.getStatConfig().agiPointByValue) <= Random.nextInt(1..100)) {
-                    event.isCancelled = true
-                } else {
-                    event.damage -= stat.finalStat[StatOption.DEFENSE] ?: 0
-                }
+            if (((stat.finalStat[StatOption.AGILITY]
+                            ?: 0) * StatConfigRepository.getStatConfig().agiPointByValue) >= Random.nextInt(1..100)) {
+                event.isCancelled = true
+            } else {
+                event.damage -= ((stat.finalStat[StatOption.DEFENSE] ?: 0) * StatConfigRepository.getStatConfig().vitPointByValue)
             }
         }
-        event.isCancelled = true
     }
 
 

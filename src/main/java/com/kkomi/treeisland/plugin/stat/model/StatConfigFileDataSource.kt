@@ -24,7 +24,7 @@ class StatConfigFileDataSource(
 
     override fun reloadStatConfig() {
         if (!configuration.contains("config")) {
-            configuration.set("config", StatConfig(2, 160, 0.5, 0.5))
+            configuration.set("config", StatConfig(2, 160, 1.0, 0.5, 1.0, 1.0, 0.5))
             configuration.save(configFile)
         }
         config = configuration.get("config") as StatConfig

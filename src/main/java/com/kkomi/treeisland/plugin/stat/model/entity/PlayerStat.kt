@@ -37,6 +37,8 @@ data class PlayerStat(
 
     fun calculateStatOption(player: Player) {
 
+        player.isHealthScaled = false
+
         // Walk Speed
         player.getAttribute(Attribute.GENERIC_MOVEMENT_SPEED).baseValue =
                 player.getAttribute(Attribute.GENERIC_MOVEMENT_SPEED).defaultValue * (1 + (finalStat[StatOption.WALK_SPEED]
@@ -45,17 +47,12 @@ data class PlayerStat(
         // Increment Health
         player.getAttribute(Attribute.GENERIC_MAX_HEALTH).baseValue = (20 + (finalStat[StatOption.HEALTH]
                 ?: 0)).toDouble()
-        player.isHealthScaled = false
-
-        // Increment Mana
-        if (Bukkit.getPluginManager().isPluginEnabled(MagicSpells.plugin)) {
-            MagicSpells.getManaHandler().setMaxMana(player, (finalStat[StatOption.MANA] ?: 0))
-        }
 
         // Damage Calc
         this.minDamage = (finalStat[StatOption.MIN_DAMAGE] ?: 0)
         this.maxDamage = (finalStat[StatOption.MAX_DAMAGE] ?: 0)
-        this.criticalChange = ((finalStat[StatOption.DEXTERITY] ?: 0) * StatConfigRepository.getStatConfig().dexPointByValue).toInt()
+        this.criticalChange = ((finalStat[StatOption.DEXTERITY]
+                ?: 0) * StatConfigRepository.getStatConfig().dexPointByValue).toInt()
     }
 
     private fun clearFinalStat() {
@@ -72,7 +69,8 @@ data class PlayerStat(
         return if (isCritical) {
             (defaultDamage * 2).toDouble()
         } else {
-            (defaultDamage * 1) + (finalStat[StatOption.STRENGTH] ?: 0).toDouble()
+            (defaultDamage * 1) + ((finalStat[StatOption.STRENGTH]
+                    ?: 0) * StatConfigRepository.getStatConfig().strPointByValue)
         }
     }
 
