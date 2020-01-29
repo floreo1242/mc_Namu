@@ -47,7 +47,7 @@ class EquipItemInventoryListener : Listener {
         val slot = event.rawSlot
 
         if (equipmentItem.job != "공용") {
-            if (equipmentItem.job != playerInfo.roleInfo.role.name) {
+            if (equipmentItem.job != playerInfo.roleInfo.roleName) {
                 playerInfo.sendErrorMessage("해당 직업은 착용할 수 없습니다.")
                 return
             }

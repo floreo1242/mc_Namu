@@ -7,10 +7,8 @@ import com.kkomi.treeisland.plugin.integration.getPlayerInfo
 import com.kkomi.treeisland.plugin.skill.model.PlayerSkillInfoRepository
 import com.kkomi.treeisland.plugin.skill.model.SkillInfoRepository
 import com.kkomi.treeisland.plugin.skill.model.entity.PlayerSkillInfo
-import com.kkomi.treeisland.plugin.skill.model.entity.SkillInfo
 import org.bukkit.event.EventHandler
 import org.bukkit.event.Listener
-import org.bukkit.event.block.Action
 import org.bukkit.event.player.PlayerInteractEvent
 import org.bukkit.event.player.PlayerItemHeldEvent
 import org.bukkit.event.player.PlayerJoinEvent
@@ -46,7 +44,7 @@ class PlayerSkillInfoListener : Listener {
                 return
             }
 
-            if (skillInfo.roleLimit != "공용" && player.getPlayerInfo().roleInfo.role.name != skillInfo.roleLimit) {
+            if (skillInfo.roleLimit != "공용" && player.getPlayerInfo().roleInfo.roleName != skillInfo.roleLimit) {
                 player.sendErrorMessage("습득 할 수 없는 스킬입니다.")
                 return
             }
