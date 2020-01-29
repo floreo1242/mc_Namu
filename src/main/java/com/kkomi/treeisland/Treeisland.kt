@@ -6,6 +6,7 @@ import com.kkomi.treeisland.plugin.guild.GuildPlugin
 import com.kkomi.treeisland.plugin.guild.model.GuildRepository
 import com.kkomi.treeisland.plugin.guild.model.PlayerGuildRepository
 import com.kkomi.treeisland.plugin.integration.getPlayerInfo
+import com.kkomi.treeisland.plugin.integration.scheduler.PlayerDataScheduler
 import com.kkomi.treeisland.plugin.itemdb.ItemDBPlugin
 import com.kkomi.treeisland.plugin.itemdb.model.ConsumptionItemRepository
 import com.kkomi.treeisland.plugin.itemdb.model.EquipmentItemRepository

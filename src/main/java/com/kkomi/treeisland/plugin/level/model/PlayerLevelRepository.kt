@@ -38,12 +38,11 @@ object PlayerLevelRepository {
         while (playerLevel.exp >= levelConfig.getExpByLevel(playerLevel.level)) {
             playerLevel.exp -= levelConfig.getExpByLevel(playerLevel.level)
             playerLevel.level++
-
-            if (playerLevel.level >= levelConfig.getMaxLevel()) {
-                playerLevel.exp = 0
-            }
-
             Bukkit.getServer().pluginManager.callEvent(PlayerLevelUpEvent(false, playerInfo))
+        }
+
+        if (playerLevel.level >= levelConfig.getMaxLevel()) {
+            playerLevel.exp = 0
         }
 
         editPlayerLevel(playerLevel)

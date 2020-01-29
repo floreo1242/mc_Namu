@@ -28,6 +28,6 @@ data class LevelConfig(
     }
 
     fun getExpByLevel(level: Int): Int {
-        return levelExpTable[level-1]
+        return levelExpTable[level - 1]
     }
 }

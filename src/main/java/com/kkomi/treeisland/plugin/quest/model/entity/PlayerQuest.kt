@@ -8,6 +8,7 @@ import com.kkomi.treeisland.plugin.integration.getPlayerInfo
 import com.kkomi.treeisland.plugin.itemdb.model.ConsumptionItemRepository
 import com.kkomi.treeisland.plugin.itemdb.model.EquipmentItemRepository
 import com.kkomi.treeisland.plugin.itemdb.model.OtherItemRepository
+import com.kkomi.treeisland.plugin.level.api.PlayerExpGetEvent
 import com.kkomi.treeisland.plugin.level.model.PlayerLevelRepository
 import com.kkomi.treeisland.plugin.level.model.entity.PlayerLevel
 import com.kkomi.treeisland.plugin.monster.model.entity.DropItemType
@@ -179,8 +180,13 @@ data class PlayerQuest(
         )
 
         player.getPlayerInfo().apply {
-            levelInfo.exp += quest.reward.exp
-            PlayerLevelRepository.checkLevelUp(this)
+            PlayerExpGetEvent(this)
+                    .run {
+                        Bukkit.getPluginManager().callEvent(this@run)
+                        if (!isCancelled) {
+                            levelInfo.exp += quest.reward.exp
+                        }
+                    }
         }.editPlayerInfo()
 
         if (quest.reward.command == "") {

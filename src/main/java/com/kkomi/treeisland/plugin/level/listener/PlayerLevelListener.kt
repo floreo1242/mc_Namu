@@ -30,9 +30,15 @@ class PlayerLevelListener : Listener {
     fun onPlayerExpGetEvent(event: PlayerExpGetEvent) {
         val playerInfo = event.playerInfo
         playerInfo.player.apply {
+            if (playerInfo.levelInfo.level == LevelConfigRepository.getLevelConfig().getMaxLevel()) {
+                event.isCancelled = true
+                return
+            }
+
             level = playerInfo.levelInfo.level
             exp = (playerInfo.levelInfo.exp.toFloat() / LevelConfigRepository.getLevelConfig().getExpByLevel(playerInfo.levelInfo.level).toFloat())
         }
+        PlayerLevelRepository.checkLevelUp(playerInfo)
     }
 
 }
