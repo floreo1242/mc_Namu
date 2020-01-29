@@ -18,7 +18,7 @@ class PlayerRoleListener : Listener {
         val uuid = event.player.uniqueId.toString()
         val playerRole = PlayerRoleRepository.getPlayerRole(uuid)
         if (playerRole == null) {
-            PlayerRoleRepository.addPlayerRole(PlayerRole(uuid, RoleRepository.getRole("모험가")!!))
+            PlayerRoleRepository.addPlayerRole(PlayerRole(uuid, "모험가"))
         }
     }
 
@@ -36,6 +36,14 @@ class PlayerRoleListener : Listener {
             return
         }
 
-        MagicSpells.getSpellByInGameName(player.getPlayerInfo().roleInfo.role.defaultAttackSpellName).cast(player)
+        val spellName = RoleRepository.getRole(player.getPlayerInfo().roleInfo.roleName)!!.defaultAttackSpellName
+        val spell = MagicSpells.getSpellByInGameName(spellName)
+
+        if (spell == null){
+            println("$spellName 은 존재하지 않는 스킬입니다.")
+            return
+        }
+
+        spell.cast(player)
     }
 }

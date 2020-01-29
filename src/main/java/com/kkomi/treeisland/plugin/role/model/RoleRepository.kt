@@ -9,7 +9,9 @@ object RoleRepository {
     private val roleDataSource = RoleFileDataSource(File(Treeisland.rolePlugin.dataFolder.path + "/roles"), Role::class.java)
 
     init {
-        addRole(Role("모험가", "pain"))
+        if (getRoleList().isEmpty()) {
+            addRole(Role("모험가", "pain"))
+        }
     }
 
     fun getRole(name: String): Role? {
