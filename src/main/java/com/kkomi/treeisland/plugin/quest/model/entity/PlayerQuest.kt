@@ -95,12 +95,11 @@ data class PlayerQuest(
                     if (questObjectiveList.map { it.isComplete() }.contains(false).not()) {
                         if (!questCompleteCheckMessageList.contains(questName)) {
                             questCompleteCheckMessageList.add(questName)
+                            player.sendInfoMessage("$questName 퀘스트 조건을 달성하였습니다.")
                         }
                     } else {
                         questCompleteCheckMessageList.remove(questName)
                     }
-
-
                 }
     }
 
