@@ -8,6 +8,7 @@ import com.kkomi.treeisland.plugin.itemdb.model.entity.ConsumptionItemType
 import com.nisovin.magicspells.MagicSpells
 import com.nisovin.magicspells.mana.ManaChangeReason
 import org.bukkit.Material
+import org.bukkit.attribute.Attribute
 import org.bukkit.entity.Player
 import org.bukkit.event.EventHandler
 import org.bukkit.event.Listener
@@ -52,8 +53,8 @@ class ConsumptionItemListener : Listener {
 
         when (consumptionItem.type) {
             ConsumptionItemType.HEALTH -> {
-                if (player.health + consumptionItem.value >= player.healthScale) {
-                    player.health = player.healthScale
+                if (player.health + consumptionItem.value >= player.getAttribute(Attribute.GENERIC_MAX_HEALTH).baseValue) {
+                    player.health = player.getAttribute(Attribute.GENERIC_MAX_HEALTH).baseValue
                 } else {
                     player.health += consumptionItem.value
                 }
