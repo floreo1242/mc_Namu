@@ -4,6 +4,7 @@ import com.kkomi.treeisland.plugin.integration.getPlayerInfo
 import com.kkomi.treeisland.plugin.itemdb.model.entity.StatOption
 import com.kkomi.treeisland.plugin.skill.api.EntityDeathBySpellCasterEvent
 import com.kkomi.treeisland.plugin.skill.api.SpellApplyDamagePlayerByEntityEvent
+import com.kkomi.treeisland.plugin.stat.model.PlayerStatRepository
 import com.kkomi.treeisland.plugin.stat.model.StatConfigRepository
 import com.nisovin.magicspells.events.MagicSpellsEntityDamageByEntityEvent
 import com.nisovin.magicspells.events.SpellApplyDamageEvent
@@ -23,6 +24,10 @@ class SkillListener : Listener {
         var damage = event.percent * event.caster.getPlayerInfo().statInfo.getTotalDamage()
 
         if (entity is Player) {
+            if (PlayerStatRepository.getPlayerStat(event.entity.uniqueId.toString()) == null) {
+                return
+            }
+
             val player = event.entity as Player
             val stat = player.getPlayerInfo().statInfo
 

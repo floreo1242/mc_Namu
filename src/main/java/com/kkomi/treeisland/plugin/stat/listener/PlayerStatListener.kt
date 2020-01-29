@@ -5,6 +5,7 @@ import com.kkomi.treeisland.plugin.itemdb.model.entity.StatOption
 import com.kkomi.treeisland.plugin.level.api.PlayerLevelUpEvent
 import com.kkomi.treeisland.plugin.stat.model.PlayerStatRepository
 import com.kkomi.treeisland.plugin.stat.model.StatConfigRepository
+import org.bukkit.Bukkit
 import org.bukkit.entity.Player
 import org.bukkit.event.EventHandler
 import org.bukkit.event.Listener
@@ -28,10 +29,17 @@ class PlayerStatListener : Listener {
 
     @EventHandler
     fun onPlayerDamageEvent(event: EntityDamageByEntityEvent) {
-        if (event.damager !is Player) {
-            if (event.entity is Player) {
-                val player = event.entity as Player
-                val stat = player.getPlayerInfo().statInfo
+        if (event.damager is Player) {
+            event.isCancelled = true
+        }
+
+        if (event.entity is Player) {
+            if (PlayerStatRepository.getPlayerStat(event.entity.uniqueId.toString()) == null) {
+                return
+            }
+
+            val player = event.entity as Player
+            val stat = player.getPlayerInfo().statInfo
 
                 if (((stat.finalStat[StatOption.AGILITY]
                                 ?: 0) * StatConfigRepository.getStatConfig().agiPointByValue) <= Random.nextInt(1..100)) {
