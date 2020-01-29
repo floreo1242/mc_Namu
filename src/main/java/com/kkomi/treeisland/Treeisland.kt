@@ -51,7 +51,7 @@ class Treeisland : JavaPlugin(), Listener {
         lateinit var guildPlugin: GuildPlugin
         lateinit var equipItemPlugin: EquipItemPlugin
         lateinit var skillPlugin: SkillPlugin
-        lateinit var rolePlugin : RolePlugin
+        lateinit var rolePlugin: RolePlugin
     }
 
     override fun onEnable() {
@@ -114,6 +114,8 @@ class Treeisland : JavaPlugin(), Listener {
                     it.getPlayerInfo().statInfo.updateFinalStat(it.getPlayerInfo().equipmentInfo)
                     it.getPlayerInfo().statInfo.calculateStatOption(it)
                 }
+
+        PlayerDataScheduler().setPlugin(this).startTimer(0, -1, 0, 0)
     }
 
     override fun onDisable() {
