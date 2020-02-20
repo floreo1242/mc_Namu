@@ -1,8 +1,8 @@
 package com.kkomi.treeisland.plugin.shop.listener
 
-import com.kkomi.treeisland.library.PageList
-import com.kkomi.treeisland.library.extension.*
-import com.kkomi.treeisland.library.message.InventoryMessage
+import com.kkomi.devlibrary.PageList
+import com.kkomi.devlibrary.extension.*
+import com.kkomi.devlibrary.message.InventoryMessage
 import com.kkomi.treeisland.plugin.integration.PlayerInfo
 import com.kkomi.treeisland.plugin.money.model.PlayerMoneyRepository
 import com.kkomi.treeisland.plugin.shop.model.entity.Shop

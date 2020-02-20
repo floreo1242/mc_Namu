@@ -1,8 +1,8 @@
 package com.kkomi.treeisland.plugin.equipitem.listener
 
-import com.kkomi.treeisland.library.extension.emptyCount
-import com.kkomi.treeisland.library.extension.getDisplay
-import com.kkomi.treeisland.library.extension.getServerTitleInfo
+import com.kkomi.devlibrary.extension.emptyCount
+import com.kkomi.devlibrary.extension.getDisplay
+import com.kkomi.devlibrary.extension.getServerTitleInfo
 import com.kkomi.treeisland.plugin.equipitem.api.PlayerWearEquipmentItemEvent
 import com.kkomi.treeisland.plugin.integration.getPlayerInfo
 import com.kkomi.treeisland.plugin.itemdb.model.EquipmentItemRepository

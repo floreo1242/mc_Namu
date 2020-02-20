@@ -1,6 +1,6 @@
 package com.kkomi.treeisland.plugin.monster
 
-import com.kkomi.treeisland.library.SubMainManager
+import com.kkomi.devlibrary.SubMainManager
 import com.kkomi.treeisland.plugin.monster.listener.MonsterListener
 import com.kkomi.treeisland.plugin.monster.model.entity.DropItem
 import com.kkomi.treeisland.plugin.monster.model.entity.MonsterDrop

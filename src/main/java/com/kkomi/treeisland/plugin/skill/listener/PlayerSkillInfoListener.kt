@@ -1,8 +1,8 @@
 package com.kkomi.treeisland.plugin.skill.listener
 
-import com.kkomi.treeisland.library.extension.getDisplay
-import com.kkomi.treeisland.library.extension.sendErrorMessage
-import com.kkomi.treeisland.library.extension.sendInfoMessage
+import com.kkomi.devlibrary.extension.getDisplay
+import com.kkomi.devlibrary.extension.sendErrorMessage
+import com.kkomi.devlibrary.extension.sendInfoMessage
 import com.kkomi.treeisland.plugin.integration.getPlayerInfo
 import com.kkomi.treeisland.plugin.skill.model.PlayerSkillInfoRepository
 import com.kkomi.treeisland.plugin.skill.model.SkillInfoRepository

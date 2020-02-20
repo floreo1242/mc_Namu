@@ -1,7 +1,7 @@
 package com.kkomi.treeisland.plugin.stat
 
-import com.kkomi.treeisland.library.SubMainManager
-import com.kkomi.treeisland.library.command.CommandManager
+import com.kkomi.devlibrary.SubMainManager
+import com.kkomi.devlibrary.command.CommandManager
 import com.kkomi.treeisland.plugin.stat.command.CommandOpenPlayerStat
 import com.kkomi.treeisland.plugin.stat.listener.PlayerStatInventoryListener
 import com.kkomi.treeisland.plugin.stat.listener.PlayerStatListener

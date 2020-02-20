@@ -1,6 +1,6 @@
 package com.kkomi.treeisland.plugin.itemdb.model
 
-import com.kkomi.treeisland.library.FileDataSource
+import com.kkomi.devlibrary.FileDataSource
 import com.kkomi.treeisland.plugin.itemdb.model.entity.OtherItem
 import java.io.File
 

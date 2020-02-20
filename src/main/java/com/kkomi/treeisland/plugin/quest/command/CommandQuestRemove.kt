@@ -1,8 +1,8 @@
 package com.kkomi.treeisland.plugin.quest.command
 
-import com.kkomi.treeisland.library.command.ArgumentList
-import com.kkomi.treeisland.library.extension.sendErrorMessage
-import com.kkomi.treeisland.library.extension.sendInfoMessage
+import com.kkomi.devlibrary.command.ArgumentList
+import com.kkomi.devlibrary.extension.sendErrorMessage
+import com.kkomi.devlibrary.extension.sendInfoMessage
 import com.kkomi.treeisland.plugin.quest.model.QuestMessage
 import com.kkomi.treeisland.plugin.quest.model.QuestRepository
 import com.kkomi.treeisland.plugin.quest.model.entity.Quest

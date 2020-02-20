@@ -1,7 +1,7 @@
 package com.kkomi.treeisland.plugin.itemdb.listener
 
-import com.kkomi.treeisland.library.extension.sendErrorMessage
-import com.kkomi.treeisland.library.extension.sendInfoMessage
+import com.kkomi.devlibrary.extension.sendErrorMessage
+import com.kkomi.devlibrary.extension.sendInfoMessage
 import com.kkomi.treeisland.plugin.itemdb.model.ConsumptionItemRepository
 import com.kkomi.treeisland.plugin.itemdb.model.entity.ConsumptionItem
 import com.kkomi.treeisland.plugin.itemdb.model.entity.ConsumptionItemType

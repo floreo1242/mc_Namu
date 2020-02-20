@@ -1,7 +1,7 @@
 package com.kkomi.treeisland.plugin.quest.schduler
 
-import com.kkomi.treeisland.library.extension.parseLocation
-import com.kkomi.treeisland.library.schedular.TimerManager
+import com.kkomi.devlibrary.extension.parseLocation
+import com.kkomi.devlibrary.schedular.TimerManager
 import com.kkomi.treeisland.plugin.integration.getPlayerInfo
 import com.kkomi.treeisland.plugin.quest.model.entity.QuestAction
 import org.bukkit.Bukkit

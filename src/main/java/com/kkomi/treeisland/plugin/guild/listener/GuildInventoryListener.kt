@@ -1,6 +1,6 @@
 package com.kkomi.treeisland.plugin.guild.listener
 
-import com.kkomi.treeisland.library.extension.getServerTitleInfo
+import com.kkomi.devlibrary.extension.getServerTitleInfo
 import com.kkomi.treeisland.plugin.guild.inventory.GuildInfoInventory
 import com.kkomi.treeisland.plugin.guild.model.GuildRepository
 import org.bukkit.event.EventHandler

@@ -1,7 +1,7 @@
 package com.kkomi.treeisland.plugin.itemdb
 
-import com.kkomi.treeisland.library.SubMainManager
-import com.kkomi.treeisland.library.command.CommandManager
+import com.kkomi.devlibrary.SubMainManager
+import com.kkomi.devlibrary.command.CommandManager
 import com.kkomi.treeisland.plugin.itemdb.command.*
 import com.kkomi.treeisland.plugin.itemdb.listener.ConsumptionItemListener
 import com.kkomi.treeisland.plugin.itemdb.model.entity.ConsumptionItem

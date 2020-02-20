@@ -1,6 +1,6 @@
 package com.kkomi.treeisland.plugin.monster.model
 
-import com.kkomi.treeisland.library.FileDataSource
+import com.kkomi.devlibrary.FileDataSource
 import com.kkomi.treeisland.plugin.monster.model.entity.MonsterDrop
 import java.io.File
 

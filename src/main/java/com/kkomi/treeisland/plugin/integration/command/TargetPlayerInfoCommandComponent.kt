@@ -1,7 +1,7 @@
 package com.kkomi.treeisland.plugin.integration.command
 
-import com.kkomi.treeisland.library.command.ArgumentList
-import com.kkomi.treeisland.library.command.TargetCommandComponent
+import com.kkomi.devlibrary.command.ArgumentList
+import com.kkomi.devlibrary.command.TargetCommandComponent
 import com.kkomi.treeisland.plugin.integration.OfflinePlayerInfo
 import com.kkomi.treeisland.plugin.integration.PlayerInfo
 import org.bukkit.OfflinePlayer

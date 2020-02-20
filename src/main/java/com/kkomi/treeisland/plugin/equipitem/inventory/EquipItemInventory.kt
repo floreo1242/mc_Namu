@@ -1,7 +1,7 @@
 package com.kkomi.treeisland.plugin.equipitem.inventory
 
-import com.kkomi.treeisland.library.extension.createItemStack
-import com.kkomi.treeisland.library.inventory.InventoryManager
+import com.kkomi.devlibrary.extension.createItemStack
+import com.kkomi.devlibrary.inventory.InventoryManager
 import com.kkomi.treeisland.plugin.integration.getPlayerInfo
 import org.bukkit.Bukkit
 import org.bukkit.Material

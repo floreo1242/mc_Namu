@@ -1,9 +1,9 @@
 package com.kkomi.treeisland.plugin.quest.inventory
 
-import com.kkomi.treeisland.library.extension.createItemStack
-import com.kkomi.treeisland.library.extension.getDisplay
-import com.kkomi.treeisland.library.extension.setLore
-import com.kkomi.treeisland.library.inventory.InventoryManager
+import com.kkomi.devlibrary.extension.createItemStack
+import com.kkomi.devlibrary.extension.getDisplay
+import com.kkomi.devlibrary.extension.setLore
+import com.kkomi.devlibrary.inventory.InventoryManager
 import com.kkomi.treeisland.plugin.integration.getPlayerInfo
 import com.kkomi.treeisland.plugin.itemdb.model.OtherItemRepository
 import com.kkomi.treeisland.plugin.quest.QuestPlugin

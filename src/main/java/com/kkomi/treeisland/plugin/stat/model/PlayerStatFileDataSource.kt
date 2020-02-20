@@ -1,6 +1,6 @@
 package com.kkomi.treeisland.plugin.stat.model
 
-import com.kkomi.treeisland.library.FileDataSource
+import com.kkomi.devlibrary.FileDataSource
 import com.kkomi.treeisland.plugin.stat.model.entity.PlayerStat
 import java.io.File
 

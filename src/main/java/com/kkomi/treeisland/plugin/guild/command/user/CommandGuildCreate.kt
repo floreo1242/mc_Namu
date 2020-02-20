@@ -1,9 +1,9 @@
-package com.kkomi.treeisland.plugin.guild.command
+package com.kkomi.treeisland.plugin.guild.command.user
 
-import com.kkomi.treeisland.library.command.ArgumentList
-import com.kkomi.treeisland.library.command.CommandComponent
-import com.kkomi.treeisland.library.extension.sendErrorMessage
-import com.kkomi.treeisland.library.extension.sendInfoMessage
+import com.kkomi.devlibrary.command.ArgumentList
+import com.kkomi.devlibrary.command.CommandComponent
+import com.kkomi.devlibrary.extension.sendErrorMessage
+import com.kkomi.devlibrary.extension.sendInfoMessage
 import com.kkomi.treeisland.plugin.guild.model.GuildRepository
 import com.kkomi.treeisland.plugin.guild.model.PlayerGuildRepository
 import com.kkomi.treeisland.plugin.guild.model.entity.Guild
@@ -14,7 +14,14 @@ import org.bukkit.command.Command
 import org.bukkit.command.CommandSender
 import org.bukkit.entity.Player
 
-class CommandGuildCreate(usage: String, description: String, argumentsLength: Int) : CommandComponent(usage, description, argumentsLength) {
+class CommandGuildCreate : CommandComponent() {
+
+    override val argumentsLength: Int = 0
+
+    override val description: String = "Create guild"
+
+    override val usage: String = "<GuildName>"
+
     override fun onCommand(sender: CommandSender, label: String, command: Command, componentLabel: String, args: ArgumentList): Boolean {
         val guildName = args.next()
         val guild = GuildRepository.getGuild(guildName)
@@ -32,6 +39,7 @@ class CommandGuildCreate(usage: String, description: String, argumentsLength: In
 
         val createdGuild = Guild(guildName, 1, 0, mutableMapOf(player.uniqueId.toString() to GuildMemberState(GuildGrade.MANAGER, 0)))
         GuildRepository.addGuild(createdGuild)
+
         val playerGuild = player.getPlayerInfo().guildInfo
         playerGuild.guildName = guildName
         PlayerGuildRepository.editPlayerGuild(playerGuild)

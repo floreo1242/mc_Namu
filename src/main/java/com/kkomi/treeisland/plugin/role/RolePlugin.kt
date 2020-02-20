@@ -1,7 +1,7 @@
 package com.kkomi.treeisland.plugin.role
 
-import com.kkomi.treeisland.library.SubMainManager
-import com.kkomi.treeisland.library.command.CommandManager
+import com.kkomi.devlibrary.SubMainManager
+import com.kkomi.devlibrary.command.CommandManager
 import com.kkomi.treeisland.plugin.role.command.CommandPlayerRoleReload
 import com.kkomi.treeisland.plugin.role.command.CommandRoleReload
 import com.kkomi.treeisland.plugin.role.command.CommandSetRole

@@ -1,6 +1,6 @@
 package com.kkomi.treeisland.plugin.equipitem.model.entity
 
-import com.kkomi.treeisland.library.extension.*
+import com.kkomi.devlibrary.extension.*
 import com.kkomi.treeisland.plugin.itemdb.model.entity.StatOption
 import org.bukkit.Material
 import org.bukkit.configuration.serialization.ConfigurationSerializable

@@ -1,8 +1,8 @@
 package com.kkomi.treeisland.plugin.guild.command
 
-import com.kkomi.treeisland.library.command.ArgumentList
-import com.kkomi.treeisland.library.command.TargetCommandComponent
-import com.kkomi.treeisland.library.extension.sendErrorMessage
+import com.kkomi.devlibrary.command.ArgumentList
+import com.kkomi.devlibrary.command.TargetCommandComponent
+import com.kkomi.devlibrary.extension.sendErrorMessage
 import com.kkomi.treeisland.plugin.guild.model.GuildRepository
 import com.kkomi.treeisland.plugin.guild.model.entity.Guild
 import com.kkomi.treeisland.plugin.integration.getPlayerInfo
@@ -10,7 +10,8 @@ import org.bukkit.command.Command
 import org.bukkit.command.CommandSender
 import org.bukkit.entity.Player
 
-abstract class GuildCommandComponent(usage: String, description: String, argumentsLength: Int) : TargetCommandComponent(usage, description, argumentsLength) {
+abstract class GuildCommandComponent : TargetCommandComponent() {
+
     override fun onCommand(sender: CommandSender, label: String, command: Command, componentLabel: String, args: ArgumentList): Boolean {
         val playerInfo = (sender as Player).getPlayerInfo()
 

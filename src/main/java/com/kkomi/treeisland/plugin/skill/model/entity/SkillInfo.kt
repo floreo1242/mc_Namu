@@ -1,6 +1,6 @@
 package com.kkomi.treeisland.plugin.skill.model.entity
 
-import com.kkomi.treeisland.library.extension.createItemStack
+import com.kkomi.devlibrary.extension.createItemStack
 import com.nisovin.magicspells.MagicSpells
 import org.bukkit.Material
 import org.bukkit.configuration.serialization.ConfigurationSerializable

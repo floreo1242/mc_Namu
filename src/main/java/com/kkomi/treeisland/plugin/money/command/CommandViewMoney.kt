@@ -1,7 +1,7 @@
 package com.kkomi.treeisland.plugin.money.command
 
-import com.kkomi.treeisland.library.command.ArgumentList
-import com.kkomi.treeisland.library.extension.sendInfoMessage
+import com.kkomi.devlibrary.command.ArgumentList
+import com.kkomi.devlibrary.extension.sendInfoMessage
 import com.kkomi.treeisland.plugin.integration.PlayerInfo
 import com.kkomi.treeisland.plugin.integration.command.PlayerInfoCommandComponent
 import com.kkomi.treeisland.plugin.money.model.MoneyMessage

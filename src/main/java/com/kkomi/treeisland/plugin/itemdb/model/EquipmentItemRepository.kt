@@ -1,7 +1,7 @@
 package com.kkomi.treeisland.plugin.itemdb.model
 
 import com.kkomi.treeisland.Treeisland
-import com.kkomi.treeisland.library.extension.replaceChatColorCode
+import com.kkomi.devlibrary.extension.replaceChatColorCode
 import com.kkomi.treeisland.plugin.itemdb.model.entity.EquipmentItem
 import com.kkomi.treeisland.plugin.itemdb.model.entity.EquipmentItemOption
 import com.kkomi.treeisland.plugin.itemdb.model.entity.EquipmentType

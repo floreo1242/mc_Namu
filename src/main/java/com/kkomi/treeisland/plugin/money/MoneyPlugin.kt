@@ -1,7 +1,7 @@
 package com.kkomi.treeisland.plugin.money
 
-import com.kkomi.treeisland.library.SubMainManager
-import com.kkomi.treeisland.library.command.CommandManager
+import com.kkomi.devlibrary.SubMainManager
+import com.kkomi.devlibrary.command.CommandManager
 import com.kkomi.treeisland.plugin.money.command.*
 import com.kkomi.treeisland.plugin.money.listener.PlayerMoneyListener
 import com.kkomi.treeisland.plugin.money.model.entity.PlayerMoney

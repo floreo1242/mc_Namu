@@ -1,9 +1,9 @@
 package com.kkomi.treeisland.plugin.quest.model.entity
 
-import com.kkomi.treeisland.library.extension.getDisplay
-import com.kkomi.treeisland.library.extension.sendInfoMessage
-import com.kkomi.treeisland.library.extension.takeItem
-import com.kkomi.treeisland.library.extension.toMap
+import com.kkomi.devlibrary.extension.getDisplay
+import com.kkomi.devlibrary.extension.sendInfoMessage
+import com.kkomi.devlibrary.extension.takeItem
+import com.kkomi.devlibrary.extension.toMap
 import com.kkomi.treeisland.plugin.integration.getPlayerInfo
 import com.kkomi.treeisland.plugin.itemdb.model.ConsumptionItemRepository
 import com.kkomi.treeisland.plugin.itemdb.model.EquipmentItemRepository

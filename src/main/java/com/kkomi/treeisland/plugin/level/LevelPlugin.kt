@@ -1,7 +1,7 @@
 package com.kkomi.treeisland.plugin.level
 
-import com.kkomi.treeisland.library.SubMainManager
-import com.kkomi.treeisland.library.command.CommandManager
+import com.kkomi.devlibrary.SubMainManager
+import com.kkomi.devlibrary.command.CommandManager
 import com.kkomi.treeisland.plugin.level.command.CommandLevelConfigReload
 import com.kkomi.treeisland.plugin.level.command.CommandLevelOtherView
 import com.kkomi.treeisland.plugin.level.command.CommandLevelView

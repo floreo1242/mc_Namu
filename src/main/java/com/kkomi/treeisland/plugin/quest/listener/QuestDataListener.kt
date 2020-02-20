@@ -1,7 +1,7 @@
 package com.kkomi.treeisland.plugin.quest.listener
 
-import com.kkomi.treeisland.library.extension.sendErrorMessage
-import com.kkomi.treeisland.library.extension.takeItem
+import com.kkomi.devlibrary.extension.sendErrorMessage
+import com.kkomi.devlibrary.extension.takeItem
 import com.kkomi.treeisland.plugin.integration.getPlayerInfo
 import com.kkomi.treeisland.plugin.itemdb.model.OtherItemRepository
 import com.kkomi.treeisland.plugin.itemdb.model.entity.OtherItem

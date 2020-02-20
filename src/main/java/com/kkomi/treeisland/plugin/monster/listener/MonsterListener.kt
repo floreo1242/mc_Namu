@@ -5,7 +5,7 @@ import com.gmail.filoghost.holographicdisplays.`object`.line.CraftHologramLine
 import com.gmail.filoghost.holographicdisplays.`object`.line.CraftTextLine
 import com.gmail.filoghost.holographicdisplays.api.HologramsAPI
 import com.kkomi.treeisland.Treeisland
-import com.kkomi.treeisland.library.extension.replaceChatColorCode
+import com.kkomi.devlibrary.extension.replaceChatColorCode
 import com.kkomi.treeisland.plugin.integration.getPlayerInfo
 import com.kkomi.treeisland.plugin.itemdb.model.entity.StatOption
 import com.kkomi.treeisland.plugin.level.api.PlayerExpGetEvent

@@ -1,6 +1,6 @@
 package com.kkomi.treeisland.plugin.level.model
 
-import com.kkomi.treeisland.library.FileDataSource
+import com.kkomi.devlibrary.FileDataSource
 import com.kkomi.treeisland.plugin.level.model.entity.LevelConfig
 import org.bukkit.configuration.file.YamlConfiguration
 import java.io.File

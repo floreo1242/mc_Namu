@@ -1,10 +1,10 @@
-package com.kkomi.treeisland.plugin.guild.command
+package com.kkomi.treeisland.plugin.guild.command.user
 
-import com.kkomi.treeisland.library.command.ArgumentList
-import com.kkomi.treeisland.library.extension.sendErrorMessage
-import com.kkomi.treeisland.library.extension.sendInfoMessage
+import com.kkomi.devlibrary.command.ArgumentList
+import com.kkomi.devlibrary.extension.sendErrorMessage
+import com.kkomi.devlibrary.extension.sendInfoMessage
+import com.kkomi.treeisland.plugin.guild.command.GuildCommandComponent
 import com.kkomi.treeisland.plugin.guild.model.GuildRepository
-import com.kkomi.treeisland.plugin.guild.model.PlayerGuildRepository
 import com.kkomi.treeisland.plugin.guild.model.entity.Guild
 import com.kkomi.treeisland.plugin.guild.model.entity.GuildGrade
 import com.kkomi.treeisland.plugin.integration.getPlayerInfo
@@ -13,7 +13,8 @@ import org.bukkit.command.Command
 import org.bukkit.command.CommandSender
 import org.bukkit.entity.Player
 
-class CommandGuildGrade(usage: String, description: String, argumentsLength: Int) : GuildCommandComponent(usage, description, argumentsLength) {
+class CommandGuildGrade : GuildCommandComponent() {
+
     override fun onCommand(player: Player, label: String, command: Command, componentLabel: String, args: ArgumentList, guild: Guild): Boolean {
         val targetName = args.next()
         val targetPlayer = Bukkit.getPlayer(targetName)

@@ -1,6 +1,6 @@
 package com.kkomi.treeisland.plugin.quest.listener
 
-import com.kkomi.treeisland.library.extension.*
+import com.kkomi.devlibrary.extension.*
 import com.kkomi.treeisland.plugin.integration.getPlayerInfo
 import com.kkomi.treeisland.plugin.quest.QuestPlugin
 import com.kkomi.treeisland.plugin.quest.inventory.QuestAcceptInventory

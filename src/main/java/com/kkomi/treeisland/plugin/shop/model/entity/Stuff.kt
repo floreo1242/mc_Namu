@@ -1,7 +1,7 @@
 package com.kkomi.treeisland.plugin.shop.model.entity
 
-import com.kkomi.treeisland.library.extension.replaceChatColorCode
-import com.kkomi.treeisland.library.extension.toMoneyFormat
+import com.kkomi.devlibrary.extension.replaceChatColorCode
+import com.kkomi.devlibrary.extension.toMoneyFormat
 import org.bukkit.configuration.serialization.ConfigurationSerializable
 import org.bukkit.configuration.serialization.SerializableAs
 import org.bukkit.inventory.ItemStack

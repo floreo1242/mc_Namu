@@ -1,9 +1,9 @@
 package com.kkomi.treeisland.plugin.quest.listener
 
 import com.kkomi.treeisland.Treeisland
-import com.kkomi.treeisland.library.extension.count
-import com.kkomi.treeisland.library.extension.getServerTitleInfo
-import com.kkomi.treeisland.library.extension.setItem
+import com.kkomi.devlibrary.extension.count
+import com.kkomi.devlibrary.extension.getServerTitleInfo
+import com.kkomi.devlibrary.extension.setItem
 import com.kkomi.treeisland.plugin.quest.inventory.QuestAcceptInventory
 import com.kkomi.treeisland.plugin.quest.inventory.QuestTalkInventory
 import com.kkomi.treeisland.plugin.quest.model.QuestRepository

@@ -1,7 +1,7 @@
 package com.kkomi.treeisland.plugin.stat.listener
 
-import com.kkomi.treeisland.library.extension.createItemStack
-import com.kkomi.treeisland.library.extension.getServerTitleInfo
+import com.kkomi.devlibrary.extension.createItemStack
+import com.kkomi.devlibrary.extension.getServerTitleInfo
 import com.kkomi.treeisland.plugin.integration.getPlayerInfo
 import com.kkomi.treeisland.plugin.itemdb.model.entity.StatOption
 import com.kkomi.treeisland.plugin.stat.inventory.PlayerStatInventory

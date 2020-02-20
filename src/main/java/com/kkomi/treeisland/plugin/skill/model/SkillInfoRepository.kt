@@ -1,7 +1,7 @@
 package com.kkomi.treeisland.plugin.skill.model
 
 import com.kkomi.treeisland.Treeisland
-import com.kkomi.treeisland.library.extension.replaceChatColorCode
+import com.kkomi.devlibrary.extension.replaceChatColorCode
 import com.kkomi.treeisland.plugin.skill.model.entity.SkillInfo
 import java.io.File
 

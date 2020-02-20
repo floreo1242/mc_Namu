@@ -1,6 +1,6 @@
 package com.kkomi.treeisland.plugin.skill.model
 
-import com.kkomi.treeisland.library.FileDataSource
+import com.kkomi.devlibrary.FileDataSource
 import com.kkomi.treeisland.plugin.skill.model.entity.PlayerSkillInfo
 import java.io.File
 

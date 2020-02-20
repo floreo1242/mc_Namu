@@ -1,9 +1,9 @@
 package com.kkomi.treeisland.plugin.role.command
 
-import com.kkomi.treeisland.library.command.ArgumentList
-import com.kkomi.treeisland.library.command.CommandComponent
-import com.kkomi.treeisland.library.extension.sendDebugMessage
-import com.kkomi.treeisland.library.extension.sendErrorMessage
+import com.kkomi.devlibrary.command.ArgumentList
+import com.kkomi.devlibrary.command.CommandComponent
+import com.kkomi.devlibrary.extension.sendDebugMessage
+import com.kkomi.devlibrary.extension.sendErrorMessage
 import com.kkomi.treeisland.plugin.integration.getPlayerInfo
 import com.kkomi.treeisland.plugin.role.model.PlayerRoleRepository
 import com.kkomi.treeisland.plugin.role.model.RoleRepository
@@ -11,7 +11,7 @@ import org.bukkit.Bukkit
 import org.bukkit.command.Command
 import org.bukkit.command.CommandSender
 
-class CommandSetRole(usage: String, description: String, argumentsLength: Int) : CommandComponent(usage, description, argumentsLength) {
+class CommandSetRole : CommandComponent() {
 
     override fun onCommand(sender: CommandSender, label: String, command: Command, componentLabel: String, args: ArgumentList): Boolean {
         val targetName = args.next()

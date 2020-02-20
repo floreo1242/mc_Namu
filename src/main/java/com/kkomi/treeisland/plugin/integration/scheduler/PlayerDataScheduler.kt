@@ -1,6 +1,6 @@
 package com.kkomi.treeisland.plugin.integration.scheduler
 
-import com.kkomi.treeisland.library.schedular.TimerManager
+import com.kkomi.devlibrary.schedular.TimerManager
 import com.kkomi.treeisland.plugin.integration.getPlayerInfo
 import org.bukkit.Bukkit
 

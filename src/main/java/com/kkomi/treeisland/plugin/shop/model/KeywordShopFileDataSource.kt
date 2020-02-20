@@ -1,6 +1,6 @@
 package com.kkomi.treeisland.plugin.shop.model
 
-import com.kkomi.treeisland.library.FileDataSource
+import com.kkomi.devlibrary.FileDataSource
 import com.kkomi.treeisland.plugin.shop.model.entity.KeywordShop
 import com.kkomi.treeisland.plugin.shop.model.entity.KeywordStuff
 import java.io.File

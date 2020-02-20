@@ -1,8 +1,8 @@
 package com.kkomi.treeisland.plugin.guild
 
-import com.kkomi.treeisland.library.SubMainManager
-import com.kkomi.treeisland.library.command.CommandManager
-import com.kkomi.treeisland.plugin.guild.command.*
+import com.kkomi.devlibrary.SubMainManager
+import com.kkomi.devlibrary.command.CommandManager
+import com.kkomi.treeisland.plugin.guild.command.user.*
 import com.kkomi.treeisland.plugin.guild.listener.GuildInventoryListener
 import com.kkomi.treeisland.plugin.guild.listener.PlayerGuildListener
 import com.kkomi.treeisland.plugin.guild.model.entity.Guild
@@ -26,6 +26,10 @@ class GuildPlugin(dataFolder: File, plugin: JavaPlugin) : SubMainManager(dataFol
             addComponent("kick", CommandGuildKick("[playerName]", "", 1))
             addComponent("grade", CommandGuildGrade("[playerName]", "", 1))
         }.register(plugin.getCommand("guild"))
+
+        CommandManager(true).apply {
+            addComponent()
+        }
     }
 
     override fun setupListeners() {

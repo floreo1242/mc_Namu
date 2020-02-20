@@ -1,7 +1,7 @@
 package com.kkomi.treeisland.plugin.shop
 
-import com.kkomi.treeisland.library.SubMainManager
-import com.kkomi.treeisland.library.command.CommandManager
+import com.kkomi.devlibrary.SubMainManager
+import com.kkomi.devlibrary.command.CommandManager
 import com.kkomi.treeisland.plugin.shop.command.*
 import com.kkomi.treeisland.plugin.shop.model.entity.KeywordStuff
 import com.kkomi.treeisland.plugin.shop.model.entity.Stuff

@@ -1,7 +1,7 @@
 package com.kkomi.treeisland.plugin.shop.command
 
-import com.kkomi.treeisland.library.command.ArgumentList
-import com.kkomi.treeisland.library.extension.sendInfoMessage
+import com.kkomi.devlibrary.command.ArgumentList
+import com.kkomi.devlibrary.extension.sendInfoMessage
 import com.kkomi.treeisland.plugin.shop.model.ShopMessage
 import com.kkomi.treeisland.plugin.shop.model.ShopRepository
 import com.kkomi.treeisland.plugin.shop.model.entity.Shop

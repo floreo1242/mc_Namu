@@ -1,7 +1,7 @@
 package com.kkomi.treeisland.plugin.guild.inventory
 
-import com.kkomi.treeisland.library.extension.createItemStack
-import com.kkomi.treeisland.library.inventory.InventoryManager
+import com.kkomi.devlibrary.extension.createItemStack
+import com.kkomi.devlibrary.inventory.InventoryManager
 import com.kkomi.treeisland.plugin.guild.model.GuildOptionRepository
 import com.kkomi.treeisland.plugin.guild.model.entity.Guild
 import com.kkomi.treeisland.plugin.guild.model.entity.GuildMemberState

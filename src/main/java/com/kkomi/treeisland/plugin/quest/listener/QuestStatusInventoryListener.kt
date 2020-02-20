@@ -1,8 +1,8 @@
 package com.kkomi.treeisland.plugin.quest.listener
 
-import com.kkomi.treeisland.library.extension.getDisplay
-import com.kkomi.treeisland.library.extension.getServerTitleInfo
-import com.kkomi.treeisland.library.extension.removeChatColorCode
+import com.kkomi.devlibrary.extension.getDisplay
+import com.kkomi.devlibrary.extension.getServerTitleInfo
+import com.kkomi.devlibrary.extension.removeChatColorCode
 import com.kkomi.treeisland.plugin.quest.inventory.QuestCancelInventory
 import com.kkomi.treeisland.plugin.quest.inventory.QuestStatusInventory
 import com.kkomi.treeisland.plugin.quest.model.QuestRepository

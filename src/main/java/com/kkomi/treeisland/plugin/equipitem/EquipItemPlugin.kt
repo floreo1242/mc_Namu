@@ -1,8 +1,8 @@
 package com.kkomi.treeisland.plugin.equipitem
 
-import com.kkomi.treeisland.library.SubMainManager
-import com.kkomi.treeisland.library.command.CommandManager
-import com.kkomi.treeisland.plugin.equipitem.command.CommandOpenEquipItem
+import com.kkomi.devlibrary.SubMainManager
+import com.kkomi.devlibrary.command.CommandManager
+import com.kkomi.treeisland.plugin.equipitem.command.user.CommandOpenEquipItem
 import com.kkomi.treeisland.plugin.equipitem.listener.EquipItemInventoryListener
 import com.kkomi.treeisland.plugin.equipitem.listener.PlayerEquipItemListener
 import com.kkomi.treeisland.plugin.equipitem.model.entity.PlayerEquipItem
@@ -16,8 +16,8 @@ class EquipItemPlugin(dataFolder: File, plugin: JavaPlugin) : SubMainManager(dat
     }
 
     override fun setupCommands() {
-        CommandManager(true).apply {
-            addComponent("open", CommandOpenEquipItem("", "Open player equip inventory", 0))
+        CommandManager(false).apply {
+            addComponent("open", CommandOpenEquipItem())
         }.register(plugin.getCommand("equip"))
     }
 

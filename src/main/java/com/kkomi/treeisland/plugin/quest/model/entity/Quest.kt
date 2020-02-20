@@ -1,6 +1,6 @@
 package com.kkomi.treeisland.plugin.quest.model.entity
 
-import com.kkomi.treeisland.library.extension.*
+import com.kkomi.devlibrary.extension.*
 import org.bukkit.Material
 import org.bukkit.configuration.serialization.ConfigurationSerializable
 import org.bukkit.configuration.serialization.SerializableAs

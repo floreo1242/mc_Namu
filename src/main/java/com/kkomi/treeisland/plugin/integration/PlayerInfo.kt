@@ -1,9 +1,9 @@
 package com.kkomi.treeisland.plugin.integration
 
-import com.kkomi.treeisland.library.extension.replaceChatColorCode
-import com.kkomi.treeisland.library.extension.sendDebugMessage
-import com.kkomi.treeisland.library.extension.sendErrorMessage
-import com.kkomi.treeisland.library.extension.sendInfoMessage
+import com.kkomi.devlibrary.extension.replaceChatColorCode
+import com.kkomi.devlibrary.extension.sendDebugMessage
+import com.kkomi.devlibrary.extension.sendErrorMessage
+import com.kkomi.devlibrary.extension.sendInfoMessage
 import com.kkomi.treeisland.plugin.equipitem.model.PlayerEquipItemRepository
 import com.kkomi.treeisland.plugin.equipitem.model.entity.PlayerEquipItem
 import com.kkomi.treeisland.plugin.guild.model.PlayerGuildRepository

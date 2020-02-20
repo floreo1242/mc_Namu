@@ -1,9 +1,9 @@
 package com.kkomi.treeisland.plugin.shop.inventory
 
-import com.kkomi.treeisland.library.extension.createItemStack
-import com.kkomi.treeisland.library.extension.setItem
-import com.kkomi.treeisland.library.extension.toMoneyFormat
-import com.kkomi.treeisland.library.inventory.InventoryManager
+import com.kkomi.devlibrary.extension.createItemStack
+import com.kkomi.devlibrary.extension.setItem
+import com.kkomi.devlibrary.extension.toMoneyFormat
+import com.kkomi.devlibrary.inventory.InventoryManager
 import com.kkomi.treeisland.plugin.integration.PlayerInfo
 import com.kkomi.treeisland.plugin.shop.model.entity.Shop
 import org.bukkit.Bukkit

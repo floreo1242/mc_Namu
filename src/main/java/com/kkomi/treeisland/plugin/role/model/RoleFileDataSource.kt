@@ -1,6 +1,6 @@
 package com.kkomi.treeisland.plugin.role.model
 
-import com.kkomi.treeisland.library.FileDataSource
+import com.kkomi.devlibrary.FileDataSource
 import com.kkomi.treeisland.plugin.role.model.entity.Role
 import java.io.File
 
