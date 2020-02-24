@@ -17,15 +17,18 @@ class MoneyPlugin(dataFolder: File, plugin: JavaPlugin) : SubMainManager(dataFol
 
     override fun setupCommands() {
         CommandManager(false).apply {
-            addComponent("view", CommandViewMoney("", "본인의 돈을 확인합니다..", 0))
+            addComponent("view", CommandViewMoney())
         }.register(plugin.getCommand("money"))
 
         CommandManager(true).apply {
-            addComponent("give", CommandGiveMoney("[playername] [money]", "해당 플레이어의 돈을 증액합니다.", 2))
-            addComponent("take", CommandTakeMoney("[playername] [money]", "해당 플레이어의 돈을 차감합니다.", 2))
-            addComponent("set", CommandSetMoney("[playername] [money]", "해당 플레이어의 돈을 설정합니다.", 2))
-            addComponent("view", CommandViewTargetMoney("[playername]", "해당 플레이어의 돈을 확인합니다.", 1))
+            addComponent("give", CommandGiveMoney())
+            addComponent("take", CommandTakeMoney())
+            addComponent("set", CommandSetMoney())
+            addComponent("view", CommandViewTargetMoney())
         }.register(plugin.getCommand("moneya"))
+    }
+
+    override fun setupInventoryTitle() {
     }
 
     override fun setupListeners() {
@@ -34,7 +37,7 @@ class MoneyPlugin(dataFolder: File, plugin: JavaPlugin) : SubMainManager(dataFol
         }
     }
 
-    override fun setupManagers() {
+    override fun setupRegisterClass() {
         ConfigurationSerialization.registerClass(PlayerMoney::class.java, "PlayerMoney")
     }
 

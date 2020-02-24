@@ -37,6 +37,7 @@ class QuestActionListener : Listener {
 
     @EventHandler(priority = EventPriority.HIGH)
     fun onInventoryOpenEvent(event: InventoryOpenEvent) {
+        event.player ?: return
         (event.player as Player).updateInventory()
         (event.player as Player).getPlayerInfo().questInfo.checkQuestAmount(QuestAction.FARMING_ITEM) { true }
     }

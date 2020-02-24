@@ -1,6 +1,8 @@
 package com.kkomi.treeisland.plugin.monster
 
 import com.kkomi.devlibrary.SubMainManager
+import com.kkomi.devlibrary.command.CommandManager
+import com.kkomi.treeisland.plugin.monster.command.CommandReloadMonster
 import com.kkomi.treeisland.plugin.monster.listener.MonsterListener
 import com.kkomi.treeisland.plugin.monster.model.entity.DropItem
 import com.kkomi.treeisland.plugin.monster.model.entity.MonsterDrop
@@ -14,6 +16,12 @@ class MonsterPlugin(dataFolder: File, plugin: JavaPlugin) : SubMainManager(dataF
     }
 
     override fun setupCommands() {
+        CommandManager(true).apply {
+            addComponent("reload",CommandReloadMonster())
+        }.register(plugin.getCommand("monstera"))
+    }
+
+    override fun setupInventoryTitle() {
     }
 
     override fun setupListeners() {
@@ -22,7 +30,7 @@ class MonsterPlugin(dataFolder: File, plugin: JavaPlugin) : SubMainManager(dataF
         }
     }
 
-    override fun setupManagers() {
+    override fun setupRegisterClass() {
         ConfigurationSerialization.registerClass(MonsterDrop::class.java, "MonsterDrop")
         ConfigurationSerialization.registerClass(DropItem::class.java, "DropItem")
     }

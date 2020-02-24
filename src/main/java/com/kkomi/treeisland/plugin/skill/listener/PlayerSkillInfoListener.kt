@@ -3,10 +3,13 @@ package com.kkomi.treeisland.plugin.skill.listener
 import com.kkomi.devlibrary.extension.getDisplay
 import com.kkomi.devlibrary.extension.sendErrorMessage
 import com.kkomi.devlibrary.extension.sendInfoMessage
+import com.kkomi.devlibrary.nms.getNBTTagCompound
 import com.kkomi.treeisland.plugin.integration.getPlayerInfo
 import com.kkomi.treeisland.plugin.skill.model.PlayerSkillInfoRepository
 import com.kkomi.treeisland.plugin.skill.model.SkillInfoRepository
 import com.kkomi.treeisland.plugin.skill.model.entity.PlayerSkillInfo
+import com.kkomi.treeisland.plugin.skill.model.entity.SkillBookItemMeta
+import com.kkomi.treeisland.plugin.skill.model.entity.SkillInfo
 import org.bukkit.event.EventHandler
 import org.bukkit.event.Listener
 import org.bukkit.event.player.PlayerInteractEvent
@@ -34,10 +37,10 @@ class PlayerSkillInfoListener : Listener {
         val player = event.player
         val playerSkillInfo = player.getPlayerInfo().skillInfo
         val itemStack = event.player.inventory.itemInMainHand ?: return
+        val skillBookItemMeta = itemStack.getNBTTagCompound(SkillBookItemMeta::class.java) ?: return
+        val skillInfo = skillBookItemMeta.skillInfo
 
-        if ((itemStack.getDisplay() ?: "").contains("스킬북")) {
-            val skillInfo = itemStack.getDisplay()?.let { SkillInfoRepository.getSkillInfoByDisplay(it.replace(" 스킬북", "")) }
-                    ?: return
+        if (skillBookItemMeta.isSkillBook) {
 
             if (player.getPlayerInfo().levelInfo.level < skillInfo.levelLimit) {
                 player.sendErrorMessage("습득 할 수 없는 스킬입니다.")
@@ -58,8 +61,8 @@ class PlayerSkillInfoListener : Listener {
             player.inventory.itemInMainHand = null
             player.sendInfoMessage("${skillInfo.displayName} 스킬을 흭득 하셨습니다.")
             player.getPlayerInfo().editPlayerInfo()
+
         } else {
-            val skillInfo = itemStack.getDisplay()?.let { SkillInfoRepository.getSkillInfoByDisplay(it) } ?: return
 
             if (!playerSkillInfo.learnSkills.contains(skillInfo.name)) {
                 player.sendErrorMessage("습득하지 않은 스킬입니다.")

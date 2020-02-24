@@ -1,7 +1,6 @@
 package com.kkomi.treeisland.plugin.quest.inventory
 
 import com.kkomi.devlibrary.extension.createItemStack
-import com.kkomi.devlibrary.extension.setItem
 import com.kkomi.devlibrary.inventory.InventoryManager
 import com.kkomi.treeisland.plugin.quest.model.entity.Quest
 import org.bukkit.Bukkit
@@ -22,8 +21,8 @@ class QuestCancelInventory(
     override val inventory: Inventory = Bukkit.createInventory(null, 27, "$TITLE - ${quest.title}")
 
     override fun setBasicFrame() {
-        inventory.setItem(1, 2, quest.toItemStack())
-        inventory.setItem(1, 6, cancelItemStack)
+        inventory.setItem(10, quest.toItemStack())
+        inventory.setItem(14, cancelItemStack)
     }
 
 }

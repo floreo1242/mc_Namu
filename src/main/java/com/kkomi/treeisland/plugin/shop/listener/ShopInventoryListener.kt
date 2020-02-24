@@ -2,7 +2,7 @@ package com.kkomi.treeisland.plugin.shop.listener
 
 import com.kkomi.devlibrary.PageList
 import com.kkomi.devlibrary.extension.*
-import com.kkomi.devlibrary.message.InventoryMessage
+import com.kkomi.devlibrary.inventory.InventoryMessage
 import com.kkomi.treeisland.plugin.integration.PlayerInfo
 import com.kkomi.treeisland.plugin.money.model.PlayerMoneyRepository
 import com.kkomi.treeisland.plugin.shop.model.entity.Shop
@@ -113,7 +113,7 @@ class ShopInventoryListener : Listener {
             // Out Inventory
             else -> return
         }
-        inventory.setItem(5, 8, createItemStack(Material.GOLD_INGOT, "&6보유금액", listOf("&f${playerMoney.money.toMoneyFormat()}")))
+        inventory.setItem(48, createItemStack(Material.GOLD_INGOT, "&6보유금액", listOf("&f${playerMoney.money.toMoneyFormat()}")))
     }
 
     private fun loadStuff(inventory: Inventory, shop: Shop, page: Int) {

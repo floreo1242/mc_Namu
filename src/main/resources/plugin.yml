@@ -1,4 +1,6 @@
 name: TreeIsland
+name: TreeIsland
+name: TreeIsland
 version: @version@
 main: com.kkomi.treeisland.Treeisland
 prefix: TreeIsland
@@ -23,3 +25,4 @@ commands:
   rolea:
   skilla:
   skill:
+  monstera:

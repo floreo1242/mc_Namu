@@ -12,7 +12,7 @@ class CommandPlayerGuildReload : CommandComponent() {
 
     override val argumentsLength: Int = 0
 
-    override val description: String = "Reload player guild info"
+    override val description: String = "플레이어의 길드 정보를 리로드 합니다."
 
     override val usage: String = ""
 

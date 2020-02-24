@@ -2,6 +2,7 @@ package com.kkomi.treeisland.plugin.itemdb.listener
 
 import com.kkomi.devlibrary.extension.sendErrorMessage
 import com.kkomi.devlibrary.extension.sendInfoMessage
+import com.kkomi.devlibrary.nms.getNBTTagCompound
 import com.kkomi.treeisland.plugin.itemdb.model.ConsumptionItemRepository
 import com.kkomi.treeisland.plugin.itemdb.model.entity.ConsumptionItem
 import com.kkomi.treeisland.plugin.itemdb.model.entity.ConsumptionItemType
@@ -37,7 +38,7 @@ class ConsumptionItemListener : Listener {
         }
 
         val currentTime = Calendar.getInstance()
-        val consumptionItem = ConsumptionItemRepository.getItemFromItemDisplay(itemStack.itemMeta.displayName) ?: return
+        val consumptionItem = itemStack.getNBTTagCompound(ConsumptionItem::class.java) ?: return
 
         if (itemCooldown[event.player] == null) {
             itemCooldown[event.player] = mutableMapOf()

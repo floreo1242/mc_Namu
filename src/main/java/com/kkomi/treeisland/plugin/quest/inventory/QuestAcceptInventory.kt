@@ -24,9 +24,9 @@ class QuestAcceptInventory(
     override val inventory: Inventory = Bukkit.createInventory(null, 45, "$TITLE - ${quest.title}")
 
     override fun setBasicFrame() {
-        inventory.setItem(1, 4, quest.toItemStack())
-        inventory.setItem(3, 2, acceptItemStack)
-        inventory.setItem(3, 6, disposeItemStack)
+        inventory.setItem(13, quest.toItemStack())
+        inventory.setItem(29, acceptItemStack)
+        inventory.setItem(33, disposeItemStack)
     }
 
 }

@@ -2,11 +2,14 @@ package com.kkomi.treeisland.plugin.guild
 
 import com.kkomi.devlibrary.SubMainManager
 import com.kkomi.devlibrary.command.CommandManager
+import com.kkomi.devlibrary.inventory.InventoryTitleParser
+import com.kkomi.treeisland.plugin.guild.command.admin.CommandGuildReload
+import com.kkomi.treeisland.plugin.guild.command.admin.CommandPlayerGuildReload
 import com.kkomi.treeisland.plugin.guild.command.user.*
+import com.kkomi.treeisland.plugin.guild.inventory.GuildInfoInventory
 import com.kkomi.treeisland.plugin.guild.listener.GuildInventoryListener
 import com.kkomi.treeisland.plugin.guild.listener.PlayerGuildListener
-import com.kkomi.treeisland.plugin.guild.model.entity.Guild
-import com.kkomi.treeisland.plugin.guild.model.entity.GuildMemberState
+import com.kkomi.treeisland.plugin.guild.model.entity.*
 import org.bukkit.Bukkit
 import org.bukkit.configuration.serialization.ConfigurationSerialization
 import org.bukkit.plugin.java.JavaPlugin
@@ -18,18 +21,23 @@ class GuildPlugin(dataFolder: File, plugin: JavaPlugin) : SubMainManager(dataFol
 
     override fun setupCommands() {
         CommandManager(false).apply {
-            addComponent("create", CommandGuildCreate("[guildName]", "Create guild", 1))
-            addComponent("info", CommandGuildInfo("", "", 0))
-            addComponent("invite", CommandGuildInvite("[playerName]", "", 1))
-            addComponent("accept", CommandGuildInviteAccept("", "", 0))
-            addComponent("dispose", CommandGuildInviteDispose("", "", 0))
-            addComponent("kick", CommandGuildKick("[playerName]", "", 1))
-            addComponent("grade", CommandGuildGrade("[playerName]", "", 1))
+            addComponent("create", CommandCreateGuild())
+            addComponent("info", CommandViewGuildInfo())
+            addComponent("invite", CommandSendGuildInvite())
+            addComponent("accept", CommandAcceptGuildInvite())
+            addComponent("dispose", CommandDisposeGuildInvite())
+            addComponent("kick", CommandKickGuildMemeber())
+            addComponent("grade", CommandSetGradeGuild())
         }.register(plugin.getCommand("guild"))
 
         CommandManager(true).apply {
-            addComponent()
+            addComponent("reload",CommandGuildReload())
+            addComponent("reload_player",CommandPlayerGuildReload())
         }
+    }
+
+    override fun setupInventoryTitle() {
+        InventoryTitleParser.inventoryTitleList.add(GuildInfoInventory.TITLE)
     }
 
     override fun setupListeners() {
@@ -39,12 +47,12 @@ class GuildPlugin(dataFolder: File, plugin: JavaPlugin) : SubMainManager(dataFol
         }
     }
 
-    override fun setupManagers() {
+    override fun setupRegisterClass() {
         ConfigurationSerialization.registerClass(Guild::class.java, "Guild")
         ConfigurationSerialization.registerClass(GuildMemberState::class.java, "GuildMemberState")
-        ConfigurationSerialization.registerClass(GuildMemberState::class.java, "GuildOption")
-        ConfigurationSerialization.registerClass(GuildMemberState::class.java, "PlayerGuild")
-        ConfigurationSerialization.registerClass(GuildMemberState::class.java, "GuildUpgradeValue")
+        ConfigurationSerialization.registerClass(GuildOption::class.java, "GuildOption")
+        ConfigurationSerialization.registerClass(PlayerGuild::class.java, "PlayerGuild")
+        ConfigurationSerialization.registerClass(GuildUpgradeValue::class.java, "GuildUpgradeValue")
     }
 
     override fun setupSchedulers() {

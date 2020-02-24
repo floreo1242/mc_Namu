@@ -2,7 +2,10 @@ package com.kkomi.treeisland.plugin.equipitem
 
 import com.kkomi.devlibrary.SubMainManager
 import com.kkomi.devlibrary.command.CommandManager
+import com.kkomi.devlibrary.inventory.InventoryManager
+import com.kkomi.devlibrary.inventory.InventoryTitleParser
 import com.kkomi.treeisland.plugin.equipitem.command.user.CommandOpenEquipItem
+import com.kkomi.treeisland.plugin.equipitem.inventory.EquipItemInventory
 import com.kkomi.treeisland.plugin.equipitem.listener.EquipItemInventoryListener
 import com.kkomi.treeisland.plugin.equipitem.listener.PlayerEquipItemListener
 import com.kkomi.treeisland.plugin.equipitem.model.entity.PlayerEquipItem
@@ -21,6 +24,10 @@ class EquipItemPlugin(dataFolder: File, plugin: JavaPlugin) : SubMainManager(dat
         }.register(plugin.getCommand("equip"))
     }
 
+    override fun setupInventoryTitle() {
+        InventoryTitleParser.inventoryTitleList.add(EquipItemInventory.TITLE)
+    }
+
     override fun setupListeners() {
         Bukkit.getPluginManager().apply {
             registerEvents(EquipItemInventoryListener(), plugin)
@@ -28,10 +35,11 @@ class EquipItemPlugin(dataFolder: File, plugin: JavaPlugin) : SubMainManager(dat
         }
     }
 
-    override fun setupManagers() {
-        ConfigurationSerialization.registerClass(PlayerEquipItem::class.java,"EquipItem")
+    override fun setupRegisterClass() {
+
     }
 
     override fun setupSchedulers() {
     }
+
 }

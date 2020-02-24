@@ -1,6 +1,7 @@
 package com.kkomi.treeisland.plugin.itemdb.model.entity
 
 import com.kkomi.devlibrary.extension.createItemStack
+import com.kkomi.devlibrary.nms.addNBTTagCompound
 import org.bukkit.Material
 import org.bukkit.configuration.serialization.ConfigurationSerializable
 import org.bukkit.configuration.serialization.SerializableAs
@@ -38,7 +39,9 @@ data class OtherItem(
                         *description.split("|").toTypedArray()
                 ),
                 durability = durability.toShort()
-        )
+        ).run {
+            addNBTTagCompound(this@OtherItem)
+        }
 
         val itemMeta = itemStack.itemMeta
         itemMeta.isUnbreakable = true

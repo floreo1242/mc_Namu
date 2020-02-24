@@ -8,6 +8,7 @@ import org.bukkit.command.CommandSender
 import org.bukkit.entity.Player
 
 abstract class PlayerInfoCommandComponent : CommandComponent() {
+
     override fun onCommand(sender: CommandSender, label: String, command: Command, componentLabel: String, args: ArgumentList): Boolean {
         return onCommand(PlayerInfo(sender as Player),label, command, componentLabel, args)
     }

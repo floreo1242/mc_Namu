@@ -11,6 +11,13 @@ import org.bukkit.command.CommandSender
 import org.bukkit.entity.Player
 
 class CommandGetSkillBook : CommandComponent() {
+
+    override val argumentsLength: Int = 1
+
+    override val description: String = "스킬북을 발급합니다."
+
+    override val usage: String = "<SkillInfoCode>"
+
     override fun onCommand(sender: CommandSender, label: String, command: Command, componentLabel: String, args: ArgumentList): Boolean {
         val skillName = args.next()
         val skillInfo = SkillInfoRepository.getSkillInfo(skillName)

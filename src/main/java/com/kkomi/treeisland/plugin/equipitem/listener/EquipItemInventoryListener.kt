@@ -3,12 +3,13 @@ package com.kkomi.treeisland.plugin.equipitem.listener
 import com.kkomi.devlibrary.extension.emptyCount
 import com.kkomi.devlibrary.extension.getDisplay
 import com.kkomi.devlibrary.extension.getServerTitleInfo
+import com.kkomi.devlibrary.nms.getNBTTagCompound
 import com.kkomi.treeisland.plugin.equipitem.api.PlayerWearEquipmentItemEvent
 import com.kkomi.treeisland.plugin.integration.getPlayerInfo
-import com.kkomi.treeisland.plugin.itemdb.model.EquipmentItemRepository
 import com.kkomi.treeisland.plugin.itemdb.model.entity.EquipmentType
 import com.kkomi.treeisland.plugin.equipitem.inventory.EquipItemInventory
 import com.kkomi.treeisland.plugin.equipitem.model.PlayerEquipItemRepository
+import com.kkomi.treeisland.plugin.itemdb.model.entity.EquipmentItem
 import com.kkomi.treeisland.plugin.stat.model.PlayerStatRepository
 import org.bukkit.Bukkit
 import org.bukkit.Material
@@ -42,7 +43,7 @@ class EquipItemInventoryListener : Listener {
             return
         }
 
-        val equipmentItem = EquipmentItemRepository.getItemFromItemDisplay(currentItem.getDisplay()!!) ?: return
+        val equipmentItem = currentItem.getNBTTagCompound(EquipmentItem::class.java) ?: return
         val equipmentSlot = getSlotFromEquipmentType(equipmentItem.equipmentType)
         val slot = event.rawSlot
 

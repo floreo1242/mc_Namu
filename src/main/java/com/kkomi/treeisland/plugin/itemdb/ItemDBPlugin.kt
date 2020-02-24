@@ -2,7 +2,18 @@ package com.kkomi.treeisland.plugin.itemdb
 
 import com.kkomi.devlibrary.SubMainManager
 import com.kkomi.devlibrary.command.CommandManager
-import com.kkomi.treeisland.plugin.itemdb.command.*
+import com.kkomi.treeisland.plugin.itemdb.command.consumption.CommandCreateConsumptionItem
+import com.kkomi.treeisland.plugin.itemdb.command.consumption.CommandDeleteConsumptionItem
+import com.kkomi.treeisland.plugin.itemdb.command.consumption.CommandGetConsumptionItem
+import com.kkomi.treeisland.plugin.itemdb.command.consumption.CommandReloadConsumptionItem
+import com.kkomi.treeisland.plugin.itemdb.command.equipment.CommandCreateEquipmentItem
+import com.kkomi.treeisland.plugin.itemdb.command.equipment.CommandDeleteEquipmentItem
+import com.kkomi.treeisland.plugin.itemdb.command.equipment.CommandGetEquipmentItem
+import com.kkomi.treeisland.plugin.itemdb.command.equipment.CommandReloadEquipmentItem
+import com.kkomi.treeisland.plugin.itemdb.command.other.CommandCreateOtherItem
+import com.kkomi.treeisland.plugin.itemdb.command.other.CommandDeleteOtherItem
+import com.kkomi.treeisland.plugin.itemdb.command.other.CommandGetOtherItem
+import com.kkomi.treeisland.plugin.itemdb.command.other.CommandReloadOtherItem
 import com.kkomi.treeisland.plugin.itemdb.listener.ConsumptionItemListener
 import com.kkomi.treeisland.plugin.itemdb.model.entity.ConsumptionItem
 import com.kkomi.treeisland.plugin.itemdb.model.entity.EquipmentItem
@@ -19,22 +30,30 @@ class ItemDBPlugin(dataFolder: File, plugin: JavaPlugin) : SubMainManager(dataFo
 
     override fun setupCommands() {
         CommandManager(true).apply {
-            addComponent("create", CommandEquipmentItemCreate("[name]", "Create equipment item", 1))
-            addComponent("get", CommandEquipmentItemGet("[name]", "Get equipment item", 1))
-            addComponent("debug", CommandEquipmentItemDebug("[name]", "equipment debug", 1))
+            addComponent("create", CommandCreateEquipmentItem())
+            addComponent("delete", CommandDeleteEquipmentItem())
+            addComponent("reload", CommandReloadEquipmentItem())
+            addComponent("get", CommandGetEquipmentItem())
         }.register(plugin.getCommand("itemdb-equipment"))
 
 
         CommandManager(true).apply {
-            addComponent("create", CommandConsumptionItemCreate("[name]", "Create consumption item", 1))
-            addComponent("get", CommandConsumptionItemGet("[name]", "Get consumption item", 1))
+            addComponent("create", CommandCreateConsumptionItem())
+            addComponent("delete", CommandDeleteConsumptionItem())
+            addComponent("reload", CommandReloadConsumptionItem())
+            addComponent("get", CommandGetConsumptionItem())
         }.register(plugin.getCommand("itemdb-consumption"))
 
 
         CommandManager(true).apply {
-            addComponent("create", CommandOtherItemCreate("[name]", "Create other item", 1))
-            addComponent("get", CommandOtherItemGet("[name]", "Get other item", 1))
+            addComponent("create", CommandCreateOtherItem())
+            addComponent("delete", CommandDeleteOtherItem())
+            addComponent("reload", CommandReloadOtherItem())
+            addComponent("get", CommandGetOtherItem())
         }.register(plugin.getCommand("itemdb-other"))
+    }
+
+    override fun setupInventoryTitle() {
     }
 
     override fun setupListeners() {
@@ -43,7 +62,7 @@ class ItemDBPlugin(dataFolder: File, plugin: JavaPlugin) : SubMainManager(dataFo
         }
     }
 
-    override fun setupManagers() {
+    override fun setupRegisterClass() {
         ConfigurationSerialization.registerClass(EquipmentItem::class.java, "EquipmentItem")
         ConfigurationSerialization.registerClass(ConsumptionItem::class.java, "ConsumptionItem")
         ConfigurationSerialization.registerClass(OtherItem::class.java, "OtherItem")

@@ -13,6 +13,13 @@ import org.bukkit.command.CommandSender
 import org.bukkit.entity.Player
 
 class CommandCreateShop : CommandComponent() {
+
+    override val argumentsLength: Int = 1
+
+    override val description: String = "상점을 생성합니다."
+
+    override val usage: String = "<ShopCode>"
+
     override fun onCommand(sender: CommandSender, label: String, command: Command, componentLabel: String, args: ArgumentList): Boolean {
         val shopName = args.next()
         if (ShopRepository.getShop(shopName) != null) {

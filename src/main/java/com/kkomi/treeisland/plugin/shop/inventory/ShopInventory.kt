@@ -1,7 +1,6 @@
 package com.kkomi.treeisland.plugin.shop.inventory
 
 import com.kkomi.devlibrary.extension.createItemStack
-import com.kkomi.devlibrary.extension.setItem
 import com.kkomi.devlibrary.extension.toMoneyFormat
 import com.kkomi.devlibrary.inventory.InventoryManager
 import com.kkomi.treeisland.plugin.integration.PlayerInfo
@@ -25,10 +24,10 @@ class ShopInventory(player: Player, private val shop: Shop) : InventoryManager(p
     override val inventory: Inventory = Bukkit.createInventory(null, 54, "$TITLE - ${shop.name}")
 
     override fun setBasicFrame() {
-        (0 until 9).forEach { col -> inventory.setItem(4, col, ShopInventory.paneItemStack) }
-        inventory.setItem(5, 3, previousPageItemStack)
-        inventory.setItem(5, 5, nextPageItemStack)
-        inventory.setItem(5, 8, hasMoneyItemStack(PlayerInfo(player).moneyInfo.money))
+        (0 until 9).forEach { col -> inventory.setItem(32 + col, paneItemStack) }
+        inventory.setItem(43, previousPageItemStack)
+        inventory.setItem(45, nextPageItemStack)
+        inventory.setItem(48, hasMoneyItemStack(PlayerInfo(player).moneyInfo.money))
     }
 
 }

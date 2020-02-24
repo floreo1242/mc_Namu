@@ -13,13 +13,19 @@ import org.bukkit.command.CommandSender
 
 class CommandSetRole : CommandComponent() {
 
+    override val argumentsLength: Int = 1
+
+    override val description: String = ""
+
+    override val usage: String = "<RoleCode> <PlayerName>"
+
     override fun onCommand(sender: CommandSender, label: String, command: Command, componentLabel: String, args: ArgumentList): Boolean {
         val targetName = args.next()
         val roleName = args.next()
         val role = RoleRepository.getRole(roleName)
 
         if (role == null) {
-            sender.sendErrorMessage("존재하지 않는 오류 입니다.")
+            sender.sendErrorMessage("존재하지 않는 직업 입니다.")
             return true
         }
 

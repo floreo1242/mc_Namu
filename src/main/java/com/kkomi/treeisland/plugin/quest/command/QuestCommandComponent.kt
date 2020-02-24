@@ -12,6 +12,7 @@ import org.bukkit.command.CommandSender
 import org.bukkit.entity.Player
 
 abstract class QuestCommandComponent : CommandComponent() {
+
     override fun onCommand(sender: CommandSender, label: String, command: Command, componentLabel: String, args: ArgumentList): Boolean {
         val questName = args.next()
         val quest = QuestRepository.getQuest(questName)

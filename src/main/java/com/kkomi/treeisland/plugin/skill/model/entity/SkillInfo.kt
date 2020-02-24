@@ -1,6 +1,7 @@
 package com.kkomi.treeisland.plugin.skill.model.entity
 
 import com.kkomi.devlibrary.extension.createItemStack
+import com.kkomi.devlibrary.nms.addNBTTagCompound
 import com.nisovin.magicspells.MagicSpells
 import org.bukkit.Material
 import org.bukkit.configuration.serialization.ConfigurationSerializable
@@ -14,7 +15,7 @@ data class SkillInfo(
         val displayName: String,
         val description: String,
         val levelLimit: Int,
-        val roleLimit : String,
+        val roleLimit: String,
         val magicSpellName: String
 ) : ConfigurationSerializable {
     companion object {
@@ -58,7 +59,7 @@ data class SkillInfo(
                         add("&7우클릭시 스킬을 획득합니다.")
                     }
                 }
-        )
+        ).addNBTTagCompound(SkillBookItemMeta(this@SkillInfo, isSkillBook))
     }
 
     fun cast(player: Player) {

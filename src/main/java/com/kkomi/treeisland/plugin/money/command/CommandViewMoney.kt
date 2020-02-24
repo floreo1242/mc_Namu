@@ -8,7 +8,14 @@ import com.kkomi.treeisland.plugin.money.model.MoneyMessage
 import org.bukkit.command.Command
 import java.text.DecimalFormat
 
-class CommandViewMoney(usage: String, description: String, argumentsLength: Int) : PlayerInfoCommandComponent(usage, description, argumentsLength) {
+class CommandViewMoney : PlayerInfoCommandComponent() {
+
+    override val argumentsLength: Int = 0
+
+    override val description: String = "자신의 돈을 확인합니다."
+
+    override val usage: String = ""
+
     override fun onCommand(playerInfo: PlayerInfo, label: String, command: Command, componentLabel: String, args: ArgumentList): Boolean {
         playerInfo.player.sendInfoMessage(MoneyMessage.VIEW_MONEY.format(DecimalFormat("#,##0").format(playerInfo.moneyInfo.money)))
         return true

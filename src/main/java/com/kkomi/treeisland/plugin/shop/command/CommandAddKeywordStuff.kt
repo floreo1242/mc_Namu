@@ -11,10 +11,16 @@ import org.bukkit.command.CommandSender
 import org.bukkit.entity.Player
 
 class CommandAddKeywordStuff : CommandComponent() {
+
+    override val argumentsLength: Int = 2
+
+    override val description: String = "상점에 키워드를 등록합니다."
+
+    override val usage: String = "<ShopCode> <Keyword>"
+
     override fun onCommand(sender: CommandSender, label: String, command: Command, componentLabel: String, args: ArgumentList): Boolean {
         if (args.remain() != 2) {
-            sender.sendMessage("/shopa §6keyword §fadd [price] [keyword]")
-            return true
+            return false
         }
         val amount = args.nextInt()
         val keyword = args.join(" ")

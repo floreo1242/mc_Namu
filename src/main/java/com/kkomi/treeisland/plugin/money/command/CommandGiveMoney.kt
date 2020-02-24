@@ -9,7 +9,14 @@ import com.kkomi.treeisland.plugin.money.model.MoneyMessage
 import com.kkomi.treeisland.plugin.money.model.PlayerMoneyRepository
 import org.bukkit.command.Command
 
-class CommandGiveMoney(usage: String, description: String, argumentsLength: Int) : TargetPlayerInfoCommandComponent(usage, description, argumentsLength) {
+class CommandGiveMoney : TargetPlayerInfoCommandComponent() {
+
+    override val argumentsLength: Int = 2
+
+    override val description: String = "플레이어에게 돈을 지급합니다."
+
+    override val usage: String = "<PlayerName> <Money>"
+
     override fun onCommand(sender: PlayerInfo, target: OfflinePlayerInfo, label: String, command: Command, componentLabel: String, args: ArgumentList): Boolean {
         val money = args.nextLong(0)
         target.moneyInfo.giveMoney(money)

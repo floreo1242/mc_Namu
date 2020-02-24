@@ -1,6 +1,7 @@
 package com.kkomi.treeisland.plugin.itemdb.model.entity
 
 import com.kkomi.devlibrary.extension.createItemStack
+import com.kkomi.devlibrary.nms.addNBTTagCompound
 import org.bukkit.Material
 import org.bukkit.configuration.serialization.ConfigurationSerializable
 import org.bukkit.configuration.serialization.SerializableAs
@@ -43,14 +44,6 @@ data class EquipmentItem(
                 name,
                 listOf(
                         "",
-//                        "&f[ 장비아이템 - ${equipmentType.strName}${
-//                        if (equipmentSubType.isEmpty()) {
-//                            ""
-//                        } else {
-//                            " - $equipmentSubType"
-//                        }
-//                        } ]",
-//                        "",
                         "&f착용직업 : $job",
                         "&f레벨제한 : $levelLimit",
                         "",
@@ -59,8 +52,9 @@ data class EquipmentItem(
                         *description.split("|").toTypedArray()
                 ),
                 durability = durability.toShort()
-        )
-
+        ).run {
+            addNBTTagCompound(this@EquipmentItem)
+        }
 
         val itemMeta = itemStack.itemMeta
         itemMeta.isUnbreakable = true

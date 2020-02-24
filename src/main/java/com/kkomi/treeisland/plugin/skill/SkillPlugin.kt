@@ -2,7 +2,10 @@ package com.kkomi.treeisland.plugin.skill
 
 import com.kkomi.devlibrary.SubMainManager
 import com.kkomi.devlibrary.command.CommandManager
+import com.kkomi.devlibrary.inventory.InventoryTitleParser
 import com.kkomi.treeisland.plugin.skill.command.*
+import com.kkomi.treeisland.plugin.skill.inventory.LearnSkillListInventory
+import com.kkomi.treeisland.plugin.skill.inventory.SkillOptionInventory
 import com.kkomi.treeisland.plugin.skill.listener.PlayerSkillInfoListener
 import com.kkomi.treeisland.plugin.skill.listener.SkillListener
 import com.kkomi.treeisland.plugin.skill.listener.SkillOptionInventoryListener
@@ -19,27 +22,32 @@ class SkillPlugin(dataFolder: File, plugin: JavaPlugin) : SubMainManager(dataFol
 
     override fun setupCommands() {
         CommandManager(false).apply {
-            addComponent("create", CommandCreateSkillInfo("", "", 1))
-            addComponent("skillbook", CommandGetSkillBook("", "", 1))
-            addComponent("reloadskillinfo", CommandReloadSkillInfo("", "", 0))
-            addComponent("reloadplayerskillinfo", CommandReloadPlayerSkillInfo("", "", 0))
+            addComponent("create", CommandCreateSkillInfo())
+            addComponent("skillbook", CommandGetSkillBook())
+            addComponent("reload", CommandReloadSkillInfo())
+            addComponent("reload_player", CommandReloadPlayerSkillInfo())
         }.register(plugin.getCommand("skilla"))
 
         CommandManager(false).apply {
-            addComponent("open", CommandLearnSkillList("", "", 0))
-            addComponent("option", CommandSkillOption("", "", 0))
+            addComponent("open", CommandLearnSkillList())
+            addComponent("option", CommandSkillOption())
         }.register(plugin.getCommand("skill"))
     }
 
-    override fun setupListeners() {
+    override fun setupInventoryTitle() {
+        InventoryTitleParser.inventoryTitleList.add(LearnSkillListInventory.TITLE)
+        InventoryTitleParser.inventoryTitleList.add(SkillOptionInventory.TITLE)
     }
 
-    override fun setupManagers() {
+    override fun setupListeners() {
         Bukkit.getPluginManager().apply {
             registerEvents(SkillListener(), plugin)
             registerEvents(PlayerSkillInfoListener(), plugin)
             registerEvents(SkillOptionInventoryListener(), plugin)
         }
+    }
+
+    override fun setupRegisterClass() {
         ConfigurationSerialization.registerClass(PlayerSkillInfo::class.java, "PlayerSkillInfo")
         ConfigurationSerialization.registerClass(SkillInfo::class.java, "SkillInfo")
     }

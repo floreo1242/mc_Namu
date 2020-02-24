@@ -12,6 +12,14 @@ import org.bukkit.command.CommandSender
 import org.bukkit.entity.Player
 
 class CommandRemoveKeywordStuff : CommandComponent() {
+
+    override val argumentsLength: Int = 2
+
+    override val description: String = "상점 키워드를 삭제합니다."
+
+    override val usage: String = "<ShopCode> <Keyword>"
+
+
     override fun onCommand(sender: CommandSender, label: String, command: Command, componentLabel: String, args: ArgumentList): Boolean {
         if (args.remain() != 1) {
             sender.sendMessage("/shopa §6keyword §fremove [keyword]")

@@ -3,7 +3,6 @@ package com.kkomi.treeisland.plugin.quest.listener
 import com.kkomi.treeisland.Treeisland
 import com.kkomi.devlibrary.extension.count
 import com.kkomi.devlibrary.extension.getServerTitleInfo
-import com.kkomi.devlibrary.extension.setItem
 import com.kkomi.treeisland.plugin.quest.inventory.QuestAcceptInventory
 import com.kkomi.treeisland.plugin.quest.inventory.QuestTalkInventory
 import com.kkomi.treeisland.plugin.quest.model.QuestRepository
@@ -65,7 +64,7 @@ class QuestTalkInventoryListener : Listener {
             return
         }
 
-        inventory.setItem(1, 4, quest.talkScriptList[page].toItemStack())
+        inventory.setItem(12, quest.talkScriptList[page].toItemStack())
     }
 
     @EventHandler
