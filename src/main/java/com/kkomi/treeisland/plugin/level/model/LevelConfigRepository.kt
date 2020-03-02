@@ -13,7 +13,7 @@ object LevelConfigRepository {
     }
 
     fun editLevelConfig(levelConfig : LevelConfig) {
-        levelConfigDataSource.editLevelConfig(levelConfig)
+        levelConfigDataSource.setLevelConfig(levelConfig)
     }
 
     fun reloadLevelConfig() {

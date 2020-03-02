@@ -3,7 +3,7 @@ package com.kkomi.treeisland.plugin.level.command
 import com.kkomi.devlibrary.command.ArgumentList
 import com.kkomi.devlibrary.command.CommandComponent
 import com.kkomi.devlibrary.extension.sendInfoMessage
-import com.kkomi.oz.level.model.entity.BonusCoupon
+import com.kkomi.treeisland.plugin.level.model.entity.BonusCoupon
 import org.bukkit.command.Command
 import org.bukkit.command.CommandSender
 import org.bukkit.entity.Player

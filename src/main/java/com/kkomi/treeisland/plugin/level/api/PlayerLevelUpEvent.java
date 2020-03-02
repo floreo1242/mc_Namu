@@ -1,6 +1,6 @@
 package com.kkomi.treeisland.plugin.level.api;
 
-import com.kkomi.treeisland.plugin.integration.PlayerInfo;
+import com.kkomi.treeisland.plugin.integration.model.PlayerInfo;
 import org.bukkit.event.Event;
 import org.bukkit.event.HandlerList;
 import org.jetbrains.annotations.NotNull;

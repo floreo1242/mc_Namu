@@ -7,7 +7,7 @@ import com.kkomi.treeisland.plugin.guild.command.GuildCommandComponent
 import com.kkomi.treeisland.plugin.guild.model.GuildOptionRepository
 import com.kkomi.treeisland.plugin.guild.model.GuildRepository
 import com.kkomi.treeisland.plugin.guild.model.entity.Guild
-import com.kkomi.treeisland.plugin.integration.getPlayerInfo
+import com.kkomi.treeisland.plugin.integration.model.getPlayerInfo
 import org.bukkit.Bukkit
 import org.bukkit.command.Command
 import org.bukkit.entity.Player

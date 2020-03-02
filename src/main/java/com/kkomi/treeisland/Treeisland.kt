@@ -1,11 +1,8 @@
 package com.kkomi.treeisland
 
-import com.google.common.annotations.Beta
-import com.google.common.reflect.ClassPath
-import com.kkomi.devlibrary.SubMainManager
 import com.kkomi.treeisland.plugin.equipitem.EquipItemPlugin
 import com.kkomi.treeisland.plugin.guild.GuildPlugin
-import com.kkomi.treeisland.plugin.integration.getPlayerInfo
+import com.kkomi.treeisland.plugin.integration.IntegrationPlugin
 import com.kkomi.treeisland.plugin.integration.scheduler.PlayerDataScheduler
 import com.kkomi.treeisland.plugin.itemdb.ItemDBPlugin
 import com.kkomi.treeisland.plugin.level.LevelPlugin
@@ -16,13 +13,9 @@ import com.kkomi.treeisland.plugin.role.RolePlugin
 import com.kkomi.treeisland.plugin.shop.ShopPlugin
 import com.kkomi.treeisland.plugin.skill.SkillPlugin
 import com.kkomi.treeisland.plugin.stat.StatPlugin
-import org.bukkit.Bukkit
-import org.bukkit.configuration.serialization.ConfigurationSerializable
-import org.bukkit.configuration.serialization.ConfigurationSerialization
 import org.bukkit.event.Listener
 import org.bukkit.plugin.java.JavaPlugin
 import java.io.File
-import java.util.function.Consumer
 
 
 @Suppress("UnstableApiUsage")
@@ -80,11 +73,7 @@ class Treeisland : JavaPlugin(), Listener {
         rolePlugin = RolePlugin(File(dataFolder.path + "/role"), this)
         logger.info("Load complete role plugin...!")
 
-        Bukkit.getOnlinePlayers()
-                .forEach {
-                    it.getPlayerInfo().statInfo.updateFinalStat(it.getPlayerInfo().equipmentInfo)
-                    it.getPlayerInfo().statInfo.calculateStatOption(it)
-                }
+        IntegrationPlugin(File(dataFolder.path + "/integration"), this)
 
         PlayerDataScheduler().setPlugin(this).startTimer(0, -1, 0, 0)
     }

@@ -2,13 +2,14 @@ package com.kkomi.treeisland.plugin.stat.listener
 
 import com.kkomi.devlibrary.extension.createItemStack
 import com.kkomi.devlibrary.extension.getServerTitleInfo
-import com.kkomi.treeisland.plugin.integration.getPlayerInfo
+import com.kkomi.treeisland.plugin.integration.model.getPlayerInfo
 import com.kkomi.treeisland.plugin.itemdb.model.entity.StatOption
+import com.kkomi.treeisland.plugin.stat.api.PlayerStatUpdateEvent
 import com.kkomi.treeisland.plugin.stat.inventory.PlayerStatInventory
 import com.kkomi.treeisland.plugin.stat.model.PlayerStatRepository
 import com.kkomi.treeisland.plugin.stat.model.StatConfigRepository
 import com.kkomi.treeisland.plugin.stat.model.entity.PlayerStat
-import com.kkomi.treeisland.plugin.stat.model.entity.StatConfig
+import org.bukkit.Bukkit
 import org.bukkit.Material
 import org.bukkit.entity.Player
 import org.bukkit.event.EventHandler
@@ -20,24 +21,8 @@ import org.bukkit.inventory.Inventory
 
 class PlayerStatInventoryListener : Listener {
 
-
-    @EventHandler
-    fun onInventoryCloseEvent(event: InventoryCloseEvent) {
-        val playerInfo = (event.player as Player).getPlayerInfo()
-        val inventory = event.inventory
-        val data = inventory.getServerTitleInfo() ?: return
-
-        if (data.first != PlayerStatInventory.TITLE) {
-            return
-        }
-
-        playerInfo.statInfo.updateFinalStat(playerInfo.equipmentInfo)
-        playerInfo.statInfo.calculateStatOption(playerInfo.player)
-    }
-
     @EventHandler
     fun onInventoryOpenEvent(event: InventoryOpenEvent) {
-        val playerInfo = (event.player as Player).getPlayerInfo()
         val inventory = event.inventory
         val data = inventory.getServerTitleInfo() ?: return
 
@@ -62,6 +47,7 @@ class PlayerStatInventoryListener : Listener {
 
         val playerStat = playerInfo.statInfo
         getStatOptionBySlot(event.slot)?.let { upStat(playerStat, it) }
+        Bukkit.getPluginManager().callEvent(PlayerStatUpdateEvent(playerInfo.player))
         updateInventory(event.whoClicked as Player, inventory)
     }
 
@@ -71,7 +57,7 @@ class PlayerStatInventoryListener : Listener {
             PlayerStatInventory.DEXTERITY -> StatOption.DEXTERITY
             PlayerStatInventory.INTELLIGENCE -> StatOption.INTELLIGENCE
             PlayerStatInventory.AGILITY -> StatOption.AGILITY
-            PlayerStatInventory.DEFENSE -> StatOption.DEFENSE
+            PlayerStatInventory.DEFENSE -> StatOption.VITALITY
             else -> null
         }
     }
@@ -169,7 +155,7 @@ class PlayerStatInventoryListener : Listener {
                         listOf(
                                 "&f피격 시 받는 데미지를 감소시킵니다.",
                                 "&f",
-                                "&f투자 된 포인트 : &6${statInfo.investmentStat[StatOption.DEFENSE]}"
+                                "&f투자 된 포인트 : &6${statInfo.investmentStat[StatOption.VITALITY]}"
                         )
                 )
         )

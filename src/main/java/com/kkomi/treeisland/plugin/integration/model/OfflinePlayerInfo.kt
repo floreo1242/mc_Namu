@@ -1,4 +1,4 @@
-package com.kkomi.treeisland.plugin.integration
+package com.kkomi.treeisland.plugin.integration.model
 
 import com.kkomi.treeisland.plugin.equipitem.model.PlayerEquipItemRepository
 import com.kkomi.treeisland.plugin.equipitem.model.entity.PlayerEquipItem

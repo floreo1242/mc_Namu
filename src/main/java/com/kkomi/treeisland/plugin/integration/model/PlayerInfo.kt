@@ -1,4 +1,4 @@
-package com.kkomi.treeisland.plugin.integration
+package com.kkomi.treeisland.plugin.integration.model
 
 import com.kkomi.devlibrary.extension.replaceChatColorCode
 import com.kkomi.devlibrary.extension.sendDebugMessage

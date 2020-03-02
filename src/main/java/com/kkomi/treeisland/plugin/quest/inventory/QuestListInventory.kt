@@ -1,8 +1,7 @@
 package com.kkomi.treeisland.plugin.quest.inventory
 
 import com.kkomi.devlibrary.inventory.InventoryManager
-import com.kkomi.treeisland.plugin.integration.getPlayerInfo
-import com.kkomi.treeisland.plugin.quest.QuestPlugin
+import com.kkomi.treeisland.plugin.integration.model.getPlayerInfo
 import com.kkomi.treeisland.plugin.quest.model.QuestRepository
 import org.bukkit.Bukkit
 import org.bukkit.entity.Player

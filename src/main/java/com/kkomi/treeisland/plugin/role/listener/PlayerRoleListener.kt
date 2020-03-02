@@ -1,6 +1,6 @@
 package com.kkomi.treeisland.plugin.role.listener
 
-import com.kkomi.treeisland.plugin.integration.getPlayerInfo
+import com.kkomi.treeisland.plugin.integration.model.getPlayerInfo
 import com.kkomi.treeisland.plugin.role.model.PlayerRoleRepository
 import com.kkomi.treeisland.plugin.role.model.RoleRepository
 import com.kkomi.treeisland.plugin.role.model.entity.PlayerRole
@@ -40,7 +40,6 @@ class PlayerRoleListener : Listener {
         val spell = MagicSpells.getSpellByInGameName(spellName)
 
         if (spell == null){
-            println("$spellName 은 존재하지 않는 스킬입니다.")
             return
         }
 

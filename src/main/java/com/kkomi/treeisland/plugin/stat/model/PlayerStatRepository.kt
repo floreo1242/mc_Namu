@@ -25,11 +25,10 @@ object PlayerStatRepository {
                                 StatOption.STRENGTH to 0,
                                 StatOption.INTELLIGENCE to 0,
                                 StatOption.DEXTERITY to 0,
-                                StatOption.DEFENSE to 0,
+                                StatOption.VITALITY to 0,
                                 StatOption.AGILITY to 0
                         ),
-                        0,
-                        statOptionToMap()
+                        0
                 )
         )
     }

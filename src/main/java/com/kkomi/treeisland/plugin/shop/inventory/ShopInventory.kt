@@ -3,7 +3,7 @@ package com.kkomi.treeisland.plugin.shop.inventory
 import com.kkomi.devlibrary.extension.createItemStack
 import com.kkomi.devlibrary.extension.toMoneyFormat
 import com.kkomi.devlibrary.inventory.InventoryManager
-import com.kkomi.treeisland.plugin.integration.PlayerInfo
+import com.kkomi.treeisland.plugin.integration.model.PlayerInfo
 import com.kkomi.treeisland.plugin.shop.model.entity.Shop
 import org.bukkit.Bukkit
 import org.bukkit.Material

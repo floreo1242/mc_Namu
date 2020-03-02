@@ -1,10 +1,7 @@
 package com.kkomi.treeisland.plugin.stat.inventory
 
-import com.kkomi.devlibrary.extension.createItemStack
 import com.kkomi.devlibrary.inventory.InventoryManager
-import com.kkomi.treeisland.plugin.integration.getPlayerInfo
 import org.bukkit.Bukkit
-import org.bukkit.Material
 import org.bukkit.entity.Player
 import org.bukkit.inventory.Inventory
 

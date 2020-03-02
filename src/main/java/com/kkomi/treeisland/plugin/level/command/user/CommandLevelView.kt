@@ -1,7 +1,7 @@
 package com.kkomi.treeisland.plugin.level.command.user
 
 import com.kkomi.devlibrary.command.ArgumentList
-import com.kkomi.treeisland.plugin.integration.PlayerInfo
+import com.kkomi.treeisland.plugin.integration.model.PlayerInfo
 import com.kkomi.treeisland.plugin.integration.command.PlayerInfoCommandComponent
 import com.kkomi.treeisland.plugin.level.model.LevelConfigRepository
 import org.bukkit.command.Command

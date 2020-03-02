@@ -1,6 +1,6 @@
 package com.kkomi.treeisland.plugin.quest.listener
 
-import com.kkomi.treeisland.plugin.integration.getPlayerInfo
+import com.kkomi.treeisland.plugin.integration.model.getPlayerInfo
 import com.kkomi.treeisland.plugin.quest.model.entity.QuestAction
 import com.kkomi.treeisland.plugin.skill.api.EntityDeathBySpellCasterEvent
 import org.bukkit.entity.Player
@@ -9,7 +9,6 @@ import org.bukkit.event.EventPriority
 import org.bukkit.event.Listener
 import org.bukkit.event.block.BlockBreakEvent
 import org.bukkit.event.block.BlockPlaceEvent
-import org.bukkit.event.entity.EntityDeathEvent
 import org.bukkit.event.entity.EntityPickupItemEvent
 import org.bukkit.event.inventory.*
 import org.bukkit.event.player.PlayerDropItemEvent

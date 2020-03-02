@@ -1,10 +1,6 @@
 package com.kkomi.treeisland.plugin.quest.listener
 
 import com.kkomi.devlibrary.extension.*
-import com.kkomi.treeisland.plugin.integration.getPlayerInfo
-import com.kkomi.treeisland.plugin.quest.QuestPlugin
-import com.kkomi.treeisland.plugin.quest.inventory.QuestAcceptInventory
-import com.kkomi.treeisland.plugin.quest.inventory.QuestCancelInventory
 import com.kkomi.treeisland.plugin.quest.inventory.QuestListInventory
 import com.kkomi.treeisland.plugin.quest.inventory.QuestTalkInventory
 import com.kkomi.treeisland.plugin.quest.model.QuestRepository
@@ -13,7 +9,6 @@ import org.bukkit.entity.Player
 import org.bukkit.event.EventHandler
 import org.bukkit.event.Listener
 import org.bukkit.event.inventory.InventoryClickEvent
-import org.bukkit.event.inventory.InventoryOpenEvent
 
 class QuestListInventoryListener : Listener {
 

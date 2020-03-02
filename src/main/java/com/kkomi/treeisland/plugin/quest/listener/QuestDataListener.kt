@@ -1,24 +1,18 @@
 package com.kkomi.treeisland.plugin.quest.listener
 
 import com.kkomi.devlibrary.extension.sendErrorMessage
-import com.kkomi.devlibrary.extension.takeItem
-import com.kkomi.treeisland.plugin.integration.getPlayerInfo
-import com.kkomi.treeisland.plugin.itemdb.model.OtherItemRepository
-import com.kkomi.treeisland.plugin.itemdb.model.entity.OtherItem
-import com.kkomi.treeisland.plugin.quest.QuestPlugin
+import com.kkomi.treeisland.plugin.integration.model.getPlayerInfo
 import com.kkomi.treeisland.plugin.quest.inventory.QuestListInventory
 import com.kkomi.treeisland.plugin.quest.model.PlayerQuestRepository
 import com.kkomi.treeisland.plugin.quest.model.QuestRepository
 import com.kkomi.treeisland.plugin.quest.model.entity.PlayerQuest
 import com.kkomi.treeisland.plugin.quest.model.entity.QuestAction
-import com.nisovin.magicspells.util.InventoryUtil
 import org.bukkit.Material
 import org.bukkit.event.EventHandler
 import org.bukkit.event.Listener
 import org.bukkit.event.player.PlayerInteractEntityEvent
 import org.bukkit.event.player.PlayerJoinEvent
 import org.bukkit.inventory.EquipmentSlot
-import org.bukkit.inventory.ItemStack
 
 class QuestDataListener : Listener {
 

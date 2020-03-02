@@ -2,7 +2,8 @@ package com.kkomi.treeisland.plugin.equipitem.inventory
 
 import com.kkomi.devlibrary.extension.createItemStack
 import com.kkomi.devlibrary.inventory.InventoryManager
-import com.kkomi.treeisland.plugin.integration.getPlayerInfo
+import com.kkomi.treeisland.plugin.integration.model.PlayerDamageStatRepository
+import com.kkomi.treeisland.plugin.integration.model.getPlayerInfo
 import org.bukkit.Bukkit
 import org.bukkit.Material
 import org.bukkit.entity.Player
@@ -27,15 +28,15 @@ class EquipItemInventory(player: Player) : InventoryManager(player) {
 
     override fun setBasicFrame() {
 
-        val statInfo = player.getPlayerInfo().statInfo
         val equipItemInfo = player.getPlayerInfo().equipmentInfo
 
         inventory.setItem(HEAD, createItemStack(
                 Material.SKULL_ITEM,
                 "${player.name}님의 장비 정보",
-                statInfo.finalStat.map {
-                    "&f${it.key.strName} : ${it.value}${if (it.key.isPer) "%" else ""}"
-                },
+                PlayerDamageStatRepository.getPlayerFinalStat(player)
+                        .map {
+                            "&f${it.key.strName} : ${it.value}${if (it.key.isPer) "%" else ""}"
+                        },
                 durability = 3))
 
         inventory.setItem(WEAPON, equipItemInfo.weapon)

@@ -13,7 +13,7 @@ object StatConfigRepository {
     }
 
     fun editStatConfig(statConfig : StatConfig) {
-        statConfigDataSource.editStatConfig(statConfig)
+        statConfigDataSource.setStatConfig(statConfig)
     }
 
     fun reloadStatConfig() {

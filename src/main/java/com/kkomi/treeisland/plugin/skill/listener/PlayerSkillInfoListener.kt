@@ -4,12 +4,11 @@ import com.kkomi.devlibrary.extension.getDisplay
 import com.kkomi.devlibrary.extension.sendErrorMessage
 import com.kkomi.devlibrary.extension.sendInfoMessage
 import com.kkomi.devlibrary.nms.getNBTTagCompound
-import com.kkomi.treeisland.plugin.integration.getPlayerInfo
+import com.kkomi.treeisland.plugin.integration.model.getPlayerInfo
 import com.kkomi.treeisland.plugin.skill.model.PlayerSkillInfoRepository
 import com.kkomi.treeisland.plugin.skill.model.SkillInfoRepository
 import com.kkomi.treeisland.plugin.skill.model.entity.PlayerSkillInfo
 import com.kkomi.treeisland.plugin.skill.model.entity.SkillBookItemMeta
-import com.kkomi.treeisland.plugin.skill.model.entity.SkillInfo
 import org.bukkit.event.EventHandler
 import org.bukkit.event.Listener
 import org.bukkit.event.player.PlayerInteractEvent

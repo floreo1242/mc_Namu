@@ -6,7 +6,7 @@ interface StatConfigDataSource {
 
     fun getStatConfig(): StatConfig
 
-    fun editStatConfig(statConfig : StatConfig)
+    fun setStatConfig(statConfig : StatConfig)
 
     fun reloadStatConfig()
 

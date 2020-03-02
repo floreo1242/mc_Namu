@@ -5,7 +5,7 @@ import com.kkomi.devlibrary.command.TargetCommandComponent
 import com.kkomi.devlibrary.extension.sendErrorMessage
 import com.kkomi.treeisland.plugin.guild.model.GuildRepository
 import com.kkomi.treeisland.plugin.guild.model.entity.Guild
-import com.kkomi.treeisland.plugin.integration.getPlayerInfo
+import com.kkomi.treeisland.plugin.integration.model.getPlayerInfo
 import org.bukkit.command.Command
 import org.bukkit.command.CommandSender
 import org.bukkit.entity.Player

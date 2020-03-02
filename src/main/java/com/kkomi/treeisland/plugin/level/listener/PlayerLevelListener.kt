@@ -29,16 +29,23 @@ class PlayerLevelListener : Listener {
     @EventHandler
     fun onPlayerExpGetEvent(event: PlayerExpGetEvent) {
         val playerInfo = event.playerInfo
-        playerInfo.player.apply {
-            if (playerInfo.levelInfo.level == LevelConfigRepository.getLevelConfig().getMaxLevel()) {
-                event.isCancelled = true
-                return
-            }
 
+        // 플레이어 레벨이 최대라면 중지
+        if (playerInfo.levelInfo.level == LevelConfigRepository.getLevelConfig().getMaxLevel()) {
+            event.isCancelled = true
+            return
+        }
+
+        // 레벨업 확인 체크
+        PlayerLevelRepository.checkLevelUp(playerInfo)
+
+        playerInfo.player.apply {
+            // 레벨은 플레이어 레벨
             level = playerInfo.levelInfo.level
+            // 현재 경험치 / 레벨 테이블 경험치
             exp = (playerInfo.levelInfo.exp.toFloat() / LevelConfigRepository.getLevelConfig().getExpByLevel(playerInfo.levelInfo.level).toFloat())
         }
-        PlayerLevelRepository.checkLevelUp(playerInfo)
+
     }
 
 }

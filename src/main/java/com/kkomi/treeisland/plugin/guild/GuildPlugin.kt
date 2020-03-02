@@ -28,6 +28,7 @@ class GuildPlugin(dataFolder: File, plugin: JavaPlugin) : SubMainManager(dataFol
             addComponent("dispose", CommandDisposeGuildInvite())
             addComponent("kick", CommandKickGuildMemeber())
             addComponent("grade", CommandSetGradeGuild())
+            addComponent("upgrade", CommandUpgradeGuild())
         }.register(plugin.getCommand("guild"))
 
         CommandManager(true).apply {

@@ -7,7 +7,6 @@ import com.kkomi.treeisland.plugin.skill.command.*
 import com.kkomi.treeisland.plugin.skill.inventory.LearnSkillListInventory
 import com.kkomi.treeisland.plugin.skill.inventory.SkillOptionInventory
 import com.kkomi.treeisland.plugin.skill.listener.PlayerSkillInfoListener
-import com.kkomi.treeisland.plugin.skill.listener.SkillListener
 import com.kkomi.treeisland.plugin.skill.listener.SkillOptionInventoryListener
 import com.kkomi.treeisland.plugin.skill.model.entity.PlayerSkillInfo
 import com.kkomi.treeisland.plugin.skill.model.entity.SkillInfo
@@ -41,7 +40,6 @@ class SkillPlugin(dataFolder: File, plugin: JavaPlugin) : SubMainManager(dataFol
 
     override fun setupListeners() {
         Bukkit.getPluginManager().apply {
-            registerEvents(SkillListener(), plugin)
             registerEvents(PlayerSkillInfoListener(), plugin)
             registerEvents(SkillOptionInventoryListener(), plugin)
         }

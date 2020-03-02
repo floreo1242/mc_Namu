@@ -1,4 +1,4 @@
-package com.kkomi.treeisland.plugin.integration
+package com.kkomi.treeisland.plugin.integration.model
 
 import org.bukkit.OfflinePlayer
 import org.bukkit.entity.Player

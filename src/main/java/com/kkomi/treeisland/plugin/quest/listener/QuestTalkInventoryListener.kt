@@ -47,7 +47,7 @@ class QuestTalkInventoryListener : Listener {
 
         event.isCancelled = true
 
-        if (event.rawSlot != 13) {
+        if (event.rawSlot != QuestTalkInventory.ITEM_LOCATION) {
             return
         }
 
@@ -64,7 +64,7 @@ class QuestTalkInventoryListener : Listener {
             return
         }
 
-        inventory.setItem(12, quest.talkScriptList[page].toItemStack())
+        inventory.setItem(QuestTalkInventory.ITEM_LOCATION, quest.talkScriptList[page].toItemStack())
     }
 
     @EventHandler

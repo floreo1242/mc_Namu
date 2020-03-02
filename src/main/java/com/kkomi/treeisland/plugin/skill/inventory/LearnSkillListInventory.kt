@@ -1,7 +1,7 @@
 package com.kkomi.treeisland.plugin.skill.inventory
 
 import com.kkomi.devlibrary.inventory.InventoryManager
-import com.kkomi.treeisland.plugin.integration.getPlayerInfo
+import com.kkomi.treeisland.plugin.integration.model.getPlayerInfo
 import com.kkomi.treeisland.plugin.skill.model.SkillInfoRepository
 import org.bukkit.Bukkit
 import org.bukkit.entity.Player

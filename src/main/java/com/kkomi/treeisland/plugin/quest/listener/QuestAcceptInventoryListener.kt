@@ -1,8 +1,7 @@
 package com.kkomi.treeisland.plugin.quest.listener
 
 import com.kkomi.devlibrary.extension.getServerTitleInfo
-import com.kkomi.treeisland.plugin.integration.getPlayerInfo
-import com.kkomi.treeisland.plugin.quest.QuestPlugin
+import com.kkomi.treeisland.plugin.integration.model.getPlayerInfo
 import com.kkomi.treeisland.plugin.quest.inventory.QuestAcceptInventory
 import com.kkomi.treeisland.plugin.quest.model.PlayerQuestRepository
 import com.kkomi.treeisland.plugin.quest.model.QuestRepository

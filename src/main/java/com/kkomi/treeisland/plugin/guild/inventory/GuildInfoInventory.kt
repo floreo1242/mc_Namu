@@ -5,7 +5,7 @@ import com.kkomi.devlibrary.inventory.InventoryManager
 import com.kkomi.treeisland.plugin.guild.model.GuildOptionRepository
 import com.kkomi.treeisland.plugin.guild.model.entity.Guild
 import com.kkomi.treeisland.plugin.guild.model.entity.GuildMemberState
-import com.kkomi.treeisland.plugin.integration.OfflinePlayerInfo
+import com.kkomi.treeisland.plugin.integration.model.OfflinePlayerInfo
 import org.bukkit.Bukkit
 import org.bukkit.Material
 import org.bukkit.entity.Player

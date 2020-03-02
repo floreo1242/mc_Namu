@@ -1,4 +1,4 @@
-package com.kkomi.oz.level.model.entity
+package com.kkomi.treeisland.plugin.level.model.entity
 
 import com.kkomi.devlibrary.extension.createItemStack
 import com.kkomi.devlibrary.nms.addNBTTagCompound

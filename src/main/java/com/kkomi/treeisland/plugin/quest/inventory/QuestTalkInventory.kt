@@ -13,12 +13,14 @@ class QuestTalkInventory(
 
     companion object {
         const val TITLE = "스크립트 대화"
+
+        const val ITEM_LOCATION = 13
     }
 
     override val inventory: Inventory = Bukkit.createInventory(null, 27, "$TITLE - ${quest.name}")
 
     override fun setBasicFrame() {
-        inventory.setItem(13, quest.talkScriptList[0].toItemStack())
+        inventory.setItem(ITEM_LOCATION, quest.talkScriptList[0].toItemStack())
     }
 
 }

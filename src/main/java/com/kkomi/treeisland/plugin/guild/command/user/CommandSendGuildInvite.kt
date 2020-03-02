@@ -7,7 +7,7 @@ import com.kkomi.devlibrary.extension.sendInfoMessage
 import com.kkomi.treeisland.plugin.guild.command.GuildCommandComponent
 import com.kkomi.treeisland.plugin.guild.model.GuildInviteRequestRepository
 import com.kkomi.treeisland.plugin.guild.model.entity.Guild
-import com.kkomi.treeisland.plugin.integration.getPlayerInfo
+import com.kkomi.treeisland.plugin.integration.model.getPlayerInfo
 import org.bukkit.Bukkit
 import org.bukkit.command.Command
 import org.bukkit.entity.Player

@@ -4,7 +4,7 @@ import com.kkomi.devlibrary.command.ArgumentList
 import com.kkomi.devlibrary.command.CommandComponent
 import com.kkomi.devlibrary.extension.sendDebugMessage
 import com.kkomi.devlibrary.extension.sendErrorMessage
-import com.kkomi.treeisland.plugin.integration.getPlayerInfo
+import com.kkomi.treeisland.plugin.integration.model.getPlayerInfo
 import com.kkomi.treeisland.plugin.role.model.PlayerRoleRepository
 import com.kkomi.treeisland.plugin.role.model.RoleRepository
 import org.bukkit.Bukkit

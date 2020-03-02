@@ -2,14 +2,12 @@ package com.kkomi.treeisland.plugin.skill.inventory
 
 import com.kkomi.devlibrary.extension.createItemStack
 import com.kkomi.devlibrary.inventory.InventoryManager
-import com.kkomi.treeisland.plugin.integration.getPlayerInfo
-import com.kkomi.treeisland.plugin.skill.model.SkillInfoRepository
+import com.kkomi.treeisland.plugin.integration.model.getPlayerInfo
 import org.bukkit.Bukkit
 import org.bukkit.Material
 import org.bukkit.entity.Player
 import org.bukkit.event.inventory.InventoryType
 import org.bukkit.inventory.Inventory
-import org.bukkit.inventory.ItemStack
 
 class SkillOptionInventory(player: Player) : InventoryManager(player) {
 

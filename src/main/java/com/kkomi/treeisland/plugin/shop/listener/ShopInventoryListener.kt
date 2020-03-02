@@ -3,7 +3,7 @@ package com.kkomi.treeisland.plugin.shop.listener
 import com.kkomi.devlibrary.PageList
 import com.kkomi.devlibrary.extension.*
 import com.kkomi.devlibrary.inventory.InventoryMessage
-import com.kkomi.treeisland.plugin.integration.PlayerInfo
+import com.kkomi.treeisland.plugin.integration.model.PlayerInfo
 import com.kkomi.treeisland.plugin.money.model.PlayerMoneyRepository
 import com.kkomi.treeisland.plugin.shop.model.entity.Shop
 import com.kkomi.treeisland.plugin.shop.inventory.ShopInventory

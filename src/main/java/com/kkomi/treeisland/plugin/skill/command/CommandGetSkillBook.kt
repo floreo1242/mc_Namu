@@ -3,9 +3,7 @@ package com.kkomi.treeisland.plugin.skill.command
 import com.kkomi.devlibrary.command.ArgumentList
 import com.kkomi.devlibrary.command.CommandComponent
 import com.kkomi.devlibrary.extension.sendErrorMessage
-import com.kkomi.treeisland.plugin.integration.getPlayerInfo
 import com.kkomi.treeisland.plugin.skill.model.SkillInfoRepository
-import com.kkomi.treeisland.plugin.skill.model.entity.SkillInfo
 import org.bukkit.command.Command
 import org.bukkit.command.CommandSender
 import org.bukkit.entity.Player

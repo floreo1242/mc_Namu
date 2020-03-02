@@ -5,7 +5,7 @@ import com.kkomi.devlibrary.extension.getDisplay
 import com.kkomi.devlibrary.extension.getServerTitleInfo
 import com.kkomi.devlibrary.nms.getNBTTagCompound
 import com.kkomi.treeisland.plugin.equipitem.api.PlayerWearEquipmentItemEvent
-import com.kkomi.treeisland.plugin.integration.getPlayerInfo
+import com.kkomi.treeisland.plugin.integration.model.getPlayerInfo
 import com.kkomi.treeisland.plugin.itemdb.model.entity.EquipmentType
 import com.kkomi.treeisland.plugin.equipitem.inventory.EquipItemInventory
 import com.kkomi.treeisland.plugin.equipitem.model.PlayerEquipItemRepository
@@ -131,16 +131,6 @@ class EquipItemInventoryListener : Listener {
         }
 
         applyEquipmentItemToPlayer(event.player as Player, inventory)
-        Bukkit.getPluginManager().callEvent(PlayerWearEquipmentItemEvent(false, event.player as Player))
-    }
-
-    @EventHandler
-    fun onPlayerWearEquipmentItemEvent(event: PlayerWearEquipmentItemEvent) {
-        event.player.getPlayerInfo().run {
-            statInfo.updateFinalStat(equipmentInfo)
-            statInfo.calculateStatOption(player)
-            PlayerStatRepository.editPlayerStat(statInfo)
-        }
     }
 
     private fun getSlotFromEquipmentType(equipmentType: EquipmentType): Int {

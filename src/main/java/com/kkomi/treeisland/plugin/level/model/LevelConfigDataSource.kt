@@ -6,7 +6,7 @@ interface LevelConfigDataSource {
 
     fun getLevelConfig(): LevelConfig
 
-    fun editLevelConfig(levelConfig : LevelConfig)
+    fun setLevelConfig(levelConfig : LevelConfig)
 
     fun reloadLevelConfig()
 
