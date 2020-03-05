@@ -22,6 +22,7 @@ class GuildPlugin(dataFolder: File, plugin: JavaPlugin) : SubMainManager(dataFol
     override fun setupCommands() {
         CommandManager(false).apply {
             addComponent("create", CommandCreateGuild())
+            addComponent("delete", CommandDeleteGuild())
             addComponent("info", CommandViewGuildInfo())
             addComponent("invite", CommandSendGuildInvite())
             addComponent("accept", CommandAcceptGuildInvite())

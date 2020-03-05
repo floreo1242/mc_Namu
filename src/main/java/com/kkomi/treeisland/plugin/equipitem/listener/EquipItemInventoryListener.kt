@@ -47,16 +47,14 @@ class EquipItemInventoryListener : Listener {
         val equipmentSlot = getSlotFromEquipmentType(equipmentItem.equipmentType)
         val slot = event.rawSlot
 
-        if (equipmentItem.job != "공용") {
-            if (equipmentItem.job != playerInfo.roleInfo.roleName) {
-                playerInfo.sendErrorMessage("해당 직업은 착용할 수 없습니다.")
-                return
-            }
+        if (equipmentItem.job != "공용" && equipmentItem.job != playerInfo.roleInfo.roleName) {
+            playerInfo.sendErrorMessage("해당 직업은 착용할 수 없습니다.")
+            return
+        }
 
-            if (equipmentItem.levelLimit > playerInfo.levelInfo.level) {
-                playerInfo.sendErrorMessage("착용하기 위한 레벨이 부족합니다.")
-                return
-            }
+        if (equipmentItem.levelLimit > playerInfo.levelInfo.level) {
+            playerInfo.sendErrorMessage("착용하기 위한 레벨이 부족합니다.")
+            return
         }
 
         when (isClickArea(event.inventory.size, slot)) {

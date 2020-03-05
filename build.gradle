@@ -53,7 +53,7 @@ jar {
 }
 
 copyJar {
-    into '/Users/youdonghun/Desktop/DevelopServer/plugins'
+    into '/Users/youdonghun/Desktop/Minecraft Bukkit/DevelopServer/plugins'
 }
 
 import org.apache.tools.ant.filters.ReplaceTokens

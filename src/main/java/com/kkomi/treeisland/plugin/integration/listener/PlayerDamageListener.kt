@@ -58,6 +58,8 @@ class PlayerDamageListener : Listener {
     @EventHandler
     fun onEntityDamageByEntityEvent(event: EntityDamageByEntityEvent) {
 
+        // When call -> player to entity or player
+
         if (event.damager is Player) {
             val damager = event.damager as Player
             val damagerStat = PlayerDamageStatRepository.getPlayerFinalStat(damager)
@@ -87,15 +89,6 @@ class PlayerDamageListener : Listener {
 
             event.damage = lastedDamage * (event.damage / 100)
 
-            println("""
-                [DEBUG] attack,
-                    defaultDamage = [$defaultDamage]
-                    str = [${damagerStat[StatOption.STRENGTH]}], strPointByValue = [${StatConfigRepository.getStatConfig().strPointByValue}]
-                    dex = [${damagerStat[StatOption.DEXTERITY]}], dexPointByValue = [${StatConfigRepository.getStatConfig().dexPointByValue}]
-                    lastedDamage = [$lastedDamage],
-                    totalDamage = [${event.damage}],
-                    isCritical = [$isCritical]
-            """.trimIndent())
         }
 
         if (event.entity is Player) {
@@ -110,24 +103,9 @@ class PlayerDamageListener : Listener {
 
             // 회피를 하였다면 이벤트 캔슬
             if (Random.nextInt(1..100) <= agi) {
-                println("""
-                            [DEBUG] defense,
-                                agi = [${entityStat[StatOption.AGILITY]}], agiPointByValue = [${StatConfigRepository.getStatConfig().agiPointByValue}]
-                                def = [${entityStat[StatOption.VITALITY]}], vitPointByValue = [${StatConfigRepository.getStatConfig().vitPointByValue}]
-                                total defense = [$vit],
-                                isEvasive = [true] 
-                        """.trimIndent())
                 event.isCancelled = true
                 return
             }
-
-            println("""
-                            [DEBUG] defense,
-                                agi = [${entityStat[StatOption.AGILITY]}], agiPointByValue = [${StatConfigRepository.getStatConfig().agiPointByValue}]
-                                def = [${entityStat[StatOption.VITALITY]}], vitPointByValue = [${StatConfigRepository.getStatConfig().vitPointByValue}]
-                                total defense = [$vit],
-                                isEvasive = [false]
-                        """.trimIndent())
 
             event.damage -= if (event.damage * vit < 0) 0.0 else event.damage * vit
 
@@ -136,11 +114,7 @@ class PlayerDamageListener : Listener {
         val damager = (event.damager as? Player) ?: return
         val entity = (event.entity as? LivingEntity) ?: return
 
-        damager.sendTitle("", "${entity.health - event.damage}", 0, 0, 0)
-
-        if (entity.health - event.damage < 0) {
-            Bukkit.getPluginManager().callEvent(EntityDeathBySpellCasterEvent(event.damager as Player, event.entity as LivingEntity))
-        }
+        damager.sendTitle("", "${(if(entity.health - event.damage < 0 ) 0.0 else entity.health - event.damage).toInt()}", 0, 20, 0)
     }
 
 }

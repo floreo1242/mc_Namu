@@ -36,7 +36,7 @@ class GuildInfoInventory(
                         "&f길드 이름 : ${guild.name}",
                         "&f길드 레벨 : ${guild.level}",
                         "&f길드 기여 : ${guild.guildPoint}",
-                        "&f길드 인원 : ${guild.members.size} / $maxMember}"
+                        "&f길드 인원 : ${guild.members.size} / $maxMember"
                 )
         )
 

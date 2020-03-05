@@ -10,24 +10,30 @@ import com.kkomi.treeisland.plugin.monster.model.MonsterRepository
 import com.kkomi.treeisland.plugin.skill.api.EntityDeathBySpellCasterEvent
 import org.bukkit.Bukkit
 import org.bukkit.Location
+import org.bukkit.entity.LivingEntity
 import org.bukkit.entity.Player
 import org.bukkit.event.EventHandler
 import org.bukkit.event.Listener
+import org.bukkit.event.entity.EntityDeathEvent
 import kotlin.random.Random
 import kotlin.random.nextInt
 
 class MonsterListener : Listener {
 
     @EventHandler
-    fun onEntityDeathBySpellCasterEvent(event: EntityDeathBySpellCasterEvent) {
-        val killer = event.caster
+    fun onEntityDeathEvent(event: EntityDeathEvent) {
+
+        val killer = event.entity.killer ?: return
         val monster = MonsterRepository.getMonster(event.entity.name) ?: return
 
         val bonusXp = PlayerDamageStatRepository.getPlayerFinalStat(killer)[StatOption.BONUS_XP] ?: 0.0
         val bonusGold = PlayerDamageStatRepository.getPlayerFinalStat(killer)[StatOption.BONUS_GOLD] ?: 0.0
 
-        val exp = (monster.dropExp * ((1 + bonusXp) / 100)).toInt()
-        val money = (monster.dropMoney * ((1 + bonusGold) / 100)).toInt()
+        val exp = (monster.dropExp * (1 + bonusXp / 100)).toInt()
+        val money = (monster.dropMoney * (1 + bonusGold / 100)).toInt()
+
+        event.drops.clear()
+        event.droppedExp = 0
 
         killer.getPlayerInfo().apply {
             moneyInfo.money += money

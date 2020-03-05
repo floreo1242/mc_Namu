@@ -63,6 +63,6 @@ data class SkillInfo(
     }
 
     fun cast(player: Player) {
-        MagicSpells.getSpellByInternalName(magicSpellName).cast(player)
+        MagicSpells.getSpellByInGameName(magicSpellName).cast(player)
     }
 }

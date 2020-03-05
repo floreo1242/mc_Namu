@@ -2,15 +2,16 @@ package com.kkomi.treeisland.plugin.quest.listener
 
 import com.kkomi.treeisland.plugin.integration.model.getPlayerInfo
 import com.kkomi.treeisland.plugin.quest.model.entity.QuestAction
-import com.kkomi.treeisland.plugin.skill.api.EntityDeathBySpellCasterEvent
 import org.bukkit.entity.Player
 import org.bukkit.event.EventHandler
 import org.bukkit.event.EventPriority
 import org.bukkit.event.Listener
 import org.bukkit.event.block.BlockBreakEvent
 import org.bukkit.event.block.BlockPlaceEvent
+import org.bukkit.event.entity.EntityDeathEvent
 import org.bukkit.event.entity.EntityPickupItemEvent
-import org.bukkit.event.inventory.*
+import org.bukkit.event.inventory.InventoryClickEvent
+import org.bukkit.event.inventory.InventoryOpenEvent
 import org.bukkit.event.player.PlayerDropItemEvent
 import org.bukkit.event.player.PlayerInteractEntityEvent
 
@@ -57,8 +58,10 @@ class QuestActionListener : Listener {
     }
 
     @EventHandler(priority = EventPriority.HIGH)
-    fun onEntityDeathEvent(event: EntityDeathBySpellCasterEvent) {
-        event.caster.getPlayerInfo().questInfo.checkQuestAmount(QuestAction.KILL_ENTITY) { questObjective -> event.entity.name.toUpperCase() == questObjective.target.toUpperCase() }
+    fun onEntityDeathEvent(event: EntityDeathEvent) {
+        event.entity ?: return
+        event.entity.killer ?: return
+        event.entity.killer.getPlayerInfo().questInfo.checkQuestAmount(QuestAction.KILL_ENTITY) { questObjective -> event.entity.name.toUpperCase() == questObjective.target.toUpperCase() }
     }
 
 }

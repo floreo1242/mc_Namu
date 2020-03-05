@@ -83,14 +83,14 @@ class PlayerSkillInfoListener : Listener {
         }
 
         val itemStack = event.player.inventory.getItem(event.newSlot) ?: return
-        val skillInfo = itemStack.getDisplay()?.let { SkillInfoRepository.getSkillInfoByDisplay(it) } ?: return
+        val skillBookItemMeta = itemStack.getNBTTagCompound(SkillBookItemMeta::class.java) ?: return
 
-        if (!playerSkillInfo.learnSkills.contains(skillInfo.name)) {
+        if (!playerSkillInfo.learnSkills.contains(skillBookItemMeta.skillInfo.name)) {
             player.sendErrorMessage("습득하지 않은 스킬입니다.")
             return
         }
 
-        skillInfo.cast(player)
+        skillBookItemMeta.skillInfo.cast(player)
         player.inventory.heldItemSlot = 0
     }
 }

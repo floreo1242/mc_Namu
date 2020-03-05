@@ -17,7 +17,7 @@ class LevelConfigFileDataSource(
 
     init {
         if (!configuration.getKeys(false).contains("config")) {
-            configuration.set("config", StatConfig())
+            configuration.set("config", LevelConfig(listOf(100, 200, 300)))
             configuration.save(configFile)
         }
     }
@@ -33,7 +33,7 @@ class LevelConfigFileDataSource(
     }
 
     override fun reloadLevelConfig() {
-        configFile = File(dataFolder,"config.yml")
+        configFile = File(dataFolder, "config.yml")
         configuration = YamlConfiguration.loadConfiguration(configFile)
         config = configuration.get("config") as LevelConfig
     }
