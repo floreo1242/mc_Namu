@@ -5,9 +5,8 @@ import com.kkomi.treeisland.plugin.shop.model.entity.Shop
 import java.io.File
 
 class ShopFileDataSource(
-        dataFolder: File,
-        classType: Class<Shop>
-) : ShopDataSource, FileDataSource<Shop>(dataFolder, classType) {
+        dataFolder: File
+) : ShopDataSource, FileDataSource<Shop>(dataFolder, Shop::class.java) {
 
     override fun reloadDataList() {
         loadFiles()

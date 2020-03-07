@@ -27,6 +27,7 @@ class QuestAcceptInventory(
         inventory.setItem(13, quest.toItemStack())
         inventory.setItem(29, acceptItemStack)
         inventory.setItem(33, disposeItemStack)
+        inventory.setItem(0, createItemStack(Material.GOLD_AXE,"", listOf(),1,4))
     }
 
 }

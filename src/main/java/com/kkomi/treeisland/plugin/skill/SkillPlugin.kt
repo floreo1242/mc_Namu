@@ -10,6 +10,8 @@ import com.kkomi.treeisland.plugin.skill.listener.PlayerSkillInfoListener
 import com.kkomi.treeisland.plugin.skill.listener.SkillOptionInventoryListener
 import com.kkomi.treeisland.plugin.skill.model.entity.PlayerSkillInfo
 import com.kkomi.treeisland.plugin.skill.model.entity.SkillInfo
+import com.kkomi.treeisland.plugin.skill.scheduler.SpellCooldownSchedulers
+import com.nisovin.magicspells.MagicSpells
 import org.bukkit.Bukkit
 import org.bukkit.configuration.serialization.ConfigurationSerialization
 import org.bukkit.plugin.java.JavaPlugin
@@ -51,5 +53,6 @@ class SkillPlugin(dataFolder: File, plugin: JavaPlugin) : SubMainManager(dataFol
     }
 
     override fun setupSchedulers() {
+
     }
 }

@@ -23,6 +23,7 @@ class QuestCancelInventory(
     override fun setBasicFrame() {
         inventory.setItem(10, quest.toItemStack())
         inventory.setItem(14, cancelItemStack)
+        inventory.setItem(0, createItemStack(Material.GOLD_AXE,"", listOf(),1,5))
     }
 
 }

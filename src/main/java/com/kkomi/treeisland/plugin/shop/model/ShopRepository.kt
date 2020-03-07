@@ -7,7 +7,7 @@ import java.io.File
 
 object ShopRepository {
 
-    private var shopDataSource: ShopDataSource = ShopFileDataSource(File("${Treeisland.shopPlugin.dataFolder}/shop"), Shop::class.java)
+    private var shopDataSource: ShopDataSource = ShopFileDataSource(File("${Treeisland.shopPlugin.dataFolder}/shop"))
 
     fun reloadShop() {
         shopDataSource.reloadDataList()

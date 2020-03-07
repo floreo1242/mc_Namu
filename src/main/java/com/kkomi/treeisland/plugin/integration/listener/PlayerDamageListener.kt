@@ -1,21 +1,20 @@
 package com.kkomi.treeisland.plugin.integration.listener
 
-import com.kkomi.treeisland.plugin.integration.model.PlayerDamageStatRepository
+import com.kkomi.treeisland.Treeisland
 import com.kkomi.treeisland.plugin.equipitem.api.PlayerWearEquipmentItemEvent
+import com.kkomi.treeisland.plugin.integration.model.PlayerDamageStatRepository
 import com.kkomi.treeisland.plugin.itemdb.model.entity.StatOption
-import com.kkomi.treeisland.plugin.skill.api.EntityDeathBySpellCasterEvent
 import com.kkomi.treeisland.plugin.stat.api.PlayerStatUpdateEvent
 import com.kkomi.treeisland.plugin.stat.model.StatConfigRepository
-import com.nisovin.magicspells.events.MagicSpellsEntityDamageByEntityEvent
 import org.bukkit.Bukkit
 import org.bukkit.attribute.Attribute
 import org.bukkit.entity.LivingEntity
 import org.bukkit.entity.Player
 import org.bukkit.event.EventHandler
-import org.bukkit.event.EventPriority
 import org.bukkit.event.Listener
 import org.bukkit.event.entity.EntityDamageByEntityEvent
 import org.bukkit.event.player.PlayerJoinEvent
+import org.bukkit.util.Vector
 import kotlin.random.Random
 import kotlin.random.nextInt
 
@@ -57,9 +56,7 @@ class PlayerDamageListener : Listener {
 
     @EventHandler
     fun onEntityDamageByEntityEvent(event: EntityDamageByEntityEvent) {
-
         // When call -> player to entity or player
-
         if (event.damager is Player) {
             val damager = event.damager as Player
             val damagerStat = PlayerDamageStatRepository.getPlayerFinalStat(damager)
@@ -114,7 +111,9 @@ class PlayerDamageListener : Listener {
         val damager = (event.damager as? Player) ?: return
         val entity = (event.entity as? LivingEntity) ?: return
 
-        damager.sendTitle("", "${(if(entity.health - event.damage < 0 ) 0.0 else entity.health - event.damage).toInt()}", 0, 20, 0)
+        Bukkit.getScheduler().runTaskLater(Treeisland.instance, { entity.velocity = Vector() }, 1L)
+
+        damager.sendTitle("", "${(if (entity.health - event.damage < 0) 0.0 else entity.health - event.damage).toInt()}", 0, 20, 0)
     }
 
 }

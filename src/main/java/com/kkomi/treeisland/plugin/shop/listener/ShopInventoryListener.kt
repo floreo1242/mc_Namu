@@ -113,7 +113,7 @@ class ShopInventoryListener : Listener {
             // Out Inventory
             else -> return
         }
-        inventory.setItem(48, createItemStack(Material.GOLD_INGOT, "&6보유금액", listOf("&f${playerMoney.money.toMoneyFormat()}")))
+        inventory.setItem(53, createItemStack(Material.GOLD_INGOT, "&6보유금액", listOf("&f${playerMoney.money.toMoneyFormat()}")))
     }
 
     private fun loadStuff(inventory: Inventory, shop: Shop, page: Int) {

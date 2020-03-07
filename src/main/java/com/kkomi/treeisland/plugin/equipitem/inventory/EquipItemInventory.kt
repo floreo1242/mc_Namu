@@ -44,6 +44,7 @@ class EquipItemInventory(player: Player) : InventoryManager(player) {
         inventory.setItem(PLATE, equipItemInfo.plate)
         inventory.setItem(LEGGINGS, equipItemInfo.legging)
         inventory.setItem(BOOTS, equipItemInfo.boots)
+        inventory.setItem(0, createItemStack(Material.GOLD_AXE,"", listOf(),1,1))
 
     }
 

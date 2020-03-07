@@ -1,5 +1,6 @@
 package com.kkomi.treeisland
 
+import com.kkomi.treeisland.plugin.enhance.EnhancePlugin
 import com.kkomi.treeisland.plugin.equipitem.EquipItemPlugin
 import com.kkomi.treeisland.plugin.guild.GuildPlugin
 import com.kkomi.treeisland.plugin.integration.IntegrationPlugin
@@ -12,6 +13,7 @@ import com.kkomi.treeisland.plugin.quest.QuestPlugin
 import com.kkomi.treeisland.plugin.role.RolePlugin
 import com.kkomi.treeisland.plugin.shop.ShopPlugin
 import com.kkomi.treeisland.plugin.skill.SkillPlugin
+import com.kkomi.treeisland.plugin.skill.scheduler.SpellCooldownSchedulers
 import com.kkomi.treeisland.plugin.stat.StatPlugin
 import org.bukkit.event.Listener
 import org.bukkit.plugin.java.JavaPlugin
@@ -74,8 +76,10 @@ class Treeisland : JavaPlugin(), Listener {
         logger.info("Load complete role plugin...!")
 
         IntegrationPlugin(File(dataFolder.path + "/integration"), this)
+        EnhancePlugin(File(dataFolder.parent + "/scroll"), this)
 
         PlayerDataScheduler().setPlugin(this).startTimer(0, -1, 0, 0)
+        SpellCooldownSchedulers().setPlugin(this).startTimer(0, -1, 0, 20)
     }
 
     override fun onDisable() {

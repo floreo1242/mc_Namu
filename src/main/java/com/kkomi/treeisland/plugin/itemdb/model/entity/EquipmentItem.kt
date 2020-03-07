@@ -12,13 +12,12 @@ import org.bukkit.inventory.ItemStack
 data class EquipmentItem(
         var code: String,
         val name: String,
-        val description: String,
         var equipmentType: EquipmentType,
         val material: Material,
         val durability: Int,
         val levelLimit: Int,
         val job: String,
-        val options: List<EquipmentItemOption>
+        val baseOptions: List<EquipmentItemOption>
 ) : ConfigurationSerializable {
 
     companion object {
@@ -27,13 +26,12 @@ data class EquipmentItem(
             return EquipmentItem(
                     data["code"] as String,
                     data["name"] as String,
-                    data["description"] as String,
                     EquipmentType.valueOf(data["equipmentType"] as String),
                     Material.valueOf(data["material"] as String),
                     data["durability"] as Int,
                     data["levelLimit"] as Int,
                     data["job"] as String,
-                    data["options"] as List<EquipmentItemOption>
+                    (data["baseOptions"] ?: data["options"]) as List<EquipmentItemOption>
             )
         }
     }
@@ -47,9 +45,7 @@ data class EquipmentItem(
                         "&f착용직업 : $job",
                         "&f레벨제한 : $levelLimit",
                         "",
-                        *options.map { "&f${it.toLoreStr()}" }.toTypedArray(),
-                        "",
-                        *description.split("|").toTypedArray()
+                        *baseOptions.map { "&f${it.toLoreStr()}" }.toTypedArray()
                 ),
                 durability = durability.toShort()
         ).run {
@@ -70,13 +66,12 @@ data class EquipmentItem(
         return mapOf(
                 "code" to code,
                 "name" to name,
-                "description" to description,
                 "equipmentType" to equipmentType.toString(),
                 "material" to material.toString(),
                 "durability" to durability,
                 "levelLimit" to levelLimit,
                 "job" to job,
-                "options" to options
+                "baseOptions" to baseOptions
         )
     }
 

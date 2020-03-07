@@ -31,7 +31,6 @@ object EquipmentItemRepository : ItemRepository<EquipmentItem> {
                 EquipmentItem(
                         code,
                         "Equipment Item Name",
-                        "Equipment Item Description",
                         EquipmentType.WEAPON,
                         Material.WOOD_SWORD,
                         0,

@@ -96,67 +96,72 @@ class PlayerStatInventoryListener : Listener {
         inventory.setItem(
                 PlayerStatInventory.STRENGTH,
                 createItemStack(
-                        Material.BOOK,
+                        Material.GOLD_SPADE,
                         "&c<< 힘 >>",
                         listOf(
                                 "&f공격시 추가 데미지를 입힙니다.",
                                 "&f크리티컬이 발생할 경우 효과가 미적용 됩니다.",
                                 "&f",
                                 "&f투자 된 포인트 : &6${statInfo.investmentStat[StatOption.STRENGTH]}"
-                        )
+                        ),
+                        durability = 1
                 )
         )
 
         inventory.setItem(
                 PlayerStatInventory.DEXTERITY,
                 createItemStack(
-                        Material.BOOK,
+                        Material.GOLD_SPADE,
                         "&a<< 민첩 >>",
                         listOf(
                                 "&f크리티컬 확률을 증가 시킵니다.",
                                 "&f크리티컬 적중 시 두배의 데미지를 입힙니다.",
                                 "&f",
                                 "&f투자 된 포인트 : &6${statInfo.investmentStat[StatOption.DEXTERITY]}"
-                        )
+                        ),
+                        durability = 2
                 )
         )
 
         inventory.setItem(
                 PlayerStatInventory.INTELLIGENCE,
                 createItemStack(
-                        Material.BOOK,
+                        Material.GOLD_SPADE,
                         "&b<< 지능 >>",
                         listOf(
                                 "&f스킬 사용시 마나 소모량을 감소시킵니다.",
                                 "&f",
                                 "&f투자 된 포인트 : &6${statInfo.investmentStat[StatOption.INTELLIGENCE]}"
-                        )
+                        ),
+                        durability = 4
                 )
         )
 
         inventory.setItem(
                 PlayerStatInventory.AGILITY,
                 createItemStack(
-                        Material.BOOK,
+                        Material.GOLD_SPADE,
                         "&e<< 회피 >>",
                         listOf(
                                 "&f피격 시 데미지를 무시하는 확률을 증가시킵니다.",
                                 "&f",
                                 "&f투자 된 포인트 : &6${statInfo.investmentStat[StatOption.AGILITY]}"
-                        )
+                        ),
+                        durability = 3
                 )
         )
 
         inventory.setItem(
                 PlayerStatInventory.DEFENSE,
                 createItemStack(
-                        Material.BOOK,
+                        Material.GOLD_SPADE,
                         "&7<< 방어 >>",
                         listOf(
                                 "&f피격 시 받는 데미지를 감소시킵니다.",
                                 "&f",
                                 "&f투자 된 포인트 : &6${statInfo.investmentStat[StatOption.VITALITY]}"
-                        )
+                        ),
+                        durability = 5
                 )
         )
 

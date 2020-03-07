@@ -1,11 +1,12 @@
 name: TreeIsland
-name: TreeIsland
-name: TreeIsland
 version: @version@
 main: com.kkomi.treeisland.Treeisland
 prefix: TreeIsland
 description: Minecraft TreeIsland Server Intergration Plugin
 website: github.com/You-Kkomi
+
+depend:
+  - MagicSpells
 
 commands:
   money:
@@ -26,3 +27,5 @@ commands:
   skilla:
   skill:
   monstera:
+  scrolla:
+  scroll:

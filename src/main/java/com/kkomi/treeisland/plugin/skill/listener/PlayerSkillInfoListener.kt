@@ -33,6 +33,10 @@ class PlayerSkillInfoListener : Listener {
             return
         }
 
+//        if (!event.player.isOp) {
+//            event.isCancelled = true
+//        }
+
         val player = event.player
         val playerSkillInfo = player.getPlayerInfo().skillInfo
         val itemStack = event.player.inventory.itemInMainHand ?: return
@@ -67,7 +71,6 @@ class PlayerSkillInfoListener : Listener {
                 player.sendErrorMessage("습득하지 않은 스킬입니다.")
                 return
             }
-
             skillInfo.cast(player)
         }
     }

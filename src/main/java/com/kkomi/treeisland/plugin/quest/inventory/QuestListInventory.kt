@@ -1,9 +1,11 @@
 package com.kkomi.treeisland.plugin.quest.inventory
 
+import com.kkomi.devlibrary.extension.createItemStack
 import com.kkomi.devlibrary.inventory.InventoryManager
 import com.kkomi.treeisland.plugin.integration.model.getPlayerInfo
 import com.kkomi.treeisland.plugin.quest.model.QuestRepository
 import org.bukkit.Bukkit
+import org.bukkit.Material
 import org.bukkit.entity.Player
 import org.bukkit.inventory.Inventory
 
@@ -20,6 +22,7 @@ class QuestListInventory(
 
     override fun setBasicFrame() {
         val playerQuest = player.getPlayerInfo().questInfo
+        inventory.setItem(0, createItemStack(Material.GOLD_AXE,"", listOf(),1,2))
         QuestRepository.getQuestList()
                 .filter { it.startNpc == npcName }
                 .filter { playerQuest.isAvailableQuest(it, player.getPlayerInfo().levelInfo) }

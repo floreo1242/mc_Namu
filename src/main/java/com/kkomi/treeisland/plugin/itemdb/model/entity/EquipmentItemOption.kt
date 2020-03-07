@@ -5,8 +5,8 @@ import org.bukkit.configuration.serialization.SerializableAs
 
 @SerializableAs("EquipmentItemOption")
 data class EquipmentItemOption(
-        private val statOption: StatOption,
-        private val value: Int
+        val statOption: StatOption,
+        val value: Int
 ) : ConfigurationSerializable {
 
     companion object {
@@ -26,8 +26,12 @@ data class EquipmentItemOption(
         )
     }
 
-    fun toLoreStr(): String {
-        return "+$value${if (statOption.isPer) "%" else ""} ${statOption.strName}"
+    fun toLoreStr(plusValue: Int = 0): String {
+        return if (plusValue == 0) {
+            "&f${statOption.strName} : +${value}${if (statOption.isPer) "%" else ""}"
+        } else {
+            "&f${statOption.strName} : +&b${value + plusValue}&f ($value + $plusValue)${if (statOption.isPer) "%" else ""}"
+        }
     }
 
 }

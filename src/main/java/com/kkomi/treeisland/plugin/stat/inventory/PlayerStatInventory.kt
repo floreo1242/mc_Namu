@@ -1,7 +1,9 @@
 package com.kkomi.treeisland.plugin.stat.inventory
 
+import com.kkomi.devlibrary.extension.createItemStack
 import com.kkomi.devlibrary.inventory.InventoryManager
 import org.bukkit.Bukkit
+import org.bukkit.Material
 import org.bukkit.entity.Player
 import org.bukkit.inventory.Inventory
 
@@ -21,7 +23,7 @@ class PlayerStatInventory(player: Player) : InventoryManager(player) {
     override val inventory: Inventory = Bukkit.createInventory(null, 27, "$TITLE - ${player.name}")
 
     override fun setBasicFrame() {
-
+        inventory.setItem(0, createItemStack(Material.GOLD_AXE,"", listOf(),1,3))
     }
 
 }
