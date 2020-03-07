@@ -1,6 +1,10 @@
 package com.kkomi.treeisland.plugin.equipitem.model.entity
 
 import com.kkomi.devlibrary.extension.*
+import com.kkomi.devlibrary.nms.getNBTTagCompound
+import com.kkomi.treeisland.plugin.enhance.model.EnhanceItemMeta
+import com.kkomi.treeisland.plugin.itemdb.model.entity.EquipmentItem
+import com.kkomi.treeisland.plugin.itemdb.model.entity.EquipmentItemOption
 import com.kkomi.treeisland.plugin.itemdb.model.entity.StatOption
 import org.bukkit.Material
 import org.bukkit.configuration.serialization.ConfigurationSerializable
@@ -27,17 +31,29 @@ data class PlayerEquipItem(
     fun getEquipmentItemStat(): Map<StatOption, Int> {
         val equipmentStat = mutableMapOf<StatOption, Int>()
         toItemStackList()
-                .flatMap {
-                    it.getLore() ?: listOf()
+                .mapNotNull {
+                    it.getNBTTagCompound(EquipmentItem::class.java)
                 }
-                .filter {
-                    it.startsWith("§f+") || it.startsWith("§f-")
+                .map {
+                    it.baseOptions
                 }
                 .forEach { data ->
-                    val temp = data.removeChatColorCode().split(" ")
-                    val optionValue = temp[0].run { substring(1 until if (endsWith("%")) length - 1 else length) }.toInt()
-                    val optionName = StatOption.values().find { it.strName == temp.join(1, temp.size - 1) }!!
-                    equipmentStat[optionName] = (equipmentStat[optionName] ?: 0) + optionValue
+                    data.forEach {
+                        equipmentStat[it.statOption] = (equipmentStat[it.statOption] ?: 0) + it.value
+                    }
+                }
+
+        toItemStackList()
+                .mapNotNull {
+                    it.getNBTTagCompound(EnhanceItemMeta::class.java)
+                }
+                .map {
+                    it.scrollOptions
+                }
+                .forEach { data ->
+                    data.forEach {
+                        equipmentStat[it.first] = (equipmentStat[it.first] ?: 0) + it.second
+                    }
                 }
         return equipmentStat
     }
