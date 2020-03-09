@@ -16,12 +16,12 @@ class EnhancePlugin(dataFolder: File, plugin: JavaPlugin) : SubMainManager(dataF
     override fun setupCommands() {
         CommandManager(true).apply {
             addComponent("create", CommandCreateEnhanceScroll())
-        }.register(plugin.getCommand("scrolla"))
+        }.register(plugin.getCommand("enhancea"))
 
 
         CommandManager(true).apply {
             addComponent("open", CommandOpenEnhanceInventory())
-        }.register(plugin.getCommand("scroll"))
+        }.register(plugin.getCommand("enhance"))
     }
 
     override fun setupInventoryTitle() {

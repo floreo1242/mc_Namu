@@ -22,7 +22,6 @@ class QuestTalkInventory(
     override val inventory: Inventory = Bukkit.createInventory(null, 27, "$TITLE - ${quest.name}")
 
     override fun setBasicFrame() {
-        inventory.setItem(0, createItemStack(Material.GOLD_AXE,"", listOf(),1,2))
         inventory.setItem(ITEM_LOCATION, quest.talkScriptList[0].toItemStack())
     }
 

@@ -2,6 +2,7 @@ package com.kkomi.treeisland.plugin.integration.listener
 
 import com.kkomi.treeisland.Treeisland
 import com.kkomi.treeisland.plugin.equipitem.api.PlayerWearEquipmentItemEvent
+import com.kkomi.treeisland.plugin.equipitem.model.PlayerEquipItemRepository
 import com.kkomi.treeisland.plugin.integration.model.PlayerDamageStatRepository
 import com.kkomi.treeisland.plugin.itemdb.model.entity.StatOption
 import com.kkomi.treeisland.plugin.stat.api.PlayerStatUpdateEvent
@@ -11,6 +12,7 @@ import org.bukkit.attribute.Attribute
 import org.bukkit.entity.LivingEntity
 import org.bukkit.entity.Player
 import org.bukkit.event.EventHandler
+import org.bukkit.event.EventPriority
 import org.bukkit.event.Listener
 import org.bukkit.event.entity.EntityDamageByEntityEvent
 import org.bukkit.event.player.PlayerJoinEvent
@@ -20,8 +22,14 @@ import kotlin.random.nextInt
 
 class PlayerDamageListener : Listener {
 
-    @EventHandler
+    @EventHandler(priority = EventPriority.LOWEST)
     fun onPlayerJoinEvent(event: PlayerJoinEvent) {
+        val uuid = event.player.uniqueId.toString()
+
+        if (PlayerEquipItemRepository.getPlayerEquipItem(uuid) == null) {
+            PlayerEquipItemRepository.createPlayerEquipItem(uuid)
+        }
+
         PlayerDamageStatRepository.setPlayerFinalStat(event.player)
     }
 

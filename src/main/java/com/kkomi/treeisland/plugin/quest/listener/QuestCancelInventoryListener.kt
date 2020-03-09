@@ -25,7 +25,7 @@ class QuestCancelInventoryListener : Listener {
         event.isCancelled = true
 
         when (event.slot) {
-            15 -> {
+            14 -> {
                 val quest = QuestRepository.getQuestToTitle(data.second)!!
                 playerInfo.questInfo.throwUpQuest(quest)
                 PlayerQuestRepository.editPlayerQuest(playerInfo.questInfo)

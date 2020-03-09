@@ -22,7 +22,6 @@ class QuestListInventory(
 
     override fun setBasicFrame() {
         val playerQuest = player.getPlayerInfo().questInfo
-        inventory.setItem(0, createItemStack(Material.GOLD_AXE,"", listOf(),1,2))
         QuestRepository.getQuestList()
                 .filter { it.startNpc == npcName }
                 .filter { playerQuest.isAvailableQuest(it, player.getPlayerInfo().levelInfo) }

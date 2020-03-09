@@ -19,7 +19,6 @@ class QuestStatusInventory(player: Player) : InventoryManager(player) {
     override val inventory: Inventory = Bukkit.createInventory(null, 9, "$TITLE - ${player.name}")
 
     override fun setBasicFrame() {
-        inventory.setItem(0, createItemStack(Material.GOLD_AXE,"", listOf(),1,2))
         val playerQuest = player.getPlayerInfo().questInfo
         playerQuest.checkQuestAmount(QuestAction.FARMING_ITEM) { true }
         playerQuest.inProgressQuestList

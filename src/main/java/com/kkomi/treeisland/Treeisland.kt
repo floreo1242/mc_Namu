@@ -1,11 +1,13 @@
 package com.kkomi.treeisland
 
 import com.kkomi.treeisland.plugin.enhance.EnhancePlugin
+import com.kkomi.treeisland.plugin.enhance.model.EnhanceStone
 import com.kkomi.treeisland.plugin.equipitem.EquipItemPlugin
 import com.kkomi.treeisland.plugin.guild.GuildPlugin
 import com.kkomi.treeisland.plugin.integration.IntegrationPlugin
 import com.kkomi.treeisland.plugin.integration.scheduler.PlayerDataScheduler
 import com.kkomi.treeisland.plugin.itemdb.ItemDBPlugin
+import com.kkomi.treeisland.plugin.itemdb.model.entity.StatOption
 import com.kkomi.treeisland.plugin.level.LevelPlugin
 import com.kkomi.treeisland.plugin.money.MoneyPlugin
 import com.kkomi.treeisland.plugin.monster.MonsterPlugin
@@ -80,6 +82,8 @@ class Treeisland : JavaPlugin(), Listener {
 
         PlayerDataScheduler().setPlugin(this).startTimer(0, -1, 0, 0)
         SpellCooldownSchedulers().setPlugin(this).startTimer(0, -1, 0, 20)
+
+        println(EnhanceStone(StatOption.VITALITY, 10, 40, 20).toItemStack())
     }
 
     override fun onDisable() {
