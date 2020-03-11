@@ -95,7 +95,7 @@ class ShopInventoryListener : Listener {
             }
             // Player Inventory Area
             (54..89).contains(slot) -> {
-                val stuff = KeywordShopRepository.getKeywordStuff(currentItem.itemMeta.displayName
+                val stuff = KeywordShopRepository.getKeywordStuff(currentItem.itemMeta?.displayName
                         ?: currentItem.type.toString())
                 if (stuff == null) {
                     playerInfo.sendErrorMessage(ShopMessage.CAN_NOT_SELL_ITEM)

@@ -15,6 +15,14 @@ import org.bukkit.configuration.serialization.ConfigurationSerialization
 import org.bukkit.plugin.java.JavaPlugin
 import java.io.File
 
+fun main() {
+    fun solution(num: Int): String {
+        return num.and(1).toString()
+    }
+    println(solution(4))
+    println(solution(7))
+}
+
 class GuildPlugin(dataFolder: File, plugin: JavaPlugin) : SubMainManager(dataFolder, plugin) {
     override fun onDisable() {
     }
@@ -30,11 +38,12 @@ class GuildPlugin(dataFolder: File, plugin: JavaPlugin) : SubMainManager(dataFol
             addComponent("kick", CommandKickGuildMemeber())
             addComponent("grade", CommandSetGradeGuild())
             addComponent("upgrade", CommandUpgradeGuild())
+            addComponent("donation", CommandGuildDonation())
         }.register(plugin.getCommand("guild"))
 
         CommandManager(true).apply {
-            addComponent("reload",CommandGuildReload())
-            addComponent("reload_player",CommandPlayerGuildReload())
+            addComponent("reload", CommandGuildReload())
+            addComponent("reload_player", CommandPlayerGuildReload())
         }
     }
 

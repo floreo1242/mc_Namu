@@ -25,6 +25,11 @@ class CommandSetGradeGuild : GuildCommandComponent() {
         val targetName = args.next()
         val targetPlayer = Bukkit.getPlayer(targetName)
 
+        if (guild.members[player.uniqueId.toString()]!!.grade == GuildGrade.DEPUTY_MANAGER) {
+            player.sendErrorMessage("길드 관리자가 아닙니다.")
+            return true
+        }
+
         if (targetPlayer == null) {
             player.sendErrorMessage("해당 플레이어를 찾을 수 없습니다.")
             return true

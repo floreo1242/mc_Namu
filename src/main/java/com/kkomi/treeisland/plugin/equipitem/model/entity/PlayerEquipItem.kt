@@ -44,17 +44,18 @@ data class PlayerEquipItem(
                 }
 
         toItemStackList()
-                .mapNotNull {
+                .mapNotNull{
                     it.getNBTTagCompound(EnhanceItemMeta::class.java)
                 }
                 .map {
-                    it.scrollOptions
+                    return@map it.scrollOptions
                 }
                 .forEach { data ->
                     data.forEach {
                         equipmentStat[it.first] = (equipmentStat[it.first] ?: 0) + it.second
                     }
                 }
+
         return equipmentStat
     }
 

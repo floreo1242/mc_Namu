@@ -7,6 +7,7 @@ import com.kkomi.devlibrary.extension.sendInfoMessage
 import com.kkomi.treeisland.plugin.guild.command.GuildCommandComponent
 import com.kkomi.treeisland.plugin.guild.model.GuildInviteRequestRepository
 import com.kkomi.treeisland.plugin.guild.model.entity.Guild
+import com.kkomi.treeisland.plugin.guild.model.entity.GuildGrade
 import com.kkomi.treeisland.plugin.integration.model.getPlayerInfo
 import org.bukkit.Bukkit
 import org.bukkit.command.Command
@@ -14,15 +15,20 @@ import org.bukkit.entity.Player
 
 class CommandSendGuildInvite : GuildCommandComponent() {
 
-    override val argumentsLength: Int = 2
+    override val argumentsLength: Int = 1
 
     override val description: String = "길드에 플레이어를 초대합니다."
 
-    override val usage: String = "<GuildName> <PlayerName>"
+    override val usage: String = "<PlayerName>"
 
     override fun onCommand(player: Player, label: String, command: Command, componentLabel: String, args: ArgumentList, guild: Guild): Boolean {
         val target = args.next()
         val targetPlayer = Bukkit.getPlayer(target)
+
+        if (guild.members[player.uniqueId.toString()]!!.grade == GuildGrade.DEPUTY_MANAGER) {
+            player.sendErrorMessage("길드 관리자가 아닙니다.")
+            return true
+        }
 
         if (targetPlayer == null) {
             player.sendErrorMessage("해당 플레이어를 찾을 수 없습니다.")
