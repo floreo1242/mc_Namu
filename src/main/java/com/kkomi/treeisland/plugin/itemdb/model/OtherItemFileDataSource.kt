@@ -19,17 +19,19 @@ class OtherItemFileDataSource(
 
     override fun addItem(item: OtherItem) {
         setValue(item.code, item)
-        saveFile(item.code, item)
     }
 
     override fun editItem(item: OtherItem) {
         setValue(item.code, item)
-        saveFile(item.code, item)
     }
 
     override fun removeItem(code: String) {
         removeItem(code)
         deleteFile(code)
+    }
+
+    override fun saveItem(item: OtherItem) {
+        saveFile(item.code, item)
     }
 
     override fun reloadItems() {

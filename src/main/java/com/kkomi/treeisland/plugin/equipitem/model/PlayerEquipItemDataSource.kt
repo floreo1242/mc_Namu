@@ -16,4 +16,6 @@ interface PlayerEquipItemDataSource {
 
     fun reloadPlayerEquipItems()
 
+    fun savePlayerEquipItem(playerEquipItem: PlayerEquipItem)
+
 }

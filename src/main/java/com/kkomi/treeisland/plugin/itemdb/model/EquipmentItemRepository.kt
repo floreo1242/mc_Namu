@@ -2,10 +2,7 @@ package com.kkomi.treeisland.plugin.itemdb.model
 
 import com.kkomi.treeisland.Treeisland
 import com.kkomi.devlibrary.extension.replaceChatColorCode
-import com.kkomi.treeisland.plugin.itemdb.model.entity.EquipmentItem
-import com.kkomi.treeisland.plugin.itemdb.model.entity.EquipmentItemOption
-import com.kkomi.treeisland.plugin.itemdb.model.entity.EquipmentType
-import com.kkomi.treeisland.plugin.itemdb.model.entity.StatOption
+import com.kkomi.treeisland.plugin.itemdb.model.entity.*
 import org.bukkit.Material
 import org.bukkit.entity.Player
 import java.io.File
@@ -44,10 +41,6 @@ object EquipmentItemRepository : ItemRepository<EquipmentItem> {
         )
     }
 
-    fun createItem(equipmentItem: EquipmentItem) {
-        equipmentItemFileDataSource.addItem(equipmentItem)
-    }
-
     override fun removeItem(code: String) {
         equipmentItemFileDataSource.removeItem(code)
     }
@@ -58,5 +51,9 @@ object EquipmentItemRepository : ItemRepository<EquipmentItem> {
 
     override fun reloadItems() {
         equipmentItemFileDataSource.reloadItems()
+    }
+
+    override fun saveItem(item: EquipmentItem) {
+        equipmentItemFileDataSource.saveItem(item)
     }
 }

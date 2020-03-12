@@ -8,7 +8,9 @@ import com.kkomi.treeisland.plugin.equipitem.command.user.CommandOpenEquipItem
 import com.kkomi.treeisland.plugin.equipitem.inventory.EquipItemInventory
 import com.kkomi.treeisland.plugin.equipitem.listener.EquipItemInventoryListener
 import com.kkomi.treeisland.plugin.equipitem.listener.PlayerEquipItemListener
+import com.kkomi.treeisland.plugin.equipitem.model.PlayerEquipItemRepository
 import com.kkomi.treeisland.plugin.equipitem.model.entity.PlayerEquipItem
+import com.kkomi.treeisland.plugin.itemdb.model.EquipmentItemRepository
 import org.bukkit.Bukkit
 import org.bukkit.configuration.serialization.ConfigurationSerialization
 import org.bukkit.plugin.java.JavaPlugin
@@ -16,6 +18,10 @@ import java.io.File
 
 class EquipItemPlugin(dataFolder: File, plugin: JavaPlugin) : SubMainManager(dataFolder, plugin) {
     override fun onDisable() {
+        PlayerEquipItemRepository.getPlayerEquipItemList()
+                .forEach {
+                    PlayerEquipItemRepository.savePlayerEquipItem(it)
+                }
     }
 
     override fun setupCommands() {

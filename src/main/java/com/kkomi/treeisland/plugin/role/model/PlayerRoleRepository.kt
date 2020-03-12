@@ -24,6 +24,10 @@ object PlayerRoleRepository {
         playerRoleDataSource.editPlayerRole(playerRole)
     }
 
+    fun savePlayerRole(playerRole: PlayerRole) {
+        playerRoleDataSource.savePlayerRole(playerRole)
+    }
+
     fun removePlayerRole(uuid: String) {
         playerRoleDataSource.removePlayerRole(uuid)
     }

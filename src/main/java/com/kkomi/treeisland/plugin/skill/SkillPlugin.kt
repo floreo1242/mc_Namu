@@ -8,6 +8,8 @@ import com.kkomi.treeisland.plugin.skill.inventory.LearnSkillListInventory
 import com.kkomi.treeisland.plugin.skill.inventory.SkillOptionInventory
 import com.kkomi.treeisland.plugin.skill.listener.PlayerSkillInfoListener
 import com.kkomi.treeisland.plugin.skill.listener.SkillOptionInventoryListener
+import com.kkomi.treeisland.plugin.skill.model.PlayerSkillInfoRepository
+import com.kkomi.treeisland.plugin.skill.model.SkillInfoRepository
 import com.kkomi.treeisland.plugin.skill.model.entity.PlayerSkillInfo
 import com.kkomi.treeisland.plugin.skill.model.entity.SkillInfo
 import com.kkomi.treeisland.plugin.skill.scheduler.SpellCooldownSchedulers
@@ -19,6 +21,15 @@ import java.io.File
 
 class SkillPlugin(dataFolder: File, plugin: JavaPlugin) : SubMainManager(dataFolder, plugin) {
     override fun onDisable() {
+        SkillInfoRepository.getSkillInfoList()
+                .forEach {
+                    SkillInfoRepository.saveSkillInfo(it)
+                }
+
+        PlayerSkillInfoRepository.getPlayerSkillInfoList()
+                .forEach {
+                    PlayerSkillInfoRepository.savePlayerSkillInfo(it)
+                }
     }
 
     override fun setupCommands() {

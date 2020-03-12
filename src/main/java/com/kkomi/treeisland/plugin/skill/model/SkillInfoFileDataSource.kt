@@ -19,11 +19,13 @@ class SkillInfoFileDataSource(
 
     override fun addSkillInfo(skillInfo: SkillInfo) {
         setValue(skillInfo.name, skillInfo)
-        saveFile(skillInfo.name, skillInfo)
     }
 
     override fun editSkillInfo(skillInfo: SkillInfo) {
         setValue(skillInfo.name, skillInfo)
+    }
+
+    override fun saveSkillInfo(skillInfo: SkillInfo) {
         saveFile(skillInfo.name, skillInfo)
     }
 

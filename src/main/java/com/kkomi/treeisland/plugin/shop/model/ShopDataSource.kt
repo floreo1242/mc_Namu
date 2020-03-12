@@ -16,4 +16,6 @@ interface ShopDataSource {
 
     fun removeShop(name: String)
 
+    fun saveShop(shop: Shop)
+
 }

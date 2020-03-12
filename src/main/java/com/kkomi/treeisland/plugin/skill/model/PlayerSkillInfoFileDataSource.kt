@@ -19,11 +19,13 @@ class PlayerSkillInfoFileDataSource(
 
     override fun addPlayerSkillInfo(playerSkillInfo: PlayerSkillInfo) {
         setValue(playerSkillInfo.uuid, playerSkillInfo)
-        saveFile(playerSkillInfo.uuid, playerSkillInfo)
     }
 
     override fun editPlayerSkillInfo(playerSkillInfo: PlayerSkillInfo) {
         setValue(playerSkillInfo.uuid, playerSkillInfo)
+    }
+
+    override fun savePlayerSkillInfo(playerSkillInfo: PlayerSkillInfo) {
         saveFile(playerSkillInfo.uuid, playerSkillInfo)
     }
 

@@ -19,19 +19,25 @@ class MonsterFileDataSource(
         return getValue(name)
     }
 
+    override fun getMonsterList(): List<MonsterDrop> {
+        return getValueList()
+    }
+
     override fun createMonster(monster: MonsterDrop) {
         setValue(monster.name, monster)
-        saveFile(monster.name, monster)
     }
 
     override fun editMonster(monster: MonsterDrop) {
         setValue(monster.name, monster)
-        saveFile(monster.name, monster)
     }
 
     override fun removeMonster(name: String) {
         removeValue(name)
         deleteFile(name)
+    }
+
+    override fun saveMonster(monster: MonsterDrop) {
+        saveFile(monster.name, monster)
     }
 
     override fun reloadMonsters() {

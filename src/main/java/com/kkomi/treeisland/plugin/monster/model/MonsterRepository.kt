@@ -23,7 +23,15 @@ object MonsterRepository {
         monsterDataSource.removeMonster(name)
     }
 
+    fun saveMonster(monster: MonsterDrop) {
+        monsterDataSource.saveMonster(monster)
+    }
+
     fun reloadMonster() {
         monsterDataSource.reloadMonsters()
+    }
+
+    fun getMonsterList() : List<MonsterDrop> {
+        return monsterDataSource.getMonsterList()
     }
 }

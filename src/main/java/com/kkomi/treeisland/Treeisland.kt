@@ -1,5 +1,6 @@
 package com.kkomi.treeisland
 
+import com.kkomi.treeisland.plugin.bag.BagPlugin
 import com.kkomi.treeisland.plugin.enhance.EnhancePlugin
 import com.kkomi.treeisland.plugin.enhance.model.EnhanceStone
 import com.kkomi.treeisland.plugin.equipitem.EquipItemPlugin
@@ -39,6 +40,7 @@ class Treeisland : JavaPlugin(), Listener {
         lateinit var equipItemPlugin: EquipItemPlugin
         lateinit var skillPlugin: SkillPlugin
         lateinit var rolePlugin: RolePlugin
+        lateinit var bagPlugin : BagPlugin
     }
 
     override fun onEnable() {
@@ -77,6 +79,9 @@ class Treeisland : JavaPlugin(), Listener {
         rolePlugin = RolePlugin(File(dataFolder.path + "/role"), this)
         logger.info("Load complete role plugin...!")
 
+        bagPlugin = BagPlugin(File(dataFolder.parent + "/bag"), this)
+        logger.info("Load complete bag plugin...!")
+
         IntegrationPlugin(File(dataFolder.path + "/integration"), this)
         EnhancePlugin(File(dataFolder.parent + "/scroll"), this)
 
@@ -98,6 +103,7 @@ class Treeisland : JavaPlugin(), Listener {
         equipItemPlugin.onDisable()
         skillPlugin.onDisable()
         rolePlugin.onDisable()
+        bagPlugin.onDisable()
     }
 
 }

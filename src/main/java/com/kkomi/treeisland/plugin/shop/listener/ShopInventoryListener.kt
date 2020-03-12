@@ -7,7 +7,7 @@ import com.kkomi.treeisland.plugin.integration.model.PlayerInfo
 import com.kkomi.treeisland.plugin.money.model.PlayerMoneyRepository
 import com.kkomi.treeisland.plugin.shop.model.entity.Shop
 import com.kkomi.treeisland.plugin.shop.inventory.ShopInventory
-import com.kkomi.treeisland.plugin.shop.model.KeywordShopRepository
+import com.kkomi.treeisland.plugin.shop.model.SellShopRepository
 import com.kkomi.treeisland.plugin.shop.model.ShopMessage
 import com.kkomi.treeisland.plugin.shop.model.ShopRepository
 import org.bukkit.Material
@@ -95,20 +95,22 @@ class ShopInventoryListener : Listener {
             }
             // Player Inventory Area
             (54..89).contains(slot) -> {
-                val stuff = KeywordShopRepository.getKeywordStuff(currentItem.itemMeta?.displayName
-                        ?: currentItem.type.toString())
+                val stuff = SellShopRepository.getSellStuff(currentItem)
+
                 if (stuff == null) {
                     playerInfo.sendErrorMessage(ShopMessage.CAN_NOT_SELL_ITEM)
                     return
                 }
+
                 val amount = when (event.click) {
                     ClickType.LEFT -> 1
                     ClickType.SHIFT_LEFT -> currentItem.amount
                     else -> return
                 }
+
                 PlayerMoneyRepository.editPlayerMoney(playerMoney.apply { giveMoney(stuff.price * amount.toLong()) })
                 currentItem.amount -= amount
-                playerInfo.sendInfoMessage(ShopMessage.SELL_ITEM)
+                playerInfo.sendInfoMessage(ShopMessage.SELL_ITEM.format(stuff.price.toMoneyFormat(), amount, (stuff.price * amount).toMoneyFormat()))
             }
             // Out Inventory
             else -> return

@@ -22,11 +22,13 @@ class ShopFileDataSource(
 
     override fun addShop(shop: Shop) {
         setValue(shop.name, shop)
-        saveFile(shop.name, shop)
     }
 
     override fun setShop(shop: Shop) {
         setValue(shop.name, shop)
+    }
+
+    override fun saveShop(shop: Shop) {
         saveFile(shop.name, shop)
     }
 

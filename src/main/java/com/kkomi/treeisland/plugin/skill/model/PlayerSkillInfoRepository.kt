@@ -24,6 +24,10 @@ object PlayerSkillInfoRepository {
         playerSkillInfoDataSource.editPlayerSkillInfo(playerSkillInfo)
     }
 
+    fun savePlayerSkillInfo(playerSkillInfo: PlayerSkillInfo) {
+        playerSkillInfoDataSource.savePlayerSkillInfo(playerSkillInfo)
+    }
+
     fun removePlayerSkillInfo(name: String) {
         playerSkillInfoDataSource.removePlayerSkillInfo(name)
     }

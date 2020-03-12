@@ -28,6 +28,10 @@ object PlayerGuildRepository {
         PlayerGuildDataSource.removePlayerGuild(uuid)
     }
 
+    fun savePlayerGuild(playerGuild: PlayerGuild) {
+        PlayerGuildDataSource.savePlayerGuild(playerGuild)
+    }
+
     fun reloadPlayerGuild() {
         PlayerGuildDataSource.reloadPlayerGuilds()
     }

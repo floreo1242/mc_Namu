@@ -19,17 +19,19 @@ class PlayerEquipItemFileDataSource(
 
     override fun createPlayerEquipItem(playerEquipItem: PlayerEquipItem) {
         setValue(playerEquipItem.uuid, playerEquipItem)
-        saveFile(playerEquipItem.uuid, playerEquipItem)
     }
 
     override fun editPlayerEquipItem(playerEquipItem: PlayerEquipItem) {
         setValue(playerEquipItem.uuid, playerEquipItem)
-        saveFile(playerEquipItem.uuid, playerEquipItem)
     }
 
     override fun removePlayerEquipItem(uuid: String) {
         removeValue(uuid)
         deleteFile(uuid)
+    }
+
+    override fun savePlayerEquipItem(playerEquipItem: PlayerEquipItem) {
+        saveFile(playerEquipItem.uuid, playerEquipItem)
     }
 
     override fun reloadPlayerEquipItems() {

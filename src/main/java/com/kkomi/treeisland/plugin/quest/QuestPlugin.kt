@@ -3,9 +3,12 @@ package com.kkomi.treeisland.plugin.quest
 import com.kkomi.devlibrary.SubMainManager
 import com.kkomi.devlibrary.command.CommandManager
 import com.kkomi.devlibrary.inventory.InventoryTitleParser
+import com.kkomi.treeisland.plugin.money.model.PlayerMoneyRepository
 import com.kkomi.treeisland.plugin.quest.command.*
 import com.kkomi.treeisland.plugin.quest.inventory.*
 import com.kkomi.treeisland.plugin.quest.listener.*
+import com.kkomi.treeisland.plugin.quest.model.PlayerQuestRepository
+import com.kkomi.treeisland.plugin.quest.model.QuestRepository
 import com.kkomi.treeisland.plugin.quest.model.entity.*
 import com.kkomi.treeisland.plugin.quest.schduler.QuestLocationScheduler
 import org.bukkit.Bukkit
@@ -16,6 +19,15 @@ import java.io.File
 class QuestPlugin(dataFolder: File, plugin: JavaPlugin) : SubMainManager(dataFolder, plugin) {
 
     override fun onDisable() {
+        QuestRepository.getQuestList()
+                .forEach {
+                    QuestRepository.saveQuest(it)
+                }
+
+        PlayerQuestRepository.getPlayerQuestList()
+                .forEach {
+                    PlayerQuestRepository.savePlayerQuest(it)
+                }
     }
 
     override fun setupCommands() {

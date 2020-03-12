@@ -19,11 +19,13 @@ class ConsumptionItemFileDataSource(
 
     override fun addItem(item: ConsumptionItem) {
         setValue(item.code, item)
-        saveFile(item.code, item)
     }
 
     override fun editItem(item: ConsumptionItem) {
         setValue(item.code, item)
+    }
+
+    override fun saveItem(item: ConsumptionItem) {
         saveFile(item.code, item)
     }
 

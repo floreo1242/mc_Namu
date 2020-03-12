@@ -16,4 +16,5 @@ interface ItemRepository<T> {
 
     fun reloadItems()
 
+    fun saveItem(item: T)
 }

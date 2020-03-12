@@ -16,4 +16,6 @@ interface RoleDataSource {
 
     fun reloadRole()
 
+    fun saveRole(role: Role)
+
 }

@@ -16,4 +16,6 @@ interface PlayerStatDataSource {
 
     fun reloadPlayerStats()
 
+    fun savePlayerStat(playerStat: PlayerStat)
+
 }

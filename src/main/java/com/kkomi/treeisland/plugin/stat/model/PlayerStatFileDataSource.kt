@@ -19,11 +19,13 @@ class PlayerStatFileDataSource(
 
     override fun createPlayerStat(playerStat: PlayerStat) {
         setValue(playerStat.uuid, playerStat)
-        saveFile(playerStat.uuid, playerStat)
     }
 
     override fun editPlayerStat(playerStat: PlayerStat) {
         setValue(playerStat.uuid, playerStat)
+    }
+
+    override fun savePlayerStat(playerStat: PlayerStat) {
         saveFile(playerStat.uuid, playerStat)
     }
 

@@ -16,4 +16,6 @@ interface PlayerSkillInfoDataSource {
 
     fun reloadPlayerSkillInfo()
 
+    fun savePlayerSkillInfo(playerSkillInfo: PlayerSkillInfo)
+
 }

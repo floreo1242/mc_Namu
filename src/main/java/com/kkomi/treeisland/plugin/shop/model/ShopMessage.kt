@@ -15,7 +15,7 @@ object ShopMessage {
     const val REMOVE_KEYWORD_SHOP_STUFF = "키워드 상점에 아이템을 삭제하였습니다."
 
     const val BUY_ITEM = "아이템을 구매하였습니다."
-    const val SELL_ITEM = "아이템을 판매하였습니다."
+    const val SELL_ITEM = "아이템을 판매하였습니다. ( %s * %d = %s )"
     const val CAN_NOT_SELL_ITEM = "판매할 수 없는 아이템 입니다."
 
     const val SET_SHOP_NPC = "상점 NPC를 설정하였습니다."

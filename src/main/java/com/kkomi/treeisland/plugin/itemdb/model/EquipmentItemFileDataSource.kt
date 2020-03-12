@@ -1,6 +1,7 @@
 package com.kkomi.treeisland.plugin.itemdb.model
 
 import com.kkomi.devlibrary.FileDataSource
+import com.kkomi.treeisland.plugin.itemdb.model.entity.ConsumptionItem
 import com.kkomi.treeisland.plugin.itemdb.model.entity.EquipmentItem
 import java.io.File
 
@@ -19,12 +20,10 @@ class EquipmentItemFileDataSource(
 
     override fun addItem(item: EquipmentItem) {
         setValue(item.code, item)
-        saveFile(item.code, item)
     }
 
     override fun editItem(item: EquipmentItem) {
         setValue(item.code, item)
-        saveFile(item.code, item)
     }
 
     override fun removeItem(code: String) {
@@ -34,5 +33,9 @@ class EquipmentItemFileDataSource(
 
     override fun reloadItems() {
         loadFiles()
+    }
+
+    override fun saveItem(item: EquipmentItem) {
+        saveFile(item.code, item)
     }
 }

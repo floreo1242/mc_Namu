@@ -25,6 +25,10 @@ object PlayerQuestRepository {
         playerQuestDataSource.editPlayerQuest(playerQuest)
     }
 
+    fun savePlayerQuest(playerQuest: PlayerQuest) {
+        playerQuestDataSource.savePlayerQuest(playerQuest)
+    }
+
     fun removePlayerQuest(name: String) {
         playerQuestDataSource.removePlayerQuest(name)
     }

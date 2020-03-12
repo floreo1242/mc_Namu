@@ -14,4 +14,8 @@ interface PlayerLevelDataSource {
 
     fun reloadPlayerLevel()
 
+    fun savePlayerLevel(playerLevel: PlayerLevel)
+
+    fun getPlayerLevelList(): List<PlayerLevel>
+
 }

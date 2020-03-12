@@ -28,6 +28,10 @@ object QuestRepository {
         questDataSource.editQuest(quest)
     }
 
+    fun saveQuest(quest: Quest) {
+        questDataSource.saveQuest(quest)
+    }
+
     fun removeQuest(name: String) {
         questDataSource.removeQuest(name)
     }

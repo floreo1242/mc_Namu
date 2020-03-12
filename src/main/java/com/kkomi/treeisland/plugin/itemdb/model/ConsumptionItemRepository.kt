@@ -2,6 +2,8 @@ package com.kkomi.treeisland.plugin.itemdb.model
 
 import com.kkomi.treeisland.Treeisland
 import com.kkomi.devlibrary.extension.replaceChatColorCode
+import com.kkomi.treeisland.plugin.bag.model.BagRepository
+import com.kkomi.treeisland.plugin.bag.model.entity.Bag
 import com.kkomi.treeisland.plugin.itemdb.model.entity.ConsumptionItem
 import com.kkomi.treeisland.plugin.itemdb.model.entity.ConsumptionItemType
 import org.bukkit.Material
@@ -46,6 +48,10 @@ object ConsumptionItemRepository : ItemRepository<ConsumptionItem> {
 
     override fun editItem(item: ConsumptionItem) {
         consumptionItemFileDataSource.editItem(item)
+    }
+
+    override fun saveItem(item : ConsumptionItem) {
+        consumptionItemFileDataSource.saveItem(item)
     }
 
     override fun reloadItems() {

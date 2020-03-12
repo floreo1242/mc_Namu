@@ -4,11 +4,13 @@ import com.kkomi.devlibrary.SubMainManager
 import com.kkomi.devlibrary.command.CommandComponent
 import com.kkomi.devlibrary.command.CommandManager
 import com.kkomi.devlibrary.inventory.InventoryTitleParser
+import com.kkomi.treeisland.plugin.itemdb.model.OtherItemRepository
 import com.kkomi.treeisland.plugin.stat.command.CommandOpenPlayerStatInventory
 import com.kkomi.treeisland.plugin.stat.command.CommandReloadPlayerStat
 import com.kkomi.treeisland.plugin.stat.inventory.PlayerStatInventory
 import com.kkomi.treeisland.plugin.stat.listener.PlayerStatInventoryListener
 import com.kkomi.treeisland.plugin.stat.listener.PlayerStatListener
+import com.kkomi.treeisland.plugin.stat.model.PlayerStatRepository
 import com.kkomi.treeisland.plugin.stat.model.entity.PlayerStat
 import com.kkomi.treeisland.plugin.stat.model.entity.StatConfig
 import org.bukkit.Bukkit
@@ -19,6 +21,10 @@ import java.io.File
 class StatPlugin(dataFolder: File, plugin: JavaPlugin) : SubMainManager(dataFolder, plugin) {
 
     override fun onDisable() {
+        PlayerStatRepository.getPlayerStatList()
+                .forEach {
+                    PlayerStatRepository.savePlayerStat(it)
+                }
     }
 
     override fun setupCommands() {

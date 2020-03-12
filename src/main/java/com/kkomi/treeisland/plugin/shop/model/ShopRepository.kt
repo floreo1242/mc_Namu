@@ -25,6 +25,10 @@ object ShopRepository {
         shopDataSource.addShop(shop)
     }
 
+    fun saveShop(shop: Shop) {
+        shopDataSource.saveShop(shop)
+    }
+
     fun removeShop(name: String) {
         shopDataSource.removeShop(name)
     }

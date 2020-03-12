@@ -35,6 +35,10 @@ object OtherItemRepository : ItemRepository<OtherItem> {
         )
     }
 
+    override fun saveItem(item: OtherItem) {
+        otherItemFileDataSource.saveItem(item)
+    }
+
     override fun removeItem(code: String) {
         otherItemFileDataSource.removeItem(code)
     }

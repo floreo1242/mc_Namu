@@ -14,4 +14,8 @@ interface MonsterDataSource {
 
     fun reloadMonsters()
 
+    fun saveMonster(monster: MonsterDrop)
+
+    fun getMonsterList(): List<MonsterDrop>
+
 }

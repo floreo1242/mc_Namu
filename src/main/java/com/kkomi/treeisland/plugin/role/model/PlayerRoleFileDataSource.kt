@@ -19,11 +19,13 @@ class PlayerRoleFileDataSource(
 
     override fun addPlayerRole(playerRole: PlayerRole) {
         setValue(playerRole.uuid, playerRole)
-        saveFile(playerRole.uuid, playerRole)
     }
 
     override fun editPlayerRole(playerRole: PlayerRole) {
         setValue(playerRole.uuid, playerRole)
+    }
+
+    override fun savePlayerRole(playerRole: PlayerRole) {
         saveFile(playerRole.uuid, playerRole)
     }
 

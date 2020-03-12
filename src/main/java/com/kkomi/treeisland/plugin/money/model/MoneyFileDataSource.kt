@@ -19,11 +19,13 @@ class MoneyFileDataSource(
 
     override fun addPlayerMoney(playerMoney: PlayerMoney) {
         setValue(playerMoney.uuid, playerMoney)
-        saveFile(playerMoney.uuid, playerMoney)
     }
 
     override fun editPlayerMoney(playerMoney: PlayerMoney) {
         setValue(playerMoney.uuid, playerMoney)
+    }
+
+    override fun savePlayerMoney(playerMoney: PlayerMoney) {
         saveFile(playerMoney.uuid, playerMoney)
     }
 

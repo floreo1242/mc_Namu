@@ -16,4 +16,6 @@ interface QuestDataSource {
 
     fun reloadQuests()
 
+    fun saveQuest(quest: Quest)
+
 }

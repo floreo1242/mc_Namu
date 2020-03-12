@@ -4,6 +4,7 @@ import com.kkomi.devlibrary.SubMainManager
 import com.kkomi.devlibrary.command.CommandManager
 import com.kkomi.treeisland.plugin.money.command.*
 import com.kkomi.treeisland.plugin.money.listener.PlayerMoneyListener
+import com.kkomi.treeisland.plugin.money.model.PlayerMoneyRepository
 import com.kkomi.treeisland.plugin.money.model.entity.PlayerMoney
 import org.bukkit.Bukkit
 import org.bukkit.configuration.serialization.ConfigurationSerialization
@@ -13,6 +14,10 @@ import java.io.File
 class MoneyPlugin(dataFolder: File, plugin: JavaPlugin) : SubMainManager(dataFolder, plugin) {
 
     override fun onDisable() {
+        PlayerMoneyRepository.getPlayerMoneyList()
+                .forEach {
+                    PlayerMoneyRepository.savePlayerMoney(it)
+                }
     }
 
     override fun setupCommands() {

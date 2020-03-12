@@ -37,6 +37,10 @@ object PlayerStatRepository {
         playerStatFileDataSource.editPlayerStat(playerStat)
     }
 
+    fun savePlayerStat(playerStat: PlayerStat) {
+        playerStatFileDataSource.savePlayerStat(playerStat)
+    }
+
     fun removePlayerStat(uuid: String) {
         playerStatFileDataSource.removePlayerStat(uuid)
     }

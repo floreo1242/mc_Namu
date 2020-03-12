@@ -19,11 +19,13 @@ class RoleFileDataSource(
 
     override fun addRole(role: Role) {
         setValue(role.name, role)
-        saveFile(role.name, role)
     }
 
     override fun editRole(role: Role) {
         setValue(role.name, role)
+    }
+
+    override fun saveRole(role: Role) {
         saveFile(role.name, role)
     }
 

@@ -9,22 +9,25 @@ import com.kkomi.treeisland.plugin.guild.command.user.*
 import com.kkomi.treeisland.plugin.guild.inventory.GuildInfoInventory
 import com.kkomi.treeisland.plugin.guild.listener.GuildInventoryListener
 import com.kkomi.treeisland.plugin.guild.listener.PlayerGuildListener
+import com.kkomi.treeisland.plugin.guild.model.GuildRepository
+import com.kkomi.treeisland.plugin.guild.model.PlayerGuildRepository
 import com.kkomi.treeisland.plugin.guild.model.entity.*
 import org.bukkit.Bukkit
 import org.bukkit.configuration.serialization.ConfigurationSerialization
 import org.bukkit.plugin.java.JavaPlugin
 import java.io.File
 
-fun main() {
-    fun solution(num: Int): String {
-        return num.and(1).toString()
-    }
-    println(solution(4))
-    println(solution(7))
-}
-
 class GuildPlugin(dataFolder: File, plugin: JavaPlugin) : SubMainManager(dataFolder, plugin) {
     override fun onDisable() {
+        PlayerGuildRepository.getPlayerGuildList()
+                .forEach {
+                    PlayerGuildRepository.savePlayerGuild(it)
+                }
+
+        GuildRepository.getGuildList()
+                .forEach {
+                    GuildRepository.saveGuild(it)
+                }
     }
 
     override fun setupCommands() {

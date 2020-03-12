@@ -2,12 +2,14 @@ package com.kkomi.treeisland.plugin.level
 
 import com.kkomi.devlibrary.SubMainManager
 import com.kkomi.devlibrary.command.CommandManager
+import com.kkomi.treeisland.plugin.itemdb.model.OtherItemRepository
 import com.kkomi.treeisland.plugin.level.command.CommandExpCoupon
 import com.kkomi.treeisland.plugin.level.command.admin.CommandReloadLevelConfig
 import com.kkomi.treeisland.plugin.level.command.admin.CommandViewlLevelOtherPlayer
 import com.kkomi.treeisland.plugin.level.command.user.CommandLevelView
 import com.kkomi.treeisland.plugin.level.command.admin.CommandReloadPlayerLevel
 import com.kkomi.treeisland.plugin.level.listener.PlayerLevelListener
+import com.kkomi.treeisland.plugin.level.model.PlayerLevelRepository
 import com.kkomi.treeisland.plugin.level.model.entity.LevelConfig
 import com.kkomi.treeisland.plugin.level.model.entity.PlayerLevel
 import org.bukkit.Bukkit
@@ -17,6 +19,10 @@ import java.io.File
 
 class LevelPlugin(dataFolder: File, plugin: JavaPlugin) : SubMainManager(dataFolder, plugin) {
     override fun onDisable() {
+        PlayerLevelRepository.getPlayerLevelList()
+                .forEach {
+                    PlayerLevelRepository.savePlayerLevel(it)
+                }
     }
 
     override fun setupCommands() {

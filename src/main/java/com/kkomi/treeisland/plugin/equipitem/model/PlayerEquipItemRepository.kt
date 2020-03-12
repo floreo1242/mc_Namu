@@ -24,6 +24,10 @@ object PlayerEquipItemRepository {
         playerEquipItemFileDataSource.editPlayerEquipItem(playerEquipItem)
     }
 
+    fun savePlayerEquipItem(playerEquipItem: PlayerEquipItem) {
+        playerEquipItemFileDataSource.savePlayerEquipItem(playerEquipItem)
+    }
+
     fun removePlayerEquipItem(uuid: String) {
         playerEquipItemFileDataSource.removePlayerEquipItem(uuid)
     }

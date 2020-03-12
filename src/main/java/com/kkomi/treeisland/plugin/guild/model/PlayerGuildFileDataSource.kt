@@ -19,17 +19,19 @@ class PlayerGuildFileDataSource(
 
     override fun addPlayerGuild(playerGuild: PlayerGuild) {
         setValue(playerGuild.uuid, playerGuild)
-        saveFile(playerGuild.uuid, playerGuild)
     }
 
     override fun editPlayerGuild(playerGuild: PlayerGuild) {
         setValue(playerGuild.uuid, playerGuild)
-        saveFile(playerGuild.uuid, playerGuild)
     }
 
     override fun removePlayerGuild(uuid: String) {
         removeValue(uuid)
         deleteFile(uuid)
+    }
+
+    override fun savePlayerGuild(playerGuild: PlayerGuild) {
+        saveFile(playerGuild.uuid, playerGuild)
     }
 
     override fun reloadPlayerGuilds() {

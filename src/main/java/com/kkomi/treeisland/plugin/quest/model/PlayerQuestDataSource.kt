@@ -16,4 +16,6 @@ interface PlayerQuestDataSource {
 
     fun reloadPlayerQuest()
 
+    fun savePlayerQuest(playerQuest: PlayerQuest)
+
 }

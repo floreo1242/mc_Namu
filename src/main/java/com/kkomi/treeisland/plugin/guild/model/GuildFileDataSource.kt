@@ -19,17 +19,19 @@ class GuildFileDataSource(
 
     override fun addGuild(guild: Guild) {
         setValue(guild.name, guild)
-        saveFile(guild.name, guild)
     }
 
     override fun editGuild(guild: Guild) {
         setValue(guild.name, guild)
-        saveFile(guild.name, guild)
     }
 
     override fun removeGuild(name: String) {
         removeValue(name)
         deleteFile(name)
+    }
+
+    override fun saveGuild(guild: Guild) {
+        saveFile(guild.name, guild)
     }
 
     override fun reloadGuilds() {

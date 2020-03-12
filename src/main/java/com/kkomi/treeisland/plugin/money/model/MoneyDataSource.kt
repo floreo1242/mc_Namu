@@ -15,4 +15,6 @@ interface MoneyDataSource {
     fun removePlayerMoney(uuid: String)
 
     fun reloadPlayerMoney()
+
+    fun savePlayerMoney(playerMoney: PlayerMoney)
 }

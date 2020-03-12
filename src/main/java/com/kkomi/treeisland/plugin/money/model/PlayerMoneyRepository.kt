@@ -27,6 +27,10 @@ object PlayerMoneyRepository {
         playerMoneyDataSource.removePlayerMoney(uuid)
     }
 
+    fun savePlayerMoney(playerMoney: PlayerMoney) {
+        playerMoneyDataSource.savePlayerMoney(playerMoney)
+    }
+
     fun reloadPlayerMoney() {
         playerMoneyDataSource.reloadPlayerMoney()
     }

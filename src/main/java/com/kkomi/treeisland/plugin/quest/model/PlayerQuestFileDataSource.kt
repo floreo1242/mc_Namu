@@ -19,11 +19,13 @@ class PlayerQuestFileDataSource(
 
     override fun addPlayerQuest(playerQuest: PlayerQuest) {
         setValue(playerQuest.uuid, playerQuest)
-        saveFile(playerQuest.uuid, playerQuest)
     }
 
     override fun editPlayerQuest(playerQuest: PlayerQuest) {
         setValue(playerQuest.uuid, playerQuest)
+    }
+
+    override fun savePlayerQuest(playerQuest: PlayerQuest) {
         saveFile(playerQuest.uuid, playerQuest)
     }
 

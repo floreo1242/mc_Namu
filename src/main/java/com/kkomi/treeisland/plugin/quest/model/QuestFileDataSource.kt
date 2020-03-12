@@ -19,11 +19,13 @@ class QuestFileDataSource(
 
     override fun addQuest(quest: Quest) {
         setValue(quest.name, quest)
-        saveFile(quest.name, quest)
     }
 
     override fun editQuest(quest: Quest) {
         setValue(quest.name, quest)
+    }
+
+    override fun saveQuest(quest: Quest) {
         saveFile(quest.name, quest)
     }
 

@@ -15,12 +15,18 @@ class PlayerLevelFileDataSource(
 
     override fun addPlayerLevel(playerLevel: PlayerLevel) {
         setValue(playerLevel.uuid, playerLevel)
-        saveFile(playerLevel.uuid, playerLevel)
     }
 
     override fun editPlayerLevel(playerLevel: PlayerLevel) {
         setValue(playerLevel.uuid, playerLevel)
+    }
+
+    override fun savePlayerLevel(playerLevel: PlayerLevel) {
         saveFile(playerLevel.uuid, playerLevel)
+    }
+
+    override fun getPlayerLevelList(): List<PlayerLevel> {
+        return getValueList()
     }
 
     override fun removePlayerLevel(uuid: String) {

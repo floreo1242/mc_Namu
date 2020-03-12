@@ -25,6 +25,10 @@ object GuildRepository {
         guildDataSource.editGuild(guild)
     }
 
+    fun saveGuild(guild:Guild) {
+        guildDataSource.saveGuild(guild)
+    }
+
     fun removeGuild(name: String) {
         guildDataSource.removeGuild(name)
     }

@@ -32,6 +32,10 @@ object SkillInfoRepository {
         skillInfoDataSource.editSkillInfo(skillInfo)
     }
 
+    fun saveSkillInfo(skillInfo: SkillInfo) {
+        skillInfoDataSource.saveSkillInfo(skillInfo)
+    }
+
     fun removeSkillInfo(name: String) {
         skillInfoDataSource.removeSkillInfo(name)
     }

@@ -26,8 +26,8 @@ object RoleRepository {
         roleDataSource.addRole(role)
     }
 
-    fun editRole(role: Role) {
-        roleDataSource.editRole(role)
+    fun saveRole(role: Role) {
+        roleDataSource.saveRole(role)
     }
 
     fun removeRole(name: String) {

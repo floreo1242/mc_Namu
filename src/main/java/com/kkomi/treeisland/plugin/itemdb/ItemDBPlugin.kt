@@ -15,10 +15,14 @@ import com.kkomi.treeisland.plugin.itemdb.command.other.CommandDeleteOtherItem
 import com.kkomi.treeisland.plugin.itemdb.command.other.CommandGetOtherItem
 import com.kkomi.treeisland.plugin.itemdb.command.other.CommandReloadOtherItem
 import com.kkomi.treeisland.plugin.itemdb.listener.ConsumptionItemListener
+import com.kkomi.treeisland.plugin.itemdb.model.ConsumptionItemRepository
+import com.kkomi.treeisland.plugin.itemdb.model.EquipmentItemRepository
+import com.kkomi.treeisland.plugin.itemdb.model.OtherItemRepository
 import com.kkomi.treeisland.plugin.itemdb.model.entity.ConsumptionItem
 import com.kkomi.treeisland.plugin.itemdb.model.entity.EquipmentItem
 import com.kkomi.treeisland.plugin.itemdb.model.entity.EquipmentItemOption
 import com.kkomi.treeisland.plugin.itemdb.model.entity.OtherItem
+import com.kkomi.treeisland.plugin.money.model.PlayerMoneyRepository
 import org.bukkit.Bukkit
 import org.bukkit.configuration.serialization.ConfigurationSerialization
 import org.bukkit.plugin.java.JavaPlugin
@@ -26,6 +30,20 @@ import java.io.File
 
 class ItemDBPlugin(dataFolder: File, plugin: JavaPlugin) : SubMainManager(dataFolder, plugin) {
     override fun onDisable() {
+        EquipmentItemRepository.getItemList()
+                .forEach {
+                    EquipmentItemRepository.saveItem(it)
+                }
+
+        ConsumptionItemRepository.getItemList()
+                .forEach {
+                    ConsumptionItemRepository.saveItem(it)
+                }
+
+        OtherItemRepository.getItemList()
+                .forEach {
+                    OtherItemRepository.saveItem(it)
+                }
     }
 
     override fun setupCommands() {

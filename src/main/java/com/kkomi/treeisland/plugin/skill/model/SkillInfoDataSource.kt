@@ -16,4 +16,6 @@ interface SkillInfoDataSource {
 
     fun reloadSkillInfo()
 
+    fun saveSkillInfo(skillInfo: SkillInfo)
+
 }

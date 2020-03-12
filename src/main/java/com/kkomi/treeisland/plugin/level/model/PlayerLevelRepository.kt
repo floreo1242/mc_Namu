@@ -27,6 +27,10 @@ object PlayerLevelRepository {
         playerLevelDataSource.removePlayerLevel(uuid)
     }
 
+    fun savePlayerLevel(playerLevel: PlayerLevel) {
+        playerLevelDataSource.savePlayerLevel(playerLevel)
+    }
+
     fun checkLevelUp(playerInfo : PlayerInfo) {
         val levelConfig = LevelConfigRepository.getLevelConfig()
         val playerLevel: PlayerLevel = playerInfo.levelInfo
@@ -59,6 +63,10 @@ object PlayerLevelRepository {
 
     fun reloadPlayerLevel() {
         playerLevelDataSource.reloadPlayerLevel()
+    }
+
+    fun getPlayerLevelList(): List<PlayerLevel> {
+        return playerLevelDataSource.getPlayerLevelList()
     }
 
 }

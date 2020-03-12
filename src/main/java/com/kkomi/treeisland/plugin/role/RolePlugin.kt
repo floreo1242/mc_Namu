@@ -7,6 +7,8 @@ import com.kkomi.treeisland.plugin.role.command.CommandReloadRole
 import com.kkomi.treeisland.plugin.role.command.CommandSetRole
 import com.kkomi.treeisland.plugin.role.listener.PlayerRoleListener
 import com.kkomi.treeisland.plugin.role.listener.RoleListener
+import com.kkomi.treeisland.plugin.role.model.PlayerRoleRepository
+import com.kkomi.treeisland.plugin.role.model.RoleRepository
 import com.kkomi.treeisland.plugin.role.model.entity.PlayerRole
 import com.kkomi.treeisland.plugin.role.model.entity.Role
 import org.bukkit.Bukkit
@@ -16,6 +18,15 @@ import java.io.File
 
 class RolePlugin(dataFolder: File, plugin: JavaPlugin) : SubMainManager(dataFolder, plugin) {
     override fun onDisable() {
+        PlayerRoleRepository.getPlayerRoleList()
+                .forEach {
+                    PlayerRoleRepository.savePlayerRole(it)
+                }
+
+        RoleRepository.getRoleList()
+                .forEach {
+                    RoleRepository.saveRole(it)
+                }
     }
 
     override fun setupCommands() {

@@ -15,4 +15,7 @@ interface GuildDataSource {
     fun reloadGuilds()
 
     fun getGuildList(): List<Guild>
+
+    fun saveGuild(guild: Guild)
+
 }

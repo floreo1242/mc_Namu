@@ -15,4 +15,6 @@ interface PlayerGuildDataSource {
     fun reloadPlayerGuilds()
 
     fun getPlayerGuildList(): List<PlayerGuild>
+
+    fun savePlayerGuild(playerGuild: PlayerGuild)
 }

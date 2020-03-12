@@ -14,4 +14,5 @@ interface ItemDataSource<T> {
 
     fun reloadItems()
 
+    fun saveItem(item: T)
 }
