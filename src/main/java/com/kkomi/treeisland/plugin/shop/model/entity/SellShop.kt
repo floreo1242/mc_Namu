@@ -24,7 +24,7 @@ data class SellShop(
         )
     }
 
-    fun addStuff(itemStack: ItemStack, price: Int) {
+    fun createStuff(itemStack: ItemStack, price: Int) {
         stuffList.add(SellStuff(itemStack, price))
     }
 

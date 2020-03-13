@@ -17,7 +17,7 @@ class QuestFileDataSource(
         return getValueList()
     }
 
-    override fun addQuest(quest: Quest) {
+    override fun createQuest(quest: Quest) {
         setValue(quest.name, quest)
     }
 

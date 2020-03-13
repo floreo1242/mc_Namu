@@ -20,8 +20,8 @@ object QuestRepository {
         return questDataSource.getQuestList()
     }
 
-    fun addQuest(quest: Quest) {
-        questDataSource.addQuest(quest)
+    fun createQuest(quest: Quest) {
+        questDataSource.createQuest(quest)
     }
 
     fun editQuest(quest: Quest) {

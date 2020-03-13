@@ -6,7 +6,7 @@ interface PlayerLevelDataSource {
 
     fun getPlayerLevel(uuid: String): PlayerLevel?
 
-    fun addPlayerLevel(playerLevel: PlayerLevel)
+    fun createPlayerLevel(playerLevel: PlayerLevel)
 
     fun editPlayerLevel(playerLevel: PlayerLevel)
 

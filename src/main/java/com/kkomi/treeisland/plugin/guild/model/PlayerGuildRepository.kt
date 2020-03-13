@@ -16,8 +16,8 @@ object PlayerGuildRepository {
         return PlayerGuildDataSource.getPlayerGuildList()
     }
 
-    fun addPlayerGuild(playerGuild: PlayerGuild) {
-        PlayerGuildDataSource.addPlayerGuild(playerGuild)
+    fun createPlayerGuild(playerGuild: PlayerGuild) {
+        PlayerGuildDataSource.createPlayerGuild(playerGuild)
     }
 
     fun editPlayerGuild(playerGuild: PlayerGuild) {

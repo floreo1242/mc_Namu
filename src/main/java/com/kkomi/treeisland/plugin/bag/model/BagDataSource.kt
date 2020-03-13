@@ -8,7 +8,7 @@ interface BagDataSource {
 
     fun getBagList(): List<Bag>
 
-    fun addBag(bag: Bag)
+    fun createBag(bag: Bag)
 
     fun editBag(bag: Bag)
 

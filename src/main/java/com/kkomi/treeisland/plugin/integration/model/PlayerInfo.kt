@@ -30,14 +30,85 @@ class PlayerInfo(
         val player: Player
 ) {
     private val uuid: String = player.uniqueId.toString()
-    val moneyInfo: PlayerMoney = PlayerMoneyRepository.getPlayerMoney(uuid)!!
-    val questInfo: PlayerQuest = PlayerQuestRepository.getPlayerQuest(uuid)!!
-    val statInfo: PlayerStat = PlayerStatRepository.getPlayerStat(uuid)!!
-    val levelInfo: PlayerLevel = PlayerLevelRepository.getPlayerLevel(uuid)!!
-    val guildInfo: PlayerGuild = PlayerGuildRepository.getPlayerGuild(uuid)!!
-    val equipmentInfo: PlayerEquipItem = PlayerEquipItemRepository.getPlayerEquipItem(uuid)!!
-    val skillInfo: PlayerSkillInfo = PlayerSkillInfoRepository.getPlayerSkillInfo(uuid)!!
-    val roleInfo: PlayerRole = PlayerRoleRepository.getPlayerRole(uuid)!!
+    val moneyInfo: PlayerMoney
+        get() {
+            val playerMoney = PlayerMoneyRepository.getPlayerMoney(uuid)
+            if (playerMoney == null) {
+                PlayerMoneyRepository.createPlayerMoney(PlayerMoney(uuid, 0))
+                return PlayerMoneyRepository.getPlayerMoney(uuid)!!
+            }
+            return playerMoney
+        }
+
+    val questInfo: PlayerQuest
+        get() {
+            val playerQuest = PlayerQuestRepository.getPlayerQuest(uuid)
+            if (playerQuest == null) {
+                PlayerQuestRepository.createPlayerQuest(PlayerQuest(uuid, mutableListOf(), mutableMapOf()))
+                return PlayerQuestRepository.getPlayerQuest(uuid)!!
+            }
+            return playerQuest
+        }
+
+    val statInfo: PlayerStat
+        get() {
+            val playerSTat = PlayerStatRepository.getPlayerStat(uuid)
+            if (playerSTat == null) {
+                PlayerStatRepository.createPlayerStat(uuid)
+                return PlayerStatRepository.getPlayerStat(uuid)!!
+            }
+            return playerSTat
+        }
+
+    val levelInfo: PlayerLevel
+        get() {
+            val playerLevel = PlayerLevelRepository.getPlayerLevel(uuid)
+            if (playerLevel == null) {
+                PlayerLevelRepository.createPlayerLevel(PlayerLevel(uuid, 0, 0))
+                return PlayerLevelRepository.getPlayerLevel(uuid)!!
+            }
+            return playerLevel
+        }
+
+    val guildInfo: PlayerGuild
+        get() {
+            val playerGuild = PlayerGuildRepository.getPlayerGuild(uuid)
+            if (playerGuild == null) {
+                PlayerGuildRepository.createPlayerGuild(PlayerGuild(uuid, ""))
+                return PlayerGuildRepository.getPlayerGuild(uuid)!!
+            }
+            return playerGuild
+        }
+
+    val equipmentInfo: PlayerEquipItem
+        get() {
+            val playerEquipItem = PlayerEquipItemRepository.getPlayerEquipItem(uuid)
+            if (playerEquipItem == null) {
+                PlayerEquipItemRepository.getPlayerEquipItem(uuid)
+                return PlayerEquipItemRepository.getPlayerEquipItem(uuid)!!
+            }
+            return playerEquipItem
+        }
+
+    val skillInfo: PlayerSkillInfo
+        get() {
+            val playerSkillInfo = PlayerSkillInfoRepository.getPlayerSkillInfo(uuid)
+            if (playerSkillInfo == null) {
+                PlayerSkillInfoRepository.createPlayerSkillInfo(PlayerSkillInfo(uuid, false, mutableListOf()))
+                return PlayerSkillInfoRepository.getPlayerSkillInfo(uuid)!!
+            }
+            return playerSkillInfo
+        }
+
+    val roleInfo: PlayerRole
+        get() {
+            val playerRole = PlayerRoleRepository.getPlayerRole(uuid)
+            if (playerRole == null) {
+                PlayerRoleRepository.createPlayerRole(PlayerRole(uuid, "초보자"))
+                return PlayerRoleRepository.getPlayerRole(uuid)!!
+            }
+            return playerRole
+        }
 
     fun editPlayerInfo() {
         PlayerMoneyRepository.editPlayerMoney(moneyInfo)

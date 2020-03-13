@@ -16,8 +16,8 @@ object PlayerSkillInfoRepository {
         return playerSkillInfoDataSource.getPlayerSkillInfoList()
     }
 
-    fun addPlayerSkillInfo(playerSkillInfo: PlayerSkillInfo) {
-        playerSkillInfoDataSource.addPlayerSkillInfo(playerSkillInfo)
+    fun createPlayerSkillInfo(playerSkillInfo: PlayerSkillInfo) {
+        playerSkillInfoDataSource.createPlayerSkillInfo(playerSkillInfo)
     }
 
     fun editPlayerSkillInfo(playerSkillInfo: PlayerSkillInfo) {

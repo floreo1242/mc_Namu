@@ -8,7 +8,7 @@ interface PlayerQuestDataSource {
 
     fun getPlayerQuestList(): List<PlayerQuest>
 
-    fun addPlayerQuest(playerQuest: PlayerQuest)
+    fun createPlayerQuest(playerQuest: PlayerQuest)
 
     fun editPlayerQuest(playerQuest: PlayerQuest)
 

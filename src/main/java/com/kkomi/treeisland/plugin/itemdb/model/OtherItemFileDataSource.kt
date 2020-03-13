@@ -17,7 +17,7 @@ class OtherItemFileDataSource(
         return getValueList()
     }
 
-    override fun addItem(item: OtherItem) {
+    override fun createItem(item: OtherItem) {
         setValue(item.code, item)
     }
 

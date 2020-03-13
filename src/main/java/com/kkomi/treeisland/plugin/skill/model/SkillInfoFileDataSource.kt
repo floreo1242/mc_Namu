@@ -17,7 +17,7 @@ class SkillInfoFileDataSource(
         return getValueList()
     }
 
-    override fun addSkillInfo(skillInfo: SkillInfo) {
+    override fun createSkillInfo(skillInfo: SkillInfo) {
         setValue(skillInfo.name, skillInfo)
     }
 

@@ -17,7 +17,7 @@ class RoleFileDataSource(
         return getValueList()
     }
 
-    override fun addRole(role: Role) {
+    override fun createRole(role: Role) {
         setValue(role.name, role)
     }
 

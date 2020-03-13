@@ -17,7 +17,7 @@ class BagFileDataSource(
         return getValueList()
     }
 
-    override fun addBag(bag: Bag) {
+    override fun createBag(bag: Bag) {
         setValue(bag.uuid, bag)
     }
 

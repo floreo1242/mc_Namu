@@ -24,7 +24,7 @@ object EquipmentItemRepository : ItemRepository<EquipmentItem> {
     }
 
     override fun createItem(code: String) {
-        equipmentItemFileDataSource.addItem(
+        equipmentItemFileDataSource.createItem(
                 EquipmentItem(
                         code,
                         "Equipment Item Name",

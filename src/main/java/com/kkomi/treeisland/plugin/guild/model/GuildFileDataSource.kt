@@ -17,7 +17,7 @@ class GuildFileDataSource(
         return getValue(name)
     }
 
-    override fun addGuild(guild: Guild) {
+    override fun createGuild(guild: Guild) {
         setValue(guild.name, guild)
     }
 

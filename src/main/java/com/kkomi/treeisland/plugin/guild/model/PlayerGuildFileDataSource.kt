@@ -17,7 +17,7 @@ class PlayerGuildFileDataSource(
         return getValue(uuid)
     }
 
-    override fun addPlayerGuild(playerGuild: PlayerGuild) {
+    override fun createPlayerGuild(playerGuild: PlayerGuild) {
         setValue(playerGuild.uuid, playerGuild)
     }
 

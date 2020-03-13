@@ -22,8 +22,8 @@ object RoleRepository {
         return roleDataSource.getRoleList()
     }
 
-    fun addRole(role: Role) {
-        roleDataSource.addRole(role)
+    fun createRole(role: Role) {
+        roleDataSource.createRole(role)
     }
 
     fun saveRole(role: Role) {

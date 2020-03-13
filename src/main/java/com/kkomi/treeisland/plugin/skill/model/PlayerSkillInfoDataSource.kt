@@ -8,7 +8,7 @@ interface PlayerSkillInfoDataSource {
 
     fun getPlayerSkillInfoList(): List<PlayerSkillInfo>
 
-    fun addPlayerSkillInfo(playerSkillInfo: PlayerSkillInfo)
+    fun createPlayerSkillInfo(playerSkillInfo: PlayerSkillInfo)
 
     fun editPlayerSkillInfo(playerSkillInfo: PlayerSkillInfo)
 

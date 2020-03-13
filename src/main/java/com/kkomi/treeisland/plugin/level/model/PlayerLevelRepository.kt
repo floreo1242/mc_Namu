@@ -15,8 +15,8 @@ object PlayerLevelRepository {
         return playerLevelDataSource.getPlayerLevel(uuid)
     }
 
-    fun addPlayerLevel(playerLevel: PlayerLevel) {
-        playerLevelDataSource.addPlayerLevel(playerLevel)
+    fun createPlayerLevel(playerLevel: PlayerLevel) {
+        playerLevelDataSource.createPlayerLevel(playerLevel)
     }
 
     fun editPlayerLevel(playerLevel: PlayerLevel) {

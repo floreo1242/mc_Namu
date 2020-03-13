@@ -16,8 +16,8 @@ object PlayerRoleRepository {
         return playerRoleDataSource.getPlayerRoleList()
     }
 
-    fun addPlayerRole(playerRole: PlayerRole) {
-        playerRoleDataSource.addPlayerRole(playerRole)
+    fun createPlayerRole(playerRole: PlayerRole) {
+        playerRoleDataSource.createPlayerRole(playerRole)
     }
 
     fun editPlayerRole(playerRole: PlayerRole) {

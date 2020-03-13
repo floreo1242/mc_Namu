@@ -16,8 +16,8 @@ object BagRepository {
         return bagDataSource.getBagList()
     }
 
-    fun addBag(bag: Bag) {
-        bagDataSource.addBag(bag)
+    fun createBag(bag: Bag) {
+        bagDataSource.createBag(bag)
     }
 
     fun editBag(bag: Bag) {

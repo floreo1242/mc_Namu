@@ -17,7 +17,7 @@ class PlayerQuestFileDataSource(
         return getValueList()
     }
 
-    override fun addPlayerQuest(playerQuest: PlayerQuest) {
+    override fun createPlayerQuest(playerQuest: PlayerQuest) {
         setValue(playerQuest.uuid, playerQuest)
     }
 

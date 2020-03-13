@@ -17,7 +17,7 @@ class MoneyFileDataSource(
         return getValueList()
     }
 
-    override fun addPlayerMoney(playerMoney: PlayerMoney) {
+    override fun createPlayerMoney(playerMoney: PlayerMoney) {
         setValue(playerMoney.uuid, playerMoney)
     }
 

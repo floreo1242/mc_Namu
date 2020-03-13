@@ -6,7 +6,7 @@ interface ItemDataSource<T> {
 
     fun getItemList(): List<T>
 
-    fun addItem(item: T)
+    fun createItem(item: T)
 
     fun editItem(item: T)
 

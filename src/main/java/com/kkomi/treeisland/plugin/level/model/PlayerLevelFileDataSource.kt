@@ -13,7 +13,7 @@ class PlayerLevelFileDataSource(
         return getValue(uuid)
     }
 
-    override fun addPlayerLevel(playerLevel: PlayerLevel) {
+    override fun createPlayerLevel(playerLevel: PlayerLevel) {
         setValue(playerLevel.uuid, playerLevel)
     }
 

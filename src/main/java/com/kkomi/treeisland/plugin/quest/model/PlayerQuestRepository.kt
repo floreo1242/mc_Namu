@@ -17,8 +17,8 @@ object PlayerQuestRepository {
         return playerQuestDataSource.getPlayerQuestList()
     }
 
-    fun addPlayerQuest(playerQuest: PlayerQuest) {
-        playerQuestDataSource.addPlayerQuest(playerQuest)
+    fun createPlayerQuest(playerQuest: PlayerQuest) {
+        playerQuestDataSource.createPlayerQuest(playerQuest)
     }
 
     fun editPlayerQuest(playerQuest: PlayerQuest) {

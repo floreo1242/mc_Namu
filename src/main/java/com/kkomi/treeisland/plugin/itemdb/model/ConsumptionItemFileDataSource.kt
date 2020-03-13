@@ -17,7 +17,7 @@ class ConsumptionItemFileDataSource(
         return getValueList()
     }
 
-    override fun addItem(item: ConsumptionItem) {
+    override fun createItem(item: ConsumptionItem) {
         setValue(item.code, item)
     }
 

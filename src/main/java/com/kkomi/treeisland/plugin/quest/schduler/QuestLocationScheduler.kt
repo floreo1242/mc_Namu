@@ -16,9 +16,15 @@ class QuestLocationScheduler : TimerManager() {
         Bukkit.getOnlinePlayers()
                 .map { it.getPlayerInfo() }
                 .map { it.player to it.questInfo }
-                .forEach {(player, playerQuestInfo) ->
+                .forEach { (player, playerQuestInfo) ->
                     playerQuestInfo.checkQuestAmount(QuestAction.MOVE_LOCATION) { questObjective ->
+
+                        if (player.location.world != questObjective.target.parseLocation().world) {
+                            return@checkQuestAmount false
+                        }
+
                         player.location.distance(questObjective.target.parseLocation()) <= 1
+
                     }
                 }
     }

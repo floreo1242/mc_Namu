@@ -15,8 +15,8 @@ object PlayerMoneyRepository {
         return playerMoneyDataSource.getPlayerMoneyList()
     }
 
-    fun addPlayerMoney(playerMoney: PlayerMoney) {
-        playerMoneyDataSource.addPlayerMoney(playerMoney)
+    fun createPlayerMoney(playerMoney: PlayerMoney) {
+        return playerMoneyDataSource.createPlayerMoney(playerMoney)
     }
 
     fun editPlayerMoney(playerMoney: PlayerMoney) {

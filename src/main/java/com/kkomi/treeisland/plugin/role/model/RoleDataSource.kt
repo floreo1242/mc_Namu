@@ -8,7 +8,7 @@ interface RoleDataSource {
 
     fun getRoleList(): List<Role>
 
-    fun addRole(role: Role)
+    fun createRole(role: Role)
 
     fun editRole(role: Role)
 

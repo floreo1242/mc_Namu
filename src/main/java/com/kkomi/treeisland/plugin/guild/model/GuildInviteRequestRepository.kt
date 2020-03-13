@@ -12,7 +12,7 @@ object GuildInviteRequestRepository {
         return guildInviteRequest.find { it.to.uniqueId.toString() == player.uniqueId.toString() }
     }
 
-    fun add(from: Player, to: Player, guild: Guild) {
+    fun create(from: Player, to: Player, guild: Guild) {
         guildInviteRequest.add(GuildInviteRequest(from, to, guild))
     }
 

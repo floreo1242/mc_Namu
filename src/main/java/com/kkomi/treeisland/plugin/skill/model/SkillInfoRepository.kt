@@ -24,8 +24,8 @@ object SkillInfoRepository {
         return skillInfoDataSource.getSkillInfoList()
     }
 
-    fun addSkillInfo(skillInfo: SkillInfo) {
-        skillInfoDataSource.addSkillInfo(skillInfo)
+    fun createSkillInfo(skillInfo: SkillInfo) {
+        skillInfoDataSource.createSkillInfo(skillInfo)
     }
 
     fun editSkillInfo(skillInfo: SkillInfo) {

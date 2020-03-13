@@ -17,7 +17,7 @@ class PlayerRoleFileDataSource(
         return getValueList()
     }
 
-    override fun addPlayerRole(playerRole: PlayerRole) {
+    override fun createPlayerRole(playerRole: PlayerRole) {
         setValue(playerRole.uuid, playerRole)
     }
 

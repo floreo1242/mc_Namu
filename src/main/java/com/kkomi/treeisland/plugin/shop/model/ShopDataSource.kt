@@ -10,7 +10,7 @@ interface ShopDataSource {
 
     fun getShopList(): List<Shop>
 
-    fun addShop(shop: Shop)
+    fun createShop(shop: Shop)
 
     fun setShop(shop: Shop)
 

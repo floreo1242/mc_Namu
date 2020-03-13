@@ -6,7 +6,7 @@ interface GuildDataSource {
 
     fun getGuild(name: String): Guild?
 
-    fun addGuild(guild: Guild)
+    fun createGuild(guild: Guild)
 
     fun editGuild(guild: Guild)
 

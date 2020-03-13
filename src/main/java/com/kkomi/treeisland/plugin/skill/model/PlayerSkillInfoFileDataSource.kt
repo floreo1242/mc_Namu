@@ -17,7 +17,7 @@ class PlayerSkillInfoFileDataSource(
         return getValueList()
     }
 
-    override fun addPlayerSkillInfo(playerSkillInfo: PlayerSkillInfo) {
+    override fun createPlayerSkillInfo(playerSkillInfo: PlayerSkillInfo) {
         setValue(playerSkillInfo.uuid, playerSkillInfo)
     }
 

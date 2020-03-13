@@ -26,7 +26,7 @@ object ConsumptionItemRepository : ItemRepository<ConsumptionItem> {
     }
 
     override fun createItem(code: String) {
-        consumptionItemFileDataSource.addItem(
+        consumptionItemFileDataSource.createItem(
                 ConsumptionItem(
                         code,
                         "Consumption Item Name",

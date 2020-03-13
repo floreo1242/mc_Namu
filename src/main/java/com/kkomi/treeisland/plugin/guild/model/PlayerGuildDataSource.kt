@@ -6,7 +6,7 @@ interface PlayerGuildDataSource {
 
     fun getPlayerGuild(uuid: String): PlayerGuild?
 
-    fun addPlayerGuild(playerGuild: PlayerGuild)
+    fun createPlayerGuild(playerGuild: PlayerGuild)
 
     fun editPlayerGuild(playerGuild: PlayerGuild)
 

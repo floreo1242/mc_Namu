@@ -21,8 +21,8 @@ object ShopRepository {
         return shopDataSource.getShopList()
     }
 
-    fun addShop(shop: Shop) {
-        shopDataSource.addShop(shop)
+    fun createShop(shop: Shop) {
+        shopDataSource.createShop(shop)
     }
 
     fun saveShop(shop: Shop) {

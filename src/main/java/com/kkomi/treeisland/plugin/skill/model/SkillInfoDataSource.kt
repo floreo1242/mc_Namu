@@ -8,7 +8,7 @@ interface SkillInfoDataSource {
 
     fun getSkillInfoList(): List<SkillInfo>
 
-    fun addSkillInfo(skillInfo: SkillInfo)
+    fun createSkillInfo(skillInfo: SkillInfo)
 
     fun editSkillInfo(skillInfo: SkillInfo)
 

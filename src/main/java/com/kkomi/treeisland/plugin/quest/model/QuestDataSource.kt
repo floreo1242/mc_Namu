@@ -8,7 +8,7 @@ interface QuestDataSource {
 
     fun getQuestList(): List<Quest>
 
-    fun addQuest(quest: Quest)
+    fun createQuest(quest: Quest)
 
     fun editQuest(quest: Quest)
 

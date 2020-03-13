@@ -17,8 +17,8 @@ object GuildRepository {
         return guildDataSource.getGuildList()
     }
 
-    fun addGuild(guild: Guild) {
-        guildDataSource.addGuild(guild)
+    fun createGuild(guild: Guild) {
+        guildDataSource.createGuild(guild)
     }
 
     fun editGuild(guild: Guild) {

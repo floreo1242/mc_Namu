@@ -8,7 +8,7 @@ interface MoneyDataSource {
 
     fun getPlayerMoneyList(): List<PlayerMoney>
 
-    fun addPlayerMoney(playerMoney: PlayerMoney)
+    fun createPlayerMoney(playerMoney: PlayerMoney)
 
     fun editPlayerMoney(playerMoney: PlayerMoney)
 

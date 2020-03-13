@@ -18,7 +18,7 @@ class EquipmentItemFileDataSource(
         return getValueList()
     }
 
-    override fun addItem(item: EquipmentItem) {
+    override fun createItem(item: EquipmentItem) {
         setValue(item.code, item)
     }
 

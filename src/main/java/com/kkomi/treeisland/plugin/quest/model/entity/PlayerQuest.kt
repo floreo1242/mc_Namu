@@ -48,7 +48,7 @@ data class PlayerQuest(
             questAction: QuestAction,
             condition: (questObjective: PlayerQuestObjective) -> Boolean
     ) {
-        val player = Bukkit.getPlayer(UUID.fromString(uuid))
+        val player = Bukkit.getPlayer(UUID.fromString(uuid)) ?: return
         val inventoryMap = player.inventory.storageContents.toList().toMap()
 
         // 현재 진행중인 퀘스트들을 다 확인한다.

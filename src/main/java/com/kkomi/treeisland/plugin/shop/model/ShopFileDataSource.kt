@@ -20,7 +20,7 @@ class ShopFileDataSource(
         return getValueList()
     }
 
-    override fun addShop(shop: Shop) {
+    override fun createShop(shop: Shop) {
         setValue(shop.name, shop)
     }
 
