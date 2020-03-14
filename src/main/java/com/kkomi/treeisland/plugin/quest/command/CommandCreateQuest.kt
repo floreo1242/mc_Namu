@@ -29,7 +29,7 @@ class CommandCreateQuest : CommandComponent() {
             return true
         }
 
-        QuestRepository.addQuest(
+        QuestRepository.createQuest(
                 Quest(
                         questName,
                         questName,

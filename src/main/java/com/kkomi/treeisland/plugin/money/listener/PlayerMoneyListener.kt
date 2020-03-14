@@ -13,7 +13,7 @@ class PlayerMoneyListener : Listener {
         val playerMoney = PlayerMoneyRepository.getPlayerMoney(player.uniqueId.toString())
 
         if (playerMoney == null) {
-            PlayerMoneyRepository.addPlayerMoney(PlayerMoney(player.uniqueId.toString(), 0))
+            PlayerMoneyRepository.createPlayerMoney(PlayerMoney(player.uniqueId.toString(), 0))
             return
         }
     }

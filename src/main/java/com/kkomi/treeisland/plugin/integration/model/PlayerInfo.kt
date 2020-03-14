@@ -4,6 +4,7 @@ import com.kkomi.devlibrary.extension.replaceChatColorCode
 import com.kkomi.devlibrary.extension.sendDebugMessage
 import com.kkomi.devlibrary.extension.sendErrorMessage
 import com.kkomi.devlibrary.extension.sendInfoMessage
+import com.kkomi.post.model.PlayerPostBoxRepository
 import com.kkomi.treeisland.plugin.equipitem.model.PlayerEquipItemRepository
 import com.kkomi.treeisland.plugin.equipitem.model.entity.PlayerEquipItem
 import com.kkomi.treeisland.plugin.guild.model.PlayerGuildRepository
@@ -13,6 +14,7 @@ import com.kkomi.treeisland.plugin.level.model.PlayerLevelRepository
 import com.kkomi.treeisland.plugin.level.model.entity.PlayerLevel
 import com.kkomi.treeisland.plugin.money.model.PlayerMoneyRepository
 import com.kkomi.treeisland.plugin.money.model.entity.PlayerMoney
+import com.kkomi.treeisland.plugin.post.model.entity.PlayerPostBox
 import com.kkomi.treeisland.plugin.quest.model.PlayerQuestRepository
 import com.kkomi.treeisland.plugin.quest.model.entity.PlayerQuest
 import com.kkomi.treeisland.plugin.role.model.PlayerRoleRepository
@@ -108,6 +110,16 @@ class PlayerInfo(
                 return PlayerRoleRepository.getPlayerRole(uuid)!!
             }
             return playerRole
+        }
+
+    val playerPostBox: PlayerPostBox
+        get() {
+            val playerPostBox = PlayerPostBoxRepository.getPlayerPostBox(uuid)
+            if (playerPostBox == null) {
+                PlayerPostBoxRepository.createPlayerPostBox(PlayerPostBox(mutableListOf(), uuid))
+                return PlayerPostBoxRepository.getPlayerPostBox(uuid)!!
+            }
+            return playerPostBox
         }
 
     fun editPlayerInfo() {

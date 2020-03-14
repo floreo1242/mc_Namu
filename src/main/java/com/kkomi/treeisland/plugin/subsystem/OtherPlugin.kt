@@ -1,4 +1,4 @@
-package com.kkomi.treeisland.plugin.other
+package com.kkomi.treeisland.plugin.subsystem
 
 import com.kkomi.devlibrary.SubMainManager
 import com.kkomi.devlibrary.command.CommandManager

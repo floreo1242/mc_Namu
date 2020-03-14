@@ -1,5 +1,7 @@
 package com.kkomi.treeisland.plugin.itemdb.listener
 
+import com.earth2me.essentials.*
+import com.earth2me.essentials.signs.EssentialsSign
 import com.kkomi.devlibrary.extension.sendErrorMessage
 import com.kkomi.devlibrary.extension.sendInfoMessage
 import com.kkomi.devlibrary.nms.getNBTTagCompound
@@ -8,6 +10,7 @@ import com.kkomi.treeisland.plugin.itemdb.model.entity.ConsumptionItem
 import com.kkomi.treeisland.plugin.itemdb.model.entity.ConsumptionItemType
 import com.nisovin.magicspells.MagicSpells
 import com.nisovin.magicspells.mana.ManaChangeReason
+import net.ess3.api.ITeleport
 import org.bukkit.Material
 import org.bukkit.attribute.Attribute
 import org.bukkit.entity.Player
@@ -54,19 +57,28 @@ class ConsumptionItemListener : Listener {
 
         when (consumptionItem.type) {
             ConsumptionItemType.HEALTH -> {
-                if (player.health + consumptionItem.value >= player.getAttribute(Attribute.GENERIC_MAX_HEALTH).baseValue) {
+                if (player.health + consumptionItem.value.toInt() >= player.getAttribute(Attribute.GENERIC_MAX_HEALTH).baseValue) {
                     player.health = player.getAttribute(Attribute.GENERIC_MAX_HEALTH).baseValue
                 } else {
-                    player.health += consumptionItem.value
+                    player.health += consumptionItem.value.toInt()
                 }
                 player.sendInfoMessage("체력을 &6${consumptionItem.value}&f만큼 회복하였습니다.")
             }
             ConsumptionItemType.MANA -> {
-                MagicSpells.getManaHandler().addMana(player, consumptionItem.value, ManaChangeReason.POTION)
+                MagicSpells.getManaHandler().addMana(player, consumptionItem.value.toInt(), ManaChangeReason.POTION)
                 player.sendInfoMessage("마나를 &6${consumptionItem.value}&f만큼 회복하였습니다.")
             }
             ConsumptionItemType.STAT -> {
 
+            }
+            ConsumptionItemType.WARP_SCROLL -> {
+                if (!player.isOp) {
+                    player.isOp = true
+                    player.performCommand("/warp ${consumptionItem.value}")
+                    player.isOp = false
+                } else {
+                    player.performCommand("/warp ${consumptionItem.value}")
+                }
             }
         }
 

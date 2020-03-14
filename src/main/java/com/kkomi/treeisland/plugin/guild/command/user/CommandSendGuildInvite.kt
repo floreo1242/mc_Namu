@@ -45,7 +45,7 @@ class CommandSendGuildInvite : GuildCommandComponent() {
             return true
         }
 
-        GuildInviteRequestRepository.add(player, targetPlayer, guild)
+        GuildInviteRequestRepository.create(player, targetPlayer, guild)
         player.sendInfoMessage("해당 플레이어에게 길드 초대를 보냈습니다. ( 10초 뒤 자동으로 거절됩니다. )")
         targetPlayer.sendInfoMessage("${guild.name} 길드에서 초대요청이 들어왔습니다.")
         targetPlayer.sendInfoMessage("/guild accept - 수락")

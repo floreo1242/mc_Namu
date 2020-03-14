@@ -16,7 +16,7 @@ class PlayerLevelListener : Listener {
         val uuid = event.player.uniqueId.toString()
 
         if (PlayerLevelRepository.getPlayerLevel(uuid) == null) {
-            PlayerLevelRepository.addPlayerLevel(PlayerLevel(uuid, 0, 1))
+            PlayerLevelRepository.createPlayerLevel(PlayerLevel(uuid, 0, 1))
         }
     }
 

@@ -26,7 +26,7 @@ class CommandCreateShop : CommandComponent() {
             sender.sendErrorMessage(ShopMessage.ALREADY_SHOP)
             return true
         }
-        ShopRepository.addShop(Shop(shopName, mutableListOf(), ""))
+        ShopRepository.createShop(Shop(shopName, mutableListOf(), ""))
         (sender as Player).sendInfoMessage(ShopMessage.CREATE_SHOP)
         return true
     }

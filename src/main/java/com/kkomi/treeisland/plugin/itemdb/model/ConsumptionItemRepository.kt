@@ -35,7 +35,7 @@ object ConsumptionItemRepository : ItemRepository<ConsumptionItem> {
                         0,
                         0,
                         0,
-                        5,
+                        "5",
                         0,
                         ConsumptionItemType.HEALTH
                 )

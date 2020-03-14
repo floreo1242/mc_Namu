@@ -22,7 +22,7 @@ class PlayerSkillInfoListener : Listener {
         val playerSkillInfo = PlayerSkillInfoRepository.getPlayerSkillInfo(event.player.uniqueId.toString())
 
         if (playerSkillInfo == null) {
-            PlayerSkillInfoRepository.addPlayerSkillInfo(PlayerSkillInfo(event.player.uniqueId.toString(), false, mutableListOf()))
+            PlayerSkillInfoRepository.createPlayerSkillInfo(PlayerSkillInfo(event.player.uniqueId.toString(), false, mutableListOf()))
         }
     }
 

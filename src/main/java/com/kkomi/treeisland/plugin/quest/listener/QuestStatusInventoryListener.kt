@@ -30,6 +30,10 @@ class QuestStatusInventoryListener : Listener {
             return
         }
 
+        if (event.rawSlot !in 0..8) {
+            return
+        }
+
         QuestCancelInventory(
                 event.whoClicked as Player,
                 QuestRepository.getQuestToTitle(event.currentItem.getDisplay()!!.removeChatColorCode())!!

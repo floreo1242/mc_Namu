@@ -17,7 +17,7 @@ class CommandCreateSkillInfo : CommandComponent() {
     override val usage: String = "<SkillInfoCode>"
 
     override fun onCommand(sender: CommandSender, label: String, command: Command, componentLabel: String, args: ArgumentList): Boolean {
-        SkillInfoRepository.addSkillInfo(SkillInfo(args.next(), "", "", 0, "공용", ""))
+        SkillInfoRepository.createSkillInfo(SkillInfo(args.next(), "", "", 0, "공용", ""))
         sender.sendInfoMessage("스킬정보를 생성하였습니다.")
         return true
     }

@@ -20,7 +20,7 @@ class CommandCreateBag : CommandComponent() {
     override fun onCommand(sender: CommandSender, label: String, command: Command, componentLabel: String, args: ArgumentList): Boolean {
         val line = args.nextInt()
         val bag = Bag(listOf(), line, UUID.randomUUID().toString())
-        BagRepository.addBag(bag)
+        BagRepository.createBag(bag)
         (sender as Player).inventory.addItem(bag.toItemStack())
         return true
     }

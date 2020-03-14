@@ -18,7 +18,7 @@ class PlayerRoleListener : Listener {
         val uuid = event.player.uniqueId.toString()
         val playerRole = PlayerRoleRepository.getPlayerRole(uuid)
         if (playerRole == null) {
-            PlayerRoleRepository.addPlayerRole(PlayerRole(uuid, "모험가"))
+            PlayerRoleRepository.createPlayerRole(PlayerRole(uuid, "모험가"))
         }
     }
 

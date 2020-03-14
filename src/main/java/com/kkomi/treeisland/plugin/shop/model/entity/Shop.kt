@@ -30,7 +30,7 @@ data class Shop(
         )
     }
 
-    fun createStuff(itemStack: ItemStack, price: Int) {
+    fun addStuff(itemStack: ItemStack, price: Int) {
         stuffList.add(Stuff(itemStack, price))
     }
 

@@ -18,7 +18,7 @@ data class ConsumptionItem(
         val durability: Int,
         val levelLimit: Int,
         val duration: Int,
-        val value: Int,
+        val value: String,
         val cooldown: Int,
         val type: ConsumptionItemType
 ) : ConfigurationSerializable {
@@ -33,7 +33,7 @@ data class ConsumptionItem(
                     data["durability"] as Int,
                     data["levelLimit"] as Int,
                     data["duration"] as Int,
-                    data["value"] as Int,
+                    data["value"] as String,
                     data["cooldown"] as Int,
                     ConsumptionItemType.valueOf(data["type"] as String)
             )

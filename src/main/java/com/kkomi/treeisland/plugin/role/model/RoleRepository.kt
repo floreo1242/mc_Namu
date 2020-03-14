@@ -10,7 +10,7 @@ object RoleRepository {
 
     init {
         if (getRoleList().isEmpty()) {
-            addRole(Role("모험가", "pain"))
+            createRole(Role("모험가", "pain"))
         }
     }
 

@@ -12,6 +12,7 @@ import com.kkomi.treeisland.plugin.itemdb.model.entity.StatOption
 import com.kkomi.treeisland.plugin.level.LevelPlugin
 import com.kkomi.treeisland.plugin.money.MoneyPlugin
 import com.kkomi.treeisland.plugin.monster.MonsterPlugin
+import com.kkomi.treeisland.plugin.post.PostPlugin
 import com.kkomi.treeisland.plugin.quest.QuestPlugin
 import com.kkomi.treeisland.plugin.role.RolePlugin
 import com.kkomi.treeisland.plugin.shop.ShopPlugin
@@ -41,6 +42,7 @@ class Treeisland : JavaPlugin(), Listener {
         lateinit var skillPlugin: SkillPlugin
         lateinit var rolePlugin: RolePlugin
         lateinit var bagPlugin : BagPlugin
+        lateinit var postPlugin: PostPlugin
     }
 
     override fun onEnable() {
@@ -82,6 +84,9 @@ class Treeisland : JavaPlugin(), Listener {
         bagPlugin = BagPlugin(File(dataFolder.parent + "/bag"), this)
         logger.info("Load complete bag plugin...!")
 
+        postPlugin = PostPlugin(File(dataFolder.parent + "/post"), this)
+        logger.info("Load complete post plugin...!")
+
         IntegrationPlugin(File(dataFolder.path + "/integration"), this)
         EnhancePlugin(File(dataFolder.parent + "/scroll"), this)
 
@@ -104,6 +109,7 @@ class Treeisland : JavaPlugin(), Listener {
         skillPlugin.onDisable()
         rolePlugin.onDisable()
         bagPlugin.onDisable()
+        postPlugin.onDisable()
     }
 
 }

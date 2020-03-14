@@ -71,7 +71,7 @@ class QuestDataListener : Listener {
     fun onPlayerJoinEvent(event: PlayerJoinEvent) {
         val player = event.player
         if (PlayerQuestRepository.getPlayerQuest(player.uniqueId.toString()) == null) {
-            PlayerQuestRepository.addPlayerQuest(PlayerQuest(player.uniqueId.toString(), mutableListOf(), mutableMapOf()))
+            PlayerQuestRepository.createPlayerQuest(PlayerQuest(player.uniqueId.toString(), mutableListOf(), mutableMapOf()))
         }
     }
 

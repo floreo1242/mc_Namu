@@ -15,7 +15,7 @@ class PlayerGuildListener : Listener {
         val playerGuild = PlayerGuildRepository.getPlayerGuild(player.uniqueId.toString())
 
         if (playerGuild == null) {
-            PlayerGuildRepository.addPlayerGuild(PlayerGuild(player.uniqueId.toString(), ""))
+            PlayerGuildRepository.createPlayerGuild(PlayerGuild(player.uniqueId.toString(), ""))
         }
     }
 
