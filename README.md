@@ -1,2 +1,2 @@
-# Minecraft-TreeIsland
-TreeIsland Server Integration Plugin
+# Namu Plugin
+MC Server Integration Plugin
