@@ -1,0 +1,43 @@
+package com.namu.core.rpg.role.model
+
+import com.kkomi.devlibrary.FileDataSource
+import com.namu.core.rpg.role.model.entity.Role
+import java.io.File
+
+class RoleFileDataSource(
+        dataFolder: File,
+        classType: Class<Role>
+) : RoleDataSource, FileDataSource<Role>(dataFolder, classType) {
+
+    override fun getRole(name: String): Role? {
+        return getValue(name)
+    }
+
+    override fun getRoleList(): List<Role> {
+        return getValueList()
+    }
+
+    override fun createRole(role: Role) {
+        setValue(role.name, role)
+        saveFile(role.name, role)
+    }
+
+    override fun editRole(role: Role) {
+        setValue(role.name, role)
+        saveFile(role.name, role)
+    }
+
+    override fun saveRole(role: Role) {
+        saveFile(role.name, role)
+    }
+
+    override fun removeRole(name: String) {
+        removeValue(name)
+        deleteFile(name)
+    }
+
+    override fun reloadRole() {
+        loadFiles()
+    }
+
+}

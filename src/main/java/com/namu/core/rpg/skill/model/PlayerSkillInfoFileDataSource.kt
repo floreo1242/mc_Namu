@@ -1,0 +1,43 @@
+package com.namu.core.rpg.skill.model
+
+import com.kkomi.devlibrary.FileDataSource
+import com.namu.core.rpg.skill.model.entity.PlayerSkillInfo
+import java.io.File
+
+class PlayerSkillInfoFileDataSource(
+        dataFolder: File,
+        classType: Class<PlayerSkillInfo>
+) : PlayerSkillInfoDataSource, FileDataSource<PlayerSkillInfo>(dataFolder, classType) {
+
+    override fun getPlayerSkillInfo(name: String): PlayerSkillInfo? {
+        return getValue(name)
+    }
+
+    override fun getPlayerSkillInfoList(): List<PlayerSkillInfo> {
+        return getValueList()
+    }
+
+    override fun createPlayerSkillInfo(playerSkillInfo: PlayerSkillInfo) {
+        setValue(playerSkillInfo.uuid, playerSkillInfo)
+        saveFile(playerSkillInfo.uuid, playerSkillInfo)
+    }
+
+    override fun editPlayerSkillInfo(playerSkillInfo: PlayerSkillInfo) {
+        setValue(playerSkillInfo.uuid, playerSkillInfo)
+        saveFile(playerSkillInfo.uuid, playerSkillInfo)
+    }
+
+    override fun savePlayerSkillInfo(playerSkillInfo: PlayerSkillInfo) {
+        saveFile(playerSkillInfo.uuid, playerSkillInfo)
+    }
+
+    override fun removePlayerSkillInfo(name: String) {
+        removeValue(name)
+        deleteFile(name)
+    }
+
+    override fun reloadPlayerSkillInfo() {
+        loadFiles()
+    }
+
+}

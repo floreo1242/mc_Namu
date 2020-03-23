@@ -38,10 +38,10 @@ configurations {
 dependencies {
     shade "org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.3.30"
     testCompile group: 'junit', name: 'junit', version: '4.12'
-    compileOnly 'org.spigotmc:spigot-api:1.12.2-R0.1-SNAPSHOT'
+    compileOnly 'com.destroystokyo.paper:paper-api:1.15.2-R0.1-SNAPSHOT'
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.3.30"
     compile fileTree(dir: 'lib', include: ['*.jar'])
-    compileOnly 'com.kkomi:devlibrary:1.12.2'
+    compileOnly 'com.kkomi:devlibrary:1.14.4'
 }
 
 jar {
@@ -53,7 +53,7 @@ jar {
 }
 
 copyJar {
-    into '/Users/youdonghun/Desktop/Minecraft Bukkit/DevelopServer/plugins'
+    into '/Users/youdonghun/Desktop/Minecraft Bukkit/DevelopServer 1.15.2/plugins'
 }
 
 import org.apache.tools.ant.filters.ReplaceTokens
@@ -73,4 +73,5 @@ compileTestKotlin {
         jvmTarget = "1.8"
     }
 }
+
 

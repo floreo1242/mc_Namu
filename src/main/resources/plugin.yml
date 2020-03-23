@@ -1,12 +1,8 @@
-name: TreeIsland
+name: KOnline
 version: @version@
-main: com.kkomi.treeisland.Treeisland
-prefix: TreeIsland
-description: Minecraft TreeIsland Server Intergration Plugin
-website: github.com/You-Kkomi
-
-depend:
-  - MagicSpells
+main: com.namu.core.MainCore
+api-version: 1.13
+prefix: Namu
 
 commands:
   money:
@@ -15,9 +11,7 @@ commands:
   quest:
   questa:
   talkscripta:
-  itemdb-equipment:
-  itemdb-consumption:
-  itemdb-other:
+  itemdb:
   stat:
   equip:
   level:
@@ -32,3 +26,7 @@ commands:
   baga:
   posta:
   post:
+  auction:
+  categorya:
+  makera:
+  maker:

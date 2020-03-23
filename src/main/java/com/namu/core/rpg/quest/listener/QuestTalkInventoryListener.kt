@@ -1,0 +1,93 @@
+package com.namu.core.rpg.quest.listener
+
+import com.kkomi.devlibrary.extension.count
+import com.kkomi.devlibrary.extension.getServerTitleInfo
+import com.namu.core.MainCore
+import com.namu.core.rpg.quest.inventory.QuestAcceptInventory
+import com.namu.core.rpg.quest.inventory.QuestTalkInventory
+import com.namu.core.rpg.quest.model.QuestRepository
+import com.namu.core.rpg.quest.model.entity.Quest
+import org.bukkit.Bukkit
+import org.bukkit.entity.Player
+import org.bukkit.event.EventHandler
+import org.bukkit.event.Listener
+import org.bukkit.event.inventory.InventoryClickEvent
+import org.bukkit.event.inventory.InventoryCloseEvent
+import org.bukkit.event.inventory.InventoryOpenEvent
+
+class QuestTalkInventoryListener : Listener {
+
+    private val nowPage = mutableMapOf<String, Int>()
+    private val viewQuest = mutableMapOf<String, Quest>()
+
+    @EventHandler
+    fun onInventoryOpenEvent(event: InventoryOpenEvent) {
+        val inventory = event.view
+        val data = inventory.getServerTitleInfo() ?: return
+
+        if (data.first != QuestTalkInventory.TITLE) {
+            return
+        }
+
+        val uuid = event.player.uniqueId.toString()
+
+        nowPage[uuid] = 0
+        viewQuest[uuid] = QuestRepository.getQuest(data.second)!!
+    }
+
+    @EventHandler
+    fun onInventoryClickEvent(event: InventoryClickEvent) {
+
+        val inventory = event.view
+        val data = inventory.getServerTitleInfo() ?: return
+
+        if (data.first != QuestTalkInventory.TITLE) {
+            return
+        }
+
+        event.isCancelled = true
+
+        if (event.rawSlot != QuestTalkInventory.ITEM_LOCATION) {
+            return
+        }
+
+        val uuid = event.whoClicked.uniqueId.toString()
+        nowPage.count(uuid)
+
+        val page = nowPage[uuid]!!
+        val quest = viewQuest[uuid]!!
+
+        if (page == quest.talkScriptList.size) {
+            val player = event.whoClicked as Player
+            player.closeInventory()
+            QuestAcceptInventory(player, quest).open()
+            return
+        }
+
+        inventory.setItem(QuestTalkInventory.ITEM_LOCATION, quest.talkScriptList[page].toItemStack())
+    }
+
+    @EventHandler
+    fun onInventoryCloseEvent(event: InventoryCloseEvent) {
+        val inventory = event.view
+        val data = inventory.getServerTitleInfo() ?: return
+
+        if (data.first != QuestTalkInventory.TITLE) {
+            return
+        }
+
+        val uuid = event.player.uniqueId.toString()
+        nowPage.count(uuid)
+
+        val page = nowPage[uuid]!!
+        val script = viewQuest[uuid]!!
+
+        if (page <= script.talkScriptList.size) {
+            val player = event.player as Player
+            Bukkit.getScheduler().scheduleSyncDelayedTask(MainCore.instance, {
+                QuestTalkInventory(player, script).open()
+            }, 5L)
+        }
+    }
+
+}

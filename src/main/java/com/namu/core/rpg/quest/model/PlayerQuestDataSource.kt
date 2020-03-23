@@ -1,0 +1,21 @@
+package com.namu.core.rpg.quest.model
+
+import com.namu.core.rpg.quest.model.entity.PlayerQuest
+
+interface PlayerQuestDataSource {
+
+    fun getPlayerQuest(uuid: String): PlayerQuest?
+
+    fun getPlayerQuestList(): List<PlayerQuest>
+
+    fun createPlayerQuest(playerQuest: PlayerQuest)
+
+    fun editPlayerQuest(playerQuest: PlayerQuest)
+
+    fun removePlayerQuest(uuid: String)
+
+    fun reloadPlayerQuest()
+
+    fun savePlayerQuest(playerQuest: PlayerQuest)
+
+}
