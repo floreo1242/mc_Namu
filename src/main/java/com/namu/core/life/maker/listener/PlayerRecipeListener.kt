@@ -26,6 +26,8 @@ class PlayerRecipeListener : Listener {
     @EventHandler
     fun onPlayerInteractEvent(event: PlayerInteractEvent) {
 
+        println(event.player.inventory.itemInMainHand)
+
         val player = event.player
         val currentItem = player.inventory.itemInMainHand
         val recipe = currentItem.getNBTTagCompound(Recipe::class.java) ?: return

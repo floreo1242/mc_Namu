@@ -11,7 +11,7 @@ class EnhanceInventory(player: Player) : InventoryManager(player) {
         const val TITLE = "강화석을 들고 아이템을 클릭해주세요"
     }
 
-    override val inventory: Inventory = Bukkit.createInventory(null, 0, TITLE)
+    override val inventory: Inventory = Bukkit.createInventory(null, 9, TITLE)
 
     override fun setBasicFrame() {
         

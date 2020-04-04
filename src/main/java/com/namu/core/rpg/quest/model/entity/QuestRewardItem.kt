@@ -1,8 +1,7 @@
 package com.namu.core.rpg.quest.model.entity
 
-import com.kkomi.itemdb.model.CustomItemRepository
+import com.namu.core.utility.itemdb.model.CustomItemRepository
 import com.namu.core.rpg.skill.model.SkillInfoRepository
-import com.namu.core.utility.itemdb.model.entity.CustomItem
 import org.bukkit.Material
 import org.bukkit.configuration.serialization.ConfigurationSerializable
 import org.bukkit.configuration.serialization.SerializableAs

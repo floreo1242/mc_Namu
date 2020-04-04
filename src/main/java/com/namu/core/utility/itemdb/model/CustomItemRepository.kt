@@ -1,13 +1,11 @@
-package com.kkomi.itemdb.model
+package com.namu.core.utility.itemdb.model
 
 import com.namu.core.utility.itemdb.model.entity.CustomItem
 import com.namu.core.MainCore
-import com.namu.core.utility.itemdb.model.CustomItemFileDataSource
-import java.io.File
 
 object CustomItemRepository {
 
-    private val customItemDataSource = CustomItemFileDataSource(File(MainCore.itemDbPlugin.dataFolder.path + "/"), CustomItem::class.java)
+    private val customItemDataSource = CustomItemFileDataSource(MainCore.itemDbPlugin.dataFolder, CustomItem::class.java)
 
     fun getCustomItem(name: String): CustomItem? {
         return customItemDataSource.getCustomItem(name)

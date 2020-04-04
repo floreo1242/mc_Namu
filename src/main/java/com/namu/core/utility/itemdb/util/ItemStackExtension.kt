@@ -1,6 +1,8 @@
 package com.namu.core.utility.itemdb.util
 
+import com.kkomi.devlibrary.extension.replaceChatColorCode
 import com.kkomi.devlibrary.extension.setDisplay
+import com.kkomi.devlibrary.extension.setLore
 import com.kkomi.devlibrary.nms.getNBTTagCompound
 import com.namu.core.rpg.enhance.model.EnhanceItemMeta
 import com.namu.core.utility.itemdb.model.entity.CustomItem
@@ -48,7 +50,10 @@ fun ItemStack.refreshEquipmentItemLore() {
         ))
     }
 
-    lore = lastedLore
+
+    val itemMeta = itemMeta
+    itemMeta?.lore = lastedLore.map { it.replaceChatColorCode() }
+    setItemMeta(itemMeta)
 
     if (enhanceItemMeta != null && enhanceItemMeta.scrollLimit != 5) {
         setDisplay("${customItem.name} +${5 - enhanceItemMeta.scrollLimit}")

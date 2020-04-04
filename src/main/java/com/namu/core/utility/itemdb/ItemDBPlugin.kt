@@ -40,10 +40,8 @@ class ItemDBPlugin(dataFolder: File, plugin: JavaPlugin) : SubMainManager(dataFo
     override fun setupRegisterClass() {
         ConfigurationSerialization.registerClass(StatOption::class.java, "StatOption")
         ConfigurationSerialization.registerClass(ConsumptionOption::class.java, "ConsumptionOption")
-        ConfigurationSerialization.registerClass(EquipmentOption::class.java, "EquipmentItemOption")
+        ConfigurationSerialization.registerClass(EquipmentOption::class.java, "EquipmentOption")
         ConfigurationSerialization.registerClass(CustomItem::class.java, "CustomItem")
-        Material.GOLDEN_HELMET
-        Material.IRON_HELMET
     }
 
     override fun setupSchedulers() {

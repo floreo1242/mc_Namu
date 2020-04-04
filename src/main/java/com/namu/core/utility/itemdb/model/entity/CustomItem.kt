@@ -37,10 +37,10 @@ data class CustomItem(
                 material,
                 name,
                 description
-        ).apply {
-            refreshEquipmentItemLore()
-        }.run {
+        ).run {
             addNBTTagCompound(this@CustomItem)
+        }.apply {
+            refreshEquipmentItemLore()
         }
     }
 

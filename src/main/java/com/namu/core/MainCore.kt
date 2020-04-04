@@ -5,6 +5,7 @@ import com.namu.core.economy.money.MoneyPlugin
 import com.namu.core.economy.shop.ShopPlugin
 import com.namu.core.life.maker.MakerPlugin
 import com.namu.core.life.npc.NpcPlugin
+import com.namu.core.rpg.enhance.EnhancePlugin
 import com.namu.core.rpg.guild.GuildPlugin
 import com.namu.core.utility.itemdb.ItemDBPlugin
 import com.namu.core.rpg.level.LevelPlugin
@@ -36,6 +37,7 @@ class MainCore : JavaPlugin() {
         lateinit var guildPlugin: GuildPlugin
         lateinit var skillPlugin: SkillPlugin
         lateinit var rolePlugin: RolePlugin
+        lateinit var enhancePlugin: EnhancePlugin
 
         lateinit var bagPlugin : BagPlugin
         lateinit var itemDbPlugin: ItemDBPlugin
@@ -89,6 +91,9 @@ class MainCore : JavaPlugin() {
 
         npcPlugin = NpcPlugin(File(dataFolder.path + "/npc"), this)
         logger.info("Load complete post plugin...!")
+
+        enhancePlugin = EnhancePlugin(File(dataFolder.path + "/enhance"), this)
+        logger.info("Load complete enhance plugin...!")
 
     }
 

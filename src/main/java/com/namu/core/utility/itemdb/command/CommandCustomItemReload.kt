@@ -3,7 +3,7 @@ package com.namu.core.utility.itemdb.command
 import com.kkomi.devlibrary.command.ArgumentList
 import com.kkomi.devlibrary.command.CommandComponent
 import com.kkomi.devlibrary.extension.sendDebugMessage
-import com.kkomi.itemdb.model.CustomItemRepository
+import com.namu.core.utility.itemdb.model.CustomItemRepository
 import org.bukkit.command.Command
 import org.bukkit.command.CommandSender
 

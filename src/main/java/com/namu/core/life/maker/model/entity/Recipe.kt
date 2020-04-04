@@ -2,7 +2,7 @@ package com.namu.core.life.maker.model.entity
 
 import com.kkomi.devlibrary.extension.createItemStack
 import com.kkomi.devlibrary.nms.addNBTTagCompound
-import com.kkomi.itemdb.model.CustomItemRepository
+import com.namu.core.utility.itemdb.model.CustomItemRepository
 import org.bukkit.Material
 import org.bukkit.configuration.serialization.ConfigurationSerializable
 import org.bukkit.configuration.serialization.SerializableAs

@@ -31,6 +31,8 @@ class PlayerMoneyListener : Listener {
 
         val checkPaper = itemStack.getNBTTagCompound(CheckPaper::class.java) ?: return
 
+        println(checkPaper)
+
         player.playerMoney.apply { money += checkPaper.price }.edit()
         itemStack.amount -= 1
         player.sendInfoMessage("수표를 사용하여 돈을 획득 하였습니다.")

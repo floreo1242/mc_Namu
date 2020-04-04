@@ -18,13 +18,13 @@ class CustomItemFileDataSource(
     }
 
     override fun createCustomItem(customItem: CustomItem) {
-        setValue(customItem.name, customItem)
-        saveFile(customItem.name, customItem)
+        setValue(customItem.code, customItem)
+        saveFile(customItem.code, customItem)
     }
 
     override fun editCustomItem(customItem: CustomItem) {
-        setValue(customItem.name, customItem)
-        saveFile(customItem.name, customItem)
+        setValue(customItem.code, customItem)
+        saveFile(customItem.code, customItem)
     }
 
     override fun removeCustomItem(name: String) {
@@ -33,7 +33,7 @@ class CustomItemFileDataSource(
     }
 
     override fun saveCustomItem(customItem: CustomItem) {
-        saveFile(customItem.name, customItem)
+        saveFile(customItem.code, customItem)
     }
 
     override fun reloadCustomItem() {

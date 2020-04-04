@@ -3,7 +3,7 @@ package com.namu.core.utility.post.command
 import com.kkomi.devlibrary.command.ArgumentList
 import com.kkomi.devlibrary.command.CommandComponent
 import com.kkomi.devlibrary.extension.sendErrorMessage
-import com.kkomi.itemdb.model.CustomItemRepository
+import com.namu.core.utility.itemdb.model.CustomItemRepository
 import com.namu.core.utility.post.command.CommandSendItem.ItemType.*
 import com.namu.core.utility.post.util.playerPostBox
 import org.bukkit.command.Command

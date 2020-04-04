@@ -4,7 +4,7 @@ import com.kkomi.devlibrary.extension.sendInfoMessage
 import com.kkomi.devlibrary.extension.takeItem
 import com.kkomi.devlibrary.extension.toMap
 import com.kkomi.devlibrary.nms.getNBTTagCompound
-import com.kkomi.itemdb.model.CustomItemRepository
+import com.namu.core.utility.itemdb.model.CustomItemRepository
 import com.namu.core.rpg.level.api.PlayerExpGetEvent
 import com.namu.core.rpg.level.model.entity.PlayerLevel
 import com.namu.core.rpg.level.util.edit

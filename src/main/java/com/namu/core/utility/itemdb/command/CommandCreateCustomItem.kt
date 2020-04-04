@@ -2,9 +2,8 @@ package com.namu.core.utility.itemdb.command
 
 import com.kkomi.devlibrary.command.ArgumentList
 import com.kkomi.devlibrary.command.CommandComponent
-import com.kkomi.devlibrary.extension.sendDebugMessage
 import com.kkomi.devlibrary.extension.sendInfoMessage
-import com.kkomi.itemdb.model.CustomItemRepository
+import com.namu.core.utility.itemdb.model.CustomItemRepository
 import com.namu.core.utility.itemdb.model.entity.*
 import org.bukkit.Material
 import org.bukkit.command.Command
@@ -22,19 +21,19 @@ class CommandCreateCustomItem : CommandComponent() {
         CustomItemRepository.createCustomItem(
                 CustomItem(
                         args.next(),
-                        ConsumptionOption("", 0, 0),
-                        listOf(""),
+                        ConsumptionOption("Enter the command", 0, 0),
+                        listOf("Enter the item's description"),
                         EquipmentOption(
-                                0,
+                                1,
                                 listOf(
                                         StatOption(
                                                 StatType.AGILITY,
-                                                0
+                                                1
                                         )
                                 )
                         ),
                         Material.WOODEN_SWORD,
-                        ""
+                        "Enter the item name"
                 )
         )
         sender.sendInfoMessage("아이템을 생성하였습니다.")
