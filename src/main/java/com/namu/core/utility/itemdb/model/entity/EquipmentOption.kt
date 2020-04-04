@@ -6,6 +6,7 @@ import org.bukkit.configuration.serialization.SerializableAs
 @SerializableAs("EquipmentOption")
 data class EquipmentOption(
         var levelLimit: Int,
+        var equipType : EquipType,
         var options: List<StatOption>
 ) : ConfigurationSerializable {
 
@@ -14,6 +15,7 @@ data class EquipmentOption(
         fun deserialize(data: Map<String, Any>): EquipmentOption {
             return EquipmentOption(
                     data["levelLimit"] as Int,
+                    data["equipType"] as EquipType,
                     data["options"] as List<StatOption>
             )
         }
@@ -22,6 +24,7 @@ data class EquipmentOption(
     override fun serialize(): Map<String, Any> {
         return mapOf(
                 "levelLimit" to levelLimit,
+                "equipType" to equipType,
                 "options" to options
         )
     }
