@@ -1,6 +1,5 @@
 package com.namu.core.rpg.quest.model.entity
 
-import com.namu.core.rpg.monster.model.entity.DropItem
 import org.bukkit.configuration.serialization.ConfigurationSerializable
 import org.bukkit.configuration.serialization.SerializableAs
 

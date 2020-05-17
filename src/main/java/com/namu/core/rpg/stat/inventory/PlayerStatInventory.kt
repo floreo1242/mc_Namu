@@ -12,18 +12,17 @@ class PlayerStatInventory(player: Player) : InventoryManager(player) {
     companion object {
         const val TITLE = "플레이어 스텟"
 
-        const val HEAD = 8
-        const val STRENGTH = 11
-        const val DEXTERITY = 12
-        const val INTELLIGENCE = 13
-        const val DEFENSE = 14
-        const val AGILITY = 15
+        const val STRENGTH = 10
+        const val HEALTH = 11
+        const val MANA = 12
+        const val WALK_SPEED = 14
+        const val CRITICAL_CHANCE = 15
+        const val DEXTERITY = 16
     }
 
-    override val inventory: Inventory = Bukkit.createInventory(null, 27, "$TITLE - ${player.name}")
+    override val inventory: Inventory = Bukkit.createInventory(null, 27, TITLE)
 
     override fun setBasicFrame() {
-        inventory.setItem(0, createItemStack(Material.GOLDEN_AXE,"", listOf(),1,3))
     }
 
 }

@@ -1,7 +1,7 @@
 package com.namu.core.rpg.monster.model.entity
 
-import com.namu.core.utility.itemdb.model.CustomItemRepository
 import com.namu.core.rpg.skill.model.SkillInfoRepository
+import com.namu.core.utility.itemdb.model.CustomItemRepository
 import org.bukkit.Material
 import org.bukkit.configuration.serialization.ConfigurationSerializable
 import org.bukkit.configuration.serialization.SerializableAs

@@ -33,6 +33,7 @@ class CommandSendItem : CommandComponent() {
 
                 player.playerPostBox.postItems.add(otherItem.toItemStack())
             }
+            else -> sender.sendMessage("please check item type [ Hand, CustomItem ]")
         }
         return true
     }

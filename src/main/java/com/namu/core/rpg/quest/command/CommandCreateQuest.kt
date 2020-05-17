@@ -4,8 +4,6 @@ import com.kkomi.devlibrary.command.ArgumentList
 import com.kkomi.devlibrary.command.CommandComponent
 import com.kkomi.devlibrary.extension.sendErrorMessage
 import com.kkomi.devlibrary.extension.sendInfoMessage
-import com.namu.core.rpg.monster.model.entity.DropItem
-import com.namu.core.rpg.monster.model.entity.DropItemType
 import com.namu.core.rpg.quest.model.QuestMessage
 import com.namu.core.rpg.quest.model.QuestRepository
 import com.namu.core.rpg.quest.model.entity.*

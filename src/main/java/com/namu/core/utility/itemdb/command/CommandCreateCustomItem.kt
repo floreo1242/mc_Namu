@@ -27,7 +27,7 @@ class CommandCreateCustomItem : CommandComponent() {
                                 1,
                                 listOf(
                                         StatOption(
-                                                StatType.AGILITY,
+                                                StatType.STRENGTH,
                                                 1
                                         )
                                 )

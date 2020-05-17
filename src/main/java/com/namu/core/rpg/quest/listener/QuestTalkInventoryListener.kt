@@ -67,27 +67,4 @@ class QuestTalkInventoryListener : Listener {
         inventory.setItem(QuestTalkInventory.ITEM_LOCATION, quest.talkScriptList[page].toItemStack())
     }
 
-    @EventHandler
-    fun onInventoryCloseEvent(event: InventoryCloseEvent) {
-        val inventory = event.view
-        val data = inventory.getServerTitleInfo() ?: return
-
-        if (data.first != QuestTalkInventory.TITLE) {
-            return
-        }
-
-        val uuid = event.player.uniqueId.toString()
-        nowPage.count(uuid)
-
-        val page = nowPage[uuid]!!
-        val script = viewQuest[uuid]!!
-
-        if (page <= script.talkScriptList.size) {
-            val player = event.player as Player
-            Bukkit.getScheduler().scheduleSyncDelayedTask(MainCore.instance, {
-                QuestTalkInventory(player, script).open()
-            }, 5L)
-        }
-    }
-
 }

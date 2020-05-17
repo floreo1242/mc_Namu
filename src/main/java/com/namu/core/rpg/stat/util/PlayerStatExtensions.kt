@@ -1,8 +1,8 @@
 package com.namu.core.rpg.stat.util
 
-import com.namu.core.utility.itemdb.model.entity.StatType
 import com.namu.core.rpg.stat.model.PlayerStatRepository
 import com.namu.core.rpg.stat.model.entity.PlayerStat
+import com.namu.core.utility.itemdb.model.entity.StatType
 import org.bukkit.OfflinePlayer
 import org.bukkit.entity.Player
 
@@ -14,10 +14,11 @@ val Player.playerStat: PlayerStat
                     uniqueId.toString(),
                     mutableMapOf(
                             StatType.STRENGTH to 0,
-                            StatType.INTELLIGENCE to 0,
-                            StatType.DEXTERITY to 0,
-                            StatType.VITALITY to 0,
-                            StatType.AGILITY to 0
+                            StatType.HEALTH to 0,
+                            StatType.MANA to 0,
+                            StatType.WALK_SPEED to 0,
+                            StatType.CRITICAL_CHANCE to 0,
+                            StatType.HAND_DEXTERITY to 0
                     ),
                     0
             )

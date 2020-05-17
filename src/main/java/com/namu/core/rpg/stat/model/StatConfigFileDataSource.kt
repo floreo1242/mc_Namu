@@ -1,6 +1,7 @@
 package com.namu.core.rpg.stat.model
 
 import com.namu.core.rpg.stat.model.entity.StatConfig
+import com.namu.core.utility.itemdb.model.entity.StatType
 import org.bukkit.configuration.file.YamlConfiguration
 import java.io.File
 
@@ -14,7 +15,7 @@ class StatConfigFileDataSource(
 
     init {
         if (!configuration.getKeys(false).contains("config")) {
-            configuration.set("config", StatConfig())
+            configuration.set("config", StatConfig(2, StatType.values().map { it to 1.0 }.toMap(), StatType.values().map { it to 100 }.toMap()))
             configuration.save(configFile)
         }
     }
@@ -30,7 +31,7 @@ class StatConfigFileDataSource(
     }
 
     override fun reloadStatConfig() {
-        configFile = File(dataFolder,"config.yml")
+        configFile = File(dataFolder, "config.yml")
         configuration = YamlConfiguration.loadConfiguration(configFile)
         config = configuration.get("config") as StatConfig
     }

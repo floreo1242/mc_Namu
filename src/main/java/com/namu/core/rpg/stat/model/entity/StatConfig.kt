@@ -1,30 +1,22 @@
 package com.namu.core.rpg.stat.model.entity
 
+import com.namu.core.utility.itemdb.model.entity.StatType
 import org.bukkit.configuration.serialization.ConfigurationSerializable
-import org.bukkit.configuration.serialization.ConfigurationSerialization
 import org.bukkit.configuration.serialization.SerializableAs
 
 @SerializableAs("StatConfig")
 data class StatConfig(
         var levelUpStat: Int = 2,
-        val statLimit: Int = 160,
-        val strPointByValue: Double = 0.5,
-        val dexPointByValue: Double = 0.15,
-        val vitPointByValue: Double = 0.3,
-        val intPointByValue: Double = 1.0,
-        val agiPointByValue: Double = 0.2
+        val pointByValue: Map<StatType, Double>,
+        val maxValue: Map<StatType, Int>
 ) : ConfigurationSerializable {
     companion object {
         @JvmStatic
         fun deserialize(data: Map<String, Any>): StatConfig {
             return StatConfig(
                     data["levelUpStat"] as Int,
-                    data["statLimit"] as Int,
-                    data["strPointByValue"] as Double,
-                    data["dexPointByValue"] as Double,
-                    data["vitPointByValue"] as Double,
-                    data["intPointByValue"] as Double,
-                    data["agiPointByValue"] as Double
+                    (data["pointByValue"] as Map<String, Double>).mapKeys { StatType.valueOf(it.key) },
+                    (data["maxValue"] as Map<String, Int>).mapKeys { StatType.valueOf(it.key) }
             )
         }
     }
@@ -32,12 +24,8 @@ data class StatConfig(
     override fun serialize(): Map<String, Any> {
         return mapOf(
                 "levelUpStat" to levelUpStat,
-                "statLimit" to statLimit,
-                "strPointByValue" to strPointByValue,
-                "dexPointByValue" to dexPointByValue,
-                "vitPointByValue" to vitPointByValue,
-                "intPointByValue" to intPointByValue,
-                "agiPointByValue" to agiPointByValue
+                "pointByValue" to pointByValue.mapKeys { it.key.toString() },
+                "maxValue" to maxValue.mapKeys { it.key.toString() }
         )
     }
 }

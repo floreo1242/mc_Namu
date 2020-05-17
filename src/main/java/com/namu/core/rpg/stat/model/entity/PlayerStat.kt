@@ -16,7 +16,7 @@ data class PlayerStat(
         fun deserialize(data: Map<String, Any>): PlayerStat {
             return PlayerStat(
                     data["uuid"] as String,
-                    (data["investmentStat"] as Map<String, Int>).mapKeys { StatType.valueOf(it.key) } as MutableMap<StatType, Int>,
+                    (data["investmentStat"] as Map<String, Int>).mapKeys { StatType.valueOf(it.key) }.filter { it.key.isStat } as MutableMap<StatType, Int>,
                     data["leftPoint"] as Int
             )
         }
@@ -25,7 +25,7 @@ data class PlayerStat(
     override fun serialize(): MutableMap<String, Any> {
         return mutableMapOf(
                 "uuid" to uuid,
-                "investmentStat" to investmentStat.mapKeys { it.key.toString() },
+                "investmentStat" to investmentStat.filter { it.key.isStat }.mapKeys { it.key.toString() },
                 "leftPoint" to leftPoint
         )
     }

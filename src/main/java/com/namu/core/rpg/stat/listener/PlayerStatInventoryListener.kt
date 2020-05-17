@@ -1,14 +1,13 @@
 package com.namu.core.rpg.stat.listener
 
 import com.kkomi.devlibrary.extension.createItemStack
-import com.kkomi.devlibrary.extension.getServerTitleInfo
-import com.namu.core.utility.itemdb.model.entity.StatType
 import com.namu.core.rpg.stat.api.PlayerStatUpdateEvent
 import com.namu.core.rpg.stat.inventory.PlayerStatInventory
 import com.namu.core.rpg.stat.model.PlayerStatRepository
 import com.namu.core.rpg.stat.model.StatConfigRepository
 import com.namu.core.rpg.stat.model.entity.PlayerStat
 import com.namu.core.rpg.stat.util.playerStat
+import com.namu.core.utility.itemdb.model.entity.StatType
 import org.bukkit.Bukkit
 import org.bukkit.Material
 import org.bukkit.entity.Player
@@ -23,9 +22,8 @@ class PlayerStatInventoryListener : Listener {
     @EventHandler
     fun onInventoryOpenEvent(event: InventoryOpenEvent) {
         val inventory = event.view
-        val data = inventory.getServerTitleInfo() ?: return
 
-        if (data.first != PlayerStatInventory.TITLE) {
+        if (inventory.title != PlayerStatInventory.TITLE) {
             return
         }
 
@@ -36,9 +34,8 @@ class PlayerStatInventoryListener : Listener {
     fun onInventoryClickEvent(event: InventoryClickEvent) {
         val player = (event.whoClicked as Player)
         val inventory = event.view
-        val data = inventory.getServerTitleInfo() ?: return
 
-        if (data.first != PlayerStatInventory.TITLE) {
+        if (inventory.title != PlayerStatInventory.TITLE) {
             return
         }
 
@@ -53,10 +50,11 @@ class PlayerStatInventoryListener : Listener {
     private fun getStatOptionBySlot(slot: Int): StatType? {
         return when (slot) {
             PlayerStatInventory.STRENGTH -> StatType.STRENGTH
-            PlayerStatInventory.DEXTERITY -> StatType.DEXTERITY
-            PlayerStatInventory.INTELLIGENCE -> StatType.INTELLIGENCE
-            PlayerStatInventory.AGILITY -> StatType.AGILITY
-            PlayerStatInventory.DEFENSE -> StatType.VITALITY
+            PlayerStatInventory.DEXTERITY -> StatType.HAND_DEXTERITY
+            PlayerStatInventory.HEALTH -> StatType.HEALTH
+            PlayerStatInventory.MANA -> StatType.MANA
+            PlayerStatInventory.CRITICAL_CHANCE -> StatType.CRITICAL_CHANCE
+            PlayerStatInventory.WALK_SPEED -> StatType.WALK_SPEED
             else -> null
         }
     }
@@ -66,7 +64,7 @@ class PlayerStatInventoryListener : Listener {
             return null
         }
 
-        if (playerStat.investmentStat[statOption] == StatConfigRepository.getStatConfig().statLimit) {
+        if (playerStat.investmentStat[statOption] == StatConfigRepository.getStatConfig().maxValue[statOption]) {
             return null
         }
 
@@ -80,30 +78,76 @@ class PlayerStatInventoryListener : Listener {
 
         val statInfo = player.playerStat
 
-        inventory.setItem(PlayerStatInventory.HEAD, createItemStack(
-                Material.SKELETON_SKULL,
-                "${player.name}님의 스텟 정보",
-                listOf(
-                        *statInfo.investmentStat.map {
-                            "&f${it.key.strName} : ${it.value}"
-                        }.toTypedArray(),
-                        "",
-                        "&f잔여 포인트 : ${statInfo.leftPoint}"
-                ),
-                durability = 3))
+        val statConfig = StatConfigRepository.getStatConfig()
 
         inventory.setItem(
                 PlayerStatInventory.STRENGTH,
                 createItemStack(
                         Material.GOLDEN_SHOVEL,
-                        "&c<< 힘 >>",
+                        "&6힘 &a( ${statInfo.investmentStat[StatType.STRENGTH]} / ${statConfig.maxValue[StatType.STRENGTH]} )",
                         listOf(
-                                "&f공격시 추가 데미지를 입힙니다.",
-                                "&f크리티컬이 발생할 경우 효과가 미적용 됩니다.",
-                                "&f",
-                                "&f투자 된 포인트 : &6${statInfo.investmentStat[StatType.STRENGTH]}"
+                                "&f1 포인트 당 +${statConfig.pointByValue[StatType.STRENGTH]} 증가",
+                                "&f남은 스텟포인트 : &e${statInfo.leftPoint}",
+                                "&f증가량 : &5+${(statConfig.pointByValue[StatType.STRENGTH]
+                                        ?: error("")) * (statInfo.investmentStat[StatType.STRENGTH] ?: 1)} 데미지"
                         ),
                         durability = 1
+                )
+        )
+
+        inventory.setItem(
+                PlayerStatInventory.HEALTH,
+                createItemStack(
+                        Material.GOLDEN_SHOVEL,
+                        "&6체력 &a( ${statInfo.investmentStat[StatType.HEALTH]} / ${statConfig.maxValue[StatType.HEALTH]} )",
+                        listOf(
+                                "&f1 포인트 당 +${statConfig.pointByValue[StatType.HEALTH]} 증가",
+                                "&f남은 스텟포인트 : &e${statInfo.leftPoint}",
+                                "&f증가량 : &c+${(statConfig.pointByValue[StatType.HEALTH] ?: error("")) * (statInfo.investmentStat[StatType.HEALTH] ?: 1)} HP"
+                        ),
+                        durability = 2
+                )
+        )
+
+        inventory.setItem(
+                PlayerStatInventory.MANA,
+                createItemStack(
+                        Material.GOLDEN_SHOVEL,
+                        "&6마력 &a( ${statInfo.investmentStat[StatType.MANA]} / ${statConfig.maxValue[StatType.MANA]} )",
+                        listOf(
+                                "&f1 포인트 당 +${statConfig.pointByValue[StatType.MANA]} 증가",
+                                "&f남은 스텟포인트 : &e${statInfo.leftPoint}",
+                                "&f증가량 : &b+${(statConfig.pointByValue[StatType.MANA] ?: error("")) * (statInfo.investmentStat[StatType.MANA] ?: 1)} MP"
+                        ),
+                        durability = 2
+                )
+        )
+
+        inventory.setItem(
+                PlayerStatInventory.WALK_SPEED,
+                createItemStack(
+                        Material.GOLDEN_SHOVEL,
+                        "&6이동속도 &a( ${statInfo.investmentStat[StatType.WALK_SPEED]} / ${statConfig.maxValue[StatType.WALK_SPEED]} )",
+                        listOf(
+                                "&f1 포인트 당 +${statConfig.pointByValue[StatType.WALK_SPEED]}% 증가",
+                                "&f남은 스텟포인트 : &e${statInfo.leftPoint}",
+                                "&f증가량 : &e+${(statConfig.pointByValue[StatType.WALK_SPEED] ?: error("")) * (statInfo.investmentStat[StatType.WALK_SPEED] ?: 1)}%"
+                        ),
+                        durability = 2
+                )
+        )
+
+        inventory.setItem(
+                PlayerStatInventory.CRITICAL_CHANCE,
+                createItemStack(
+                        Material.GOLDEN_SHOVEL,
+                        "&6치명타 확률 &a( ${statInfo.investmentStat[StatType.CRITICAL_CHANCE]} / ${statConfig.maxValue[StatType.CRITICAL_CHANCE]} )",
+                        listOf(
+                                "&f1 포인트 당 +${statConfig.pointByValue[StatType.CRITICAL_CHANCE]}% 증가",
+                                "&f남은 스텟포인트 : &e${statInfo.leftPoint}",
+                                "&f증가량 : &e+${(statConfig.pointByValue[StatType.CRITICAL_CHANCE] ?: error("")) * (statInfo.investmentStat[StatType.CRITICAL_CHANCE] ?: 1)}%"
+                        ),
+                        durability = 2
                 )
         )
 
@@ -111,56 +155,13 @@ class PlayerStatInventoryListener : Listener {
                 PlayerStatInventory.DEXTERITY,
                 createItemStack(
                         Material.GOLDEN_SHOVEL,
-                        "&a<< 민첩 >>",
+                        "&6손재주 &a( ${statInfo.investmentStat[StatType.HAND_DEXTERITY]} / ${statConfig.maxValue[StatType.HAND_DEXTERITY]} )",
                         listOf(
-                                "&f크리티컬 확률을 증가 시킵니다.",
-                                "&f크리티컬 적중 시 두배의 데미지를 입힙니다.",
-                                "&f",
-                                "&f투자 된 포인트 : &6${statInfo.investmentStat[StatType.DEXTERITY]}"
+                                "&f1 포인트 당 +${statConfig.pointByValue[StatType.HAND_DEXTERITY]}% 증가",
+                                "&f남은 스텟포인트 : &e${statInfo.leftPoint}",
+                                "&f증가량 : &e+${(statConfig.pointByValue[StatType.HAND_DEXTERITY] ?: error("")) * (statInfo.investmentStat[StatType.HAND_DEXTERITY] ?: 1)}% 성공확률 및 제작시간 감소"
                         ),
                         durability = 2
-                )
-        )
-
-        inventory.setItem(
-                PlayerStatInventory.INTELLIGENCE,
-                createItemStack(
-                        Material.GOLDEN_SHOVEL,
-                        "&b<< 지능 >>",
-                        listOf(
-                                "&f스킬 사용시 마나 소모량을 감소시킵니다.",
-                                "&f",
-                                "&f투자 된 포인트 : &6${statInfo.investmentStat[StatType.INTELLIGENCE]}"
-                        ),
-                        durability = 4
-                )
-        )
-
-        inventory.setItem(
-                PlayerStatInventory.AGILITY,
-                createItemStack(
-                        Material.GOLDEN_SHOVEL,
-                        "&e<< 회피 >>",
-                        listOf(
-                                "&f피격 시 데미지를 무시하는 확률을 증가시킵니다.",
-                                "&f",
-                                "&f투자 된 포인트 : &6${statInfo.investmentStat[StatType.AGILITY]}"
-                        ),
-                        durability = 3
-                )
-        )
-
-        inventory.setItem(
-                PlayerStatInventory.DEFENSE,
-                createItemStack(
-                        Material.GOLDEN_SHOVEL,
-                        "&7<< 방어 >>",
-                        listOf(
-                                "&f피격 시 받는 데미지를 감소시킵니다.",
-                                "&f",
-                                "&f투자 된 포인트 : &6${statInfo.investmentStat[StatType.VITALITY]}"
-                        ),
-                        durability = 5
                 )
         )
 

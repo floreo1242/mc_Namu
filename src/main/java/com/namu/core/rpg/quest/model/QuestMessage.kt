@@ -22,7 +22,7 @@ object QuestMessage {
     const val QUEST_SET_TITLE = "퀘스트 타이틀을 설정하였습니다."
     const val QUEST_SET_TALKS_ADD = "퀘스트 대화를 추가하였습니다."
     const val QUEST_SET_TALKS_DEL = "퀘스트 대화를 삭제하였습니다.."
-    const val QUEST_SET_TYPE = "퀘스트 타입읋 설정하였습니다."
+    const val QUEST_SET_TYPE = "퀘스트 타입을 설정하였습니다."
 
     const val QUEST_SET_OBJECT_ITEM_STACK = "퀘스트 수집 아이템을 설정하였습니다."
     const val QUEST_SET_OBJECT_LOCATION = "퀘스트를 달성 위치를 설정하였습니다."

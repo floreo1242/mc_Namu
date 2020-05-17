@@ -9,6 +9,7 @@ import com.namu.core.rpg.enhance.EnhancePlugin
 import com.namu.core.rpg.guild.GuildPlugin
 import com.namu.core.utility.itemdb.ItemDBPlugin
 import com.namu.core.rpg.level.LevelPlugin
+import com.namu.core.rpg.mana.ManaPlugin
 import com.namu.core.rpg.monster.MonsterPlugin
 import com.namu.core.rpg.quest.QuestPlugin
 import com.namu.core.rpg.role.RolePlugin
@@ -21,14 +22,15 @@ import java.io.File
 
 class MainCore : JavaPlugin() {
     companion object {
+
         lateinit var instance: MainCore
 
         lateinit var moneyPlugin: MoneyPlugin
         lateinit var shopPlugin: ShopPlugin
         lateinit var auctionPlugin: AuctionPlugin
 
-        lateinit var makerPlugin : MakerPlugin
-        lateinit var npcPlugin : NpcPlugin
+        lateinit var makerPlugin: MakerPlugin
+        lateinit var npcPlugin: NpcPlugin
 
         lateinit var questPlugin: QuestPlugin
         lateinit var statPlugin: StatPlugin
@@ -38,8 +40,9 @@ class MainCore : JavaPlugin() {
         lateinit var skillPlugin: SkillPlugin
         lateinit var rolePlugin: RolePlugin
         lateinit var enhancePlugin: EnhancePlugin
+        lateinit var manaPlugin: ManaPlugin
 
-        lateinit var bagPlugin : BagPlugin
+        lateinit var bagPlugin: BagPlugin
         lateinit var itemDbPlugin: ItemDBPlugin
         lateinit var postPlugin: PostPlugin
     }
@@ -95,6 +98,9 @@ class MainCore : JavaPlugin() {
         enhancePlugin = EnhancePlugin(File(dataFolder.path + "/enhance"), this)
         logger.info("Load complete enhance plugin...!")
 
+        manaPlugin = ManaPlugin(File(dataFolder.path + "/mana"), this)
+        logger.info("Load complete mana plugin...!")
+
     }
 
     override fun onDisable() {
@@ -112,5 +118,6 @@ class MainCore : JavaPlugin() {
         postPlugin.onDisable()
         makerPlugin.onDisable()
         npcPlugin.onDisable()
+        manaPlugin.onDisable()
     }
 }

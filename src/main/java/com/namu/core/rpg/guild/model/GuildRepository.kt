@@ -4,9 +4,19 @@ import com.namu.core.MainCore
 import com.namu.core.rpg.guild.model.entity.Guild
 import java.io.File
 
+/**
+ * 데이터 CRUD 작업의 브릿지 역활
+ *
+ * Command, Inventory, Listener < - > Data Source
+ *
+ * Events <-> FileDataSource
+ *
+ * GuildFileDataSource -> 56 Class
+ * GuildDBDataSource ->
+ */
 object GuildRepository {
 
-    private val guildDataSource = GuildFileDataSource(File(MainCore.guildPlugin.dataFolder.path + "/guilds"), Guild::class.java)
+    private val guildDataSource : GuildDataSource = GuildFileDataSource(File(MainCore.guildPlugin.dataFolder.path + "/guilds"), Guild::class.java)
 
     fun getGuild(name: String): Guild? {
         return guildDataSource.getGuild(name)
