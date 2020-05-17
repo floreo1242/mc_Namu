@@ -1,6 +1,8 @@
-package com.namu.core.economy.shop.model
+package com.namu.core.economy.shop.model.repo
 
 import com.namu.core.MainCore
+import com.namu.core.economy.shop.model.SellShopDataSource
+import com.namu.core.economy.shop.model.SellShopFileDataSource
 import com.namu.core.economy.shop.model.entity.SellShop
 import com.namu.core.economy.shop.model.entity.SellStuff
 import org.bukkit.inventory.ItemStack

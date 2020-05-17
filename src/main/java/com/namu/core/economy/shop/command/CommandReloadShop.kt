@@ -3,10 +3,9 @@ package com.namu.core.economy.shop.command
 import com.kkomi.devlibrary.command.ArgumentList
 import com.kkomi.devlibrary.command.CommandComponent
 import com.kkomi.devlibrary.extension.sendDebugMessage
-import com.namu.core.economy.shop.model.ShopRepository
+import com.namu.core.economy.shop.model.repo.ShopRepository
 import org.bukkit.command.Command
 import org.bukkit.command.CommandSender
-import org.bukkit.entity.Player
 
 class CommandReloadShop : CommandComponent() {
 

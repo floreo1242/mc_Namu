@@ -6,9 +6,9 @@ import com.kkomi.devlibrary.inventory.InventoryMessage
 import com.namu.core.economy.money.model.PlayerMoneyRepository
 import com.namu.core.economy.money.util.playerMoney
 import com.namu.core.economy.shop.inventory.ShopInventory
-import com.namu.core.economy.shop.model.SellShopRepository
+import com.namu.core.economy.shop.model.repo.SellShopRepository
 import com.namu.core.economy.shop.model.ShopMessage
-import com.namu.core.economy.shop.model.ShopRepository
+import com.namu.core.economy.shop.model.repo.ShopRepository
 import com.namu.core.economy.shop.model.entity.Shop
 import org.bukkit.Material
 import org.bukkit.entity.Player
@@ -92,22 +92,26 @@ class ShopInventoryListener : Listener {
             (0..35).contains(slot) -> {
                 val stuff = pageList.getPage(page)[slot]
 
-                // 소지금이 부족한 경우
-                if (playerMoney.money < stuff.price) {
-                    player.sendErrorMessage("소지금이 부족합니다.")
-                    return
+                val amount = when (event.click) {
+                    ClickType.LEFT -> 1
+                    ClickType.SHIFT_LEFT -> 64
+                    else -> return
                 }
 
-                // 인벤토리 공간이 부족한 경우
-                if (player.inventory.storageContents.filter { it == null }.count() == 0) {
-                    player.sendErrorMessage(InventoryMessage.INSUFFICIENCY_SPACE)
-                    return
+                val totalPrice = stuff.price * amount
+
+                if (playerMoney.money >= totalPrice) {
+                    return player.sendErrorMessage("소지금이 부족합니다.")
                 }
 
-                // 구매처리
+                if (player.inventory.contents.any { it.type == Material.AIR }) {
+                    return player.sendErrorMessage(InventoryMessage.INSUFFICIENCY_SPACE)
+                }
+
                 PlayerMoneyRepository.editPlayerMoney(playerMoney.apply { takeMoney(stuff.price.toLong()) })
                 player.inventory.addItem(stuff.itemStack)
                 player.sendInfoMessage(ShopMessage.BUY_ITEM)
+
             }
             // Player Inventory Area
             (54..89).contains(slot) -> {

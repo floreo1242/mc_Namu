@@ -3,7 +3,7 @@ package com.namu.core.economy.shop.command
 import com.kkomi.devlibrary.command.ArgumentList
 import com.kkomi.devlibrary.extension.sendInfoMessage
 import com.namu.core.economy.shop.model.ShopMessage
-import com.namu.core.economy.shop.model.ShopRepository
+import com.namu.core.economy.shop.model.repo.ShopRepository
 import com.namu.core.economy.shop.model.entity.Shop
 import org.bukkit.command.Command
 import org.bukkit.entity.Player

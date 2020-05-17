@@ -1,6 +1,8 @@
-package com.namu.core.economy.shop.model
+package com.namu.core.economy.shop.model.repo
 
 import com.namu.core.MainCore
+import com.namu.core.economy.shop.model.ShopDataSource
+import com.namu.core.economy.shop.model.ShopFileDataSource
 import com.namu.core.economy.shop.model.entity.Shop
 import java.io.File
 

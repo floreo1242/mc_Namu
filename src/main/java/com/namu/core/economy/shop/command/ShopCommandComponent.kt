@@ -4,7 +4,7 @@ import com.kkomi.devlibrary.command.ArgumentList
 import com.kkomi.devlibrary.command.CommandComponent
 import com.kkomi.devlibrary.extension.sendErrorMessage
 import com.namu.core.economy.shop.model.ShopMessage
-import com.namu.core.economy.shop.model.ShopRepository
+import com.namu.core.economy.shop.model.repo.ShopRepository
 import com.namu.core.economy.shop.model.entity.Shop
 import org.bukkit.command.Command
 import org.bukkit.command.CommandSender
