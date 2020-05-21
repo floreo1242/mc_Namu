@@ -8,6 +8,7 @@ import com.namu.core.rpg.level.command.admin.CommandViewlLevelOtherPlayer
 import com.namu.core.rpg.level.command.user.CommandLevelView
 import com.namu.core.rpg.level.command.admin.CommandReloadPlayerLevel
 import com.namu.core.rpg.level.listener.PlayerLevelListener
+import com.namu.core.rpg.mana.listener.PlayerManaListener
 import com.namu.core.rpg.level.model.entity.LevelConfig
 import com.namu.core.rpg.level.model.entity.PlayerLevel
 import org.bukkit.Bukkit

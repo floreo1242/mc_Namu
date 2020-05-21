@@ -1,6 +1,6 @@
-package com.namu.core.rpg.mana.model.mana
+package com.namu.core.rpg.mana.model
 
-import com.namu.core.rpg.mana.model.mana.entity.ManaConfig
+import com.namu.core.rpg.mana.model.entity.ManaConfig
 
 interface ManaConfigDataSource {
 

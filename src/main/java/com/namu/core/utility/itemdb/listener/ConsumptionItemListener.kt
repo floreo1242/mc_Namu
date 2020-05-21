@@ -27,7 +27,7 @@ class ConsumptionItemListener : Listener {
         val player = event.player
         val itemStack = event.item
 
-        if (itemStack == null || itemStack.type == Material.AIR || !itemStack.hasItemMeta() || !itemStack.itemMeta.hasDisplayName()) {
+        if (itemStack == null || itemStack.type == Material.AIR || !itemStack.hasItemMeta() || !itemStack.itemMeta!!.hasDisplayName()) {
             return
         }
 

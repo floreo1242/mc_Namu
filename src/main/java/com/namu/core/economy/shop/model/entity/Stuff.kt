@@ -1,6 +1,7 @@
 package com.namu.core.economy.shop.model.entity
 
 import com.kkomi.devlibrary.extension.replaceChatColorCode
+import com.kkomi.devlibrary.extension.setLore
 import com.kkomi.devlibrary.extension.toMoneyFormat
 import org.bukkit.configuration.serialization.ConfigurationSerializable
 import org.bukkit.configuration.serialization.SerializableAs
@@ -23,11 +24,11 @@ data class Stuff(
         val itemStack = itemStack.clone()
         val itemMeta = itemStack.itemMeta
 
-        val lore = mutableListOf<String>(*(itemMeta.lore ?: listOf<String>()).toTypedArray())
+        val lore = mutableListOf<String>(*(itemMeta?.lore ?: listOf<String>()).toTypedArray())
         lore.add("")
         lore.add("&f구매가격 : ${price.toMoneyFormat()}".replaceChatColorCode())
 
-        itemMeta.lore = lore
+        itemStack.setLore(lore)
         itemStack.itemMeta = itemMeta
 
         return itemStack

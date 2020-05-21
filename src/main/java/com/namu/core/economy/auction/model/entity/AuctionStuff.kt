@@ -1,8 +1,6 @@
 package com.namu.core.economy.auction.model.entity
 
-import com.kkomi.devlibrary.extension.createItemStack
-import com.kkomi.devlibrary.extension.replaceChatColorCode
-import com.kkomi.devlibrary.extension.toMoneyFormat
+import com.kkomi.devlibrary.extension.*
 import com.kkomi.devlibrary.nms.addNBTTagCompound
 import com.namu.core.economy.auction.model.entity.AuctionStuff.Meta
 import org.bukkit.ChatColor
@@ -39,12 +37,12 @@ data class AuctionStuff(
     fun toItemStack(): ItemStack {
         return item.clone().apply {
             val lastedLore = mutableListOf<String>()
-            if (!lore.isNullOrEmpty()) {
-                lastedLore.addAll(lore ?: listOf())
+            if (!getLore().isNullOrEmpty()) {
+                lastedLore.addAll(getLore() ?: listOf())
             }
             lastedLore.add("")
             lastedLore.add("&6판매 금액&f : ${price.toMoneyFormat()}".replaceChatColorCode())
-            lore = lastedLore
+            setLore(lastedLore)
         }.run { addNBTTagCompound(Meta(ownerUuid, price, uuid)) }
     }
 

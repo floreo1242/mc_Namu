@@ -1,4 +1,4 @@
-package com.namu.core.rpg.mana.model.mana.entity
+package com.namu.core.rpg.mana.model.entity
 
 import org.bukkit.configuration.serialization.ConfigurationSerializable
 import org.bukkit.configuration.serialization.SerializableAs

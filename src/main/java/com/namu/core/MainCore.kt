@@ -5,9 +5,9 @@ import com.namu.core.economy.money.MoneyPlugin
 import com.namu.core.economy.shop.ShopPlugin
 import com.namu.core.life.maker.MakerPlugin
 import com.namu.core.life.npc.NpcPlugin
+import com.namu.core.rpg.calculate.StatusPlugin
 import com.namu.core.rpg.enhance.EnhancePlugin
 import com.namu.core.rpg.guild.GuildPlugin
-import com.namu.core.utility.itemdb.ItemDBPlugin
 import com.namu.core.rpg.level.LevelPlugin
 import com.namu.core.rpg.mana.ManaPlugin
 import com.namu.core.rpg.monster.MonsterPlugin
@@ -16,6 +16,7 @@ import com.namu.core.rpg.role.RolePlugin
 import com.namu.core.rpg.skill.SkillPlugin
 import com.namu.core.rpg.stat.StatPlugin
 import com.namu.core.utility.bag.BagPlugin
+import com.namu.core.utility.itemdb.ItemDBPlugin
 import com.namu.core.utility.post.PostPlugin
 import org.bukkit.plugin.java.JavaPlugin
 import java.io.File
@@ -101,6 +102,7 @@ class MainCore : JavaPlugin() {
         manaPlugin = ManaPlugin(File(dataFolder.path + "/mana"), this)
         logger.info("Load complete mana plugin...!")
 
+        StatusPlugin(File(dataFolder.path + "/status"), this)
     }
 
     override fun onDisable() {
