@@ -8,8 +8,8 @@ object PlayerEquipInfoRepository {
 
     private val playerEquipInfoDataSource = PlayerEquipInfoFileDataSource(File(MainCore.equipPlugin.dataFolder.path + "/"), PlayerEquipInfo::class.java)
 
-    fun getPlayerEquipInfo(uuid: String): PlayerEquipInfo? {
-        return playerEquipInfoDataSource.getPlayerEquipInfo(uuid)
+    fun getPlayerEquipInfo(name: String): PlayerEquipInfo? {
+        return playerEquipInfoDataSource.getPlayerEquipInfo(name)
     }
 
     fun getPlayerEquipInfoList(): List<PlayerEquipInfo> {
@@ -23,13 +23,13 @@ object PlayerEquipInfoRepository {
     fun editPlayerEquipInfo(playerEquipInfo: PlayerEquipInfo) {
         playerEquipInfoDataSource.editPlayerEquipInfo(playerEquipInfo)
     }
-    
+
     fun savePlayerEquipInfo(playerEquipInfo: PlayerEquipInfo) {
         playerEquipInfoDataSource.savePlayerEquipInfo(playerEquipInfo)
-    }            
+    }
 
-    fun removePlayerEquipInfo(uuid: String) {
-        playerEquipInfoDataSource.removePlayerEquipInfo(uuid)
+    fun removePlayerEquipInfo(name: String) {
+        playerEquipInfoDataSource.removePlayerEquipInfo(name)
     }
 
     fun reloadPlayerEquipInfo() {
