@@ -7,6 +7,7 @@ import com.namu.core.life.maker.MakerPlugin
 import com.namu.core.life.npc.NpcPlugin
 import com.namu.core.rpg.calculate.StatusPlugin
 import com.namu.core.rpg.enhance.EnhancePlugin
+import com.namu.core.rpg.equip.EquipPlugin
 import com.namu.core.rpg.guild.GuildPlugin
 import com.namu.core.rpg.level.LevelPlugin
 import com.namu.core.rpg.mana.ManaPlugin
@@ -42,6 +43,7 @@ class MainCore : JavaPlugin() {
         lateinit var rolePlugin: RolePlugin
         lateinit var enhancePlugin: EnhancePlugin
         lateinit var manaPlugin: ManaPlugin
+        lateinit var equipPlugin: EquipPlugin
 
         lateinit var bagPlugin: BagPlugin
         lateinit var itemDbPlugin: ItemDBPlugin
@@ -101,6 +103,9 @@ class MainCore : JavaPlugin() {
 
         manaPlugin = ManaPlugin(File(dataFolder.path + "/mana"), this)
         logger.info("Load complete mana plugin...!")
+
+        equipPlugin = EquipPlugin(File(dataFolder.path + "/equip"), this)
+        logger.info("Load complete equip plugin...!")
 
         StatusPlugin(File(dataFolder.path + "/status"), this)
     }

@@ -3,6 +3,7 @@ package com.namu.core.utility.itemdb.command
 import com.kkomi.devlibrary.command.ArgumentList
 import com.kkomi.devlibrary.command.CommandComponent
 import com.kkomi.devlibrary.extension.sendInfoMessage
+import com.namu.core.utility.itemdb.model.EquipmentType
 import com.namu.core.utility.itemdb.model.CustomItemRepository
 import com.namu.core.utility.itemdb.model.entity.*
 import org.bukkit.Material
@@ -25,6 +26,7 @@ class CommandCreateCustomItem : CommandComponent() {
                         listOf("Enter the item's description"),
                         EquipmentOption(
                                 1,
+                                EquipmentType.WEAPON,
                                 listOf(
                                         StatOption(
                                                 StatType.STRENGTH,
