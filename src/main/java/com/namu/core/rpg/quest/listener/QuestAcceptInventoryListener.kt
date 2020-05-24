@@ -5,6 +5,7 @@ import com.namu.core.rpg.quest.inventory.QuestAcceptInventory
 import com.namu.core.rpg.quest.model.QuestRepository
 import com.namu.core.rpg.quest.util.edit
 import com.namu.core.rpg.quest.util.playerQuest
+import com.namu.core.utility.lib.performCommand
 import org.bukkit.entity.Player
 import org.bukkit.event.EventHandler
 import org.bukkit.event.Listener
@@ -33,10 +34,12 @@ class QuestAcceptInventoryListener : Listener {
                 QuestAcceptInventory.acceptItemStack -> {
                     playerQuest.acceptQuest(quest)
                     quest.sendAcceptMessage(player)
+                    player.performCommand(quest.acceptCommand, true)
                     playerQuest.edit()
                     player.closeInventory()
                 }
                 QuestAcceptInventory.disposeItemStack -> {
+                    player.performCommand(quest.disposeCommand, true)
                     player.closeInventory()
                     quest.sendDisposeMessage(player)
                 }

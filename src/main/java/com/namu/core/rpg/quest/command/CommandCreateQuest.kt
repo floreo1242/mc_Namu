@@ -54,6 +54,8 @@ class CommandCreateQuest : CommandComponent() {
                                         "Apple"
                                 )
                         ),
+                        "",
+                        "",
                         QuestReward(
                                 listOf(
                                         QuestRewardItem(

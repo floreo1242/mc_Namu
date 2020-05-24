@@ -12,6 +12,7 @@ import com.namu.core.rpg.level.util.playerLevel
 import com.namu.core.rpg.quest.model.PlayerQuestRepository
 import com.namu.core.rpg.quest.model.QuestRepository
 import com.namu.core.utility.itemdb.model.entity.CustomItem
+import com.namu.core.utility.lib.performCommand
 import org.bukkit.Bukkit
 import org.bukkit.configuration.serialization.ConfigurationSerializable
 import org.bukkit.configuration.serialization.SerializableAs
@@ -188,13 +189,7 @@ data class PlayerQuest(
             return
         }
 
-        if (!player.isOp) {
-            player.isOp = true
-            player.performCommand(quest.reward.command)
-            player.isOp = false
-        } else {
-            player.performCommand(quest.reward.command)
-        }
+        player.performCommand(quest.reward.command, true)
     }
 
 }

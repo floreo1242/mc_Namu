@@ -16,14 +16,16 @@ data class Quest(
         var beforeQuest: String,
         var startNpc: String,
         var endNpc: String,
-        var description : String,
+        var description: String,
         var talkScriptList: List<TalkScript>,
         var acceptMessage: String,
         var disposeMessage: String,
         var purposeMessage: String,
         var completeMessage: String,
-        var questObjectiveList : List<QuestObjective>,
-        var reward : QuestReward
+        var questObjectiveList: List<QuestObjective>,
+        var acceptCommand: String,
+        var disposeCommand: String,
+        var reward: QuestReward
 ) : ConfigurationSerializable {
 
     companion object {
@@ -44,6 +46,8 @@ data class Quest(
                     data["purposeMessage"] as String,
                     data["completeMessage"] as String,
                     data["questObjectiveList"] as List<QuestObjective>,
+                    data["acceptCommand"] as String,
+                    data["disposeCommand"] as String,
                     data["reward"] as QuestReward
             )
         }
@@ -65,6 +69,8 @@ data class Quest(
                 "purposeMessage" to purposeMessage,
                 "completeMessage" to completeMessage,
                 "questObjectiveList" to questObjectiveList,
+                "acceptCommand" to acceptCommand,
+                "disposeCommand" to disposeCommand,
                 "reward" to reward
         )
     }
@@ -97,7 +103,7 @@ data class Quest(
         player.sendInfoMessage("$endNpc : $completeMessage")
     }
 
-    fun toItemStack() : ItemStack {
+    fun toItemStack(): ItemStack {
         return createItemStack(
                 Material.PAPER,
                 "&f퀘스트 설명",

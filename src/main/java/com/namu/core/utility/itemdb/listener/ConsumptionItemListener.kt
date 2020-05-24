@@ -3,6 +3,7 @@ package com.namu.core.utility.itemdb.listener
 import com.kkomi.devlibrary.extension.sendErrorMessage
 import com.kkomi.devlibrary.nms.getNBTTagCompound
 import com.namu.core.utility.itemdb.model.entity.CustomItem
+import com.namu.core.utility.lib.performCommand
 import org.bukkit.Material
 import org.bukkit.entity.Player
 import org.bukkit.event.EventHandler
@@ -47,7 +48,7 @@ class ConsumptionItemListener : Listener {
             }
         }
 
-        player.performCommand(consumptionOption.command)
+        player.performCommand(consumptionOption.command, true)
 
         itemStack.amount -= 1
         itemCooldown[player]!![customItem] = Calendar.getInstance().apply { add(Calendar.SECOND, consumptionOption.cooldown) }.timeInMillis
