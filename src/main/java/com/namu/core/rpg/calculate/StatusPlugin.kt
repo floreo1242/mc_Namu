@@ -3,6 +3,7 @@ package com.namu.core.rpg.calculate
 import com.kkomi.devlibrary.SubMainManager
 import com.kkomi.devlibrary.command.CommandManager
 import com.namu.core.rpg.calculate.command.CommandPlayerStatusCheck
+import com.namu.core.rpg.calculate.command.CommandSetStatus
 import com.namu.core.rpg.calculate.listener.StatusListener
 import com.namu.core.rpg.calculate.statusbar.StatusBarScheduler
 import org.bukkit.Bukkit
@@ -16,6 +17,7 @@ class StatusPlugin(dataFolder: File, plugin: JavaPlugin) : SubMainManager(dataFo
     override fun setupCommands() {
         CommandManager(true).apply {
             addComponent("view", CommandPlayerStatusCheck())
+            addComponent("set", CommandSetStatus())
         }.register(plugin.getCommand("status"))
     }
 

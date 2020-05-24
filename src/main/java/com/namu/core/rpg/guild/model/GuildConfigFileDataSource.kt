@@ -1,6 +1,7 @@
 package com.namu.core.rpg.guild.model
 
 import com.namu.core.rpg.guild.model.entity.GuildConfig
+import com.namu.core.rpg.guild.model.entity.GuildUpgradeValue
 import org.bukkit.configuration.file.YamlConfiguration
 import java.io.File
 
@@ -10,7 +11,7 @@ class GuildConfigFileDataSource(
 
     private val file = File(dataFolder, "config.yml")
     private val config = YamlConfiguration.loadConfiguration(file)
-    private var guildConfig = GuildConfig(listOf(), 10, 5, 30)
+    private var guildConfig = GuildConfig((1..10).map { GuildUpgradeValue(it * 1000, it * 1000) }, 10, 5, 30)
 
     init {
         reloadGuildConfigs()
