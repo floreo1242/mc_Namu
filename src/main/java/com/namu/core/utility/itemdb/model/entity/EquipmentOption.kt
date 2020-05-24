@@ -25,7 +25,7 @@ data class EquipmentOption(
     override fun serialize(): Map<String, Any> {
         return mapOf(
                 "levelLimit" to levelLimit,
-                "equipType" to equipType,
+                "equipType" to equipType.toString(),
                 "options" to options
         )
     }

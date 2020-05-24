@@ -19,6 +19,7 @@ class PlayerEquipInfoFileDataSource(
 
     override fun createPlayerEquipInfo(playerEquipInfo: PlayerEquipInfo) {
         setValue(playerEquipInfo.uuid, playerEquipInfo)
+        saveFile(playerEquipInfo.uuid, playerEquipInfo)
     }
 
     override fun editPlayerEquipInfo(playerEquipInfo: PlayerEquipInfo) {

@@ -6,6 +6,7 @@ import com.namu.core.rpg.level.util.playerLevel
 import com.namu.core.rpg.mana.model.ManaConfigRepository
 import com.namu.core.rpg.stat.model.StatConfigRepository
 import com.namu.core.rpg.stat.util.playerStat
+import com.namu.core.utility.itemdb.model.entity.CustomItem
 import com.namu.core.utility.itemdb.model.entity.EquipmentOption
 import com.namu.core.utility.itemdb.model.entity.StatType
 import org.bukkit.Bukkit
@@ -26,11 +27,13 @@ data class PlayerStatus(
         val equipOptions = mutableMapOf<StatType, Int>()
 
         PlayerEquipInfoRepository.getPlayerEquipInfo(uuid)!!.items.values
-                .mapNotNull { it.getNBTTagCompound(EquipmentOption::class.java) }
+                .mapNotNull { it.getNBTTagCompound(CustomItem::class.java)?.equipmentOption }
                 .map { it.options }
                 .forEach { statOptions ->
-                    statOptions.forEach { equipOptions[it.statOption] = equipOptions[it.statOption] ?: 0 + it.value }
+                    statOptions.forEach { equipOptions[it.statOption] = (equipOptions[it.statOption] ?: 0) + it.value }
                 }
+
+        println("equipOptions = [$equipOptions]")
 
         // max health
         var healthValue = 0

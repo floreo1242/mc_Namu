@@ -5,6 +5,7 @@ import com.kkomi.devlibrary.extension.sendErrorMessage
 import com.kkomi.devlibrary.extension.sendInfoMessage
 import com.namu.core.MainCore
 import com.namu.core.rpg.guild.command.GuildCommandComponent
+import com.namu.core.rpg.guild.model.GuildConfigRepository
 import com.namu.core.rpg.guild.model.GuildInviteRequestRepository
 import com.namu.core.rpg.guild.model.entity.Guild
 import com.namu.core.rpg.guild.model.entity.GuildGrade
@@ -57,7 +58,7 @@ class CommandSendGuildInvite : GuildCommandComponent() {
                 targetPlayer.sendInfoMessage("자동으로 거절되었습니다.")
                 player.sendInfoMessage("상대방이 거절하였습니다.")
             }
-        }, 10 * 20L)
+        }, GuildConfigRepository.getInviteTime() * 20L)
 
         return true
     }

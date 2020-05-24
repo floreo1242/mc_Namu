@@ -6,7 +6,9 @@ import com.namu.core.rpg.equip.command.CommandEquipInventoryOpen
 import com.namu.core.rpg.equip.command.CommandPlayerEquipInfoReload
 import com.namu.core.rpg.equip.listener.EquipInventoryListener
 import com.namu.core.rpg.equip.listener.EquipPlayerListener
+import com.namu.core.rpg.equip.model.entity.PlayerEquipInfo
 import org.bukkit.Bukkit
+import org.bukkit.configuration.serialization.ConfigurationSerialization
 import org.bukkit.plugin.java.JavaPlugin
 import java.io.File
 
@@ -33,6 +35,7 @@ class EquipPlugin(dataFolder: File, plugin: JavaPlugin) : SubMainManager(dataFol
     }
 
     override fun setupRegisterClass() {
+        ConfigurationSerialization.registerClass(PlayerEquipInfo::class.java, "PlayerEquipInfo")
     }
 
     override fun setupSchedulers() {

@@ -22,7 +22,7 @@ data class PlayerEquipInfo(
 
     override fun serialize(): Map<String, Any> {
         return mapOf(
-                "items" to items.map { it.key.toString() to it.value },
+                "items" to items.map { it.key.toString() to it.value }.toMap(),
                 "uuid" to uuid
         )
     }

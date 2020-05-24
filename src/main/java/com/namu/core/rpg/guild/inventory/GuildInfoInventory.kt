@@ -2,7 +2,7 @@ package com.namu.core.rpg.guild.inventory
 
 import com.kkomi.devlibrary.extension.createItemStack
 import com.kkomi.devlibrary.inventory.InventoryManager
-import com.namu.core.rpg.guild.model.GuildOptionRepository
+import com.namu.core.rpg.guild.model.GuildConfigRepository
 import com.namu.core.rpg.guild.model.entity.Guild
 import com.namu.core.rpg.guild.model.entity.GuildMemberState
 import com.namu.core.rpg.level.util.playerLevel
@@ -28,7 +28,7 @@ class GuildInfoInventory(
     override val inventory: Inventory = Bukkit.createInventory(null, 54, "$TITLE - ${guild.name}")
 
     override fun setBasicFrame() {
-        val maxMember: Int = GuildOptionRepository.let { it.getDefaultMaxMember() + it.getUpgradeMemberCount() * guild.level }
+        val maxMember: Int = GuildConfigRepository.let { it.getDefaultMaxMember() + it.getUpgradeMemberCount() * guild.level }
         val guildInfo = createItemStack(
                 Material.OAK_SIGN,
                 "&f길드 정보",

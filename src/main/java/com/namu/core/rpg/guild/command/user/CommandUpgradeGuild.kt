@@ -5,7 +5,7 @@ import com.kkomi.devlibrary.extension.sendErrorMessage
 import com.kkomi.devlibrary.extension.sendInfoMessage
 import com.namu.core.economy.money.util.playerMoney
 import com.namu.core.rpg.guild.command.GuildCommandComponent
-import com.namu.core.rpg.guild.model.GuildOptionRepository
+import com.namu.core.rpg.guild.model.GuildConfigRepository
 import com.namu.core.rpg.guild.model.GuildRepository
 import com.namu.core.rpg.guild.model.entity.Guild
 import com.namu.core.rpg.guild.model.entity.GuildGrade
@@ -35,7 +35,7 @@ class CommandUpgradeGuild : GuildCommandComponent() {
             return true
         }
 
-        val upgradeValue = GuildOptionRepository.getUpgradeValue(guild.level)
+        val upgradeValue = GuildConfigRepository.getUpgradeValue(guild.level)
 
         if (guild.guildPoint < upgradeValue.guildPoint) {
             player.sendErrorMessage("길드 포인트가 부족합니다.")

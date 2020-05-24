@@ -53,7 +53,7 @@ class GuildPlugin(dataFolder: File, plugin: JavaPlugin) : SubMainManager(dataFol
     override fun setupRegisterClass() {
         ConfigurationSerialization.registerClass(Guild::class.java, "Guild")
         ConfigurationSerialization.registerClass(GuildMemberState::class.java, "GuildMemberState")
-        ConfigurationSerialization.registerClass(GuildOption::class.java, "GuildOption")
+        ConfigurationSerialization.registerClass(GuildConfig::class.java, "GuildConfig")
         ConfigurationSerialization.registerClass(PlayerGuild::class.java, "PlayerGuild")
         ConfigurationSerialization.registerClass(GuildUpgradeValue::class.java, "GuildUpgradeValue")
     }

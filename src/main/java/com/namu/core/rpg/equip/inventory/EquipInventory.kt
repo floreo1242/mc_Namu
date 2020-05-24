@@ -18,6 +18,10 @@ class EquipInventory(player: Player) : InventoryManager(player) {
     override val inventory: Inventory = Bukkit.createInventory(null, 54, TITLE)
 
     override fun setBasicFrame() {
+        for (i in 0..53) {
+            inventory.setItem(i, ItemStack(Material.BLACK_STAINED_GLASS_PANE))
+        }
+
         val playerEquipInfo = PlayerEquipInfoRepository.getPlayerEquipInfo(player.uniqueId.toString())!!
 
         EquipmentType.values().forEach { inventory.setItem(it.index, playerEquipInfo.items[it]) }

@@ -2,10 +2,7 @@ package com.namu.core.utility.itemdb
 
 import com.kkomi.devlibrary.SubMainManager
 import com.kkomi.devlibrary.command.CommandManager
-import com.namu.core.utility.itemdb.command.CommandCreateCustomItem
-import com.namu.core.utility.itemdb.command.CommandCustomItemReload
-import com.namu.core.utility.itemdb.command.CommandDeleteCustomItem
-import com.namu.core.utility.itemdb.command.CommandGetCustomItem
+import com.namu.core.utility.itemdb.command.*
 import com.namu.core.utility.itemdb.listener.ConsumptionItemListener
 import com.namu.core.utility.itemdb.model.entity.*
 import org.bukkit.Bukkit
@@ -25,6 +22,7 @@ class ItemDBPlugin(dataFolder: File, plugin: JavaPlugin) : SubMainManager(dataFo
             addComponent("delete", CommandDeleteCustomItem())
             addComponent("reload", CommandCustomItemReload())
             addComponent("get", CommandGetCustomItem())
+            addComponent("template", CommandAddTemplate())
         }.register(plugin.getCommand("itemdb"))
     }
 

@@ -22,6 +22,7 @@ fun ItemStack.refreshEquipmentItemLore() {
 
         // level
         lastedLore.addAll(listOf(
+                "< 장비아이템 - ${equipmentOption.equipType.korName} >",
                 "",
                 "&f레벨제한 : ${equipmentOption.levelLimit}"
         ))

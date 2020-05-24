@@ -1,7 +1,8 @@
 package com.namu.core.utility.itemdb.model
 
 enum class EquipmentType(
-        val index: Int
+        val index: Int,
+        val korName : String
 ) {
 
     /**
@@ -11,20 +12,20 @@ enum class EquipmentType(
      * 반지   신발  의자  의자 외형
      */
 
-    EAR_RING(10),
-    NECK_RING(19),
-    RING(28), // or 37
-    RING_SUB(37), // or 37
+    EAR_RING(10,"귀걸이"),
+    NECK_RING(19,"목걸이"),
+    RING(28,"반지"), // or 37
+    RING_SNACK(37,"팔찌"), // or 37
 
-    HELMET(14),
-    CHEST_PLATE(23),
-    LEGGINGS(32),
-    BOOTS(41),
+    HELMET(14,"모자"),
+    CHEST_PLATE(23,"상의"),
+    LEGGINGS(32,"하의"),
+    BOOTS(41,"신발"),
 
-    WEAPON(15),
-    GunyGab(24),
+    WEAPON(15,"무기"),
+    GunyGab(24,"견갑"),
 
-    WEAPON_OUT_POLY(16),
-    WING(25)
+    WEAPON_OUT_POLY(16,"무기 외형"),
+    WING(25,"날개")
 
 }
