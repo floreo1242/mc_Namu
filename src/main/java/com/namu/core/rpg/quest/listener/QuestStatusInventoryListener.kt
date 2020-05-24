@@ -18,9 +18,8 @@ class QuestStatusInventoryListener : Listener {
     fun onInventoryClickEvent(event: InventoryClickEvent) {
 
         val inventory = event.view
-        val data = inventory.getServerTitleInfo() ?: return
 
-        if (data.first != QuestStatusInventory.TITLE) {
+        if (inventory.title != QuestStatusInventory.TITLE) {
             return
         }
 

@@ -24,6 +24,10 @@ object GuildConfigRepository {
         return guildConfigDataSource.getGuildConfig().inviteTime
     }
 
+    fun getGuildMaxLevel() : Int {
+        return guildConfigDataSource.getGuildConfig().upgradeValue.size
+    }
+
     fun reloadGuildConfigs() {
         guildConfigDataSource.reloadGuildConfigs()
     }

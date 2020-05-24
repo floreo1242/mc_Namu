@@ -34,7 +34,7 @@ class QuestStatusInventory(player: Player) : InventoryManager(player) {
                     lore.add("")
                     lore.add("&f퀘스트 진행도 : ${playerQuestObjectiveList.sumBy { it.amount }} / ${quest.questObjectiveList.sumBy { it.amount }}")
 
-                    inventory.addItem(createItemStack(Material.PAPER, quest.name, lore))
+                    inventory.addItem(createItemStack(Material.PAPER, quest.title, lore))
 
                 }
     }

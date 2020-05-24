@@ -3,6 +3,7 @@ package com.namu.core.rpg.guild.command.user
 import com.kkomi.devlibrary.command.ArgumentList
 import com.kkomi.devlibrary.extension.sendInfoMessage
 import com.namu.core.rpg.guild.command.GuildCommandComponent
+import com.namu.core.rpg.guild.model.GuildRepository
 import com.namu.core.rpg.guild.model.entity.Guild
 import com.namu.core.rpg.guild.model.entity.GuildGrade
 import com.namu.core.rpg.guild.model.entity.GuildMemberState
@@ -22,7 +23,8 @@ class CommandGuildDonation : GuildCommandComponent() {
         guild.guildPoint += price
         guild.members[player.uniqueId.toString()] = (guild.members[player.uniqueId.toString()]
                 ?: GuildMemberState(GuildGrade.MEMBER, 0)).apply { contribution += price }
-        player.sendInfoMessage("해당 플레이어의 직급을 변경하였습니다.")
+        GuildRepository.saveGuild(guild)
+        player.sendInfoMessage("길드에 기부를 하였습니다.")
         return true
     }
 

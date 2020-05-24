@@ -70,18 +70,30 @@ data class Quest(
     }
 
     fun sendAcceptMessage(player: Player) {
+        if (acceptMessage.isEmpty()) {
+            return
+        }
         player.sendInfoMessage("$startNpc : $acceptMessage")
     }
 
     fun sendDisposeMessage(player: Player) {
+        if (disposeMessage.isEmpty()) {
+            return
+        }
         player.sendInfoMessage("$startNpc : $disposeMessage")
     }
 
     fun sendPurposeMessage(player: Player) {
+        if (purposeMessage.isEmpty()) {
+            return
+        }
         player.sendInfoMessage("$startNpc : $purposeMessage")
     }
 
     fun sendCompleteMessage(player: Player) {
+        if (completeMessage.isEmpty()) {
+            return
+        }
         player.sendInfoMessage("$endNpc : $completeMessage")
     }
 

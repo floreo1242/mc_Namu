@@ -5,6 +5,7 @@ import com.kkomi.devlibrary.extension.sendInfoMessage
 import com.namu.core.rpg.quest.inventory.QuestCancelInventory
 import com.namu.core.rpg.quest.model.PlayerQuestRepository
 import com.namu.core.rpg.quest.model.QuestRepository
+import com.namu.core.rpg.quest.model.entity.QuestType
 import com.namu.core.rpg.quest.util.playerQuest
 import org.bukkit.entity.Player
 import org.bukkit.event.EventHandler
@@ -28,6 +29,12 @@ class QuestCancelInventoryListener : Listener {
         when (event.slot) {
             14 -> {
                 val quest = QuestRepository.getQuestToTitle(data.second)!!
+
+                if (quest.type == QuestType.MAIN) {
+                    player.sendInfoMessage("메인 퀘스트는 취소 할 수 없습니다.")
+                    return
+                }
+
                 player.playerQuest.throwUpQuest(quest)
                 PlayerQuestRepository.editPlayerQuest(player.playerQuest)
                 player.sendInfoMessage("퀘스트를 취소하였습니다.")

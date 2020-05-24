@@ -10,6 +10,7 @@ import com.namu.core.rpg.level.model.entity.PlayerLevel
 import com.namu.core.rpg.level.util.edit
 import com.namu.core.rpg.level.util.playerLevel
 import com.namu.core.rpg.quest.model.PlayerQuestRepository
+import com.namu.core.rpg.quest.model.QuestRepository
 import com.namu.core.utility.itemdb.model.entity.CustomItem
 import org.bukkit.Bukkit
 import org.bukkit.configuration.serialization.ConfigurationSerializable
@@ -92,7 +93,7 @@ data class PlayerQuest(
                     if (questObjectiveList.map { it.isComplete() }.contains(false).not()) {
                         if (!questCompleteCheckMessageList.contains(questName)) {
                             questCompleteCheckMessageList.add(questName)
-                            player.sendInfoMessage("$questName 퀘스트 조건을 달성하였습니다.")
+                            player.sendInfoMessage("$${QuestRepository.getQuest(questName)?.title} 퀘스트 조건을 달성하였습니다.")
                         }
                     } else {
                         questCompleteCheckMessageList.remove(questName)

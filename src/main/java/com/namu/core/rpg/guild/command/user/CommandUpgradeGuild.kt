@@ -8,6 +8,7 @@ import com.namu.core.rpg.guild.command.GuildCommandComponent
 import com.namu.core.rpg.guild.model.GuildConfigRepository
 import com.namu.core.rpg.guild.model.GuildRepository
 import com.namu.core.rpg.guild.model.entity.Guild
+import com.namu.core.rpg.guild.model.entity.GuildConfig
 import com.namu.core.rpg.guild.model.entity.GuildGrade
 import com.namu.core.rpg.guild.util.playerGuild
 import org.bukkit.Bukkit
@@ -36,6 +37,11 @@ class CommandUpgradeGuild : GuildCommandComponent() {
         }
 
         val upgradeValue = GuildConfigRepository.getUpgradeValue(guild.level)
+
+        if (GuildConfigRepository.getGuildMaxLevel() == guild.level) {
+            player.sendErrorMessage("더 이상 길드를 레벨업 할 수 없습니다.")
+            return true
+        }
 
         if (guild.guildPoint < upgradeValue.guildPoint) {
             player.sendErrorMessage("길드 포인트가 부족합니다.")

@@ -1,6 +1,5 @@
 package com.namu.core.rpg.equip.listener
 
-import com.kkomi.devlibrary.extension.isAir
 import com.kkomi.devlibrary.extension.sendErrorMessage
 import com.kkomi.devlibrary.nms.getNBTTagCompound
 import com.namu.core.rpg.calculate.model.PlayerStatusRepository
@@ -9,7 +8,6 @@ import com.namu.core.rpg.equip.model.PlayerEquipInfoRepository
 import com.namu.core.rpg.level.util.playerLevel
 import com.namu.core.utility.itemdb.model.EquipmentType
 import com.namu.core.utility.itemdb.model.entity.CustomItem
-import com.namu.core.utility.itemdb.model.entity.EquipmentOption
 import org.bukkit.Material
 import org.bukkit.entity.Player
 import org.bukkit.event.EventHandler
@@ -97,11 +95,20 @@ class EquipInventoryListener : Listener {
         val weapon = inventory.getItem(EquipmentType.WEAPON.index)
         val weaponOutPoly = inventory.getItem(EquipmentType.WEAPON_OUT_POLY.index)
 
-//        if (weapon == null || weapon.type.isAir) {
-//
-//        }
-//
-//        player.inventory.setItem(0,inventory.getItem(EquipmentType.WEAPON))
+        // 외형을 가지고 있을 경우
+        if (weaponOutPoly != null && !weaponOutPoly.type.isAir) {
+            player.inventory.setItem(0, weaponOutPoly)
+            return
+        }
+
+        // 무기를 착용하고 있는 경우
+        if (weapon != null && !weapon.type.isAir) {
+            player.inventory.setItem(0, weapon)
+            return
+        }
+
+        // 아무것도 착용하지 않고 있는 경우
+        player.inventory.setItem(0, EquipInventory.WEAPON_SLOT)
     }
 
     @EventHandler
