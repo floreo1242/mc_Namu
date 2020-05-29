@@ -6,6 +6,7 @@ import com.kkomi.devlibrary.extension.sendDebugMessage
 import com.kkomi.devlibrary.extension.sendErrorMessage
 import com.namu.core.rpg.calculate.model.PlayerStatusRepository
 import com.namu.core.rpg.mana.util.playerMana
+import org.bukkit.attribute.Attribute
 import org.bukkit.command.Command
 import org.bukkit.command.CommandSender
 import org.bukkit.entity.Player
@@ -24,7 +25,12 @@ class CommandSetStatus : CommandComponent() {
 
         when (target) {
             "HEALTH" -> {
-                player.health += args.nextInt()
+                var value = args.nextInt()
+                if ((player.getAttribute(Attribute.GENERIC_MAX_HEALTH)?.value ?: 0.0) <= (player.health + value)) {
+                    player.health = (player.getAttribute(Attribute.GENERIC_MAX_HEALTH)?.value ?: 0.0).toInt().toDouble()
+                } else {
+                    player.health += value
+                }
             }
             "MANA" -> {
                 player.playerMana.mana += args.nextInt()

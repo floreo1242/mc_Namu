@@ -19,8 +19,7 @@ class CommandViewTargetMoney : TargetCommandComponent() {
     override val usage: String = "<PlayerName>"
 
     override fun onCommand(sender: Player, target: OfflinePlayer, label: String, command: Command, componentLabel: String, args: ArgumentList): Boolean {
-        sender.sendInfoMessage(MoneyMessage.TAKE_TARGET_MONEY.format(target.name,
-                DecimalFormat("#,##0").format(target.playerMoney!!.money)))
+        sender.sendInfoMessage(MoneyMessage.TAKE_TARGET_MONEY.format(target.name, DecimalFormat("#,##0").format(target.playerMoney?.money ?: 0)))
         return true
     }
 

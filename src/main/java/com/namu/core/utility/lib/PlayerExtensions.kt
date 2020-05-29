@@ -6,6 +6,10 @@ fun Player.performCommand(
         command : String,
         withOp : Boolean = false
 ) {
+    if (command.isEmpty()) {
+        return
+    }
+
     val isAlreadyOp = isOp
 
     if (withOp) {

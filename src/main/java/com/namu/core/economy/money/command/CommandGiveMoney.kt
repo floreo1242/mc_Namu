@@ -2,8 +2,10 @@ package com.namu.core.economy.money.command
 
 import com.kkomi.devlibrary.command.ArgumentList
 import com.kkomi.devlibrary.command.TargetCommandComponent
+import com.kkomi.devlibrary.extension.sendErrorMessage
 import com.kkomi.devlibrary.extension.sendInfoMessage
 import com.namu.core.economy.money.model.MoneyMessage
+import com.namu.core.economy.money.model.PlayerMoneyRepository
 import com.namu.core.economy.money.util.edit
 import com.namu.core.economy.money.util.playerMoney
 import org.bukkit.OfflinePlayer
@@ -20,10 +22,15 @@ class CommandGiveMoney : TargetCommandComponent() {
 
     override fun onCommand(sender: Player, target: OfflinePlayer, label: String, command: Command, componentLabel: String, args: ArgumentList): Boolean {
         val money = args.nextLong(0)
+        val targetMoney = target.playerMoney
 
-        target.playerMoney!!.apply {
-            this.money = money
-        }.edit()
+        if (targetMoney == null) {
+            sender.sendErrorMessage("존재하지 않는 플레이어 입니다.")
+            return true
+        }
+
+        targetMoney.money = money
+        PlayerMoneyRepository.savePlayerMoney(targetMoney)
 
         sender.sendInfoMessage(MoneyMessage.GIVE_MONEY)
         return true

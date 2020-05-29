@@ -40,6 +40,7 @@ data class QuestRewardItem(
                     ?: ItemStack(Material.AIR)
             QuestRewardItemType.SKILL_BOOK -> SkillInfoRepository.getSkillInfo(code)?.toItemStack(true)
                     ?: ItemStack(Material.AIR)
+            QuestRewardItemType.DEFAULT_ITEM -> ItemStack(Material.valueOf(code))
         }.apply {
             amount = a
         }

@@ -6,6 +6,7 @@ import com.namu.core.utility.itemdb.util.refreshEquipmentItemLore
 import org.bukkit.Material
 import org.bukkit.configuration.serialization.ConfigurationSerializable
 import org.bukkit.configuration.serialization.SerializableAs
+import org.bukkit.inventory.ItemFlag
 import org.bukkit.inventory.ItemStack
 
 @SerializableAs("CustomItem")
@@ -41,6 +42,14 @@ data class CustomItem(
             addNBTTagCompound(this@CustomItem)
         }.apply {
             refreshEquipmentItemLore()
+            itemMeta = itemMeta?.apply {
+                isUnbreakable = true
+                addItemFlags(ItemFlag.HIDE_UNBREAKABLE)
+                addItemFlags(ItemFlag.HIDE_ATTRIBUTES)
+                addItemFlags(ItemFlag.HIDE_PLACED_ON)
+                addItemFlags(ItemFlag.HIDE_POTION_EFFECTS)
+                addItemFlags(ItemFlag.HIDE_DESTROYS)
+            }
         }
     }
 
